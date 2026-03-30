@@ -1,0 +1,6 @@
+langgraph>=1.1.0
+langgraph-supervisor>=0.0.30
+langchain-google-genai>=4.2.0
+fastapi>=0.100.0
+uvicorn>=0.30.0
+python-dotenv>=1.0.0

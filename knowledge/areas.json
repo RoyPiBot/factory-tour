@@ -1,0 +1,92 @@
+{
+  "areas": [
+    {
+      "id": "lobby",
+      "name": "大廳",
+      "description": "歡迎來到我們的工廠！大廳設有訪客登記處和公司沿革展示牆，展示了從創立至今的發展歷程。請在此處領取訪客證和安全裝備。",
+      "safety_notes": ["請配戴訪客證", "手機請切靜音"],
+      "technical_specs": {},
+      "tour_order": 0
+    },
+    {
+      "id": "assembly_a",
+      "name": "組裝線A",
+      "description": "主要 PCB 組裝產線，配備 3 台高速 SMT 貼片機（每小時可貼裝 80,000 個元件）、1 台無鉛回焊爐和 2 台 AOI 自動光學檢測設備。日產能可達 5,000 片電路板。",
+      "safety_notes": [
+        "必須穿戴防靜電手環",
+        "必須配戴護目鏡",
+        "禁止攜帶飲料和食物入內",
+        "請勿觸碰運行中的設備"
+      ],
+      "technical_specs": {
+        "daily_capacity": 5000,
+        "equipment": ["SMT 貼片機 x3", "無鉛回焊爐 x1", "AOI 檢測機 x2"],
+        "temperature": "25±2°C",
+        "humidity": "45-65% RH"
+      },
+      "tour_order": 1
+    },
+    {
+      "id": "qc_room",
+      "name": "品管室",
+      "description": "品質管制中心，配備 AOI 自動光學檢測、X-ray 檢測設備和功能測試站。我們的不良率控制在 0.1% 以下，遠低於業界平均 0.5%。每一片電路板都要經過至少 3 道檢測程序。",
+      "safety_notes": [
+        "請勿觸碰任何檢測設備",
+        "需穿著無塵衣",
+        "X-ray 區域有標示，請勿靠近"
+      ],
+      "technical_specs": {
+        "defect_rate": "< 0.1%",
+        "inspection_stages": 3,
+        "equipment": ["AOI 檢測機 x1", "X-ray 檢測機 x1", "功能測試站 x4"]
+      },
+      "tour_order": 2
+    },
+    {
+      "id": "warehouse",
+      "name": "倉儲區",
+      "description": "自動化立體倉庫，採用 WMS 倉儲管理系統和 FIFO（先進先出）管理原則。配備溫濕度即時監控系統，確保元件和成品的存放品質。倉庫可容納約 10,000 個棧板位。",
+      "safety_notes": [
+        "注意堆高機通行，請走標示的人行通道",
+        "不要在貨架間停留",
+        "聽從現場人員指揮"
+      ],
+      "technical_specs": {
+        "capacity": "10,000 棧板位",
+        "system": "WMS 倉儲管理系統",
+        "management": "FIFO 先進先出",
+        "monitoring": "24小時溫濕度監控"
+      },
+      "tour_order": 3
+    },
+    {
+      "id": "conference",
+      "name": "會議室",
+      "description": "導覽結束站。這裡提供茶水和休息空間，您可以在此提問或討論合作事宜。會議室配備投影設備和視訊會議系統。",
+      "safety_notes": [],
+      "technical_specs": {},
+      "tour_order": 4
+    }
+  ],
+  "routes": [
+    {
+      "name": "標準導覽路線",
+      "duration": "約 45 分鐘",
+      "stops": ["大廳", "組裝線A", "品管室", "倉儲區", "會議室"],
+      "description": "完整參觀所有主要區域"
+    },
+    {
+      "name": "快速導覽路線",
+      "duration": "約 20 分鐘",
+      "stops": ["大廳", "組裝線A", "品管室", "會議室"],
+      "description": "重點參觀生產與品管區域"
+    }
+  ],
+  "emergency": {
+    "exit_locations": "每層樓梯旁均設有緊急出口（綠色標示）",
+    "assembly_point": "大門口停車場（A 區）",
+    "emergency_contact": "分機 119 或直撥 0800-000-119",
+    "aed_location": "一樓大廳服務台旁",
+    "first_aid": "每區域設有急救箱，位於出入口旁"
+  }
+}
