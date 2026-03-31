@@ -1,6 +1,6 @@
 """
-main.py - 工廠導覽 Multi-Agent Web API v2.1
-使用 FastAPI 提供 RESTful 介面
+main.py - 工廠導覽 Multi-Agent Web API v3.0
+使用 FastAPI 提供 RESTful + WebSocket 介面
 AI 後端：Groq (Llama 4 Scout / 可透過 GROQ_MODEL 環境變數切換)
 
 功能：
@@ -10,37 +10,22 @@ AI 後端：Groq (Llama 4 Scout / 可透過 GROQ_MODEL 環境變數切換)
   - 對話歷史持久化 (SQLite)
   - RAG 知識檢索（工廠知識 + 自訂文件）
   - 文件管理 API（匯入/列表/刪除 Markdown 文件）
+  - 🆕 WebSocket 即時感測器數據
+  - 🆕 導覽評分回饋系統
+  - 🆕 區域測驗系統
+  - 🆕 跨 session 訪客記憶
+  - 🆕 知識庫 Web 編輯器
+  - 🆕 分析事件追蹤
 
+v3.0 — 全面升級版
 v2.1 — 整合東海大學 RAG 專案（方案A）
 
 作者：Roy (YORROY123)
 建立：2026-03-30
-更新：2026-03-31 (RAG 整合)
-
-啟動方式：
-    cd /home/pi/factory-tour
-    source /home/pi/factory-tour-env/bin/activate
-    uvicorn main:app --host 0.0.0.0 --port 8000
-
-API 端點：
-    POST /chat            - 對話（支援多語言）
-    POST /tour/start      - 開始互動導覽
-    POST /tour/next       - 下一站
-    GET  /tour/status/:id - 導覽進度
-    GET  /tour/routes     - 可用路線
-    GET  /areas           - 列出所有廠區
-    GET  /areas/:name     - 區域詳情
-    GET  /routes          - 導覽路線
-    GET  /faq             - 常見問題
-    POST /documents       - 匯入文件（Markdown 文字或檔案路徑）
-    GET  /documents       - 列出自訂文件
-    DELETE /documents/:name - 刪除自訂文件
-    GET  /history/:id     - 對話歷史
-    GET  /sessions        - 所有 session
-    GET  /stats           - 系統統計
-    GET  /health          - 健康檢查
-    GET  /i18n/:lang      - 多語言字串
+更新：2026-03-31 (v3.0 大升級)
 """
+import asyncio
+import json
 import logging
 import os
 import threading
@@ -48,7 +33,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -57,6 +42,7 @@ from pydantic import BaseModel, field_validator
 from factory_tour_agent import create_factory_tour_app, KNOWLEDGE
 from tour_flow import TourManager
 from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
+from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
 import db as database
 
 load_dotenv()
@@ -72,14 +58,17 @@ agent_apps: dict = {}  # language -> agent_app
 _agent_lock = threading.Lock()  # 保護 agent_apps 的並發初始化
 tour_manager = TourManager()
 rag_ready = False
+sensor_sim: SensorSimulator | None = None
+ws_manager = ConnectionManager()
 
 MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
+QUIZ_DATA: dict = {}  # area_id -> questions
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """應用啟動/關閉時執行"""
-    global rag_ready
+    global rag_ready, sensor_sim, QUIZ_DATA
 
     # 初始化資料庫
     database.init_db()
@@ -112,13 +101,37 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.info(f"ℹ️ RAG 引擎停用: {e}")
 
+    # 載入測驗題庫
+    quiz_file = BASE_DIR / "knowledge" / "quizzes.json"
+    if quiz_file.exists():
+        try:
+            with open(quiz_file, "r", encoding="utf-8") as f:
+                quiz_raw = json.load(f)
+            for quiz in quiz_raw.get("quizzes", []):
+                QUIZ_DATA[quiz["area_id"]] = quiz
+            logger.info(f"✅ 測驗題庫載入完成 ({len(QUIZ_DATA)} 區域)")
+        except Exception as e:
+            logger.warning(f"⚠️ 測驗題庫載入失敗: {e}")
+
+    # 啟動感測器模擬器
+    sensor_sim = SensorSimulator()
+    sensor_task = asyncio.create_task(run_broadcast_loop(sensor_sim, ws_manager))
+    logger.info("✅ 感測器模擬器已啟動")
+
     yield
+
+    # 清理
+    sensor_task.cancel()
+    try:
+        await sensor_task
+    except asyncio.CancelledError:
+        pass
 
 
 app = FastAPI(
     title="工廠導覽 Multi-Agent API",
-    description="基於 LangGraph + Groq 的智慧多語言工廠導覽系統",
-    version="2.0.0",
+    description="基於 LangGraph + Groq 的智慧多語言工廠導覽系統 v3.0",
+    version="3.0.0",
     lifespan=lifespan,
 )
 
@@ -181,6 +194,29 @@ class TourNextRequest(BaseModel):
     session_id: str
 
 
+class FeedbackRequest(BaseModel):
+    session_id: str
+    rating: int
+    comment: str = ""
+    areas_visited: list[str] = []
+    quiz_score: int = 0
+    language: str = DEFAULT_LANGUAGE
+
+    @field_validator("rating")
+    @classmethod
+    def valid_rating(cls, v: int) -> int:
+        if not 1 <= v <= 5:
+            raise ValueError("評分必須在 1-5 之間")
+        return v
+
+
+class QuizAnswerRequest(BaseModel):
+    session_id: str
+    area_id: str
+    question_id: str
+    answer: str
+
+
 class HealthResponse(BaseModel):
     status: str
     agent_ready: bool
@@ -213,11 +249,21 @@ async def dashboard():
     return HTMLResponse("<h1>Template not found</h1>", status_code=500)
 
 
+@app.get("/editor", response_class=HTMLResponse)
+async def editor():
+    """知識庫 Web 編輯器"""
+    editor_file = BASE_DIR / "static" / "editor.html"
+    if editor_file.exists():
+        return HTMLResponse(editor_file.read_text(encoding="utf-8"))
+    return HTMLResponse("<h1>Editor not found</h1>", status_code=500)
+
+
 # ═══════════════════════════════════════════
 # 對話 API
 # ═══════════════════════════════════════════
 
 
+# 從回覆鏈中篩選最高品質的回答，自動過濾掉系統轉移訊息和空洞摘要
 def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）"""
     from langchain_core.messages import AIMessage
@@ -271,6 +317,12 @@ async def chat(req: ChatRequest):
             database.save_message(
                 req.session_id, "assistant", reply, language, agent_name
             )
+            # 分析事件
+            database.log_event(req.session_id, "chat_message", {
+                "message": req.message[:200],
+                "agent": agent_name,
+                "language": language,
+            })
         except Exception as e:
             logger.warning(f"對話儲存失敗: {e}")
 
@@ -518,6 +570,231 @@ async def delete_document(source_file: str):
         raise
     except Exception as e:
         raise HTTPException(500, f"刪除失敗: {e}")
+
+
+# ═══════════════════════════════════════════
+# WebSocket — 即時感測器數據
+# ═══════════════════════════════════════════
+
+
+@app.websocket("/ws/sensors")
+async def websocket_sensors(websocket: WebSocket):
+    """WebSocket 端點 — 推送即時感測器數據"""
+    await ws_manager.connect(websocket)
+    try:
+        while True:
+            # 保持連線，接收 client 的 ping/pong
+            data = await websocket.receive_text()
+            # Client 可以發送 area filter
+            if data:
+                try:
+                    msg = json.loads(data)
+                    # 未來可支援 area filter
+                except json.JSONDecodeError:
+                    pass
+    except WebSocketDisconnect:
+        ws_manager.disconnect(websocket)
+
+
+# ═══════════════════════════════════════════
+# 回饋評分 API
+# ═══════════════════════════════════════════
+
+
+@app.post("/feedback")
+async def submit_feedback(req: FeedbackRequest):
+    """提交導覽回饋評分"""
+    feedback_id = database.save_feedback(
+        session_id=req.session_id,
+        rating=req.rating,
+        comment=req.comment,
+        areas_visited=req.areas_visited,
+        quiz_score=req.quiz_score,
+        language=req.language,
+    )
+    database.log_event(req.session_id, "feedback_submitted", {
+        "rating": req.rating,
+        "has_comment": bool(req.comment),
+    })
+    return {"status": "ok", "feedback_id": feedback_id, "message": "感謝您的回饋！"}
+
+
+@app.get("/feedback/stats")
+async def feedback_stats():
+    """取得回饋統計"""
+    return database.get_feedback_stats()
+
+
+# ═══════════════════════════════════════════
+# 測驗 API
+# ═══════════════════════════════════════════
+
+
+@app.get("/quiz/{area_id}")
+async def get_quiz(area_id: str):
+    """取得指定區域的測驗題目"""
+    quiz = QUIZ_DATA.get(area_id)
+    if not quiz:
+        raise HTTPException(404, f"找不到區域 {area_id} 的測驗題目")
+    # 回傳題目（不含答案）
+    safe_questions = []
+    for q in quiz["questions"]:
+        safe_questions.append({
+            "id": q["id"],
+            "question": q["question"],
+            "options": q["options"],
+        })
+    return {
+        "area_id": area_id,
+        "area_name": quiz.get("area_name", area_id),
+        "questions": safe_questions,
+    }
+
+
+@app.post("/quiz/answer")
+async def submit_quiz_answer(req: QuizAnswerRequest):
+    """提交測驗答案"""
+    quiz = QUIZ_DATA.get(req.area_id)
+    if not quiz:
+        raise HTTPException(404, f"找不到區域 {req.area_id}")
+
+    question = None
+    for q in quiz["questions"]:
+        if q["id"] == req.question_id:
+            question = q
+            break
+    if not question:
+        raise HTTPException(404, f"找不到題目 {req.question_id}")
+
+    correct = req.answer.upper() == question["correct"].upper()
+    database.save_quiz_answer(
+        req.session_id, req.area_id, req.question_id, req.answer, correct
+    )
+    database.log_event(req.session_id, "quiz_answer", {
+        "area_id": req.area_id,
+        "question_id": req.question_id,
+        "correct": correct,
+    })
+
+    return {
+        "correct": correct,
+        "correct_answer": question["correct"],
+        "explanation": question.get("explanation", ""),
+    }
+
+
+@app.get("/quiz/score/{session_id}")
+async def quiz_score(session_id: str):
+    """取得測驗成績"""
+    return database.get_quiz_score(session_id)
+
+
+# ═══════════════════════════════════════════
+# 訪客記憶 API
+# ═══════════════════════════════════════════
+
+
+@app.get("/visitor/{session_id}/profile")
+async def get_visitor(session_id: str):
+    """取得訪客資料"""
+    profile = database.get_visitor_profile(session_id)
+    if not profile:
+        return {"session_id": session_id, "exists": False}
+    return {**profile, "exists": True}
+
+
+@app.put("/visitor/{session_id}/preferences")
+async def update_visitor_prefs(session_id: str, prefs: dict):
+    """更新訪客偏好"""
+    existing = database.get_visitor_profile(session_id)
+    if existing:
+        merged = {**existing.get("preferences", {}), **prefs}
+        database.save_visitor_profile(
+            session_id, preferences=merged
+        )
+    else:
+        database.save_visitor_profile(session_id, preferences=prefs)
+    return {"status": "ok"}
+
+
+# ═══════════════════════════════════════════
+# 知識庫編輯器 API（擴充）
+# ═══════════════════════════════════════════
+
+
+@app.get("/documents/{source_file}/content")
+async def get_document_content(source_file: str):
+    """取得文件原始內容（供編輯器使用）"""
+    doc_path = BASE_DIR / "documents" / source_file
+    if not doc_path.exists():
+        raise HTTPException(404, f"找不到文件: {source_file}")
+    try:
+        content = doc_path.read_text(encoding="utf-8")
+        return {"source_file": source_file, "content": content}
+    except Exception as e:
+        raise HTTPException(500, f"讀取失敗: {e}")
+
+
+@app.put("/documents/{source_file}")
+async def update_document(source_file: str, body: dict):
+    """更新文件內容（刪除舊索引 + 重新匯入）"""
+    content = body.get("content", "")
+    if not content.strip():
+        raise HTTPException(400, "內容不得為空")
+
+    doc_path = BASE_DIR / "documents" / source_file
+    try:
+        # 寫入檔案
+        doc_path.parent.mkdir(parents=True, exist_ok=True)
+        doc_path.write_text(content, encoding="utf-8")
+
+        # 更新 RAG 索引
+        if not os.getenv("SKIP_RAG"):
+            from rag_engine import get_rag_engine
+            engine = get_rag_engine()
+            if engine.ready:
+                engine.remove_document(source_file)
+                engine.add_markdown_file(str(doc_path))
+
+        return {"status": "ok", "source_file": source_file}
+    except Exception as e:
+        raise HTTPException(500, f"更新失敗: {e}")
+
+
+@app.post("/documents/upload")
+async def upload_document_file(file: UploadFile = File(...)):
+    """上傳 Markdown 檔案"""
+    if not file.filename or not file.filename.endswith(".md"):
+        raise HTTPException(400, "僅支援 .md 檔案")
+
+    doc_path = BASE_DIR / "documents" / file.filename
+    try:
+        content = await file.read()
+        doc_path.parent.mkdir(parents=True, exist_ok=True)
+        doc_path.write_bytes(content)
+
+        # 匯入 RAG
+        chunks = 0
+        if not os.getenv("SKIP_RAG"):
+            from rag_engine import get_rag_engine
+            engine = get_rag_engine()
+            if engine.ready:
+                chunks = engine.add_markdown_file(str(doc_path))
+
+        return {"status": "ok", "filename": file.filename, "chunks_added": chunks}
+    except Exception as e:
+        raise HTTPException(500, f"上傳失敗: {e}")
+
+
+# ═══════════════════════════════════════════
+# 分析 API
+# ═══════════════════════════════════════════
+
+
+@app.get("/analytics/summary")
+async def analytics_summary():
+    """取得分析摘要"""
+    return database.get_analytics_summary()
 
 
 # ═══════════════════════════════════════════

@@ -1,6 +1,9 @@
 /**
- * dialog.js - RPG 風格對話框系統
- * 模擬寶可夢/RPG Maker 的 NPC 對話體驗
+ * dialog.js - RPG 風格對話框系統 v2.0
+ *
+ * v2.0 新增：
+ *   - TTS 回調 (onResponseComplete)
+ *   - 持久化 sessionId (localStorage)
  */
 
 export class DialogSystem {
@@ -16,7 +19,11 @@ export class DialogSystem {
     this.isTyping = false;
     this.isWaitingAPI = false;
     this.currentNpc = null;
-    this.sessionId = 'rpg-' + Math.random().toString(36).substring(2, 10);
+
+    // 持久化 session ID（跨分頁保留）
+    this.sessionId = localStorage.getItem('factory-tour-session') ||
+      ('rpg-' + Math.random().toString(36).substring(2, 10));
+    localStorage.setItem('factory-tour-session', this.sessionId);
 
     // 打字機效果
     this.fullText = '';
@@ -26,6 +33,9 @@ export class DialogSystem {
 
     // 對話歷史（追蹤已打過招呼的 NPC）
     this.greeted = new Set();
+
+    // v2.0 — TTS 回調
+    this.onResponseComplete = null; // function(text)
   }
 
   /**
@@ -33,28 +43,23 @@ export class DialogSystem {
    */
   async interact(npc) {
     if (this.isOpen && !this.isWaitingAPI) {
-      // 已開啟且不在等 API → 關閉
       this.close();
       return;
     }
-    if (this.isWaitingAPI) return; // 正在等 API 回應，不能關閉
+    if (this.isWaitingAPI) return;
 
     this.currentNpc = npc;
     this.isOpen = true;
     this.overlay.classList.remove('hidden');
 
-    // 設定肖像和名稱
     this.portraitEl.textContent = npc.portrait;
     this.speakerEl.textContent = npc.name;
 
-    // 第一次見面 → 用本地招呼語
-    // 之後 → 問 AI
     if (!this.greeted.has(npc.id)) {
       this.greeted.add(npc.id);
       this.typeText(npc.greeting);
       this.hintEl.textContent = '按 E 繼續 / T 提問';
     } else {
-      // 再次對話 → 發送「再次回到此區域」給 AI
       await this.askAI(`我又來找你了，有什麼新的資訊可以告訴我嗎？關於「${npc.name.split('—')[1]?.trim() || '這個區域'}」`);
     }
   }
@@ -65,7 +70,6 @@ export class DialogSystem {
   async askFreeQuestion(question) {
     if (!question.trim()) return;
 
-    // 找到最近的 NPC 或使用通用回覆
     if (this.currentNpc) {
       this.portraitEl.textContent = this.currentNpc.portrait;
       this.speakerEl.textContent = this.currentNpc.name;
@@ -93,7 +97,6 @@ export class DialogSystem {
     this.portraitEl.textContent = npc ? npc.portrait : '🏭';
     this.speakerEl.textContent = npc ? npc.name : '系統';
 
-    // 用 AI 介紹此區域
     await this.askAI(
       `我剛走進了「${room.name}」，請用 2-3 句話簡單介紹這個區域的功能和重點，包含安全注意事項。`
     );
@@ -106,7 +109,6 @@ export class DialogSystem {
     this.isWaitingAPI = true;
     this.hintEl.textContent = '思考中...';
 
-    // 顯示打字動畫
     this.textEl.textContent = '';
     this.typingEl.style.display = 'inline';
 
@@ -142,7 +144,6 @@ export class DialogSystem {
    * 打字機效果
    */
   typeText(text) {
-    // 清除之前的計時器
     if (this.typeTimer) clearInterval(this.typeTimer);
 
     this.fullText = text;
@@ -158,6 +159,15 @@ export class DialogSystem {
         clearInterval(this.typeTimer);
         this.typeTimer = null;
         this.isTyping = false;
+
+        // v2.0 — 通知 TTS 回調
+        if (this.onResponseComplete) {
+          try {
+            this.onResponseComplete(this.fullText);
+          } catch (e) {
+            console.warn('TTS callback error:', e);
+          }
+        }
       }
     }, this.typeSpeed);
   }
@@ -171,6 +181,15 @@ export class DialogSystem {
       this.typeTimer = null;
       this.textEl.textContent = this.fullText;
       this.isTyping = false;
+
+      // 跳過也要觸發 TTS
+      if (this.onResponseComplete) {
+        try {
+          this.onResponseComplete(this.fullText);
+        } catch (e) {
+          console.warn('TTS callback error:', e);
+        }
+      }
     }
   }
 
@@ -178,7 +197,7 @@ export class DialogSystem {
    * 關閉對話框
    */
   close() {
-    if (this.isWaitingAPI) return; // 等 API 時不能關閉
+    if (this.isWaitingAPI) return;
     this.skipTyping();
     this.isOpen = false;
     this.overlay.classList.add('hidden');
@@ -190,14 +209,11 @@ export class DialogSystem {
   handleInteractKey(npc) {
     if (this.isOpen) {
       if (this.isTyping) {
-        // 正在打字 → 跳過
         this.skipTyping();
       } else if (!this.isWaitingAPI) {
-        // 已顯示完 → 關閉
         this.close();
       }
     } else if (npc) {
-      // 未開啟且附近有 NPC → 互動
       this.interact(npc);
     }
   }

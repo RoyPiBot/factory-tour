@@ -35,6 +35,12 @@
     </div>
   </div>
 
+  <!-- 語音按鈕 -->
+  <button id="voice-btn" class="voice-btn hidden" title="語音輸入 (V)">🎤</button>
+  <button id="tts-toggle" class="tts-toggle hidden" title="語音播報開關">🔊</button>
+
+  <!-- 測驗和回饋覆蓋層由 JS 動態建立 -->
+
   <!-- 開場畫面 -->
   <div id="title-screen" class="title-screen">
     <div class="title-content">
@@ -45,11 +51,19 @@
         <p>🎮 <strong>WASD / 方向鍵</strong> — 移動</p>
         <p>🗣️ <strong>E / 空白鍵</strong> — 與 NPC 對話</p>
         <p>💬 <strong>T</strong> — 自由提問</p>
+        <p>🎤 <strong>V</strong> — 語音輸入</p>
       </div>
       <button id="start-btn" class="start-btn">▶ 開始導覽</button>
     </div>
   </div>
 
+  <!-- v3.0 新系統（全域 class，非 ES module） -->
+  <script src="/static/js/websocket.js"></script>
+  <script src="/static/js/voice.js"></script>
+  <script src="/static/js/quiz.js"></script>
+  <script src="/static/js/feedback.js"></script>
+
+  <!-- 主遊戲模組 -->
   <script type="module" src="/static/js/main.js"></script>
 </body>
 </html>

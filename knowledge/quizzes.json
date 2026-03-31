@@ -1,0 +1,139 @@
+{
+  "quizzes": [
+    {
+      "area_id": "lobby",
+      "area_name": "大廳",
+      "questions": [
+        {
+          "id": "lobby_q1",
+          "question": "進入工廠時，訪客必須先在哪裡完成登記？",
+          "options": ["A. 會議室", "B. 大廳訪客登記處", "C. 倉儲區辦公室", "D. 品管室"],
+          "correct": "B",
+          "explanation": "所有訪客須先在大廳的訪客登記處完成登記，領取訪客證和安全裝備後才能進入廠區。"
+        },
+        {
+          "id": "lobby_q2",
+          "question": "在大廳區域，手機應該怎麼處理？",
+          "options": ["A. 關機並交給櫃台保管", "B. 切換為靜音模式", "C. 可以正常使用", "D. 放入置物櫃"],
+          "correct": "B",
+          "explanation": "大廳的安全規定要求訪客將手機切換為靜音模式，以維護廠區的專業環境。"
+        },
+        {
+          "id": "lobby_q3",
+          "question": "大廳展示牆主要展示的內容是什麼？",
+          "options": ["A. 產品型錄", "B. 員工照片", "C. 公司沿革與發展歷程", "D. 工廠平面圖"],
+          "correct": "C",
+          "explanation": "大廳設有公司沿革展示牆，展示了工廠從創立至今的發展歷程，讓訪客了解企業背景。"
+        }
+      ]
+    },
+    {
+      "area_id": "assembly_a",
+      "area_name": "組裝線A",
+      "questions": [
+        {
+          "id": "assembly_a_q1",
+          "question": "組裝線A的高速 SMT 貼片機每小時可貼裝多少個元件？",
+          "options": ["A. 20,000 個", "B. 50,000 個", "C. 80,000 個", "D. 120,000 個"],
+          "correct": "C",
+          "explanation": "組裝線A配備 3 台高速 SMT 貼片機，每小時可貼裝 80,000 個元件，展現高效率的自動化生產能力。"
+        },
+        {
+          "id": "assembly_a_q2",
+          "question": "進入組裝線A時，以下哪項安全裝備是必須穿戴的？",
+          "options": ["A. 安全帽", "B. 防靜電手環", "C. 防毒面具", "D. 防火手套"],
+          "correct": "B",
+          "explanation": "PCB 組裝線上的電子元件對靜電非常敏感，因此所有人員進入時必須穿戴防靜電手環，防止靜電損壞元件。"
+        },
+        {
+          "id": "assembly_a_q3",
+          "question": "組裝線A的日產能可達多少片電路板？",
+          "options": ["A. 1,000 片", "B. 3,000 片", "C. 5,000 片", "D. 10,000 片"],
+          "correct": "C",
+          "explanation": "組裝線A的日產能可達 5,000 片電路板，包含 SMT 貼片、回焊和 AOI 自動光學檢測等完整製程。"
+        }
+      ]
+    },
+    {
+      "area_id": "qc_room",
+      "area_name": "品管室",
+      "questions": [
+        {
+          "id": "qc_room_q1",
+          "question": "工廠的不良率控制在多少以下？",
+          "options": ["A. 1%", "B. 0.5%", "C. 0.3%", "D. 0.1%"],
+          "correct": "D",
+          "explanation": "品管室將不良率控制在 0.1% 以下，遠低於業界平均的 0.5%，展現嚴格的品質管控能力。"
+        },
+        {
+          "id": "qc_room_q2",
+          "question": "每一片電路板至少要經過幾道檢測程序？",
+          "options": ["A. 1 道", "B. 2 道", "C. 3 道", "D. 5 道"],
+          "correct": "C",
+          "explanation": "每一片電路板都要經過至少 3 道檢測程序，包含 AOI 自動光學檢測、X-ray 檢測和功能測試，確保品質。"
+        },
+        {
+          "id": "qc_room_q3",
+          "question": "進入品管室需要穿著什麼特殊服裝？",
+          "options": ["A. 防火衣", "B. 無塵衣", "C. 防寒衣", "D. 反光背心"],
+          "correct": "B",
+          "explanation": "品管室要求穿著無塵衣，以避免灰塵和微粒污染精密的檢測設備和待檢電路板。"
+        }
+      ]
+    },
+    {
+      "area_id": "warehouse",
+      "area_name": "倉儲區",
+      "questions": [
+        {
+          "id": "warehouse_q1",
+          "question": "倉儲區採用哪種庫存管理原則？",
+          "options": ["A. LIFO（後進先出）", "B. FIFO（先進先出）", "C. 隨機存取", "D. ABC 分類法"],
+          "correct": "B",
+          "explanation": "倉儲區採用 FIFO（先進先出）管理原則，確保先入庫的物料優先出貨，避免材料過期或老化。"
+        },
+        {
+          "id": "warehouse_q2",
+          "question": "自動化立體倉庫大約可容納多少個棧板位？",
+          "options": ["A. 1,000 個", "B. 5,000 個", "C. 10,000 個", "D. 20,000 個"],
+          "correct": "C",
+          "explanation": "倉儲區的自動化立體倉庫可容納約 10,000 個棧板位，並配備 WMS 倉儲管理系統進行智能調度。"
+        },
+        {
+          "id": "warehouse_q3",
+          "question": "在倉儲區行走時，訪客應該注意什麼？",
+          "options": ["A. 穿防滑鞋", "B. 走標示的人行通道，注意堆高機", "C. 戴安全帽", "D. 保持手機暢通"],
+          "correct": "B",
+          "explanation": "倉儲區有堆高機頻繁通行，訪客必須走標示的人行通道，並注意堆高機動態，聽從現場人員指揮。"
+        }
+      ]
+    },
+    {
+      "area_id": "conference",
+      "area_name": "會議室",
+      "questions": [
+        {
+          "id": "conference_q1",
+          "question": "會議室在導覽行程中扮演什麼角色？",
+          "options": ["A. 導覽的起點", "B. 導覽的中繼站", "C. 導覽的結束站", "D. 僅供內部使用"],
+          "correct": "C",
+          "explanation": "會議室是導覽的結束站，訪客可以在此休息、提問，或與工廠人員討論合作事宜。"
+        },
+        {
+          "id": "conference_q2",
+          "question": "標準導覽路線的全程大約需要多長時間？",
+          "options": ["A. 約 20 分鐘", "B. 約 30 分鐘", "C. 約 45 分鐘", "D. 約 60 分鐘"],
+          "correct": "C",
+          "explanation": "標準導覽路線涵蓋大廳、組裝線A、品管室、倉儲區和會議室，全程約 45 分鐘。"
+        },
+        {
+          "id": "conference_q3",
+          "question": "工廠的 AED（自動體外心臟去顫器）設置在哪裡？",
+          "options": ["A. 會議室門口", "B. 一樓大廳服務台旁", "C. 品管室入口", "D. 倉儲區辦公室"],
+          "correct": "B",
+          "explanation": "AED 設置在一樓大廳服務台旁，方便在緊急狀況時快速取用，這是工廠安全管理的重要一環。"
+        }
+      ]
+    }
+  ]
+}

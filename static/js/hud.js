@@ -1,5 +1,9 @@
 /**
- * hud.js - 全螢幕 RPG HUD
+ * hud.js - 全螢幕 RPG HUD v2.0
+ *
+ * v2.0 新增：
+ *   - 即時感測器數據面板
+ *   - 測驗分數顯示
  */
 import { ROOMS } from './config.js';
 
@@ -8,6 +12,20 @@ export class HUD {
     this.banner = null;
     this.bannerTimer = 0;
     this.bannerDuration = 3;
+
+    // 感測器數據
+    this.sensorData = null;
+
+    // 測驗分數
+    this.quizScore = null; // { totalCorrect, totalAnswered }
+  }
+
+  updateSensorData(data) {
+    this.sensorData = data;
+  }
+
+  updateQuizScore(score) {
+    this.quizScore = score;
   }
 
   showBanner(text, emoji) {
@@ -34,12 +52,10 @@ export class HUD {
         const textW = ctx.measureText(label).width + 40;
         const bx = (canvasW - textW) / 2;
 
-        // 半透明背景
         ctx.fillStyle = 'rgba(0,0,0,0.75)';
         roundRect(ctx, bx, 12, textW, 36, 18);
         ctx.fill();
 
-        // 區域顏色邊框
         ctx.strokeStyle = room.color;
         ctx.lineWidth = 2;
         roundRect(ctx, bx, 12, textW, 36, 18);
@@ -54,8 +70,9 @@ export class HUD {
 
     // ── 左上：導覽進度面板 ──
     const panelX = 16, panelY = 16;
+    const panelH = this.quizScore ? 76 : 56;
     ctx.fillStyle = 'rgba(0,0,0,0.7)';
-    roundRect(ctx, panelX, panelY, 200, 56, 10);
+    roundRect(ctx, panelX, panelY, 200, panelH, 10);
     ctx.fill();
 
     ctx.fillStyle = '#fff';
@@ -84,16 +101,32 @@ export class HUD {
       ctx.fill();
     }
 
+    // 測驗分數
+    if (this.quizScore && this.quizScore.totalAnswered > 0) {
+      ctx.font = 'bold 11px "Microsoft JhengHei", sans-serif';
+      ctx.fillStyle = '#FFD54F';
+      ctx.fillText(
+        `📝 測驗 ${this.quizScore.totalCorrect}/${this.quizScore.totalAnswered} 正確`,
+        panelX + 12, panelY + 56
+      );
+    }
+
+    // ── 左側：感測器數據面板 ──
+    if (this.sensorData && currentArea) {
+      this._drawSensorPanel(ctx, panelX, panelY + panelH + 12, currentArea);
+    }
+
     // ── 右上：操作提示 ──
     const hints = [
       '⌨️ WASD 移動',
       '🗣️ E 對話',
       '💬 T 提問',
+      '🎤 V 語音',
     ];
     const hintX = canvasW - 150, hintY = 16;
 
     ctx.fillStyle = 'rgba(0,0,0,0.6)';
-    roundRect(ctx, hintX, hintY, 134, 70, 10);
+    roundRect(ctx, hintX, hintY, 134, 88, 10);
     ctx.fill();
 
     ctx.fillStyle = '#999';
@@ -120,7 +153,6 @@ export class HUD {
       const ix = startX + i * (iconSize + iconGap);
       const iy = startY;
 
-      // 背景方塊
       if (visited.has(room.id)) {
         ctx.fillStyle = room.color;
         ctx.globalAlpha = 0.8;
@@ -132,7 +164,6 @@ export class HUD {
       ctx.fill();
       ctx.globalAlpha = 1;
 
-      // 邊框（當前區域高亮）
       if (room.id === currentArea) {
         ctx.strokeStyle = '#fff';
         ctx.lineWidth = 2;
@@ -140,7 +171,6 @@ export class HUD {
         ctx.stroke();
       }
 
-      // Emoji
       ctx.font = '18px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -153,6 +183,89 @@ export class HUD {
       ctx.font = 'bold 13px "Microsoft JhengHei", sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('🎉 導覽完成！', canvasW / 2, startY - 14);
+    }
+  }
+
+  /**
+   * 繪製感測器數據面板
+   */
+  _drawSensorPanel(ctx, x, y, currentArea) {
+    const areas = this.sensorData.areas || {};
+    const areaData = areas[currentArea];
+    if (!areaData) return;
+
+    const panelW = 200;
+    const lines = [];
+
+    // 溫度
+    if (areaData.temperature !== undefined) {
+      const temp = areaData.temperature.toFixed(1);
+      const tempColor = areaData.temperature > 35 ? '#ef5350' :
+                         areaData.temperature > 30 ? '#ffa726' : '#66bb6a';
+      lines.push({ icon: '🌡️', label: '溫度', value: `${temp}°C`, color: tempColor });
+    }
+
+    // 濕度
+    if (areaData.humidity !== undefined) {
+      lines.push({ icon: '💧', label: '濕度', value: `${areaData.humidity.toFixed(1)}%`, color: '#29b6f6' });
+    }
+
+    // 產線速度
+    if (areaData.line_speed !== undefined) {
+      lines.push({ icon: '⚡', label: '產速', value: `${Math.round(areaData.line_speed)}/h`, color: '#ffa726' });
+    }
+
+    // 良率
+    if (areaData.yield_rate !== undefined) {
+      const yr = areaData.yield_rate.toFixed(2);
+      const yrColor = areaData.yield_rate < 99 ? '#ef5350' : '#66bb6a';
+      lines.push({ icon: '✅', label: '良率', value: `${yr}%`, color: yrColor });
+    }
+
+    if (lines.length === 0) return;
+
+    const panelH = 28 + lines.length * 22;
+    ctx.fillStyle = 'rgba(0,0,0,0.65)';
+    roundRect(ctx, x, y, panelW, panelH, 10);
+    ctx.fill();
+
+    // 標題
+    ctx.font = 'bold 12px "Microsoft JhengHei", sans-serif';
+    ctx.fillStyle = '#4FC3F7';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText('📊 即時數據', x + 12, y + 6);
+
+    // 數據行
+    ctx.font = '11px "Microsoft JhengHei", sans-serif';
+    lines.forEach((line, i) => {
+      const ly = y + 24 + i * 22;
+
+      ctx.fillStyle = '#999';
+      ctx.fillText(`${line.icon} ${line.label}`, x + 12, ly);
+
+      ctx.fillStyle = line.color;
+      ctx.textAlign = 'right';
+      ctx.font = 'bold 12px "Microsoft JhengHei", sans-serif';
+      ctx.fillText(line.value, x + panelW - 12, ly);
+
+      ctx.textAlign = 'left';
+      ctx.font = '11px "Microsoft JhengHei", sans-serif';
+    });
+
+    // 告警
+    const alerts = this.sensorData.alerts || [];
+    const areaAlerts = alerts.filter(a => a.area === currentArea);
+    if (areaAlerts.length > 0) {
+      const alertY = y + panelH + 4;
+      ctx.fillStyle = 'rgba(239, 83, 80, 0.2)';
+      roundRect(ctx, x, alertY, panelW, 22, 6);
+      ctx.fill();
+
+      ctx.fillStyle = '#ef5350';
+      ctx.font = 'bold 11px "Microsoft JhengHei", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`⚠️ ${areaAlerts[0].type} 異常`, x + 8, alertY + 5);
     }
   }
 }

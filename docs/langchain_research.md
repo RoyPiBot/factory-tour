@@ -1,0 +1,904 @@
+# LangGraph Multi-Agent 開發模式研究報告 (2026 年初)
+
+> 研究目標：在 Raspberry Pi 5 上使用 Python + LangChain/LangGraph + Gemini 建立工廠導覽 Multi-Agent 系統
+> 調查日期：2026-03-31（第四次更新）
+
+---
+
+## 目錄
+
+1. [LangGraph 框架概覽](#1-langgraph-框架概覽)
+2. [Multi-Agent 架構模式](#2-multi-agent-架構模式)
+3. [Gemini 模型整合](#3-gemini-模型整合)
+4. [工廠導覽系統架構設計](#4-工廠導覽系統架構設計)
+5. [Raspberry Pi 5 部署考量](#5-raspberry-pi-5-部署考量)
+6. [完整範例程式碼](#6-完整範例程式碼)
+7. [競品框架比較](#7-競品框架比較)
+8. [產業應用趨勢](#8-產業應用趨勢)
+9. [參考資源](#9-參考資源)
+
+---
+
+## 1. LangGraph 框架概覽
+
+### 1.1 什麼是 LangGraph?
+
+LangGraph 是 LangChain 團隊開發的 **狀態機導向 Agent 編排框架**，專為建構生產級、有狀態的 AI Agent 系統而設計。它是 MIT 授權的開源專案，被 Klarna、Replit、Elastic 等企業採用。
+
+**核心概念：**
+- **Nodes（節點）**：執行特定動作的函數（LLM 呼叫、工具執行等）
+- **Edges（邊）**：節點之間的轉換路徑（包含條件分支）
+- **State（狀態）**：在所有節點間共享、不可變且每步自動 checkpoint 的資料
+
+### 1.2 目前版本與安裝
+
+> **2026/03 重大更新**：LangGraph 2.0 於 2026 年 2 月正式發布，是三年來生產經驗的結晶，框架成熟度大幅提升。
+
+```bash
+# 核心套件（2026-03 最新）
+pip install langgraph                    # LangGraph 2.0 核心
+pip install langgraph-supervisor         # Supervisor 多代理模式
+pip install langchain-google-genai       # Gemini 整合 (v4.1.2 stable)
+
+# 需求：Python >= 3.10
+```
+
+### 1.3 LangGraph 2.0 新特性
+
+#### Type-Safe Streaming 與 Invoke（v2 API）
+
+LangGraph 2.0 引入 `stream_version="v2"` 參數，大幅提升型別安全性：
+
+```python
+# Type-safe invoke — 回傳 GraphOutput 物件而非 plain dict
+result = app.invoke(
+    {"messages": [{"role": "user", "content": "介紹組裝線A"}]},
+    config=config,
+    stream_version="v2",
+)
+# result.value — 你的 output type（Pydantic model / dataclass / dict）
+# result.interrupts — 任何中斷事件
+
+# Type-safe streaming — 每個 chunk 都是 StreamPart TypedDict
+async for part in app.astream(
+    {"messages": [{"role": "user", "content": "安全注意事項"}]},
+    config=config,
+    stream_version="v2",
+):
+    # part 有 type, ns, data 三個 key
+    # 每種 mode 有對應的 TypedDict，可從 langgraph.types import
+    print(part["type"], part["data"])
+```
+
+**v2 API 優點：**
+- 使用 `stream_version="v2"` 時，Pydantic model 和 dataclass 會自動 coerce
+- TypedDict 在 runtime 是 dict，`orjson.loads()` 直接對應正確型別，零額外開銷
+- Python SDK（langgraph-sdk）也支援 `stream_version`，本地和遠端部署體驗一致
+- 完全向後相容，`v2` 是 opt-in 的
+
+#### 其他 2.0 新功能
+
+| 功能 | 說明 |
+|------|------|
+| **Node Caching** | 跳過重複計算，提升效能 |
+| **Deferred Nodes** | 支援 map-reduce 和 consensus 工作流 |
+| **Pre/Post Model Hooks** | 在模型呼叫前後插入自訂邏輯 |
+| **Built-in Provider Tools** | 內建 Web Search 和 RemoteMCP 工具 |
+| **Bug Fix: Replay** | Replay 不再重用過期的 RESUME 值 |
+| **Bug Fix: Subgraphs** | 子圖正確還原 parent 的歷史 checkpoint |
+
+### 1.4 StateGraph 基礎
+
+LangGraph 的核心是 `StateGraph`，使用 `TypedDict` 定義狀態結構：
+
+```python
+from typing import Annotated, Sequence, TypedDict
+from langchain_core.messages import BaseMessage
+from langgraph.graph.message import add_messages
+import operator
+
+class AgentState(TypedDict):
+    """Agent 的共享狀態"""
+    # Annotated + add_messages 確保訊息是「追加」而非「覆蓋」
+    messages: Annotated[Sequence[BaseMessage], add_messages]
+    # 追蹤目前由哪個 agent 處理
+    next: str
+    # 累積的 agent 工作歷史
+    agent_history: Annotated[Sequence[BaseMessage], operator.add]
+```
+
+> **重要概念**：`Annotated[list, operator.add]` 表示每次節點回傳該欄位時，新值會**追加**到現有清單，而非取代。這是 LangGraph 狀態管理的核心機制。
+
+---
+
+## 2. Multi-Agent 架構模式
+
+### 2.1 三種主要模式
+
+LangGraph 支援三種 multi-agent 架構：
+
+| 模式 | 說明 | 適用場景 |
+|------|------|----------|
+| **Supervisor（監督者）** | 一個中央 agent 協調分派任務給專家 agent | 結構化工作流程、需要一致性的任務 |
+| **Hierarchical（階層式）** | 多層 supervisor，supervisor 管理其他 supervisor | 大型團隊、複雜組織結構 |
+| **Collaborative（協作式）** | Agent 之間平等溝通、自行決定任務分配 | 創意性任務、探索性問題 |
+
+### 2.2 Supervisor 模式（推薦用於工廠導覽）
+
+**Supervisor 模式** 最適合工廠導覽系統，因為導覽流程是結構化的：
+
+```
+使用者提問
+    |
+    v
+[Supervisor Agent] ──── 判斷應由哪個專家處理
+    |         |         |
+    v         v         v
+[導覽Agent] [安全Agent] [技術Agent]
+    |         |         |
+    └─────────┴─────────┘
+              |
+              v
+      [Supervisor Agent] ──── 整合回覆或繼續分派
+              |
+              v
+          回覆使用者
+```
+
+### 2.3 使用 langgraph-supervisor 套件
+
+LangChain 官方提供了 `langgraph-supervisor` 套件，簡化 supervisor 模式的建構：
+
+```python
+from langgraph_supervisor import create_supervisor
+from langgraph.prebuilt import create_react_agent
+
+# 建立專家 agents
+guide_agent = create_react_agent(
+    model=llm,
+    tools=[get_factory_info, get_route_info],
+    name="tour_guide",
+    prompt="你是工廠導覽專家，負責介紹各個廠區和設施。"
+)
+
+safety_agent = create_react_agent(
+    model=llm,
+    tools=[get_safety_rules, get_emergency_info],
+    name="safety_expert",
+    prompt="你是工廠安全專家，負責回答安全規範和緊急應變問題。"
+)
+
+# 建立 supervisor 工作流
+workflow = create_supervisor(
+    agents=[guide_agent, safety_agent],
+    model=llm,
+    prompt="你是工廠導覽系統的總管，根據訪客問題分派給合適的專家。"
+)
+
+# 編譯並執行
+app = workflow.compile()
+result = app.invoke({
+    "messages": [{"role": "user", "content": "這個區域有什麼安全注意事項？"}]
+})
+```
+
+### 2.4 Handoff 機制
+
+Supervisor 透過 **tool-based handoff** 機制將任務交給專家 agent：
+
+- `create_handoff_tool()`：自訂 handoff 工具的名稱和描述
+- `output_mode` 參數：
+  - `"full_history"`：包含完整對話歷史
+  - `"last_message"`：僅傳遞最終回應
+
+### 2.5 記憶與持久化
+
+```python
+from langgraph.checkpoint.memory import InMemorySaver      # 記憶體（開發用）
+from langgraph.checkpoint.sqlite import SqliteSaver         # SQLite（適合 Pi）
+from langgraph.checkpoint.postgres import PostgresSaver     # PostgreSQL（生產用）
+
+# 使用 SQLite 持久化（推薦用於 Pi 5）
+checkpointer = SqliteSaver.from_conn_string("factory_tour.db")
+app = workflow.compile(checkpointer=checkpointer)
+```
+
+### 2.6 Multi-Agent 最佳實踐（2026 年更新）
+
+根據 2026 年最新基準測試和產業經驗：
+
+1. **LLM 決策 vs 程式碼編排**：兩種方式各有優勢。LLM 決策靈活但不確定性高；程式碼編排（如 LangGraph 的條件邊）速度快、成本低、行為可預測。建議在工廠導覽等結構化場景使用**程式碼編排為主、LLM 決策為輔**的混合策略。
+
+2. **效能基準**：根據多框架基準測試，LangGraph 在執行速度和狀態管理效率上表現最佳；CrewAI 因自主決策前的 deliberation 延遲最長。
+
+3. **品質提升**：Multi-Agent 編排相較 Single-Agent 可達到：
+   - 100% 可執行建議率（vs Single-Agent 的 1.7%）
+   - 行動特異性提升 80 倍
+   - 解決方案正確率提升 140 倍
+   - 跨試驗零品質變異，可滿足生產 SLA 承諾
+
+4. **記憶體共享**：確保不同 Agent 能高效共享和檢索相關資料，維持跨 Agent 的上下文連續性。
+
+---
+
+## 3. Gemini 模型整合
+
+### 3.1 套件選擇
+
+截至 2026 年 3 月，Google Gemini 的 LangChain 整合有以下選項：
+
+| 套件 | 說明 | 狀態 |
+|------|------|------|
+| `langchain-google-genai` (v4.1.2) | 使用 Gemini Developer API | **推薦**，使用新版 `google-genai` SDK |
+| `langchain-google-vertexai` | 使用 Vertex AI API | 企業級，需 GCP 帳號 |
+| `@langchain/google` (JS) | 統一 JS 版本 | 取代舊版 JS 套件 |
+
+> **注意**：`langchain-google-genai` v4.0.0 起已遷移至新版 `google-genai` SDK，不再使用已棄用的 `google-ai-generativelanguage`。
+
+### 3.2 基本設定
+
+```python
+import os
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+# 設定 API Key
+os.environ["GOOGLE_API_KEY"] = "your-api-key-here"
+
+# 初始化 Gemini 模型（建議使用最新模型）
+llm = ChatGoogleGenerativeAI(
+    model="gemini-3.1-flash-lite",    # 最新輕量模型，適合 agent 路由
+    temperature=0.7,
+    max_retries=2,
+)
+
+# 也可使用更強大的模型
+llm_pro = ChatGoogleGenerativeAI(
+    model="gemini-3.1-pro",           # 最新 Pro 模型，複雜推理
+    temperature=1.0,
+)
+```
+
+### 3.3 可用模型建議（2026 年 3 月第四次更新）
+
+| 模型 | 用途建議 | 延遲 | 成本 |
+|------|----------|------|------|
+| `gemini-3.1-flash-lite` | Supervisor 路由、簡單工具呼叫（**最新推薦**） | 最低 | 最低 |
+| `gemini-3.1-pro` | 複雜推理、技術問答（**升級版核心推理**） | 中 | 中 |
+| `gemini-3.1-flash-live` | 即時語音對話、客服體驗 | 低 | 低 |
+| `gemini-2.0-flash` | 一般導覽對話、工具呼叫 | 低 | 低 |
+
+> **2026/03 模型動態**：
+> - `gemini-3.1-pro` — Google 最新旗艦模型，複雜推理能力大幅提升
+> - `gemini-3.1-flash-live` — 最高品質即時語音模型，支援 200+ 國家，可透過 Gemini Live API 存取
+> - `gemini-3.1-flash-lite`（03/03 發布）— 輕量快速模型，適合高頻率的 Agent 路由決策
+> - 新增 Lyria 3 音樂生成模型（`lyria-3-clip-preview` / `lyria-3-pro-preview`）
+
+> **重要淘汰通知**：
+> - `gemini-2.5-flash-lite-preview-09-2025` 將於 **2026-03-31 停止服務**
+> - `gemini-2.0-flash` 和 `gemini-2.0-flash-lite` 將於 **2026-06-01 停止服務**
+> - 建議儘快遷移至 `gemini-3.1-flash-lite` 或 `gemini-3.1-pro`
+
+> **新 API 功能**：
+> - **Computer Use 工具**：`gemini-3-pro-preview` 和 `gemini-3-flash-preview` 支援電腦操作
+> - **Built-in Tools + Function Calling 混合使用**：可在單一 API 呼叫中同時使用內建工具和自訂 function calling
+> - **檔案大小限制提升**：從 20MB 增加至 100MB，支援 Cloud Storage 和 pre-signed URL
+
+> **Pi 5 建議**：因為 LLM 推論在雲端（Google API），Pi 5 不需要跑本地模型。主要的效能考量是網路延遲和 Python 處理速度，而非 GPU/CPU 算力。建議 Supervisor 使用 `gemini-3.1-flash-lite` 降低延遲和成本。
+
+### 3.4 Tool Binding
+
+```python
+from langchain_core.tools import tool
+
+@tool
+def get_factory_info(area_name: str) -> str:
+    """取得工廠特定區域的介紹資訊。
+
+    Args:
+        area_name: 廠區名稱，例如 "組裝線A"、"品管室"、"倉儲區"
+    """
+    # 從資料庫或設定檔讀取
+    factory_data = {
+        "組裝線A": "這是我們的主要產線，每日產能 5000 件...",
+        "品管室": "配備最新的 AOI 自動光學檢測設備...",
+        "倉儲區": "採用自動化倉儲系統，FIFO 管理...",
+    }
+    return factory_data.get(area_name, f"找不到 {area_name} 的資訊")
+
+# 綁定工具到模型
+model_with_tools = llm.bind_tools([get_factory_info])
+```
+
+### 3.5 Google ADK（Agent Development Kit）
+
+> **2026/03 新增**：Google 於 2026 年推出 Agent Development Kit（ADK），值得關注。
+
+ADK 是 Google 推出的開源 Agent 開發框架，設計理念是讓 Agent 開發更像軟體開發：
+
+- **多語言支援**：Python、Java（1.0.0 於 2026-03-30 發布）、Go、TypeScript
+- **模型中立**：雖然為 Gemini 最佳化，但支援其他模型
+- **Multi-Agent 設計**：支援階層式 Agent 組合和任務委派
+- **豐富工具生態**：內建 Search、Code Execution，支援 MCP 工具，甚至可用其他 Agent 作為工具
+
+```python
+# Google ADK 範例（參考用）
+# pip install google-adk
+from google.adk.agents import Agent
+from google.adk.tools import google_search
+
+agent = Agent(
+    name="factory_guide",
+    model="gemini-3.1-flash-lite",
+    instruction="你是工廠導覽員，用繁體中文回答問題。",
+    tools=[google_search],
+)
+```
+
+> **與 LangGraph 的關係**：ADK 是 Google 自家框架，與 LangGraph 在 Multi-Agent 編排上存在競爭。對於已投入 LangGraph 的專案，建議持續使用 LangGraph；新專案若深度依賴 Google 生態系，可考慮 ADK。
+
+---
+
+## 4. 工廠導覽系統架構設計
+
+### 4.1 系統架構圖
+
+```
+┌─────────────────────────────────────────────────────┐
+│                  Raspberry Pi 5                      │
+│                                                      │
+│  ┌──────────────────────────────────────────────┐   │
+│  │           LangGraph 2.0 Application           │   │
+│  │                                               │   │
+│  │  ┌─────────────────────────────────────────┐ │   │
+│  │  │         Supervisor Agent                 │ │   │
+│  │  │  (gemini-3.1-flash-lite, 路由決策)       │ │   │
+│  │  └──────┬──────────┬──────────┬────────────┘ │   │
+│  │         │          │          │               │   │
+│  │    ┌────▼───┐ ┌────▼───┐ ┌───▼────┐         │   │
+│  │    │導覽Agent│ │安全Agent│ │技術Agent│         │   │
+│  │    │介紹廠區 │ │安全規範 │ │技術細節 │         │   │
+│  │    └────────┘ └────────┘ └────────┘          │   │
+│  │                                               │   │
+│  │  ┌──────────────────────┐                     │   │
+│  │  │  SQLite State Store  │ (對話記憶/checkpoint)│   │
+│  │  └──────────────────────┘                     │   │
+│  └──────────────────────────────────────────────┘   │
+│                                                      │
+│  ┌──────────┐  ┌──────────┐  ┌──────────────────┐  │
+│  │ FastAPI  │  │ 知識庫    │  │  Pironman 5     │  │
+│  │ Web 介面 │  │ JSON/MD  │  │  LED/風扇/OLED  │  │
+│  └──────────┘  └──────────┘  └──────────────────┘  │
+└─────────────────────────────────────────────────────┘
+          │
+          │ Google Gemini API (HTTPS)
+          ▼
+    ┌─────────────┐
+    │ Google Cloud │
+    │ Gemini 3.1  │
+    └─────────────┘
+```
+
+### 4.2 建議的 Agent 角色分工
+
+| Agent | 職責 | 工具 |
+|-------|------|------|
+| **Supervisor** | 理解訪客意圖、分派任務、整合回覆 | handoff tools |
+| **導覽 Agent** | 介紹各廠區、產線、設備 | `get_factory_info`, `get_route_map` |
+| **安全 Agent** | 安全規範、個人防護裝備、緊急應變 | `get_safety_rules`, `get_emergency_procedures` |
+| **技術 Agent** | 製程細節、設備規格、品質標準 | `get_technical_specs`, `get_process_flow` |
+| **多語言 Agent**（選配） | 翻譯、多語言導覽支援 | `translate_text` |
+
+### 4.3 知識庫設計
+
+建議使用 JSON 檔案存放工廠知識，方便非技術人員維護：
+
+```json
+// factory_knowledge/areas.json
+{
+  "areas": [
+    {
+      "id": "assembly_a",
+      "name": "組裝線A",
+      "description": "主要 PCB 組裝產線，配備 SMT 貼片機...",
+      "safety_notes": ["必須穿戴防靜電手環", "禁止攜帶飲料"],
+      "technical_specs": {
+        "daily_capacity": 5000,
+        "equipment": ["SMT 貼片機 x3", "回焊爐 x1", "AOI x2"]
+      },
+      "tour_order": 1
+    }
+  ]
+}
+```
+
+---
+
+## 5. Raspberry Pi 5 部署考量
+
+### 5.1 效能分析
+
+**好消息**：因為 LLM 推論是透過 Gemini API 在雲端執行，Pi 5 的主要負擔是：
+- Python 程式執行
+- 網路請求處理
+- 狀態管理（SQLite 讀寫）
+- （選配）Web 伺服器
+
+**Pi 5 (16GB) 完全能勝任這些任務。**
+
+### 5.2 安裝建議
+
+```bash
+# 建議使用虛擬環境
+python3 -m venv ~/factory-tour-env
+source ~/factory-tour-env/bin/activate
+
+# 安裝核心套件（2026-03 更新版本）
+pip install langgraph langgraph-supervisor
+pip install langchain-google-genai
+pip install fastapi uvicorn           # Web API
+pip install python-dotenv             # 環境變數管理
+
+# piwheels 已有預編譯的 langgraph-supervisor
+# (Pi OS 預設啟用 piwheels，安裝速度更快)
+
+# 安全提醒：LiteLLM 1.82.7 和 1.82.8 於 2026-03-24 被發現含惡意代碼
+# 如需使用 LiteLLM，請確保版本 >= 1.82.9 或 <= 1.82.6
+```
+
+### 5.3 效能最佳化技巧
+
+1. **使用 `gemini-3.1-flash-lite`** 作為 Supervisor 的模型 — 回應快、成本低（取代即將淘汰的 `gemini-2.0-flash`）
+2. **SQLite checkpointer** 比 PostgreSQL 更輕量，適合 Pi
+3. **限制對話歷史長度** — 避免 token 數過多拖慢回應：
+   ```python
+   # 只保留最近 10 輪對話
+   def trim_messages(messages, max_pairs=10):
+       if len(messages) > max_pairs * 2:
+           return messages[-(max_pairs * 2):]
+       return messages
+   ```
+4. **使用 `output_mode="last_message"`** 減少 agent 間傳遞的訊息量
+5. **非同步處理**：LangGraph 支援 async，善用 `ainvoke` 避免阻塞
+6. **善用 LangGraph 2.0 Node Caching**：跳過重複計算，減少不必要的 API 呼叫
+7. **使用 `stream_version="v2"`**：享受型別安全的同時，TypedDict 在 runtime 零額外開銷
+
+### 5.4 Systemd 服務設定
+
+```ini
+# /etc/systemd/system/factory-tour.service
+[Unit]
+Description=Factory Tour Multi-Agent System
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/factory-tour
+Environment=PATH=/home/pi/factory-tour-env/bin:/usr/bin
+EnvironmentFile=/home/pi/factory-tour/.env
+ExecStart=/home/pi/factory-tour-env/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+---
+
+## 6. 完整範例程式碼
+
+### 6.1 最小可運行範例（Supervisor + Gemini，LangGraph 2.0）
+
+```python
+"""
+factory_tour_agent.py - 工廠導覽 Multi-Agent 系統
+在 Raspberry Pi 5 上運行，使用 LangGraph 2.0 + Gemini 3.1
+"""
+import os
+from typing import Annotated, Sequence, TypedDict
+from dotenv import load_dotenv
+
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.tools import tool
+from langchain_core.messages import BaseMessage
+from langgraph.prebuilt import create_react_agent
+from langgraph_supervisor import create_supervisor
+from langgraph.checkpoint.sqlite import SqliteSaver
+
+load_dotenv()
+
+# ─── 模型初始化（使用最新模型） ───
+llm = ChatGoogleGenerativeAI(
+    model="gemini-3.1-flash-lite",       # 最新輕量模型
+    temperature=0.7,
+    google_api_key=os.getenv("GOOGLE_API_KEY"),
+)
+
+# ─── 工具定義 ───
+FACTORY_DATA = {
+    "組裝線A": "主要 PCB 組裝產線，配備 3 台 SMT 貼片機，日產能 5000 片。",
+    "品管室": "配備 AOI 自動光學檢測和 X-ray 檢測設備，不良率控制在 0.1% 以下。",
+    "倉儲區": "自動化立體倉庫，採用 FIFO 先進先出管理，溫濕度即時監控。",
+}
+
+SAFETY_DATA = {
+    "組裝線A": "必須穿戴防靜電手環和護目鏡，禁止攜帶飲料入內。",
+    "品管室": "請勿觸碰檢測設備，需穿無塵衣。",
+    "倉儲區": "注意堆高機通行，走在標示的人行通道上。",
+}
+
+@tool
+def get_factory_info(area_name: str) -> str:
+    """取得工廠特定區域的介紹資訊。area_name 可以是：組裝線A、品管室、倉儲區"""
+    return FACTORY_DATA.get(area_name, f"找不到「{area_name}」的資訊。可用區域：{', '.join(FACTORY_DATA.keys())}")
+
+@tool
+def get_route_info() -> str:
+    """取得建議的導覽路線"""
+    return "建議路線：大廳 → 組裝線A → 品管室 → 倉儲區 → 會議室（約 45 分鐘）"
+
+@tool
+def get_safety_rules(area_name: str) -> str:
+    """取得特定區域的安全規範。area_name 可以是：組裝線A、品管室、倉儲區"""
+    return SAFETY_DATA.get(area_name, f"找不到「{area_name}」的安全規範。")
+
+@tool
+def get_emergency_info() -> str:
+    """取得緊急應變資訊"""
+    return "緊急出口位於每層樓梯旁。集合點在大門口停車場。緊急聯絡：分機 119。AED 位於一樓大廳。"
+
+# ─── Agent 定義 ───
+tour_guide = create_react_agent(
+    model=llm,
+    tools=[get_factory_info, get_route_info],
+    name="tour_guide",
+    prompt=(
+        "你是工廠導覽員。用友善、專業的語氣介紹工廠各區域。"
+        "回答要簡潔但資訊豐富，適合第一次參觀的訪客。使用繁體中文。"
+    ),
+)
+
+safety_expert = create_react_agent(
+    model=llm,
+    tools=[get_safety_rules, get_emergency_info],
+    name="safety_expert",
+    prompt=(
+        "你是工廠安全專家。清楚說明安全規範和注意事項。"
+        "語氣嚴謹但不令人緊張。使用繁體中文。"
+    ),
+)
+
+# ─── Supervisor 建構 ───
+workflow = create_supervisor(
+    agents=[tour_guide, safety_expert],
+    model=llm,
+    prompt=(
+        "你是工廠導覽系統的總管。根據訪客的問題，決定由哪位專家回答：\n"
+        "- tour_guide：廠區介紹、設備說明、導覽路線\n"
+        "- safety_expert：安全規範、防護裝備、緊急應變\n"
+        "用繁體中文回覆。如果問題同時涉及多個領域，先處理安全相關的部分。"
+    ),
+)
+
+# ─── 編譯（使用 SQLite 持久化） ───
+checkpointer = SqliteSaver.from_conn_string("factory_tour_state.db")
+app = workflow.compile(checkpointer=checkpointer)
+
+# ─── 互動迴圈（使用 v2 API） ───
+def main():
+    print("=== 工廠導覽 Multi-Agent 系統 (LangGraph 2.0) ===")
+    print("輸入 'quit' 結束\n")
+
+    config = {"configurable": {"thread_id": "tour-001"}}
+
+    while True:
+        user_input = input("訪客: ").strip()
+        if user_input.lower() in ("quit", "exit", "q"):
+            print("感謝參觀，再見！")
+            break
+        if not user_input:
+            continue
+
+        # 使用 stream_version="v2" 取得型別安全的結果
+        result = app.invoke(
+            {"messages": [{"role": "user", "content": user_input}]},
+            config=config,
+            stream_version="v2",
+        )
+        # v2 回傳 GraphOutput，用 .value 取得結果
+        ai_message = result.value["messages"][-1]
+        print(f"\n導覽系統: {ai_message.content}\n")
+
+if __name__ == "__main__":
+    main()
+```
+
+### 6.2 搭配 FastAPI 的 Web 版本
+
+```python
+"""
+main.py - FastAPI Web 介面
+"""
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import uvicorn
+
+# 假設 factory_tour_agent.py 中的 app 已匯入
+from factory_tour_agent import app as agent_app
+
+web = FastAPI(title="工廠導覽 Multi-Agent API")
+
+class ChatRequest(BaseModel):
+    message: str
+    session_id: str = "default"
+
+class ChatResponse(BaseModel):
+    reply: str
+    session_id: str
+
+@web.post("/chat", response_model=ChatResponse)
+async def chat(req: ChatRequest):
+    config = {"configurable": {"thread_id": req.session_id}}
+    try:
+        result = agent_app.invoke(
+            {"messages": [{"role": "user", "content": req.message}]},
+            config=config,
+            stream_version="v2",
+        )
+        ai_message = result.value["messages"][-1]
+        return ChatResponse(reply=ai_message.content, session_id=req.session_id)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@web.get("/health")
+async def health():
+    return {"status": "ok"}
+
+if __name__ == "__main__":
+    uvicorn.run(web, host="0.0.0.0", port=8000)
+```
+
+### 6.3 Streaming 範例（LangGraph 2.0 v2 API）
+
+```python
+"""
+streaming_example.py - 使用 LangGraph 2.0 type-safe streaming
+"""
+import asyncio
+from factory_tour_agent import app as agent_app
+
+async def stream_response(user_input: str, session_id: str = "stream-001"):
+    """使用 v2 streaming API 逐步輸出回應"""
+    config = {"configurable": {"thread_id": session_id}}
+
+    async for part in agent_app.astream(
+        {"messages": [{"role": "user", "content": user_input}]},
+        config=config,
+        stream_version="v2",
+    ):
+        # v2 的每個 chunk 都是 StreamPart TypedDict
+        # 包含 type, ns (namespace), data
+        if part["type"] == "values":
+            messages = part["data"].get("messages", [])
+            if messages:
+                latest = messages[-1]
+                print(f"[{part['type']}] {latest.content[:80]}...")
+        elif part["type"] == "updates":
+            # 顯示哪個節點在處理
+            for node_name, update in part["data"].items():
+                print(f"  -> 節點 '{node_name}' 更新中...")
+
+if __name__ == "__main__":
+    asyncio.run(stream_response("請介紹組裝線A的設備和安全注意事項"))
+```
+
+### 6.4 從零手寫 StateGraph（不用 langgraph-supervisor）
+
+如果需要更細緻的控制，可以手動建構 StateGraph：
+
+```python
+"""
+手動建構 Supervisor StateGraph，提供更多客製彈性
+"""
+from typing import Annotated, Sequence, TypedDict, Literal
+from enum import Enum
+
+from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langgraph.graph import StateGraph, END
+from langgraph.graph.message import add_messages
+from langgraph.prebuilt import create_react_agent
+from pydantic import BaseModel
+import operator
+
+# ─── 狀態定義 ───
+class AgentState(TypedDict):
+    messages: Annotated[Sequence[BaseMessage], add_messages]
+    next: str
+
+# ─── 路由決策結構 ───
+class RouteDecision(BaseModel):
+    next: Literal["tour_guide", "safety_expert", "FINISH"]
+
+# ─── 模型與 Agent ───
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=0.3)
+
+# (省略 tool 定義，同上例)
+
+tour_guide = create_react_agent(llm, tools=[get_factory_info, get_route_info], name="tour_guide")
+safety_expert = create_react_agent(llm, tools=[get_safety_rules, get_emergency_info], name="safety_expert")
+
+# ─── Supervisor 節點 ───
+def supervisor_node(state: AgentState):
+    """Supervisor 分析對話，決定下一步"""
+    system_msg = SystemMessage(content=(
+        "你是導覽系統的路由器。根據最新的使用者訊息，決定交給哪個 agent：\n"
+        "- tour_guide: 廠區介紹、導覽路線\n"
+        "- safety_expert: 安全規範、緊急應變\n"
+        "- FINISH: 對話可以結束\n"
+        "回傳 JSON 格式 {\"next\": \"agent_name\"}"
+    ))
+    messages = [system_msg] + list(state["messages"])
+    response = llm.with_structured_output(RouteDecision).invoke(messages)
+    return {"next": response.next}
+
+# ─── 建構圖 ───
+workflow = StateGraph(AgentState)
+
+# 加入節點
+workflow.add_node("supervisor", supervisor_node)
+workflow.add_node("tour_guide", tour_guide)
+workflow.add_node("safety_expert", safety_expert)
+
+# 設定入口
+workflow.set_entry_point("supervisor")
+
+# Agent 完成後回到 Supervisor
+workflow.add_edge("tour_guide", "supervisor")
+workflow.add_edge("safety_expert", "supervisor")
+
+# Supervisor 的條件路由
+workflow.add_conditional_edges(
+    "supervisor",
+    lambda state: state["next"],
+    {
+        "tour_guide": "tour_guide",
+        "safety_expert": "safety_expert",
+        "FINISH": END,
+    },
+)
+
+graph = workflow.compile()
+```
+
+---
+
+## 7. 競品框架比較
+
+> **2026/03 第四次更新新增章節**
+
+### 7.1 主要 Multi-Agent 框架一覽
+
+2026 年 Q1 是 Agent 框架爆發期，五家公司在同一個月內發布了 Agent 框架。以下是主要框架比較：
+
+| 框架 | 開發者 | 特色 | 適用場景 |
+|------|--------|------|----------|
+| **LangGraph 2.0** | LangChain | 狀態機導向、最佳效能、生態系完整 | 複雜有狀態工作流 |
+| **CrewAI** | CrewAI | 角色導向、快速原型、直覺語法 | 業務自動化、內容生成 |
+| **AutoGen** | Microsoft | 對話導向、Code Execution | 技術應用、複雜推理 |
+| **OpenAI Agents SDK** | OpenAI | Swarm 的生產版、tracing、guardrails | OpenAI 生態系整合 |
+| **Google ADK** | Google | 多語言（Python/Java/Go/TS）、Gemini 最佳化 | Google 生態系整合 |
+| **Deep Agents** | LangChain | 非同步子 Agent、非阻塞背景任務 | 複雜長時間任務 |
+| **Pydantic AI** | Pydantic | 型別安全、驗證導向 | 需要嚴格資料驗證的場景 |
+
+### 7.2 效能與適用性比較
+
+| 面向 | LangGraph | CrewAI | AutoGen |
+|------|-----------|--------|---------|
+| **執行速度** | 最快 | 最慢（deliberation 延遲） | 中等 |
+| **狀態管理** | 最佳 | 基本 | 中等 |
+| **Token 消耗** | 中等 | 低（sequential 模式） | 較高（chat-heavy） |
+| **上手時間** | 中等 | 最短（快 40%） | 較長 |
+| **LLM 支援** | 廣泛（透過 LangChain） | 透過 LiteLLM | 任何 OpenAI-compatible API |
+| **適合非工程師閱讀** | 否 | 是（角色語法） | 否 |
+
+### 7.3 工廠導覽專案的框架選擇建議
+
+對於本專案（Pi 5 + Gemini + 工廠導覽），**LangGraph 仍是最佳選擇**，理由：
+
+1. **效能最佳**：在 Pi 5 有限的資源上，LangGraph 的執行速度和狀態管理效率最重要
+2. **Gemini 整合成熟**：透過 `langchain-google-genai` 整合最完善
+3. **生態系完整**：LangSmith 觀測、LangServe 部署等工具鏈齊全
+4. **2.0 版本成熟**：三年生產經驗的結晶，穩定性有保障
+
+### 7.4 LangChain 生態系新工具
+
+| 工具 | 說明 | 發布時間 |
+|------|------|----------|
+| **Agent Builder** | 用自然語言描述需求，自動生成 Agent 定義（prompt、工具、子 Agent） | 2026-01 |
+| **Insights Agent** | 自動分析 traces，偵測使用模式和失敗模式（支援 self-hosted LangSmith） | 2026-01 |
+| **Deep Agents v0.5.0** | 非同步子 Agent，支援非阻塞背景任務 + 多模態檔案（PDF、音頻、視頻） | 2026-03 |
+| **LangSmith Fleet** | 原 Agent Builder 改名，企業級 Agent 協調平台（原 LangSmith Agent Builder） | 2026-03 |
+| **LangChain JS v1.2.13** | 動態工具、從 hallucinated tool call 復原、更好的 streaming 錯誤信號 | 2026-01 |
+
+> **2026-03 安全提醒**：LangGraph SQLite checkpoint 實現發現 SQL injection 漏洞（可透過 metadata filter key 操作 SQL 查詢）。建議：
+> - 若使用 SqliteSaver，立即更新至最新版本
+> - 考慮改用 PostgreSQL checkpoint（更安全）或 in-memory 模式（測試用）
+> - 檢查現有系統的 metadata 驗證邏輯
+
+---
+
+## 8. 產業應用趨勢
+
+> **2026/03 第四次更新新增章節**
+
+### 8.1 Agentic AI 在製造業的普及
+
+2026 年初，Agentic AI 已從概念走向實際部署：
+
+- **全球採用率**：近半數全球製造業已整合智慧系統（Deloitte 調查：75% 企業計畫在兩年內部署 Agentic AI）
+- **Gartner 預測**：40% 企業應用將在 2026 年底部署 Multi-Agent Swarms
+- **效能數據**：AI 系統分析即時感測器資料，平均效率提升 31%，非計畫停機減少 43%
+
+### 8.2 從 Co-pilot 到 Agent
+
+2026 年的關鍵轉變是從 **Co-pilot**（被動等待人類提問）到 **Agent**（主動觀察、推理、行動）：
+
+- **自我優化工廠**：AI Agent 不只是標記異常，而是自動檢查生產排程、判斷原因、調整機器參數、產生維護工單
+- **Samsung 策略**：宣布 2030 年前將全球工廠轉型為 AI 驅動工廠
+- **Siemens eXplore Tour**：使用互動式體驗展示工業自動化技術的巡迴展覽
+
+### 8.3 對工廠導覽系統的啟示
+
+這些產業趨勢對我們的工廠導覽系統有重要啟示：
+
+1. **從靜態導覽到動態導覽**：Agent 可以根據即時產線狀態調整導覽內容（例如：「目前組裝線A正在進行 X 產品的生產，日產能 5000 片」）
+2. **整合 IoT 感測器**：Pi 5 可連接工廠的 IoT 感測器，讓導覽 Agent 提供即時數據
+3. **預測性維護展示**：導覽時展示 AI 如何預測設備故障，增加訪客對工廠智慧化的認知
+
+---
+
+## 9. 參考資源
+
+### 官方文件
+- [LangGraph 官方網站](https://www.langchain.com/langgraph)
+- [LangGraph Releases（含 2026-03 更新）](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph 文件 (Quickstart)](https://docs.langchain.com/oss/python/langgraph/quickstart)
+- [LangGraph 1.0 GA 公告](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangChain Changelog](https://changelog.langchain.com/)
+- [langgraph-supervisor GitHub](https://github.com/langchain-ai/langgraph-supervisor-py)
+- [langchain-google-genai PyPI](https://pypi.org/project/langchain-google-genai/)
+- [LangChain Google 整合文件](https://docs.langchain.com/oss/python/integrations/providers/google)
+- [Google ADK 文件](https://google.github.io/adk-docs/)
+- [Google ADK Python GitHub](https://github.com/google/adk-python)
+
+### Gemini 模型
+- [Gemini API 模型清單](https://ai.google.dev/gemini-api/docs/models)
+- [Gemini API Release Notes](https://ai.google.dev/gemini-api/docs/changelog)
+- [Gemini 3.1 Pro 公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/)
+- [Gemini 3.1 Flash Live 公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/)
+
+### 教學與範例
+- [ReAct agent from scratch with Gemini 2.5 and LangGraph](https://www.philschmid.de/langgraph-gemini-2-5-react-agent)
+- [Building a Multi-Agent System with LangGraph and Gemini](https://medium.com/@ipeksahbazoglu/building-a-multi-agent-system-with-langgraph-and-gemini-1e7d7eab5c12)
+- [Google AI: ReAct agent with Gemini API](https://ai.google.dev/gemini-api/docs/langgraph-example)
+- [LangGraph Multi-Agent Systems Tutorial](https://latenode.com/blog/ai-frameworks-technical-infrastructure/langgraph-multi-agent-orchestration/langgraph-multi-agent-systems-complete-tutorial-examples)
+- [DataCamp: How to Build LangGraph Agents](https://www.datacamp.com/tutorial/langgraph-agents)
+- [Multi-Agent System Tutorial with LangGraph](https://blog.futuresmart.ai/multi-agent-system-with-langgraph)
+- [LangGraph 2.0 Guide (DEV)](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+
+### 框架比較與最佳實踐
+- [Multi-Agent LLM Systems: Frameworks, Architecture & Examples (2026)](https://sourcebae.com/blog/multi-agent-llm/)
+- [How to Build Multi-Agent Systems: Complete 2026 Guide](https://dev.to/eira-wexford/how-to-build-multi-agent-systems-complete-2026-guide-1io6)
+- [The Great AI Agent Showdown of 2026](https://topuzas.medium.com/the-great-ai-agent-showdown-of-2026-openai-autogen-crewai-or-langgraph-7b27a176b2a1)
+- [CrewAI vs LangGraph vs AutoGen vs OpenAgents (2026)](https://openagents.org/blog/posts/2026-02-23-open-source-ai-agent-frameworks-compared)
+- [LLM Orchestration in 2026: Top 22 Frameworks](https://aimultiple.com/llm-orchestration)
+- [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
+
+### 產業應用
+- [Factory Automation 2026: AI Gains & Cobot Growth](https://www.autonexcontrol.com/blogs/news/industrial-automation-2026-smart-manufacturing-hits-47-global-adoption)
+- [Smart Factories in 2026: How AI Is Transforming Manufacturing](https://ifactory.jrsinnovation.com/blog/smart-factories-2026-ai-manufacturing)
+- [Top Smart Factory Technologies 2026: Agentic AI](https://www.iiot-world.com/smart-manufacturing/top-smart-factory-technologies-2026-agentic-ai-uns/)
+- [Samsung AI-Driven Factories Strategy](https://news.samsung.com/global/samsung-electronics-announces-strategy-to-transition-global-manufacturing-into-ai-driven-factories-by-2030)

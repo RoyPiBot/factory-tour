@@ -1,5 +1,12 @@
 /**
- * main.js - 全螢幕 RPG 工廠導覽 — 遊戲主迴圈
+ * main.js - 全螢幕 RPG 工廠導覽 — 遊戲主迴圈 v3.0
+ *
+ * v3.0 新增：
+ *   - WebSocket 即時感測器數據
+ *   - 語音互動 (Web Speech API)
+ *   - 測驗系統
+ *   - 回饋評分
+ *   - 動態 NPC 行為
  */
 import { SPAWN } from './config.js';
 import { buildMap, drawMap, drawMinimap } from './map.js';
@@ -18,6 +25,12 @@ let player, camera, npcSystem, dialog, triggers, hud;
 let lastTime = 0;
 let gameStarted = false;
 let chatInputOpen = false;
+
+// 新系統（延遲載入）
+let sensorWS = null;
+let voiceSystem = null;
+let quizSystem = null;
+let feedbackSystem = null;
 
 // ── 初始化 ──
 function init() {
@@ -44,6 +57,10 @@ function init() {
       return;
     }
 
+    // 測驗或回饋開啟時，不攔截遊戲鍵盤
+    if (quizSystem && quizSystem.isActive()) return;
+    if (feedbackSystem && feedbackSystem.isActive()) return;
+
     keys[e.code] = true;
 
     // 防止方向鍵/空白鍵捲動頁面
@@ -60,6 +77,12 @@ function init() {
     // T = 開啟聊天輸入
     if (e.code === 'KeyT' && !dialog.isWaitingAPI) {
       openChatInput();
+      e.preventDefault();
+    }
+
+    // V = 語音輸入
+    if (e.code === 'KeyV' && voiceSystem && !dialog.isWaitingAPI) {
+      voiceSystem.toggleRecording();
       e.preventDefault();
     }
 
@@ -107,7 +130,97 @@ function startGame() {
   const titleScreen = document.getElementById('title-screen');
   if (titleScreen) titleScreen.classList.add('hidden');
   canvas.focus();
+
+  // 初始化新系統
+  initNewSystems();
+
   requestAnimationFrame(gameLoop);
+}
+
+/**
+ * 初始化 v3.0 新系統
+ */
+function initNewSystems() {
+  // 1. WebSocket 感測器
+  try {
+    if (window.SensorWebSocket) {
+      sensorWS = new window.SensorWebSocket();
+      sensorWS.connect();
+      sensorWS.onSensorUpdate((data) => {
+        hud.updateSensorData(data);
+      });
+    }
+  } catch (e) {
+    console.warn('WebSocket 初始化失敗:', e);
+  }
+
+  // 2. 語音系統
+  try {
+    if (window.VoiceSystem) {
+      voiceSystem = new window.VoiceSystem();
+      if (voiceSystem.isSupported()) {
+        voiceSystem.init();
+        // 顯示語音按鈕
+        const voiceBtn = document.getElementById('voice-btn');
+        const ttsBtn = document.getElementById('tts-toggle');
+        if (voiceBtn) {
+          voiceBtn.classList.remove('hidden');
+          voiceBtn.addEventListener('click', () => voiceSystem.toggleRecording());
+        }
+        if (ttsBtn) {
+          ttsBtn.classList.remove('hidden');
+          ttsBtn.addEventListener('click', () => {
+            const enabled = voiceSystem.toggleTTS();
+            ttsBtn.classList.toggle('disabled', !enabled);
+            ttsBtn.textContent = enabled ? '🔊' : '🔇';
+          });
+        }
+        // 語音辨識結果 → 送到對話系統
+        voiceSystem.onResult((transcript) => {
+          dialog.askFreeQuestion(transcript);
+        });
+        // 對話完成 → TTS 播報
+        dialog.onResponseComplete = (text) => {
+          if (voiceSystem.ttsEnabled) {
+            voiceSystem.speak(text);
+          }
+        };
+        console.log('[Voice] 語音系統已初始化');
+      }
+    }
+  } catch (e) {
+    console.warn('語音系統初始化失敗:', e);
+  }
+
+  // 3. 測驗系統
+  try {
+    if (window.QuizSystem) {
+      const sessionId = dialog.sessionId;
+      quizSystem = new window.QuizSystem(sessionId);
+      triggers.setQuizSystem(quizSystem);
+      quizSystem.onScoreUpdate = (score) => {
+        hud.updateQuizScore(score);
+      };
+      console.log('[Quiz] 測驗系統已初始化');
+    }
+  } catch (e) {
+    console.warn('測驗系統初始化失敗:', e);
+  }
+
+  // 4. 回饋系統
+  try {
+    if (window.FeedbackSystem) {
+      const sessionId = dialog.sessionId;
+      feedbackSystem = new window.FeedbackSystem(sessionId);
+      triggers.setFeedbackSystem(feedbackSystem);
+      if (quizSystem) {
+        feedbackSystem.setQuizSystem(quizSystem);
+      }
+      console.log('[Feedback] 回饋系統已初始化');
+    }
+  } catch (e) {
+    console.warn('回饋系統初始化失敗:', e);
+  }
 }
 
 function resizeCanvas() {
@@ -154,8 +267,12 @@ function gameLoop(timestamp) {
   const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
   lastTime = timestamp;
 
-  // 更新（對話框開啟時停止移動）
-  if (!dialog.getIsOpen() && !chatInputOpen) {
+  // 更新（對話框/測驗/回饋開啟時停止移動）
+  const uiBlocking = dialog.getIsOpen() || chatInputOpen ||
+    (quizSystem && quizSystem.isActive()) ||
+    (feedbackSystem && feedbackSystem.isActive());
+
+  if (!uiBlocking) {
     player.update(keys, dt);
   }
   camera.update(player.x, player.y);

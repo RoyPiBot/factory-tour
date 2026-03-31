@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 知識庫管理 — 智慧工廠導覽</title>
+  <link rel="stylesheet" href="/static/css/editor.css">
+</head>
+<body>
+
+  <!-- 頂部標題列 -->
+  <header class="editor-header">
+    <a href="/static/game.html" class="back-link">← 返回遊戲</a>
+    <h1 class="header-title">📚 知識庫管理</h1>
+    <div class="header-status">
+      <span id="save-indicator" class="save-indicator hidden">已儲存 ✓</span>
+    </div>
+  </header>
+
+  <!-- 主要內容區 -->
+  <div class="editor-container">
+
+    <!-- 左側：文件列表 -->
+    <aside class="sidebar">
+      <div class="sidebar-actions">
+        <button id="btn-new" class="sidebar-btn btn-new">＋ 新增文件</button>
+        <button id="btn-upload" class="sidebar-btn btn-upload">📁 上傳檔案</button>
+        <input type="file" id="file-upload" accept=".md,.txt,.json,.csv" multiple hidden>
+      </div>
+      <div class="file-list-wrapper">
+        <ul id="file-list" class="file-list">
+          <li class="file-list-placeholder">載入中...</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- 右側：編輯區 -->
+    <main class="editor-main">
+      <div id="editor-empty" class="editor-empty">
+        <div class="empty-icon">📄</div>
+        <p>從左側選擇文件，或新增一份文件開始編輯</p>
+      </div>
+
+      <div id="editor-panel" class="editor-panel hidden">
+        <!-- 文件名 -->
+        <div class="editor-name-row">
+          <label for="doc-name">文件名稱</label>
+          <input type="text" id="doc-name" placeholder="例：factory_overview.md" autocomplete="off">
+        </div>
+
+        <!-- 編輯器 / 預覽 -->
+        <div class="editor-body">
+          <textarea id="doc-content" placeholder="在此輸入 Markdown 內容..."></textarea>
+          <div id="preview-area" class="preview-area hidden"></div>
+        </div>
+
+        <!-- 按鈕列 -->
+        <div class="editor-actions">
+          <div class="actions-left">
+            <button id="btn-save" class="action-btn btn-save">💾 儲存</button>
+            <button id="btn-preview" class="action-btn btn-preview">👁 預覽</button>
+          </div>
+          <div class="actions-right">
+            <button id="btn-delete" class="action-btn btn-delete">🗑 刪除</button>
+          </div>
+        </div>
+
+        <div class="editor-hint">
+          <kbd>Ctrl</kbd>+<kbd>S</kbd> 儲存 ·
+          <kbd>Ctrl</kbd>+<kbd>P</kbd> 預覽切換
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Toast 通知 -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/static/js/editor.js"></script>
+</body>
+</html>

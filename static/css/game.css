@@ -328,6 +328,419 @@ body {
   50% { transform: translateY(-4px); }
 }
 
+/* ══════════════════════════════════════
+   語音按鈕
+   ══════════════════════════════════════ */
+.voice-btn, .tts-toggle {
+  position: fixed;
+  z-index: 150;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(79, 195, 247, 0.5);
+  background: rgba(10, 10, 30, 0.85);
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-btn {
+  bottom: 80px;
+  right: 20px;
+}
+
+.tts-toggle {
+  bottom: 80px;
+  right: 76px;
+}
+
+.voice-btn:hover, .tts-toggle:hover {
+  background: rgba(25, 118, 210, 0.5);
+  border-color: #4FC3F7;
+  transform: scale(1.1);
+}
+
+.voice-btn.recording {
+  border-color: #ef5350;
+  background: rgba(239, 83, 80, 0.3);
+  animation: voicePulse 1s ease-in-out infinite;
+}
+
+@keyframes voicePulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(239, 83, 80, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(239, 83, 80, 0.6); }
+}
+
+.voice-btn.hidden, .tts-toggle.hidden {
+  display: none;
+}
+
+.tts-toggle.disabled {
+  opacity: 0.4;
+}
+
+/* ══════════════════════════════════════
+   測驗系統
+   ══════════════════════════════════════ */
+.quiz-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.quiz-overlay.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.quiz-box {
+  background: linear-gradient(180deg, rgba(10, 10, 30, 0.97), rgba(15, 15, 45, 0.99));
+  border: 3px solid #4FC3F7;
+  border-radius: 16px;
+  padding: 28px 32px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 40px rgba(79, 195, 247, 0.3);
+  animation: quizSlideIn 0.4s ease-out;
+}
+
+@keyframes quizSlideIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+.quiz-icon {
+  font-size: 28px;
+}
+
+.quiz-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4FC3F7;
+  flex: 1;
+}
+
+.quiz-progress {
+  font-size: 14px;
+  color: #999;
+  background: rgba(255,255,255,0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.quiz-question {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e8e8e8;
+  margin-bottom: 20px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.quiz-option {
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-family: inherit;
+}
+
+.quiz-option:hover {
+  background: rgba(79, 195, 247, 0.15);
+  border-color: rgba(79, 195, 247, 0.5);
+}
+
+.quiz-option.selected {
+  border-color: #4FC3F7;
+  background: rgba(79, 195, 247, 0.2);
+}
+
+.quiz-option.correct {
+  border-color: #66bb6a;
+  background: rgba(102, 187, 106, 0.2);
+  color: #a5d6a7;
+}
+
+.quiz-option.wrong {
+  border-color: #ef5350;
+  background: rgba(239, 83, 80, 0.2);
+  color: #ef9a9a;
+}
+
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.quiz-feedback {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.quiz-feedback.hidden {
+  display: none;
+}
+
+.quiz-feedback.correct {
+  background: rgba(102, 187, 106, 0.15);
+  border: 1px solid rgba(102, 187, 106, 0.3);
+  color: #a5d6a7;
+}
+
+.quiz-feedback.wrong {
+  background: rgba(239, 83, 80, 0.15);
+  border: 1px solid rgba(239, 83, 80, 0.3);
+  color: #ef9a9a;
+}
+
+.quiz-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.quiz-next, .quiz-skip {
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quiz-next {
+  background: linear-gradient(135deg, #1565C0, #1976D2);
+  color: #fff;
+}
+
+.quiz-next:hover {
+  background: linear-gradient(135deg, #1976D2, #2196F3);
+}
+
+.quiz-next.hidden {
+  display: none;
+}
+
+.quiz-skip {
+  background: transparent;
+  color: #999;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.quiz-skip:hover {
+  background: rgba(255,255,255,0.05);
+  color: #ccc;
+}
+
+/* ══════════════════════════════════════
+   回饋評分系統
+   ══════════════════════════════════════ */
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.feedback-overlay.hidden {
+  display: none;
+}
+
+.feedback-box {
+  background: linear-gradient(180deg, rgba(10, 10, 30, 0.97), rgba(20, 10, 50, 0.99));
+  border: 3px solid #ab47bc;
+  border-radius: 20px;
+  padding: 36px 40px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(171, 71, 188, 0.3);
+  animation: quizSlideIn 0.5s ease-out;
+}
+
+.feedback-header {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.feedback-subheader {
+  font-size: 15px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+.feedback-stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.feedback-stars .star {
+  font-size: 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+  filter: grayscale(100%);
+  opacity: 0.4;
+}
+
+.feedback-stars .star.active {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.feedback-stars .star:hover {
+  transform: scale(1.2);
+}
+
+.feedback-rating-text {
+  font-size: 14px;
+  color: #ab47bc;
+  margin-bottom: 16px;
+  min-height: 20px;
+}
+
+.feedback-comment {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  margin-bottom: 16px;
+  outline: none;
+}
+
+.feedback-comment:focus {
+  border-color: #ab47bc;
+}
+
+.feedback-quiz-score {
+  font-size: 14px;
+  color: #4FC3F7;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  background: rgba(79, 195, 247, 0.1);
+  border-radius: 8px;
+}
+
+.feedback-quiz-score.hidden {
+  display: none;
+}
+
+.feedback-submit {
+  padding: 12px 36px;
+  background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 2px;
+}
+
+.feedback-submit:hover {
+  background: linear-gradient(135deg, #9C27B0, #BA68C8);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(156, 39, 176, 0.4);
+}
+
+.feedback-submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.feedback-thanks {
+  font-size: 20px;
+  color: #66bb6a;
+  margin-top: 16px;
+}
+
+.feedback-thanks.hidden {
+  display: none;
+}
+
+/* ══════════════════════════════════════
+   NPC 語音氣泡
+   ══════════════════════════════════════ */
+.speech-bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  max-width: 150px;
+  text-align: center;
+  pointer-events: none;
+  animation: bubbleFloat 0.3s ease-out;
+  z-index: 50;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(255, 255, 255, 0.95);
+}
+
+@keyframes bubbleFloat {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ── 響應式 ── */
 @media (max-width: 700px) {
   .dialog-box {
@@ -349,5 +762,22 @@ body {
   }
   .title-logo {
     font-size: 48px;
+  }
+  .quiz-box, .feedback-box {
+    padding: 20px;
+  }
+  .voice-btn {
+    bottom: 70px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .tts-toggle {
+    bottom: 70px;
+    right: 60px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
 }
