@@ -902,3 +902,19 @@ graph = workflow.compile()
 - [Smart Factories in 2026: How AI Is Transforming Manufacturing](https://ifactory.jrsinnovation.com/blog/smart-factories-2026-ai-manufacturing)
 - [Top Smart Factory Technologies 2026: Agentic AI](https://www.iiot-world.com/smart-manufacturing/top-smart-factory-technologies-2026-agentic-ai-uns/)
 - [Samsung AI-Driven Factories Strategy](https://news.samsung.com/global/samsung-electronics-announces-strategy-to-transition-global-manufacturing-into-ai-driven-factories-by-2030)
+
+---
+
+## 10. LangGraph 2026 Q1 關鍵發展（2026/03/10 更新）
+
+> **最新技術動態**
+
+LangGraph 在 2026 Q1 推出多項重要改進，強化生產級應用支援：
+
+- **Type-Safe APIs (v2)**：統一 StreamPart 輸出格式（type、ns、data 鍵），invoke() 自動型別轉換為 Pydantic/dataclass 物件
+- **Interrupt & Time Travel 增強**：修復 subgraph 快照復原，避免重放時重用過時 RESUME 值
+- **Model Profiles & Middleware**：透過 .profile 屬性暴露模型特性，新增 retry 和內容審核 middleware
+- **Node Caching**：快取個別節點結果，加快迭代開發和減少冗餘運算，特別適用於 map-reduce 工作流
+- **Deferred Nodes**：延遲執行直到上游路徑完成，適合多 Agent 協作和聚合型任務
+
+這些改進使 LangGraph 在資源受限的環境（如 Pi 5）上執行複雜 Multi-Agent 系統時，更具穩定性與效能優勢。

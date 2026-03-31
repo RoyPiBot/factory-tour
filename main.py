@@ -147,7 +147,10 @@ app.add_middleware(
 
 # ─── 取得/建立 Agent App ───
 def get_agent(language: str = DEFAULT_LANGUAGE):
-    """取得指定語言的 Agent，若不存在則建立（執行緒安全）"""
+    """取得指定語言的 Agent，若不存在則建立（執行緒安全）
+
+    使用 Double-check Locking 確保多執行緒環境下的效率和安全性。
+    """
     if language in agent_apps:
         return agent_apps[language]
     with _agent_lock:
