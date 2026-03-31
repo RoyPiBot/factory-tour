@@ -4,9 +4,80 @@
 
 ## 架構
 
-- **Supervisor Agent** — 路由決策，分派任務給專家
-- **Tour Guide Agent** — 廠區介紹、設備說明、導覽路線
-- **Safety Expert Agent** — 安全規範、防護裝備、緊急應變
+```mermaid
+flowchart TB
+    subgraph Entry["🖥️ 使用者介面"]
+        CLI["CLI 互動模式<br/><code>factory_tour_agent.py</code>"]
+        WEB["Web 聊天介面<br/><code>main.py (FastAPI)</code>"]
+    end
+
+    subgraph API["🌐 FastAPI REST API"]
+        direction LR
+        EP1["POST /chat"]
+        EP2["GET /areas"]
+        EP3["GET /routes"]
+        EP4["GET /health"]
+    end
+
+    subgraph LangGraph["🧠 LangGraph Multi-Agent 系統"]
+        SUP["🎯 Supervisor Agent<br/>路由決策・任務分派"]
+
+        subgraph Agents["專家 Agents"]
+            TG["🏭 Tour Guide<br/>導覽員"]
+            SE["🛡️ Safety Expert<br/>安全專家"]
+        end
+
+        subgraph Tools_TG["導覽工具"]
+            T1["get_factory_info"]
+            T2["get_all_areas"]
+            T3["get_route_info"]
+        end
+
+        subgraph Tools_SE["安全工具"]
+            T4["get_safety_rules"]
+            T5["get_all_safety_rules"]
+            T6["get_emergency_info"]
+        end
+
+        SUP -->|廠區・路線問題| TG
+        SUP -->|安全・緊急問題| SE
+        TG --> T1 & T2 & T3
+        SE --> T4 & T5 & T6
+    end
+
+    subgraph Data["💾 資料層"]
+        KB["knowledge/areas.json<br/>工廠知識庫"]
+        MEM["InMemorySaver<br/>對話記憶"]
+    end
+
+    subgraph Infra["⚙️ 基礎設施"]
+        GEMINI["☁️ Gemini 2.0 Flash<br/>(Google AI)"]
+        PI["🍓 Raspberry Pi 5<br/>16GB RAM"]
+    end
+
+    CLI --> SUP
+    WEB --> API --> SUP
+    T1 & T2 & T3 & T4 & T5 & T6 --> KB
+    SUP --> MEM
+    SUP & TG & SE -.->|LLM 呼叫| GEMINI
+    LangGraph ~~~ PI
+
+    style Entry fill:#e3f2fd,stroke:#1976d2
+    style LangGraph fill:#fff3e0,stroke:#f57c00
+    style Data fill:#e8f5e9,stroke:#388e3c
+    style Infra fill:#fce4ec,stroke:#c62828
+    style SUP fill:#ff9800,color:#fff,stroke:#e65100
+    style TG fill:#42a5f5,color:#fff
+    style SE fill:#ef5350,color:#fff
+```
+
+### 角色說明
+
+| Agent | 職責 | 工具 |
+|-------|------|------|
+| **Supervisor** | 分析訪客問題，路由給對應的專家 Agent | — |
+| **Tour Guide** | 廠區介紹、設備說明、導覽路線 | `get_factory_info`, `get_all_areas`, `get_route_info` |
+| **Safety Expert** | 安全規範、防護裝備、緊急應變 | `get_safety_rules`, `get_all_safety_rules`, `get_emergency_info` |
 
 ## 快速開始
 
