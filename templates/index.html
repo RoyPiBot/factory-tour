@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏭 工廠導覽系統</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --success: #16a34a;
+            --warning: #f59e0b;
+            --danger: #dc2626;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ─── Layout ─── */
+        .app {
+            display: grid;
+            grid-template-columns: 300px 1fr 320px;
+            grid-template-rows: 60px 1fr;
+            height: 100vh;
+            gap: 0;
+        }
+
+        /* ─── Header ─── */
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
+        }
+        .header h1 { font-size: 20px; font-weight: 700; }
+        .header-subtitle { font-size: 12px; opacity: 0.85; }
+        .header-controls { display: flex; gap: 12px; align-items: center; }
+        .header select, .header button {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        .header select option { color: #333; background: white; }
+        .header button:hover { background: rgba(255,255,255,0.25); }
+        .btn-tour {
+            background: var(--success) !important;
+            border-color: var(--success) !important;
+            font-weight: 600;
+        }
+        .btn-tour:hover { background: #15803d !important; }
+
+        /* ─── Sidebar (Left - Areas) ─── */
+        .sidebar-left {
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .area-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 14px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .area-card:hover { border-color: var(--primary); transform: translateY(-1px); box-shadow: var(--shadow); }
+        .area-card.active { border-color: var(--primary); background: var(--primary-light); }
+        .area-card.visited { border-color: var(--success); }
+        .area-card .area-emoji { font-size: 24px; }
+        .area-card .area-name { font-size: 15px; font-weight: 600; margin-top: 4px; }
+        .area-card .area-desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; line-height: 1.5; }
+        .area-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+        .area-badge.hazard { background: #fef3c7; color: #92400e; }
+        .area-badge.visited-badge { background: #dcfce7; color: #166534; }
+        .area-badge.current { background: #dbeafe; color: #1e40af; animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* ─── Main Chat Area ─── */
+        .main-area {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg);
+            position: relative;
+        }
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            scroll-behavior: smooth;
+        }
+        .message {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .message.user { flex-direction: row-reverse; }
+        .msg-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .message.bot .msg-avatar { background: var(--primary-light); }
+        .message.user .msg-avatar { background: #f0fdf4; }
+        .msg-bubble {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            line-height: 1.6;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .message.bot .msg-bubble {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 4px;
+        }
+        .message.user .msg-bubble {
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .msg-agent {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            padding: 0 20px;
+            margin-bottom: 12px;
+        }
+        .typing-indicator.active { display: flex; }
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            animation: typing 1.4s infinite;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        /* ─── Input Area ─── */
+        .input-area {
+            padding: 16px 20px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+        .input-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .input-row input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-row input:focus { border-color: var(--primary); }
+        .input-row button {
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .input-row button:hover { background: var(--primary-dark); }
+        .input-row button:disabled { background: #94a3b8; cursor: not-allowed; }
+        .quick-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .quick-btn {
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--surface);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-muted);
+        }
+        .quick-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+
+        /* ─── Right Panel ─── */
+        .sidebar-right {
+            background: var(--surface);
+            border-left: 1px solid var(--border);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .map-canvas-container {
+            background: #3a3a4a;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+        }
+        #factory-map {
+            width: 100%;
+            height: 220px;
+            display: block;
+        }
+
+        /* Tour Progress */
+        .tour-section {
+            padding: 16px;
+            flex: 1;
+        }
+        .tour-progress-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+        .tour-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        .tour-stop-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tour-stop {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+        .tour-stop:last-child { border-bottom: none; }
+        .tour-stop-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+        .tour-stop-icon.pending { background: var(--border); color: var(--text-muted); }
+        .tour-stop-icon.current { background: var(--primary); color: white; }
+        .tour-stop-icon.done { background: var(--success); color: white; }
+        .tour-stop-name { flex: 1; }
+        .tour-stop-name.current-name { font-weight: 700; color: var(--primary); }
+
+        .stats-section {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 4px 0;
+            color: var(--text-muted);
+        }
+        .stat-value { font-weight: 600; color: var(--text); }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 1024px) {
+            .app { grid-template-columns: 1fr; grid-template-rows: 60px 1fr; }
+            .sidebar-left, .sidebar-right { display: none; }
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 16px; }
+            .msg-bubble { max-width: 85%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1 id="header-title">🏭 工廠導覽系統</h1>
+                <div class="header-subtitle" id="header-subtitle">智慧多語言 AI 導覽 — Powered by LangGraph + Groq</div>
+            </div>
+            <div class="header-controls">
+                <select id="lang-select" onchange="changeLanguage(this.value)">
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                </select>
+                <select id="route-select">
+                    <option value="標準導覽路線">標準導覽 (45分鐘)</option>
+                    <option value="快速導覽路線">快速導覽 (20分鐘)</option>
+                </select>
+                <button class="btn-tour" onclick="startTour()" id="btn-tour">🗺️ 開始導覽</button>
+            </div>
+        </header>
+
+        <!-- Left Sidebar - Areas -->
+        <aside class="sidebar-left">
+            <div class="sidebar-title" id="areas-title">📍 廠區一覽</div>
+            <div id="area-list"></div>
+        </aside>
+
+        <!-- Main Chat -->
+        <main class="main-area">
+            <div class="chat-container" id="chat"></div>
+            <div class="typing-indicator" id="typing">
+                <div class="msg-avatar">🤖</div>
+                <div class="typing-dots"><span></span><span></span><span></span></div>
+            </div>
+            <div class="input-area">
+                <div class="input-row">
+                    <input id="input" placeholder="請輸入您的問題..." autofocus
+                           onkeydown="if(event.key==='Enter'&&!event.shiftKey)send()">
+                    <button onclick="send()" id="btn-send">送出</button>
+                </div>
+                <div class="quick-actions" id="quick-actions">
+                    <button class="quick-btn" onclick="quickSend('介紹一下工廠')">🏭 工廠介紹</button>
+                    <button class="quick-btn" onclick="quickSend('安全規範有哪些？')">⚠️ 安全規範</button>
+                    <button class="quick-btn" onclick="quickSend('設備規格')">⚙️ 設備規格</button>
+                    <button class="quick-btn" onclick="quickSend('有什麼常見問題？')">❓ FAQ</button>
+                    <button class="quick-btn" onclick="quickSend('導覽路線')">🗺️ 導覽路線</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Panel -->
+        <aside class="sidebar-right">
+            <div class="map-section">
+                <div class="sidebar-title" id="map-title">🗺️ 廠區地圖</div>
+                <div class="map-canvas-container">
+                    <canvas id="factory-map"></canvas>
+                </div>
+            </div>
+            <div class="tour-section">
+                <div class="sidebar-title" id="tour-title">📋 導覽進度</div>
+                <div class="tour-progress-bar">
+                    <div class="tour-progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <ul class="tour-stop-list" id="tour-stops"></ul>
+                <div id="tour-controls" style="margin-top: 12px; display: none;">
+                    <button onclick="nextStop()"
+                            style="width:100%; padding:10px; background:var(--primary); color:white;
+                                   border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer;">
+                        ➡️ <span id="next-btn-text">下一站</span>
+                    </button>
+                </div>
+            </div>
+            <div class="stats-section">
+                <div class="sidebar-title">📊 系統資訊</div>
+                <div class="stat-row"><span>Agent 數量</span><span class="stat-value">4</span></div>
+                <div class="stat-row"><span>知識文件</span><span class="stat-value" id="stat-docs">-</span></div>
+                <div class="stat-row"><span>本次對話</span><span class="stat-value" id="stat-msgs">0</span></div>
+                <div class="stat-row"><span>RAG 狀態</span><span class="stat-value" id="stat-rag">-</span></div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+    // ─── State ───
+    let sessionId = 'session-' + Date.now();
+    let currentLang = 'zh-TW';
+    let tourActive = false;
+    let tourState = null;
+    let msgCount = 0;
+    let areas = [];
+
+    // ─── i18n (quick actions) ───
+    const quickActionsI18n = {
+        'zh-TW': [
+            { text: '🏭 工廠介紹', msg: '介紹一下工廠' },
+            { text: '⚠️ 安全規範', msg: '安全規範有哪些？' },
+            { text: '⚙️ 設備規格', msg: '設備規格' },
+            { text: '❓ FAQ', msg: '有什麼常見問題？' },
+            { text: '🗺️ 導覽路線', msg: '導覽路線' },
+        ],
+        'en': [
+            { text: '🏭 Factory Info', msg: 'Tell me about the factory' },
+            { text: '⚠️ Safety Rules', msg: 'What are the safety rules?' },
+            { text: '⚙️ Equipment', msg: 'Equipment specifications' },
+            { text: '❓ FAQ', msg: 'What are the frequently asked questions?' },
+            { text: '🗺️ Routes', msg: 'Tour routes' },
+        ],
+        'ja': [
+            { text: '🏭 工場紹介', msg: '工場を紹介してください' },
+            { text: '⚠️ 安全規則', msg: '安全規則は何ですか？' },
+            { text: '⚙️ 設備仕様', msg: '設備の仕様' },
+            { text: '❓ FAQ', msg: 'よくある質問は？' },
+            { text: '🗺️ 見学ルート', msg: '見学ルート' },
+        ],
+    };
+
+    const welcomeI18n = {
+        'zh-TW': '歡迎來到工廠導覽系統！🏭\n\n我是您的 AI 導覽助手，配備 4 位專家為您服務：\n• 🧑‍🏫 導覽員 — 廠區介紹、路線規劃\n• 🛡️ 安全專家 — 安全規範、緊急應變\n• 🔧 技術專家 — 設備規格、製程細節\n• 💬 客服專員 — 常見問題、訪客須知\n\n請輸入您的問題，或點擊上方「開始導覽」按步驟參觀！',
+        'en': 'Welcome to the Factory Tour System! 🏭\n\nI\'m your AI guide with 4 experts:\n• 🧑‍🏫 Tour Guide — area introductions, route planning\n• 🛡️ Safety Expert — safety rules, emergency response\n• 🔧 Tech Expert — equipment specs, process details\n• 💬 FAQ Agent — common questions, visitor info\n\nType your question or click "Start Tour" for a guided experience!',
+        'ja': '工場見学システムへようこそ！🏭\n\n4人の専門家がご案内します：\n• 🧑‍🏫 ガイド — エリア紹介、ルート案内\n• 🛡️ 安全専門家 — 安全規則、緊急対応\n• 🔧 技術専門家 — 設備仕様、プロセス詳細\n• 💬 FAQ担当 — よくある質問、来場者情報\n\nご質問を入力するか、「見学開始」をクリックしてください！',
+    };
+
+    const sendBtnI18n = { 'zh-TW': '送出', 'en': 'Send', 'ja': '送信' };
+    const placeholderI18n = { 'zh-TW': '請輸入您的問題...', 'en': 'Type your question...', 'ja': '質問を入力...' };
+    const nextBtnI18n = { 'zh-TW': '下一站', 'en': 'Next Stop', 'ja': '次へ' };
+
+    // ─── Init ───
+    async function init() {
+        await loadAreas();
+        await loadHealth();
+        showWelcome();
+        drawFactoryMap();
+    }
+
+    function showWelcome() {
+        addMsg(welcomeI18n[currentLang] || welcomeI18n['zh-TW'], 'bot');
+    }
+
+    // ─── API Calls ───
+    async function loadAreas() {
+        try {
+            const res = await fetch('/areas');
+            const data = await res.json();
+            areas = data.areas || [];
+            renderAreaCards();
+        } catch(e) { console.error('loadAreas failed:', e); }
+    }
+
+    async function loadHealth() {
+        try {
+            const res = await fetch('/health');
+            const data = await res.json();
+            document.getElementById('stat-docs').textContent = data.areas_loaded || 0;
+            document.getElementById('stat-rag').textContent = data.rag_ready ? '✅' : '❌';
+        } catch(e) { console.error('loadHealth failed:', e); }
+    }
+
+    // ─── Render Area Cards ───
+    function renderAreaCards() {
+        const container = document.getElementById('area-list');
+        const emojis = { '大廳': '🏢', '組裝線A': '⚙️', '品管室': '🔍', '倉儲區': '📦', '會議室': '🪑' };
+        const hazardAreas = ['組裝線A', '品管室', '倉儲區'];
+
+        container.innerHTML = areas.map(a => `
+            <div class="area-card" id="area-${a.name}" onclick="askAbout('${a.name}')">
+                <div class="area-emoji">${emojis[a.name] || '📍'}</div>
+                <div class="area-name">${a.name}</div>
+                <div class="area-desc">${a.description}</div>
+                ${hazardAreas.includes(a.name) ? '<span class="area-badge hazard">⚠️ 需安全裝備</span>' : ''}
+            </div>
+        `).join('');
+    }
+
+    // ─── Chat ───
+    function addMsg(text, type, agentName) {
+        const chat = document.getElementById('chat');
+        const div = document.createElement('div');
+        div.className = 'message ' + type;
+
+        const avatar = type === 'bot' ? '🤖' : '👤';
+        let agentBadge = '';
+        if (agentName && type === 'bot') {
+            const agentLabels = {
+                'tour_guide': '🧑‍🏫 導覽員',
+                'safety_expert': '🛡️ 安全專家',
+                'tech_expert': '🔧 技術專家',
+                'qa_agent': '💬 客服',
+            };
+            agentBadge = `<div class="msg-agent">${agentLabels[agentName] || agentName}</div>`;
+        }
+
+        div.innerHTML = `
+            <div class="msg-avatar">${avatar}</div>
+            <div>
+                <div class="msg-bubble">${escapeHtml(text)}</div>
+                ${agentBadge}
+            </div>
+        `;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+        return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    async function send() {
+        const input = document.getElementById('input');
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        addMsg(msg, 'user');
+        input.value = '';
+        msgCount++;
+        document.getElementById('stat-msgs').textContent = msgCount;
+
+        const btn = document.getElementById('btn-send');
+        btn.disabled = true;
+        document.getElementById('typing').classList.add('active');
+
+        try {
+            const res = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ message: msg, session_id: sessionId, language: currentLang })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                addMsg(data.reply || data.detail, 'bot', data.agent_name);
+            } else {
+                addMsg('❌ ' + (data.detail || 'Error'), 'bot');
+            }
+        } catch(e) {
+            addMsg('❌ 連線錯誤：' + e.message, 'bot');
+        }
+
+        document.getElementById('typing').classList.remove('active');
+        btn.disabled = false;
+        input.focus();
+    }
+
+    function quickSend(msg) {
+        document.getElementById('input').value = msg;
+        send();
+    }
+
+    function askAbout(areaName) {
+        document.getElementById('input').value = `介紹 ${areaName}`;
+        send();
+        // Highlight card
+        document.querySelectorAll('.area-card').forEach(c => c.classList.remove('active'));
+        const card = document.getElementById('area-' + areaName);
+        if (card) card.classList.add('active');
+    }
+
+    // ─── Tour Flow ───
+    async function startTour() {
+        const route = document.getElementById('route-select').value;
+        try {
+            const res = await fetch('/tour/start', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ session_id: sessionId, route_name: route, language: currentLang })
+            });
+            const data = await res.json();
+            tourActive = true;
+            tourState = data;
+            addMsg(data.message, 'bot');
+            updateTourUI(data);
+            document.getElementById('tour-controls').style.display = 'block';
+            document.getElementById('btn-tour').textContent = '🔄 重新開始';
+        } catch(e) {
+            addMsg('❌ 無法開始導覽', 'bot');
+        }
+    }
+
+    async function nextStop() {
+        if (!tourActive) return;
+        try {
+            const res = await fetch('/tour/next', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ session_id: sessionId })
+            });
+            const data = await res.json();
+            tourState = data;
+            addMsg(data.message, 'bot');
+            updateTourUI(data);
+            if (data.status === 'completed') {
+                tourActive = false;
+                document.getElementById('tour-controls').style.display = 'none';
+                document.getElementById('btn-tour').textContent = '🗺️ 開始導覽';
+            }
+        } catch(e) {
+            addMsg('❌ 無法前進到下一站', 'bot');
+        }
+    }
+
+    function updateTourUI(data) {
+        // Progress bar
+        const pct = data.progress_percent || 0;
+        document.getElementById('progress-fill').style.width = pct + '%';
+
+        // Stop list
+        const stops = data.stops || [];
+        const visited = new Set(data.visited_areas || []);
+        const current = data.current_area;
+        const list = document.getElementById('tour-stops');
+
+        list.innerHTML = stops.map((s, i) => {
+            let iconClass = 'pending';
+            let nameClass = '';
+            let icon = (i + 1);
+            if (visited.has(s)) { iconClass = 'done'; icon = '✓'; }
+            if (s === current) { iconClass = 'current'; nameClass = 'current-name'; icon = '➤'; }
+            return `
+                <li class="tour-stop">
+                    <div class="tour-stop-icon ${iconClass}">${icon}</div>
+                    <span class="tour-stop-name ${nameClass}">${s}</span>
+                </li>
+            `;
+        }).join('');
+
+        // Update area cards
+        document.querySelectorAll('.area-card').forEach(c => {
+            c.classList.remove('active', 'visited');
+        });
+        visited.forEach(v => {
+            const card = document.getElementById('area-' + v);
+            if (card) card.classList.add('visited');
+        });
+        if (current) {
+            const card = document.getElementById('area-' + current);
+            if (card) card.classList.add('active');
+        }
+
+        // Redraw map
+        drawFactoryMap(visited, current);
+    }
+
+    // ─── Language ───
+    function changeLanguage(lang) {
+        currentLang = lang;
+        sessionId = 'session-' + lang + '-' + Date.now();
+        document.getElementById('input').placeholder = placeholderI18n[lang] || placeholderI18n['zh-TW'];
+        document.getElementById('btn-send').textContent = sendBtnI18n[lang] || sendBtnI18n['zh-TW'];
+        document.getElementById('next-btn-text').textContent = nextBtnI18n[lang] || nextBtnI18n['zh-TW'];
+
+        // Update quick actions
+        const qa = document.getElementById('quick-actions');
+        const actions = quickActionsI18n[lang] || quickActionsI18n['zh-TW'];
+        qa.innerHTML = actions.map(a =>
+            `<button class="quick-btn" onclick="quickSend('${a.msg}')">${a.text}</button>`
+        ).join('');
+
+        // Clear chat and show welcome
+        document.getElementById('chat').innerHTML = '';
+        msgCount = 0;
+        document.getElementById('stat-msgs').textContent = 0;
+        showWelcome();
+    }
+
+    // ─── Factory Map (Canvas) ───
+    function drawFactoryMap(visitedSet, currentArea) {
+        const canvas = document.getElementById('factory-map');
+        const ctx = canvas.getContext('2d');
+        const W = canvas.parentElement.clientWidth;
+        const H = 220;
+        canvas.width = W;
+        canvas.height = H;
+
+        const visited = visitedSet || new Set();
+
+        // Map config
+        const rooms = [
+            { id: '大廳', x: 0.05, y: 0.1, w: 0.25, h: 0.3, color: '#a8d8a8', emoji: '🏢' },
+            { id: '組裝線A', x: 0.38, y: 0.05, w: 0.32, h: 0.3, color: '#e6c76e', emoji: '⚙️', hazard: true },
+            { id: '品管室', x: 0.38, y: 0.42, w: 0.32, h: 0.22, color: '#7ec4cf', emoji: '🔍', hazard: true },
+            { id: '倉儲區', x: 0.38, y: 0.7, w: 0.32, h: 0.25, color: '#d49a9a', emoji: '📦', hazard: true },
+            { id: '會議室', x: 0.05, y: 0.65, w: 0.25, h: 0.3, color: '#b0a4d4', emoji: '🪑' },
+        ];
+
+        const corridors = [
+            { x1: 0.30, y1: 0.22, x2: 0.38, y2: 0.22 },
+            { x1: 0.54, y1: 0.35, x2: 0.54, y2: 0.42 },
+            { x1: 0.54, y1: 0.64, x2: 0.54, y2: 0.70 },
+            { x1: 0.175, y1: 0.40, x2: 0.175, y2: 0.65 },
+            { x1: 0.30, y1: 0.78, x2: 0.38, y2: 0.78 },
+        ];
+
+        // Background
+        ctx.fillStyle = '#2d2d3d';
+        ctx.fillRect(0, 0, W, H);
+
+        // Corridors
+        ctx.strokeStyle = '#555';
+        ctx.lineWidth = 6;
+        corridors.forEach(c => {
+            ctx.beginPath();
+            ctx.moveTo(c.x1 * W, c.y1 * H);
+            ctx.lineTo(c.x2 * W, c.y2 * H);
+            ctx.stroke();
+        });
+
+        // Rooms
+        rooms.forEach(room => {
+            const x = room.x * W, y = room.y * H;
+            const w = room.w * W, h = room.h * H;
+
+            // Room fill
+            const isVisited = visited.has(room.id);
+            const isCurrent = room.id === currentArea;
+
+            ctx.fillStyle = isVisited ? room.color : (isCurrent ? room.color : '#4a4a5a');
+            ctx.globalAlpha = isVisited ? 0.9 : (isCurrent ? 1.0 : 0.5);
+            roundedRect(ctx, x, y, w, h, 6);
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+
+            // Border
+            if (isCurrent) {
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 3;
+                ctx.setLineDash([6, 3]);
+                roundedRect(ctx, x, y, w, h, 6);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            } else if (room.hazard) {
+                ctx.strokeStyle = '#ffc107';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([4, 4]);
+                roundedRect(ctx, x, y, w, h, 6);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // Labels
+            ctx.fillStyle = isCurrent || isVisited ? '#1a1a2e' : '#aaa';
+            ctx.font = 'bold 12px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(room.emoji + ' ' + room.id, x + w/2, y + h/2 + 4);
+
+            // Visited checkmark
+            if (isVisited && !isCurrent) {
+                ctx.fillStyle = '#16a34a';
+                ctx.font = 'bold 14px sans-serif';
+                ctx.fillText('✓', x + w - 12, y + 14);
+            }
+        });
+    }
+
+    function roundedRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+    }
+
+    // ─── Start ───
+    init();
+    </script>
+</body>
+</html>

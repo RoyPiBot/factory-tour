@@ -1,0 +1,88 @@
+{
+  "faq": [
+    {
+      "id": "visiting_hours",
+      "question": "參觀時間是什麼時候？",
+      "answer": "工廠開放參觀時間為週一至週五 09:00-16:00（最後入場 15:00）。週末及國定假日不開放。團體參觀請提前 3 天預約。",
+      "category": "visit_info",
+      "keywords": ["時間", "開放", "幾點", "預約", "hours", "time", "open"]
+    },
+    {
+      "id": "parking",
+      "question": "有停車場嗎？",
+      "answer": "工廠設有訪客專用停車場（B 區），可容納約 30 輛車。大型巴士請停放於大門左側指定區域。停車免費，但請在大廳登記車牌號碼。",
+      "category": "visit_info",
+      "keywords": ["停車", "車", "parking", "bus", "巴士"]
+    },
+    {
+      "id": "photography",
+      "question": "可以拍照嗎？",
+      "answer": "大廳和會議室允許拍照。生產區域（組裝線、品管室）因涉及商業機密，禁止拍照錄影。倉儲區經導覽員同意後可拍攝非機密區域。違規拍攝可能導致參觀中止。",
+      "category": "rules",
+      "keywords": ["拍照", "照相", "錄影", "攝影", "photo", "camera", "picture"]
+    },
+    {
+      "id": "dress_code",
+      "question": "穿著有什麼要求？",
+      "answer": "請穿著長褲和包覆式鞋子（禁止拖鞋、涼鞋、高跟鞋）。進入生產區域需穿戴工廠提供的防靜電外套和防護鏡。長髮請束起。",
+      "category": "rules",
+      "keywords": ["穿著", "服裝", "鞋", "衣服", "dress", "wear", "clothes"]
+    },
+    {
+      "id": "food",
+      "question": "可以帶食物嗎？",
+      "answer": "生產區域嚴禁飲食。大廳設有飲水機和自動販賣機，會議室提供茶水和點心。如有特殊飲食需求，請事先告知。",
+      "category": "rules",
+      "keywords": ["食物", "飲料", "吃", "喝", "food", "drink", "eat", "water"]
+    },
+    {
+      "id": "group_size",
+      "question": "團體參觀人數限制？",
+      "answer": "每團建議 5-20 人。超過 20 人將分組進行，每組配一位導覽員。最大同時容納 40 位訪客。",
+      "category": "visit_info",
+      "keywords": ["人數", "團體", "幾人", "group", "people", "size"]
+    },
+    {
+      "id": "accessibility",
+      "question": "有無障礙設施嗎？",
+      "answer": "工廠設有無障礙通道和電梯，輪椅可通行所有參觀區域。如有特殊需求，請在預約時告知，我們會安排專人協助。",
+      "category": "visit_info",
+      "keywords": ["無障礙", "輪椅", "電梯", "行動不便", "wheelchair", "accessible", "disability"]
+    },
+    {
+      "id": "duration",
+      "question": "參觀要多久？",
+      "answer": "標準導覽約 45 分鐘，快速導覽約 20 分鐘。含簡報和問答時間，完整行程約 1-1.5 小時。",
+      "category": "visit_info",
+      "keywords": ["多久", "時間", "多長", "duration", "how long", "time"]
+    },
+    {
+      "id": "children",
+      "question": "兒童可以參觀嗎？",
+      "answer": "歡迎 12 歲以上兒童在家長陪同下參觀。12 歲以下兒童因安全考量，僅能參觀大廳和會議室。所有未成年訪客需家長或監護人全程陪同。",
+      "category": "rules",
+      "keywords": ["兒童", "小孩", "年齡", "children", "kids", "age", "minor"]
+    },
+    {
+      "id": "wifi",
+      "question": "有提供 Wi-Fi 嗎？",
+      "answer": "大廳和會議室提供訪客 Wi-Fi（SSID: Factory-Guest），密碼請向櫃台索取。生產區域不提供 Wi-Fi 服務。",
+      "category": "visit_info",
+      "keywords": ["wifi", "網路", "上網", "internet", "wireless"]
+    },
+    {
+      "id": "cancel",
+      "question": "如何取消或更改預約？",
+      "answer": "請於參觀日 1 個工作天前來電或 email 通知取消/更改。當日取消恕不受理。聯繫電話：分機 200，Email: tour@factory.example.com",
+      "category": "visit_info",
+      "keywords": ["取消", "更改", "改期", "cancel", "reschedule", "change"]
+    },
+    {
+      "id": "souvenirs",
+      "question": "有紀念品嗎？",
+      "answer": "參觀結束後，每位訪客可獲得公司紀念品一份（含品牌隨身碟和產品目錄）。會議室也展示了部分產品樣本供參考。",
+      "category": "visit_info",
+      "keywords": ["紀念品", "禮物", "souvenir", "gift"]
+    }
+  ]
+}

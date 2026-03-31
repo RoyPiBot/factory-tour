@@ -1,12 +1,20 @@
 """
-factory_tour_agent.py - 工廠導覽 Multi-Agent 系統
+factory_tour_agent.py - 工廠導覽 Multi-Agent 系統 v2.0
 在 Raspberry Pi 5 上運行，使用 LangGraph + Groq (Llama 3.3)
+
+新增功能：
+  - 4 個 Agent（導覽員、安全專家、技術專家、QA 客服）
+  - 多語言支援（繁中/英文/日文）
+  - RAG 知識檢索
+  - 互動式導覽流程
+  - SQLite 對話持久化
 
 作者：Roy (YORROY123)
 建立：2026-03-30
+更新：2026-03-31
 """
-import os
 import json
+import os
 from pathlib import Path
 from typing import Optional
 
@@ -17,11 +25,22 @@ from langgraph.prebuilt import create_react_agent
 from langgraph_supervisor import create_supervisor
 from langgraph.checkpoint.memory import InMemorySaver
 
+from i18n import (
+    get_prompt,
+    SUPERVISOR_PROMPTS,
+    TOUR_GUIDE_PROMPTS,
+    SAFETY_EXPERT_PROMPTS,
+    TECH_EXPERT_PROMPTS,
+    QA_AGENT_PROMPTS,
+    DEFAULT_LANGUAGE,
+)
+
 load_dotenv()
 
 # ─── 路徑設定 ───
 BASE_DIR = Path(__file__).parent
 KNOWLEDGE_DIR = BASE_DIR / "knowledge"
+
 
 # ─── 載入知識庫 ───
 def load_knowledge() -> dict:
@@ -32,17 +51,40 @@ def load_knowledge() -> dict:
             return json.load(f)
     return {"areas": [], "routes": [], "emergency": {}}
 
+
+def load_faq() -> list[dict]:
+    """載入 FAQ 知識庫"""
+    faq_file = KNOWLEDGE_DIR / "faq.json"
+    if faq_file.exists():
+        with open(faq_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data.get("faq", [])
+    return []
+
+
 KNOWLEDGE = load_knowledge()
+FAQ_DATA = load_faq()
 
 # 建立快速查找字典
 AREA_MAP = {area["name"]: area for area in KNOWLEDGE.get("areas", [])}
 ROUTE_MAP = {route["name"]: route for route in KNOWLEDGE.get("routes", [])}
 EMERGENCY = KNOWLEDGE.get("emergency", {})
+FAQ_MAP = {item["id"]: item for item in FAQ_DATA}
 
 
 # ─── 模型初始化 ───
-def get_llm(model: str = "llama-3.3-70b-versatile", temperature: float = 0.7):
-    """初始化 Groq LLM"""
+def get_llm(model: str = None, temperature: float = 0.3):
+    """初始化 Groq LLM
+
+    模型選擇注意事項：
+    - 預設使用 meta-llama/llama-4-scout-17b-16e-instruct（tool calling 穩定）
+    - ⚠️ llama-3.3-70b-versatile 有已知 bug：會生成 <function=...> XML 格式
+      的 function call，導致 Groq API 400 tool_use_failed 錯誤，請勿使用。
+    - 可透過環境變數 GROQ_MODEL 切換模型。
+    - temperature 建議 ≤ 0.3 以確保 tool calling 格式穩定。
+    """
+    if model is None:
+        model = os.getenv("GROQ_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct")
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise ValueError(
@@ -58,7 +100,10 @@ def get_llm(model: str = "llama-3.3-70b-versatile", temperature: float = 0.7):
     )
 
 
-# ─── 工具定義 ───
+# ═══════════════════════════════════════════
+# 導覽員 Agent 工具
+# ═══════════════════════════════════════════
+
 @tool
 def get_factory_info(area_name: str) -> str:
     """取得工廠特定區域的介紹資訊。
@@ -74,7 +119,7 @@ def get_factory_info(area_name: str) -> str:
             info += "\n\n技術規格："
             for key, value in specs.items():
                 if isinstance(value, list):
-                    info += f"\n  - {key}: {', '.join(value)}"
+                    info += f"\n  - {key}: {', '.join(str(v) for v in value)}"
                 else:
                     info += f"\n  - {key}: {value}"
         return info
@@ -87,7 +132,9 @@ def get_all_areas() -> str:
     """取得所有廠區的列表和簡介"""
     result = "工廠區域一覽：\n"
     for area in sorted(KNOWLEDGE.get("areas", []), key=lambda x: x["tour_order"]):
-        result += f"\n{area['tour_order']+1}. 【{area['name']}】— {area['description'][:50]}..."
+        result += (
+            f"\n{area['tour_order']+1}. 【{area['name']}】— {area['description'][:50]}..."
+        )
     return result
 
 
@@ -101,7 +148,10 @@ def get_route_info(route_name: Optional[str] = None) -> str:
     if route_name and route_name in ROUTE_MAP:
         route = ROUTE_MAP[route_name]
         stops = " → ".join(route["stops"])
-        return f"【{route['name']}】\n{route['description']}\n時間：{route['duration']}\n路線：{stops}"
+        return (
+            f"【{route['name']}】\n{route['description']}\n"
+            f"時間：{route['duration']}\n路線：{stops}"
+        )
 
     result = "可用導覽路線：\n"
     for route in KNOWLEDGE.get("routes", []):
@@ -109,6 +159,10 @@ def get_route_info(route_name: Optional[str] = None) -> str:
         result += f"\n• {route['name']}（{route['duration']}）：{stops}"
     return result
 
+
+# ═══════════════════════════════════════════
+# 安全專家 Agent 工具
+# ═══════════════════════════════════════════
 
 @tool
 def get_safety_rules(area_name: str) -> str:
@@ -155,58 +209,262 @@ def get_emergency_info() -> str:
     return result
 
 
-# ─── Agent 定義 ───
-def create_tour_guide(llm):
+# ═══════════════════════════════════════════
+# 技術問答專家 Agent 工具（新增）
+# ═══════════════════════════════════════════
+
+@tool
+def get_equipment_details(area_name: str) -> str:
+    """取得特定區域的詳細設備規格和技術參數。
+
+    Args:
+        area_name: 廠區名稱，例如 "組裝線A"、"品管室"、"倉儲區"
+    """
+    area = AREA_MAP.get(area_name)
+    if not area:
+        available = ", ".join(AREA_MAP.keys())
+        return f"找不到「{area_name}」。可用區域：{available}"
+
+    result = f"【{area['name']}】設備與技術詳情：\n\n"
+    result += f"描述：{area['description']}\n"
+
+    specs = area.get("technical_specs", {})
+    if specs:
+        result += "\n📊 技術規格：\n"
+        for key, value in specs.items():
+            if isinstance(value, list):
+                result += f"  • {key}:\n"
+                for item in value:
+                    result += f"    - {item}\n"
+            else:
+                result += f"  • {key}: {value}\n"
+    else:
+        result += "\n（此區域無特殊技術規格）\n"
+
+    return result
+
+
+@tool
+def get_production_metrics() -> str:
+    """取得工廠的整體產能、品質和效率指標"""
+    metrics = []
+
+    for area in KNOWLEDGE.get("areas", []):
+        specs = area.get("technical_specs", {})
+        if specs:
+            metrics.append(f"【{area['name']}】")
+            for key, value in specs.items():
+                if isinstance(value, list):
+                    metrics.append(f"  {key}: {', '.join(str(v) for v in value)}")
+                else:
+                    metrics.append(f"  {key}: {value}")
+            metrics.append("")
+
+    if not metrics:
+        return "目前沒有可用的生產指標數據。"
+
+    return "📊 工廠生產指標總覽：\n\n" + "\n".join(metrics)
+
+
+@tool
+def compare_areas(area1: str, area2: str) -> str:
+    """比較兩個區域的設備和規格差異。
+
+    Args:
+        area1: 第一個區域名稱
+        area2: 第二個區域名稱
+    """
+    a1 = AREA_MAP.get(area1)
+    a2 = AREA_MAP.get(area2)
+
+    if not a1 or not a2:
+        available = ", ".join(AREA_MAP.keys())
+        return f"找不到指定區域。可用區域：{available}"
+
+    result = f"📊 {a1['name']} vs {a2['name']} 比較：\n\n"
+
+    # 描述比較
+    result += f"【{a1['name']}】\n{a1['description'][:100]}...\n\n"
+    result += f"【{a2['name']}】\n{a2['description'][:100]}...\n\n"
+
+    # 技術規格比較
+    specs1 = a1.get("technical_specs", {})
+    specs2 = a2.get("technical_specs", {})
+    all_keys = set(list(specs1.keys()) + list(specs2.keys()))
+
+    if all_keys:
+        result += "技術規格對比：\n"
+        for key in sorted(all_keys):
+            v1 = specs1.get(key, "—")
+            v2 = specs2.get(key, "—")
+            if isinstance(v1, list):
+                v1 = ", ".join(str(x) for x in v1)
+            if isinstance(v2, list):
+                v2 = ", ".join(str(x) for x in v2)
+            result += f"  {key}: {v1} | {v2}\n"
+
+    # 安全規範比較
+    s1 = len(a1.get("safety_notes", []))
+    s2 = len(a2.get("safety_notes", []))
+    result += f"\n安全規範數量：{a1['name']}({s1}項) vs {a2['name']}({s2}項)"
+
+    return result
+
+
+# ═══════════════════════════════════════════
+# QA Agent 工具（新增）
+# ═══════════════════════════════════════════
+
+@tool
+def search_faq(keyword: str) -> str:
+    """搜尋常見問題（FAQ）知識庫。
+
+    Args:
+        keyword: 搜尋關鍵字，例如 "停車"、"拍照"、"時間"
+    """
+    keyword_lower = keyword.lower()
+    matches = []
+
+    for item in FAQ_DATA:
+        # 比對關鍵字
+        if any(kw in keyword_lower for kw in item.get("keywords", [])):
+            matches.append(item)
+        elif keyword_lower in item["question"].lower():
+            matches.append(item)
+        elif keyword_lower in item["answer"].lower():
+            matches.append(item)
+
+    if not matches:
+        return f"找不到與「{keyword}」相關的常見問題。您可以嘗試其他關鍵字，或直接描述您的問題。"
+
+    result = f"找到 {len(matches)} 個相關問題：\n\n"
+    for m in matches[:5]:
+        result += f"❓ {m['question']}\n💡 {m['answer']}\n\n"
+    return result
+
+
+@tool
+def get_all_faq() -> str:
+    """列出所有常見問題的標題"""
+    if not FAQ_DATA:
+        return "目前沒有設定常見問題。"
+
+    result = "📋 常見問題列表：\n\n"
+    for i, item in enumerate(FAQ_DATA, 1):
+        result += f"{i}. {item['question']}\n"
+    result += f"\n共 {len(FAQ_DATA)} 個問題。請告訴我您想了解哪一個！"
+    return result
+
+
+@tool
+def get_visitor_guidelines() -> str:
+    """取得訪客須知的完整資訊"""
+    guidelines = []
+    for item in FAQ_DATA:
+        if item.get("category") == "rules":
+            guidelines.append(f"• {item['question']}: {item['answer']}")
+
+    if not guidelines:
+        return "目前沒有設定訪客規範資訊。"
+
+    return "📜 訪客須知：\n\n" + "\n\n".join(guidelines)
+
+
+# ═══════════════════════════════════════════
+# RAG 工具（新增）
+# ═══════════════════════════════════════════
+
+@tool
+def rag_knowledge_search(query: str) -> str:
+    """使用向量檢索搜尋工廠知識庫，適合模糊或複雜問題。
+
+    Args:
+        query: 搜尋查詢，自然語言描述要找的資訊
+    """
+    try:
+        from rag_engine import rag_search
+
+        return rag_search(query, n_results=3)
+    except ImportError:
+        return "RAG 引擎未安裝。請安裝 chromadb: pip install chromadb"
+    except Exception as e:
+        return f"RAG 搜尋錯誤：{str(e)}"
+
+
+# ═══════════════════════════════════════════
+# Agent 定義
+# ═══════════════════════════════════════════
+
+def create_tour_guide(llm, language: str = DEFAULT_LANGUAGE):
     """建立導覽 Agent"""
+    tools = [get_factory_info, get_all_areas, get_route_info, rag_knowledge_search]
     return create_react_agent(
         model=llm,
-        tools=[get_factory_info, get_all_areas, get_route_info],
+        tools=tools,
         name="tour_guide",
-        prompt=(
-            "你是工廠導覽員，負責介紹工廠各區域、設備和導覽路線。\n"
-            "用友善、專業的語氣說明，讓第一次參觀的訪客也能輕鬆理解。\n"
-            "回答要簡潔但資訊豐富。使用繁體中文。\n"
-            "如果訪客問的區域不存在，先用 get_all_areas 工具列出所有區域供參考。"
-        ),
+        prompt=get_prompt(TOUR_GUIDE_PROMPTS, language),
     )
 
 
-def create_safety_expert(llm):
+def create_safety_expert(llm, language: str = DEFAULT_LANGUAGE):
     """建立安全專家 Agent"""
+    tools = [get_safety_rules, get_all_safety_rules, get_emergency_info]
     return create_react_agent(
         model=llm,
-        tools=[get_safety_rules, get_all_safety_rules, get_emergency_info],
+        tools=tools,
         name="safety_expert",
-        prompt=(
-            "你是工廠安全專家，負責回答安全規範、個人防護裝備和緊急應變問題。\n"
-            "語氣嚴謹但不令人緊張，確保訪客了解重要的安全資訊。\n"
-            "使用繁體中文。\n"
-            "安全永遠是第一優先，如果有任何疑慮，建議訪客聯繫現場安全人員。"
-        ),
+        prompt=get_prompt(SAFETY_EXPERT_PROMPTS, language),
+    )
+
+
+def create_tech_expert(llm, language: str = DEFAULT_LANGUAGE):
+    """建立技術問答專家 Agent"""
+    tools = [
+        get_equipment_details,
+        get_production_metrics,
+        compare_areas,
+        rag_knowledge_search,
+    ]
+    return create_react_agent(
+        model=llm,
+        tools=tools,
+        name="tech_expert",
+        prompt=get_prompt(TECH_EXPERT_PROMPTS, language),
+    )
+
+
+def create_qa_agent(llm, language: str = DEFAULT_LANGUAGE):
+    """建立 QA 客服 Agent"""
+    tools = [search_faq, get_all_faq, get_visitor_guidelines, rag_knowledge_search]
+    return create_react_agent(
+        model=llm,
+        tools=tools,
+        name="qa_agent",
+        prompt=get_prompt(QA_AGENT_PROMPTS, language),
     )
 
 
 # ─── 建構 Multi-Agent 系統 ───
-def create_factory_tour_app(checkpointer=None):
-    """建立並回傳工廠導覽 Multi-Agent 應用"""
+def create_factory_tour_app(
+    checkpointer=None, language: str = DEFAULT_LANGUAGE
+):
+    """建立並回傳工廠導覽 Multi-Agent 應用
+
+    Args:
+        checkpointer: LangGraph checkpointer（預設 InMemorySaver）
+        language: 語言代碼 (zh-TW, en, ja)
+    """
     llm = get_llm()
 
-    tour_guide = create_tour_guide(llm)
-    safety_expert = create_safety_expert(llm)
+    tour_guide = create_tour_guide(llm, language)
+    safety_expert = create_safety_expert(llm, language)
+    tech_expert = create_tech_expert(llm, language)
+    qa_agent = create_qa_agent(llm, language)
 
     workflow = create_supervisor(
-        agents=[tour_guide, safety_expert],
+        agents=[tour_guide, safety_expert, tech_expert, qa_agent],
         model=llm,
-        prompt=(
-            "你是工廠導覽系統的總管。根據訪客的問題，決定由哪位專家回答：\n"
-            "- tour_guide：廠區介紹、設備說明、導覽路線、一般問題\n"
-            "- safety_expert：安全規範、防護裝備、緊急應變、安全相關\n\n"
-            "規則：\n"
-            "1. 如果問題同時涉及多個領域，先處理安全相關的部分\n"
-            "2. 用繁體中文回覆\n"
-            "3. 如果訪客只是打招呼，由 tour_guide 回應\n"
-            "4. 如果不確定歸屬，交給 tour_guide"
-        ),
+        prompt=get_prompt(SUPERVISOR_PROMPTS, language),
     )
 
     if checkpointer is None:
@@ -219,13 +477,25 @@ def create_factory_tour_app(checkpointer=None):
 def main():
     """命令列互動模式"""
     print("=" * 50)
-    print("  🏭 工廠導覽 Multi-Agent 系統")
+    print("  🏭 工廠導覽 Multi-Agent 系統 v2.0")
     print("  Powered by LangGraph + Groq")
+    print("  4 Agents | 3 Languages | RAG")
     print("=" * 50)
+    print()
+    print("語言選擇 / Language / 言語:")
+    print("  1. 繁體中文 (預設)")
+    print("  2. English")
+    print("  3. 日本語")
+
+    lang_choice = input("選擇 [1/2/3]: ").strip()
+    lang_map = {"1": "zh-TW", "2": "en", "3": "ja"}
+    language = lang_map.get(lang_choice, "zh-TW")
+
+    print(f"\n使用語言: {language}")
     print("輸入 'quit' 或 'q' 結束\n")
 
     try:
-        app = create_factory_tour_app()
+        app = create_factory_tour_app(language=language)
     except ValueError as e:
         print(f"❌ 初始化失敗：{e}")
         return
