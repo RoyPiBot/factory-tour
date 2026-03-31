@@ -918,3 +918,13 @@ LangGraph 在 2026 Q1 推出多項重要改進，強化生產級應用支援：
 - **Deferred Nodes**：延遲執行直到上游路徑完成，適合多 Agent 協作和聚合型任務
 
 這些改進使 LangGraph 在資源受限的環境（如 Pi 5）上執行複雜 Multi-Agent 系統時，更具穩定性與效能優勢。
+
+### 補充：LangGraph 串流與中介軟體最佳實踐
+
+根據 2026 最新文件，LangGraph 新增兩大核心能力，特別適用於工廠導覽 Multi-Agent 場景：
+
+1. **Type-Safe Streaming (v2)**：透過 `stream(version="v2")` 統一傳回 StreamPart，每個 chunk 包含 type（如 "on_chat_model_stream"）、ns（命名空間）、data 三個鍵。於工廠 tour 應用中，可精確追蹤各 Agent 的執行狀態與輸出，便於前端實時展示進度。
+
+2. **Model Profiles & Middleware**：LangGraph 2026 支援 `.profile` 屬性直接查詢 LLM 能力（如支援函數呼叫、vision、長上下文等），新增「模型 retry middleware」和「OpenAI 內容審核 middleware」。於工廠環境，可根據模型能力動態調度專業 Agent（文本分析 vs 視覺檢測），同步確保安全合規。
+
+這兩項更新大幅降低開發者在串流調試與異常處理的成本。
