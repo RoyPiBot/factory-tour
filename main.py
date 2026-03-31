@@ -1,18 +1,21 @@
 """
-main.py - 工廠導覽 Multi-Agent Web API v2.0
+main.py - 工廠導覽 Multi-Agent Web API v2.1
 使用 FastAPI 提供 RESTful 介面
 AI 後端：Groq (Llama 4 Scout / 可透過 GROQ_MODEL 環境變數切換)
 
-新增功能：
+功能：
+  - 5 Agent 系統（導覽/安全/技術/QA/知識檢索）
   - 多語言支援 (zh-TW/en/ja)
   - 互動式導覽流程
   - 對話歷史持久化 (SQLite)
-  - RAG 知識檢索
-  - 美化前端 UI
+  - RAG 知識檢索（工廠知識 + 自訂文件）
+  - 文件管理 API（匯入/列表/刪除 Markdown 文件）
+
+v2.1 — 整合東海大學 RAG 專案（方案A）
 
 作者：Roy (YORROY123)
 建立：2026-03-30
-更新：2026-03-31
+更新：2026-03-31 (RAG 整合)
 
 啟動方式：
     cd /home/pi/factory-tour
@@ -29,6 +32,9 @@ API 端點：
     GET  /areas/:name     - 區域詳情
     GET  /routes          - 導覽路線
     GET  /faq             - 常見問題
+    POST /documents       - 匯入文件（Markdown 文字或檔案路徑）
+    GET  /documents       - 列出自訂文件
+    DELETE /documents/:name - 刪除自訂文件
     GET  /history/:id     - 對話歷史
     GET  /sessions        - 所有 session
     GET  /stats           - 系統統計
@@ -37,6 +43,7 @@ API 端點：
 """
 import logging
 import os
+import threading
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -45,7 +52,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 from factory_tour_agent import create_factory_tour_app, KNOWLEDGE
 from tour_flow import TourManager
@@ -62,8 +69,11 @@ TEMPLATES_DIR = BASE_DIR / "templates"
 
 # ─── 全域變數 ───
 agent_apps: dict = {}  # language -> agent_app
+_agent_lock = threading.Lock()  # 保護 agent_apps 的並發初始化
 tour_manager = TourManager()
 rag_ready = False
+
+MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
 
 
 @asynccontextmanager
@@ -124,13 +134,17 @@ app.add_middleware(
 
 # ─── 取得/建立 Agent App ───
 def get_agent(language: str = DEFAULT_LANGUAGE):
-    """取得指定語言的 Agent，若不存在則建立"""
-    if language not in agent_apps:
-        try:
-            agent_apps[language] = create_factory_tour_app(language=language)
-            logger.info(f"✅ Agent 初始化完成 ({language})")
-        except ValueError as e:
-            raise HTTPException(503, f"Agent 初始化失敗：{e}")
+    """取得指定語言的 Agent，若不存在則建立（執行緒安全）"""
+    if language in agent_apps:
+        return agent_apps[language]
+    with _agent_lock:
+        # Double-check：取得鎖後再次確認，避免重複建立
+        if language not in agent_apps:
+            try:
+                agent_apps[language] = create_factory_tour_app(language=language)
+                logger.info(f"✅ Agent 初始化完成 ({language})")
+            except ValueError as e:
+                raise HTTPException(503, f"Agent 初始化失敗：{e}")
     return agent_apps[language]
 
 
@@ -139,6 +153,16 @@ class ChatRequest(BaseModel):
     message: str
     session_id: str = "default"
     language: str = DEFAULT_LANGUAGE
+
+    @field_validator("message")
+    @classmethod
+    def message_not_empty_or_too_long(cls, v: str) -> str:
+        v = v.strip()
+        if not v:
+            raise ValueError("訊息不得為空")
+        if len(v) > MAX_MESSAGE_LENGTH:
+            raise ValueError(f"訊息過長，上限 {MAX_MESSAGE_LENGTH} 字元")
+        return v
 
 
 class ChatResponse(BaseModel):
@@ -173,7 +197,16 @@ class HealthResponse(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    """首頁 - 美化導覽介面"""
+    """首頁 - 全螢幕 RPG 遊戲導覽"""
+    game_file = BASE_DIR / "static" / "game.html"
+    if game_file.exists():
+        return HTMLResponse(game_file.read_text(encoding="utf-8"))
+    return HTMLResponse("<h1>Game file not found</h1>", status_code=500)
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard():
+    """舊版 Dashboard 介面"""
     html_file = TEMPLATES_DIR / "index.html"
     if html_file.exists():
         return HTMLResponse(html_file.read_text(encoding="utf-8"))
@@ -247,16 +280,17 @@ async def chat(req: ChatRequest):
     except Exception as e:
         error_str = str(e)
 
-        # 偵測 Groq tool_use_failed 錯誤（Llama 3.3 的已知 bug）
+        # 偵測 Groq tool_use_failed 錯誤（部分模型的已知 bug）
         if "tool_use_failed" in error_str:
+            current_model = os.getenv("GROQ_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct")
             logger.warning(
-                f"⚠️ Groq tool_use_failed 錯誤（模型 function calling 格式問題）。"
-                f"建議在 .env 中設定 GROQ_MODEL=meta-llama/llama-4-scout-17b-16e-instruct"
+                f"⚠️ Groq tool_use_failed 錯誤（模型 {current_model} function calling 格式問題）。"
+                f"建議切換至 meta-llama/llama-4-scout-17b-16e-instruct"
             )
             raise HTTPException(
                 status_code=503,
                 detail=(
-                    "目前使用的模型 (llama-3.3) 有已知的 function calling 格式問題。"
+                    f"目前使用的模型 ({current_model}) 有已知的 function calling 格式問題。"
                     "請在 .env 中設定 GROQ_MODEL=meta-llama/llama-4-scout-17b-16e-instruct"
                 ),
             )
@@ -379,6 +413,114 @@ async def list_faq():
 
 
 # ═══════════════════════════════════════════
+# 文件管理 API（RAG 整合 — 方案A）
+# ═══════════════════════════════════════════
+
+
+class DocumentUploadRequest(BaseModel):
+    """文件匯入請求"""
+    content: str | None = None  # Markdown 文字內容（與 file_path 二擇一）
+    file_path: str | None = None  # Markdown 檔案路徑（與 content 二擇一）
+    name: str | None = None  # 文件名稱（僅 content 模式需要）
+
+    @field_validator("content", "file_path")
+    @classmethod
+    def at_least_one(cls, v, info):
+        return v  # 在 endpoint 中驗證
+
+
+@app.post("/documents")
+async def upload_document(req: DocumentUploadRequest):
+    """匯入 Markdown 文件到自訂知識庫
+
+    兩種模式：
+    1. 直接傳送 Markdown 文字：提供 content + name
+    2. 指定 Pi 上的檔案路徑：提供 file_path
+    """
+    try:
+        if os.getenv("SKIP_RAG"):
+            raise HTTPException(503, "RAG 引擎已停用 (SKIP_RAG=1)")
+
+        from rag_engine import get_rag_engine
+
+        engine = get_rag_engine()
+        if not engine.ready:
+            raise HTTPException(503, "RAG 引擎未就緒")
+
+        if req.file_path:
+            # 模式 2: 從檔案匯入
+            chunks = engine.add_markdown_file(req.file_path)
+            if chunks == 0:
+                raise HTTPException(400, f"無法匯入檔案: {req.file_path}")
+            return {
+                "status": "ok",
+                "source": req.file_path,
+                "chunks_added": chunks,
+            }
+        elif req.content:
+            # 模式 1: 從文字匯入
+            doc_name = req.name or "unnamed_document"
+            doc_id = f"doc_{doc_name}"
+            chunks = engine.add_document_from_text(
+                doc_id, req.content, metadata={"source_file": f"{doc_name}.md"}
+            )
+            if chunks == 0:
+                raise HTTPException(400, "文件內容過短或無效")
+            return {
+                "status": "ok",
+                "name": doc_name,
+                "chunks_added": chunks,
+            }
+        else:
+            raise HTTPException(400, "請提供 content 或 file_path")
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"文件匯入失敗: {e}")
+        raise HTTPException(500, f"文件匯入失敗: {e}")
+
+
+@app.get("/documents")
+async def list_documents():
+    """列出所有自訂文件"""
+    try:
+        if os.getenv("SKIP_RAG"):
+            return {"documents": [], "message": "RAG 已停用"}
+        from rag_engine import get_rag_engine
+
+        engine = get_rag_engine()
+        docs = engine.list_custom_documents()
+        stats = engine.get_stats()
+        return {
+            "documents": docs,
+            "total_custom_chunks": stats.get("custom_documents", 0),
+            "embedding_model": stats.get("embedding_model", "unknown"),
+        }
+    except Exception as e:
+        logger.error(f"列出文件失敗: {e}")
+        return {"documents": [], "error": str(e)}
+
+
+@app.delete("/documents/{source_file}")
+async def delete_document(source_file: str):
+    """刪除指定的自訂文件"""
+    try:
+        if os.getenv("SKIP_RAG"):
+            raise HTTPException(503, "RAG 已停用")
+        from rag_engine import get_rag_engine
+
+        engine = get_rag_engine()
+        removed = engine.remove_document(source_file)
+        if removed:
+            return {"status": "deleted", "source_file": source_file}
+        raise HTTPException(404, f"找不到文件: {source_file}")
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(500, f"刪除失敗: {e}")
+
+
+# ═══════════════════════════════════════════
 # 歷史 & 統計 API
 # ═══════════════════════════════════════════
 
@@ -423,7 +565,7 @@ async def get_stats():
         "rag": rag_stats,
         "agents": {
             "loaded_languages": list(agent_apps.keys()),
-            "total_agents_per_language": 4,
+            "total_agents_per_language": 5,
         },
     }
 

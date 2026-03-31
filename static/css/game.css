@@ -1,4 +1,4 @@
-/* game.css - 工廠導覽 2D 遊戲樣式 */
+/* game.css - 全螢幕 RPG 風格工廠導覽 */
 
 * {
   margin: 0;
@@ -7,206 +7,277 @@
 }
 
 body {
-  font-family: "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0f0f1a;
+  font-family: "Microsoft JhengHei", "Noto Sans TC", -apple-system, sans-serif;
+  background: #0a0a12;
   color: #e0e0e0;
   overflow: hidden;
   height: 100vh;
+  width: 100vw;
+  cursor: none;
 }
 
-/* ── 頂部標題列 ── */
-.header {
-  background: linear-gradient(135deg, #1a237e, #283593);
-  padding: 8px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+/* ── 全螢幕 Canvas ── */
+#game-canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
-.header h1 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 700;
-}
-
-.header .subtitle {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-}
-
-/* ── 主容器 ── */
-.game-container {
-  display: flex;
-  height: calc(100vh - 50px);
-  gap: 0;
-}
-
-/* ── Canvas 區域 ── */
-#canvas-container {
-  flex: 1;
+/* ══════════════════════════════════════
+   開場畫面
+   ══════════════════════════════════════ */
+.title-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #12121f;
-  padding: 12px;
-  min-width: 0;
+  z-index: 1000;
+  animation: titleBg 8s ease-in-out infinite;
 }
 
-#game-canvas {
-  border: 2px solid #333;
-  border-radius: 8px;
-  cursor: crosshair;
-  outline: none;
-  display: block;
-  max-width: 100%;
-  image-rendering: pixelated;
+@keyframes titleBg {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-#game-canvas:focus {
-  border-color: #4FC3F7;
-  box-shadow: 0 0 12px rgba(79, 195, 247, 0.3);
+.title-screen.hidden {
+  display: none;
 }
 
-/* ── 聊天面板 ── */
-.chat-panel {
-  width: 340px;
-  min-width: 300px;
-  background: #1a1a2e;
-  border-left: 1px solid #2a2a4a;
-  display: flex;
-  flex-direction: column;
+.title-content {
+  text-align: center;
+  animation: titleFadeIn 1s ease-out;
 }
 
-.chat-header {
-  padding: 12px 16px;
-  background: linear-gradient(135deg, #1b5e20, #2e7d32);
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.chat-header .status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #4CAF50;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-/* ── 聊天訊息區 ── */
-#chat-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-#chat-messages::-webkit-scrollbar {
-  width: 4px;
-}
-
-#chat-messages::-webkit-scrollbar-thumb {
-  background: #444;
-  border-radius: 2px;
-}
-
-.chat-msg {
-  padding: 10px 14px;
-  border-radius: 16px;
-  font-size: 14px;
-  line-height: 1.5;
-  max-width: 90%;
-  word-break: break-word;
-  animation: msgSlide 0.2s ease-out;
-}
-
-@keyframes msgSlide {
-  from { opacity: 0; transform: translateY(8px); }
+@keyframes titleFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.chat-msg-user {
-  background: #1565C0;
+.title-logo {
+  font-size: 80px;
+  margin-bottom: 16px;
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.title-text {
+  font-size: 48px;
+  font-weight: 800;
   color: #fff;
-  align-self: flex-end;
-  border-bottom-right-radius: 4px;
+  text-shadow: 0 0 40px rgba(79, 195, 247, 0.5), 0 4px 8px rgba(0,0,0,0.5);
+  letter-spacing: 8px;
+  margin-bottom: 8px;
 }
 
-.chat-msg-bot,
-.chat-msg-guide {
-  background: #2a2a4a;
-  color: #e0e0e0;
-  align-self: flex-start;
-  border-bottom-left-radius: 4px;
+.title-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 4px;
+  margin-bottom: 40px;
 }
 
-.chat-msg-guide {
-  border-left: 3px solid #4CAF50;
+.title-controls {
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px 32px;
+  margin-bottom: 32px;
+  text-align: left;
+  display: inline-block;
 }
 
-.chat-msg-system {
-  background: rgba(255, 193, 7, 0.15);
-  color: #FFD54F;
-  align-self: center;
-  font-size: 12px;
-  text-align: center;
-  border-radius: 8px;
+.title-controls p {
+  font-size: 15px;
+  margin: 8px 0;
+  color: #ccc;
 }
 
-.msg-icon {
-  margin-right: 4px;
-}
-
-/* 打字指示器 */
-.typing-indicator .dots span {
-  animation: typing 1.4s infinite;
+.start-btn {
+  padding: 14px 48px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: inherit;
+  color: #fff;
+  background: linear-gradient(135deg, #1565C0, #1976D2);
+  border: 2px solid rgba(79, 195, 247, 0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 4px;
+  transition: all 0.3s;
+  animation: btnPulse 2s ease-in-out infinite;
 }
 
-.typing-indicator .dots span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator .dots span:nth-child(3) { animation-delay: 0.4s; }
+.start-btn:hover {
+  background: linear-gradient(135deg, #1976D2, #2196F3);
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(33, 150, 243, 0.5);
+}
 
-@keyframes typing {
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(33, 150, 243, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(33, 150, 243, 0.5); }
+}
+
+/* ══════════════════════════════════════
+   RPG 對話框
+   ══════════════════════════════════════ */
+.dialog-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  pointer-events: none;
+}
+
+.dialog-overlay.hidden {
+  display: none;
+}
+
+.dialog-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(10, 10, 30, 0.95), rgba(15, 15, 40, 0.98));
+  border: 3px solid #4FC3F7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow:
+    0 0 20px rgba(79, 195, 247, 0.3),
+    0 -4px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  pointer-events: auto;
+  animation: dialogSlideUp 0.3s ease-out;
+  position: relative;
+}
+
+@keyframes dialogSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dialog-portrait {
+  width: 64px;
+  height: 64px;
+  background: rgba(79, 195, 247, 0.15);
+  border: 2px solid #4FC3F7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.dialog-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.dialog-speaker {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4FC3F7;
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+
+.dialog-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #e8e8e8;
+  min-height: 48px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.dialog-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 12px;
+  color: rgba(79, 195, 247, 0.7);
+  animation: hintBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes hintBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* 打字動畫 */
+.dialog-typing span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4FC3F7;
+  animation: typingDot 1.4s infinite;
+}
+.dialog-typing span:nth-child(2) { animation-delay: 0.2s; }
+.dialog-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingDot {
   0%, 60%, 100% { opacity: 0.2; }
   30% { opacity: 1; }
 }
 
-/* ── 輸入區 ── */
-.chat-input-row {
-  padding: 12px;
+/* ══════════════════════════════════════
+   聊天輸入框
+   ══════════════════════════════════════ */
+.chat-input-overlay {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  animation: inputSlideUp 0.2s ease-out;
+}
+
+.chat-input-overlay.hidden {
+  display: none;
+}
+
+@keyframes inputSlideUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.chat-input-box {
   display: flex;
+  align-items: center;
   gap: 8px;
-  border-top: 1px solid #2a2a4a;
-  background: #161625;
+  background: rgba(10, 10, 30, 0.95);
+  border: 2px solid #4FC3F7;
+  border-radius: 30px;
+  padding: 8px 16px;
+  box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+}
+
+.chat-input-label {
+  font-size: 14px;
+  color: #4FC3F7;
+  white-space: nowrap;
 }
 
 #chat-input {
-  flex: 1;
-  padding: 10px 16px;
-  border: 1px solid #3a3a5a;
-  border-radius: 20px;
-  background: #222240;
+  width: 400px;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.2s;
-}
-
-#chat-input:focus {
-  border-color: #4FC3F7;
 }
 
 #chat-input::placeholder {
@@ -214,7 +285,7 @@ body {
 }
 
 #chat-send {
-  padding: 10px 20px;
+  padding: 8px 20px;
   background: #1565C0;
   color: #fff;
   border: none;
@@ -230,26 +301,53 @@ body {
   background: #1976D2;
 }
 
-#chat-send:disabled {
-  background: #444;
-  cursor: not-allowed;
+.chat-input-hint {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════
+   互動提示氣泡（NPC 頭上）
+   ══════════════════════════════════════ */
+.interact-hint {
+  position: fixed;
+  z-index: 50;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid #4FC3F7;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #4FC3F7;
+  pointer-events: none;
+  animation: floatHint 1s ease-in-out infinite;
+}
+
+@keyframes floatHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
 /* ── 響應式 ── */
-@media (max-width: 900px) {
-  .game-container {
+@media (max-width: 700px) {
+  .dialog-box {
     flex-direction: column;
+    align-items: center;
+    padding: 12px;
   }
-
-  .chat-panel {
-    width: 100%;
-    min-width: unset;
-    height: 45vh;
-    border-left: none;
-    border-top: 1px solid #2a2a4a;
+  .dialog-portrait {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
   }
-
-  #canvas-container {
-    padding: 4px;
+  #chat-input {
+    width: 200px;
+  }
+  .title-text {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+  .title-logo {
+    font-size: 48px;
   }
 }

@@ -1,11 +1,12 @@
 /**
- * main.js - 遊戲主迴圈
+ * main.js - 全螢幕 RPG 工廠導覽 — 遊戲主迴圈
  */
 import { SPAWN } from './config.js';
 import { buildMap, drawMap, drawMinimap } from './map.js';
 import { Player } from './player.js';
 import { Camera } from './camera.js';
-import { ChatPanel } from './chat.js';
+import { NPCSystem } from './npc.js';
+import { DialogSystem } from './dialog.js';
 import { TriggerSystem } from './triggers.js';
 import { HUD } from './hud.js';
 
@@ -13,75 +14,152 @@ import { HUD } from './hud.js';
 const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
 const keys = {};
-let player, camera, chatPanel, triggers, hud;
+let player, camera, npcSystem, dialog, triggers, hud;
 let lastTime = 0;
+let gameStarted = false;
+let chatInputOpen = false;
 
 // ── 初始化 ──
 function init() {
-  // 設定 canvas 大小
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  // 建構地圖
   buildMap();
 
-  // 建立玩家
   player = new Player(SPAWN.x, SPAWN.y);
-
-  // 建立相機
   camera = new Camera(canvas.width, canvas.height);
-
-  // 建立聊天面板
-  chatPanel = new ChatPanel();
-
-  // 建立觸發系統
-  triggers = new TriggerSystem(chatPanel);
-
-  // 建立 HUD
+  npcSystem = new NPCSystem();
+  dialog = new DialogSystem();
+  triggers = new TriggerSystem(dialog, npcSystem);
   hud = new HUD();
 
   // 鍵盤事件
   window.addEventListener('keydown', (e) => {
-    keys[e.code] = true;
-    // 防止方向鍵捲動頁面
-    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].includes(e.code)) {
-      // 只在 canvas 焦點時阻止
-      if (document.activeElement === document.body || document.activeElement === canvas) {
+    // 聊天輸入框開啟時，不攔截鍵盤
+    if (chatInputOpen) {
+      if (e.key === 'Escape') {
+        closeChatInput();
         e.preventDefault();
+      }
+      return;
+    }
+
+    keys[e.code] = true;
+
+    // 防止方向鍵/空白鍵捲動頁面
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].includes(e.code)) {
+      e.preventDefault();
+    }
+
+    // E / 空白鍵 = 互動
+    if (e.code === 'KeyE' || e.code === 'Space') {
+      handleInteract();
+      e.preventDefault();
+    }
+
+    // T = 開啟聊天輸入
+    if (e.code === 'KeyT' && !dialog.isWaitingAPI) {
+      openChatInput();
+      e.preventDefault();
+    }
+
+    // Escape = 關閉對話
+    if (e.code === 'Escape') {
+      if (dialog.getIsOpen()) {
+        dialog.close();
       }
     }
   });
+
   window.addEventListener('keyup', (e) => {
+    if (chatInputOpen) return;
     keys[e.code] = false;
   });
 
-  // 讓 canvas 可以取得焦點
-  canvas.tabIndex = 1;
-  canvas.focus();
-  canvas.addEventListener('click', () => canvas.focus());
+  // 聊天輸入送出
+  document.getElementById('chat-send').addEventListener('click', submitChatInput);
+  document.getElementById('chat-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      submitChatInput();
+    }
+    e.stopPropagation(); // 防止觸發遊戲鍵盤事件
+  });
 
-  // 開始遊戲迴圈
+  // 開場畫面
+  const startBtn = document.getElementById('start-btn');
+  if (startBtn) {
+    startBtn.addEventListener('click', startGame);
+    // 也允許按任意鍵開始
+    window.addEventListener('keydown', function onceStart(e) {
+      if (!gameStarted && (e.code === 'Enter' || e.code === 'Space')) {
+        startGame();
+        window.removeEventListener('keydown', onceStart);
+      }
+    });
+  } else {
+    startGame();
+  }
+}
+
+function startGame() {
+  gameStarted = true;
+  const titleScreen = document.getElementById('title-screen');
+  if (titleScreen) titleScreen.classList.add('hidden');
+  canvas.focus();
   requestAnimationFrame(gameLoop);
 }
 
 function resizeCanvas() {
-  const container = document.getElementById('canvas-container');
-  // 保持 4:3 比例，最大 800x600
-  const maxW = Math.min(container.clientWidth, 900);
-  const maxH = Math.min(Math.floor(maxW * 0.72), 650);
-  canvas.width = maxW;
-  canvas.height = maxH;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   if (camera) camera.resize(canvas.width, canvas.height);
+}
+
+// ── 互動處理 ──
+function handleInteract() {
+  const npc = npcSystem.getInteractableNpc();
+  dialog.handleInteractKey(npc);
+}
+
+// ── 聊天輸入 ──
+function openChatInput() {
+  chatInputOpen = true;
+  // 清除所有按鍵狀態
+  Object.keys(keys).forEach(k => keys[k] = false);
+  const overlay = document.getElementById('chat-input-overlay');
+  const input = document.getElementById('chat-input');
+  overlay.classList.remove('hidden');
+  input.value = '';
+  input.focus();
+}
+
+function closeChatInput() {
+  chatInputOpen = false;
+  document.getElementById('chat-input-overlay').classList.add('hidden');
+  canvas.focus();
+}
+
+async function submitChatInput() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  closeChatInput();
+  await dialog.askFreeQuestion(msg);
 }
 
 // ── 遊戲迴圈 ──
 function gameLoop(timestamp) {
-  const dt = Math.min((timestamp - lastTime) / 1000, 0.05); // 限制 delta time
+  const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
   lastTime = timestamp;
 
-  // 更新
-  player.update(keys, dt);
+  // 更新（對話框開啟時停止移動）
+  if (!dialog.getIsOpen() && !chatInputOpen) {
+    player.update(keys, dt);
+  }
   camera.update(player.x, player.y);
+  npcSystem.update(player.x, player.y, dt);
   triggers.update(player.x, player.y);
   hud.update(dt);
 
@@ -89,16 +167,19 @@ function gameLoop(timestamp) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // 背景
-  ctx.fillStyle = '#1a1a2e';
+  ctx.fillStyle = '#0a0a12';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // 地圖
   drawMap(ctx, camera, dt);
 
+  // NPC（在玩家下方繪製，除非 NPC 在玩家後面）
+  npcSystem.draw(ctx, camera);
+
   // 玩家
   player.draw(ctx, camera);
 
-  // 迷你地圖
+  // 小地圖
   drawMinimap(ctx, canvas.width, canvas.height, player.x, player.y, triggers.getVisitedAreas());
 
   // HUD

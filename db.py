@@ -83,82 +83,70 @@ def save_message(
     agent_name: str | None = None,
 ):
     """儲存一筆對話訊息"""
-    conn = get_connection()
-    try:
-        conn.execute(
-            """INSERT INTO conversations (session_id, role, content, language, agent_name)
-               VALUES (?, ?, ?, ?, ?)""",
-            (session_id, role, content, language, agent_name),
-        )
-        # 更新 session metadata
-        now = datetime.now(timezone.utc).isoformat()
-        conn.execute(
-            """INSERT INTO session_metadata (session_id, language, total_messages, first_message_at, last_message_at)
-               VALUES (?, ?, 1, ?, ?)
-               ON CONFLICT(session_id) DO UPDATE SET
-                   total_messages = total_messages + 1,
-                   last_message_at = ?,
-                   language = ?""",
-            (session_id, language, now, now, now, language),
-        )
-        conn.commit()
-    finally:
-        conn.close()
+    conn = get_db()
+    conn.execute(
+        """INSERT INTO conversations (session_id, role, content, language, agent_name)
+           VALUES (?, ?, ?, ?, ?)""",
+        (session_id, role, content, language, agent_name),
+    )
+    # 更新 session metadata
+    now = datetime.now(timezone.utc).isoformat()
+    conn.execute(
+        """INSERT INTO session_metadata (session_id, language, total_messages, first_message_at, last_message_at)
+           VALUES (?, ?, 1, ?, ?)
+           ON CONFLICT(session_id) DO UPDATE SET
+               total_messages = total_messages + 1,
+               last_message_at = ?,
+               language = ?""",
+        (session_id, language, now, now, now, language),
+    )
+    conn.commit()
 
 
 def get_history(session_id: str, limit: int = 50) -> list[dict]:
-    """取得某 session 的對話歷史"""
-    conn = get_connection()
-    try:
-        rows = conn.execute(
-            """SELECT role, content, agent_name, created_at
-               FROM conversations
-               WHERE session_id = ?
-               ORDER BY created_at DESC
-               LIMIT ?""",
-            (session_id, limit),
-        ).fetchall()
-        return [
-            {
-                "role": r["role"],
-                "content": r["content"],
-                "agent_name": r["agent_name"],
-                "created_at": r["created_at"],
-            }
-            for r in reversed(rows)
-        ]
-    finally:
-        conn.close()
+    """取得某 session 的對話歷史（按時間正序）"""
+    conn = get_db()
+    rows = conn.execute(
+        """SELECT role, content, agent_name, created_at
+           FROM conversations
+           WHERE session_id = ?
+           ORDER BY created_at ASC
+           LIMIT ?""",
+        (session_id, limit),
+    ).fetchall()
+    return [
+        {
+            "role": r["role"],
+            "content": r["content"],
+            "agent_name": r["agent_name"],
+            "created_at": r["created_at"],
+        }
+        for r in rows
+    ]
 
 
 def get_all_sessions(limit: int = 100) -> list[dict]:
     """取得所有 session 的摘要"""
-    conn = get_connection()
-    try:
-        rows = conn.execute(
-            """SELECT session_id, language, total_messages, first_message_at, last_message_at
-               FROM session_metadata
-               ORDER BY last_message_at DESC
-               LIMIT ?""",
-            (limit,),
-        ).fetchall()
-        return [dict(r) for r in rows]
-    finally:
-        conn.close()
+    conn = get_db()
+    rows = conn.execute(
+        """SELECT session_id, language, total_messages, first_message_at, last_message_at
+           FROM session_metadata
+           ORDER BY last_message_at DESC
+           LIMIT ?""",
+        (limit,),
+    ).fetchall()
+    return [dict(r) for r in rows]
 
 
 def delete_session(session_id: str):
     """刪除某 session 的所有資料"""
-    conn = get_connection()
-    try:
-        conn.execute("DELETE FROM conversations WHERE session_id = ?", (session_id,))
-        conn.execute("DELETE FROM tour_sessions WHERE session_id = ?", (session_id,))
-        conn.execute(
-            "DELETE FROM session_metadata WHERE session_id = ?", (session_id,)
-        )
-        conn.commit()
-    finally:
-        conn.close()
+    conn = get_db()
+    conn.execute("DELETE FROM conversations WHERE session_id = ?", (session_id,))
+    conn.execute("DELETE FROM tour_sessions WHERE session_id = ?", (session_id,))
+    conn.execute(
+        "DELETE FROM session_metadata WHERE session_id = ?", (session_id,)
+    )
+    conn.commit()
 
 
 # ─── Tour Session 管理 ───
@@ -171,77 +159,68 @@ def save_tour_state(
     completed: bool = False,
 ):
     """儲存/更新導覽進度"""
-    conn = get_connection()
+    conn = get_db()
     now = datetime.now(timezone.utc).isoformat()
-    try:
-        conn.execute(
-            """INSERT INTO tour_sessions (session_id, route_name, current_step, visited_areas, language, completed, updated_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?)
-               ON CONFLICT(session_id) DO UPDATE SET
-                   current_step = ?,
-                   visited_areas = ?,
-                   completed = ?,
-                   updated_at = ?""",
-            (
-                session_id,
-                route_name,
-                current_step,
-                json.dumps(visited_areas, ensure_ascii=False),
-                language,
-                completed,
-                now,
-                current_step,
-                json.dumps(visited_areas, ensure_ascii=False),
-                completed,
-                now,
-            ),
-        )
-        conn.commit()
-    finally:
-        conn.close()
+    conn.execute(
+        """INSERT INTO tour_sessions (session_id, route_name, current_step, visited_areas, language, completed, updated_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?)
+           ON CONFLICT(session_id) DO UPDATE SET
+               current_step = ?,
+               visited_areas = ?,
+               completed = ?,
+               updated_at = ?""",
+        (
+            session_id,
+            route_name,
+            current_step,
+            json.dumps(visited_areas, ensure_ascii=False),
+            language,
+            completed,
+            now,
+            current_step,
+            json.dumps(visited_areas, ensure_ascii=False),
+            completed,
+            now,
+        ),
+    )
+    conn.commit()
 
 
 def get_tour_state(session_id: str) -> dict | None:
     """取得導覽進度"""
-    conn = get_connection()
-    try:
-        row = conn.execute(
-            "SELECT * FROM tour_sessions WHERE session_id = ?", (session_id,)
-        ).fetchone()
-        if row:
-            d = dict(row)
-            d["visited_areas"] = json.loads(d["visited_areas"])
-            return d
-        return None
-    finally:
-        conn.close()
+    conn = get_db()
+    row = conn.execute(
+        "SELECT * FROM tour_sessions WHERE session_id = ?", (session_id,)
+    ).fetchone()
+    if row:
+        d = dict(row)
+        d["visited_areas"] = json.loads(d["visited_areas"])
+        return d
+    return None
 
 
 def get_stats() -> dict:
     """取得統計資訊"""
-    conn = get_connection()
-    try:
-        total_sessions = conn.execute(
-            "SELECT COUNT(*) FROM session_metadata"
-        ).fetchone()[0]
-        total_messages = conn.execute(
-            "SELECT COALESCE(SUM(total_messages), 0) FROM session_metadata"
-        ).fetchone()[0]
-        total_tours = conn.execute(
-            "SELECT COUNT(*) FROM tour_sessions"
-        ).fetchone()[0]
-        completed_tours = conn.execute(
-            "SELECT COUNT(*) FROM tour_sessions WHERE completed = TRUE"
-        ).fetchone()[0]
-        lang_stats = conn.execute(
-            "SELECT language, COUNT(*) as cnt FROM session_metadata GROUP BY language"
-        ).fetchall()
-        return {
-            "total_sessions": total_sessions,
-            "total_messages": total_messages,
-            "total_tours": total_tours,
-            "completed_tours": completed_tours,
-            "language_distribution": {r["language"]: r["cnt"] for r in lang_stats},
-        }
-    finally:
-        conn.close()
+    conn = get_db()
+    total_sessions = conn.execute(
+        "SELECT COUNT(*) FROM session_metadata"
+    ).fetchone()[0]
+    total_messages = conn.execute(
+        "SELECT COALESCE(SUM(total_messages), 0) FROM session_metadata"
+    ).fetchone()[0]
+    total_tours = conn.execute(
+        "SELECT COUNT(*) FROM tour_sessions"
+    ).fetchone()[0]
+    completed_tours = conn.execute(
+        "SELECT COUNT(*) FROM tour_sessions WHERE completed = TRUE"
+    ).fetchone()[0]
+    lang_stats = conn.execute(
+        "SELECT language, COUNT(*) as cnt FROM session_metadata GROUP BY language"
+    ).fetchall()
+    return {
+        "total_sessions": total_sessions,
+        "total_messages": total_messages,
+        "total_tours": total_tours,
+        "completed_tours": completed_tours,
+        "language_distribution": {r["language"]: r["cnt"] for r in lang_stats},
+    }

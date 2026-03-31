@@ -2,37 +2,51 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🏭 工廠導覽 - 2D 互動遊戲</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>🏭 智慧工廠導覽 RPG</title>
   <link rel="stylesheet" href="/static/css/game.css">
 </head>
 <body>
-  <!-- 頂部標題 -->
-  <div class="header">
-    <div>
-      <h1>🏭 智慧工廠導覽</h1>
-      <span class="subtitle">Interactive Factory Tour — Powered by AI</span>
+  <!-- 全螢幕 canvas -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- RPG 對話框（覆蓋在 canvas 上方） -->
+  <div id="dialog-overlay" class="dialog-overlay hidden">
+    <div class="dialog-box">
+      <div class="dialog-portrait" id="dialog-portrait">🧑‍🏭</div>
+      <div class="dialog-content">
+        <div class="dialog-speaker" id="dialog-speaker">導覽員</div>
+        <div class="dialog-text" id="dialog-text"></div>
+        <div class="dialog-typing" id="dialog-typing" style="display:none">
+          <span>.</span><span>.</span><span>.</span>
+        </div>
+      </div>
+      <div class="dialog-hint" id="dialog-hint">按 E 關閉</div>
     </div>
   </div>
 
-  <!-- 主容器 -->
-  <div class="game-container">
-    <!-- 遊戲畫面 -->
-    <div id="canvas-container">
-      <canvas id="game-canvas" width="900" height="650"></canvas>
+  <!-- 聊天輸入框（按 T 開啟） -->
+  <div id="chat-input-overlay" class="chat-input-overlay hidden">
+    <div class="chat-input-box">
+      <span class="chat-input-label">💬 提問：</span>
+      <input id="chat-input" type="text" placeholder="輸入問題詢問導覽員..." autocomplete="off">
+      <button id="chat-send">送出</button>
+      <span class="chat-input-hint">Enter 送出 / Esc 取消</span>
     </div>
+  </div>
 
-    <!-- 聊天面板 -->
-    <div class="chat-panel">
-      <div class="chat-header">
-        <span class="status-dot"></span>
-        🧑‍🏭 AI 導覽助手
+  <!-- 開場畫面 -->
+  <div id="title-screen" class="title-screen">
+    <div class="title-content">
+      <div class="title-logo">🏭</div>
+      <h1 class="title-text">智慧工廠導覽</h1>
+      <p class="title-sub">Interactive Factory Tour RPG</p>
+      <div class="title-controls">
+        <p>🎮 <strong>WASD / 方向鍵</strong> — 移動</p>
+        <p>🗣️ <strong>E / 空白鍵</strong> — 與 NPC 對話</p>
+        <p>💬 <strong>T</strong> — 自由提問</p>
       </div>
-      <div id="chat-messages"></div>
-      <div class="chat-input-row">
-        <input id="chat-input" placeholder="輸入問題詢問導覽員..." autocomplete="off">
-        <button id="chat-send">送出</button>
-      </div>
+      <button id="start-btn" class="start-btn">▶ 開始導覽</button>
     </div>
   </div>
 

@@ -1,16 +1,16 @@
 /**
- * triggers.js - 區域進入偵測與觸發
+ * triggers.js - 區域進入偵測與觸發（RPG 版）
+ * 進入區域時自動觸發 AI 對話框介紹
  */
 import { getRoomAt } from './map.js';
 
 export class TriggerSystem {
-  constructor(chatPanel) {
-    this.chat = chatPanel;
+  constructor(dialog, npcSystem) {
+    this.dialog = dialog;
+    this.npcSystem = npcSystem;
     this.currentAreaId = null;
     this.visitedAreas = new Set();
-    this.lastTriggerTime = {};
-    this.cooldown = 30000; // 30 秒冷卻
-    this.areaCache = {};   // 快取區域資料
+    this.triggeredAreas = new Set(); // 已自動觸發過的區域
   }
 
   update(playerX, playerY) {
@@ -18,37 +18,20 @@ export class TriggerSystem {
     const newAreaId = room ? room.id : null;
 
     if (newAreaId !== this.currentAreaId) {
-      const previousArea = this.currentAreaId;
       this.currentAreaId = newAreaId;
 
-      if (room && this.shouldTrigger(room.id)) {
+      if (room) {
         this.visitedAreas.add(room.id);
-        this.lastTriggerTime[room.id] = Date.now();
-        this.onEnterArea(room);
-      }
-    }
-  }
 
-  shouldTrigger(areaId) {
-    const lastTime = this.lastTriggerTime[areaId] || 0;
-    return (Date.now() - lastTime) > this.cooldown;
-  }
-
-  async onEnterArea(room) {
-    // 先載入快取的區域資料
-    if (!this.areaCache[room.id]) {
-      try {
-        const res = await fetch(`/areas/${room.id}`);
-        if (res.ok) {
-          this.areaCache[room.id] = await res.json();
+        // 首次進入 → 自動觸發區域介紹
+        if (!this.triggeredAreas.has(room.id)) {
+          this.triggeredAreas.add(room.id);
+          // 找到該區域的 NPC
+          const npc = this.npcSystem.getNpcs().find(n => n.roomId === room.id);
+          this.dialog.triggerAreaEntry(room, npc);
         }
-      } catch (e) {
-        // 靜默失敗
       }
     }
-
-    // 觸發 AI 導覽
-    await this.chat.triggerAreaIntro(room);
   }
 
   getVisitedAreas() {

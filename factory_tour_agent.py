@@ -1,24 +1,29 @@
 """
-factory_tour_agent.py - 工廠導覽 Multi-Agent 系統 v2.0
-在 Raspberry Pi 5 上運行，使用 LangGraph + Groq (Llama 3.3)
+factory_tour_agent.py - 工廠導覽 Multi-Agent 系統 v2.1
+在 Raspberry Pi 5 上運行，使用 LangGraph + Groq (Llama 4 Scout)
 
-新增功能：
-  - 4 個 Agent（導覽員、安全專家、技術專家、QA 客服）
+功能：
+  - 5 個 Agent（導覽員、安全專家、技術專家、QA 客服、知識檢索）
   - 多語言支援（繁中/英文/日文）
-  - RAG 知識檢索
+  - RAG 知識檢索（工廠知識 + 自訂文件）
   - 互動式導覽流程
   - SQLite 對話持久化
 
+v2.1 — 整合東海大學 RAG 專案（方案A: 知識檢索 Agent）
+
 作者：Roy (YORROY123)
 建立：2026-03-30
-更新：2026-03-31
+更新：2026-03-31 (RAG 整合)
 """
 import json
+import logging
 import os
 from pathlib import Path
 from typing import Optional
 
 from dotenv import load_dotenv
+
+logger = logging.getLogger(__name__)
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent
@@ -32,6 +37,7 @@ from i18n import (
     SAFETY_EXPERT_PROMPTS,
     TECH_EXPERT_PROMPTS,
     QA_AGENT_PROMPTS,
+    KNOWLEDGE_AGENT_PROMPTS,
     DEFAULT_LANGUAGE,
 )
 
@@ -386,9 +392,71 @@ def rag_knowledge_search(query: str) -> str:
 
         return rag_search(query, n_results=3)
     except ImportError:
-        return "RAG 引擎未安裝。請安裝 chromadb: pip install chromadb"
+        logger.info("RAG 引擎未安裝，fallback 到一般搜尋")
+        return "RAG 引擎未安裝，請使用其他工具搜尋。"
     except Exception as e:
-        return f"RAG 搜尋錯誤：{str(e)}"
+        logger.error(f"RAG 搜尋失敗: {e}")
+        return f"RAG 搜尋暫時無法使用，請使用其他工具查詢。"
+
+
+# ═══════════════════════════════════════════
+# Knowledge Agent 工具（RAG 整合 — 方案A）
+# ═══════════════════════════════════════════
+
+@tool
+def search_custom_knowledge(query: str) -> str:
+    """搜尋自訂文件知識庫（外部匯入的 Markdown 文件）。
+
+    Args:
+        query: 搜尋查詢，自然語言描述要找的資訊
+    """
+    try:
+        from rag_engine import rag_search_custom
+
+        return rag_search_custom(query, n_results=3)
+    except ImportError:
+        return "RAG 引擎未安裝。"
+    except Exception as e:
+        logger.error(f"自訂知識搜尋失敗: {e}")
+        return "搜尋暫時無法使用。"
+
+
+@tool
+def search_all_knowledge(query: str) -> str:
+    """同時搜尋工廠知識和自訂文件知識庫，適合跨領域的問題。
+
+    Args:
+        query: 搜尋查詢，自然語言描述要找的資訊
+    """
+    try:
+        from rag_engine import rag_search_all
+
+        return rag_search_all(query, n_results=5)
+    except ImportError:
+        return "RAG 引擎未安裝。"
+    except Exception as e:
+        logger.error(f"全域知識搜尋失敗: {e}")
+        return "搜尋暫時無法使用。"
+
+
+@tool
+def list_knowledge_documents() -> str:
+    """列出所有已匯入的自訂文件清單"""
+    try:
+        from rag_engine import get_rag_engine
+
+        engine = get_rag_engine()
+        docs = engine.list_custom_documents()
+        if not docs:
+            return "目前沒有匯入任何自訂文件。"
+
+        result = f"📚 已匯入 {len(docs)} 份自訂文件：\n\n"
+        for doc in docs:
+            result += f"  • {doc['source_file']} ({doc['chunks']} 段落)\n"
+        return result
+    except Exception as e:
+        logger.error(f"列出文件失敗: {e}")
+        return "無法取得文件清單。"
 
 
 # ═══════════════════════════════════════════
@@ -444,11 +512,35 @@ def create_qa_agent(llm, language: str = DEFAULT_LANGUAGE):
     )
 
 
+def create_knowledge_agent(llm, language: str = DEFAULT_LANGUAGE):
+    """建立知識檢索 Agent（RAG 整合 — 方案A）
+
+    整合東海大學 RAG 專案的核心能力，支援：
+    - 搜尋自訂文件知識庫
+    - 跨集合全域搜尋（工廠 + 自訂）
+    - 列出已匯入的文件
+    """
+    tools = [search_custom_knowledge, search_all_knowledge, list_knowledge_documents]
+    return create_react_agent(
+        model=llm,
+        tools=tools,
+        name="knowledge_agent",
+        prompt=get_prompt(KNOWLEDGE_AGENT_PROMPTS, language),
+    )
+
+
 # ─── 建構 Multi-Agent 系統 ───
 def create_factory_tour_app(
     checkpointer=None, language: str = DEFAULT_LANGUAGE
 ):
-    """建立並回傳工廠導覽 Multi-Agent 應用
+    """建立並回傳工廠導覽 Multi-Agent 應用 v2.0
+
+    包含 5 個 Agent：
+    1. tour_guide - 導覽員
+    2. safety_expert - 安全專家
+    3. tech_expert - 技術專家
+    4. qa_agent - QA 客服
+    5. knowledge_agent - 知識檢索（RAG 整合）
 
     Args:
         checkpointer: LangGraph checkpointer（預設 InMemorySaver）
@@ -460,9 +552,10 @@ def create_factory_tour_app(
     safety_expert = create_safety_expert(llm, language)
     tech_expert = create_tech_expert(llm, language)
     qa_agent = create_qa_agent(llm, language)
+    knowledge_agent = create_knowledge_agent(llm, language)
 
     workflow = create_supervisor(
-        agents=[tour_guide, safety_expert, tech_expert, qa_agent],
+        agents=[tour_guide, safety_expert, tech_expert, qa_agent, knowledge_agent],
         model=llm,
         prompt=get_prompt(SUPERVISOR_PROMPTS, language),
     )
