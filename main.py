@@ -1,6 +1,7 @@
 """
 main.py - 工廠導覽 Multi-Agent Web API
 使用 FastAPI 提供 RESTful 介面
+AI 後端：Groq (Llama 3.3 70B)
 
 作者：Roy (YORROY123)
 建立：2026-03-30
@@ -48,7 +49,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="工廠導覽 Multi-Agent API",
-    description="基於 LangGraph + Gemini 的工廠導覽系統",
+    description="基於 LangGraph + Groq 的工廠導覽系統",
     version="0.1.0",
     lifespan=lifespan,
 )
@@ -121,7 +122,7 @@ async def root():
                        onkeydown="if(event.key==='Enter')send()">
                 <button onclick="send()" id="btn">送出</button>
             </div>
-            <div class="status">Powered by LangGraph + Gemini on Raspberry Pi 5</div>
+            <div class="status">Powered by LangGraph + Groq on Raspberry Pi 5</div>
         </div>
         <script>
             const chat = document.getElementById('chat');
@@ -165,7 +166,7 @@ async def chat(req: ChatRequest):
     if agent_app is None:
         raise HTTPException(
             status_code=503,
-            detail="Agent 尚未初始化。請確認已設定 GOOGLE_API_KEY。"
+            detail="Agent 尚未初始化。請確認已設定 GROQ_API_KEY。"
         )
 
     config = {"configurable": {"thread_id": req.session_id}}

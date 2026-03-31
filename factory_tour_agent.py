@@ -1,6 +1,6 @@
 """
 factory_tour_agent.py - 工廠導覽 Multi-Agent 系統
-在 Raspberry Pi 5 上運行，使用 LangGraph + Gemini
+在 Raspberry Pi 5 上運行，使用 LangGraph + Groq (Llama 3.3)
 
 作者：Roy (YORROY123)
 建立：2026-03-30
@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Optional
 
 from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent
 from langgraph_supervisor import create_supervisor
@@ -41,20 +41,20 @@ EMERGENCY = KNOWLEDGE.get("emergency", {})
 
 
 # ─── 模型初始化 ───
-def get_llm(model: str = "gemini-2.0-flash", temperature: float = 0.7):
-    """初始化 Gemini LLM"""
-    api_key = os.getenv("GOOGLE_API_KEY")
+def get_llm(model: str = "llama-3.3-70b-versatile", temperature: float = 0.7):
+    """初始化 Groq LLM"""
+    api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise ValueError(
-            "未設定 GOOGLE_API_KEY！\n"
+            "未設定 GROQ_API_KEY！\n"
             "請在 .env 檔案中設定，或執行：\n"
-            "  export GOOGLE_API_KEY='your-key-here'\n"
-            "API Key 申請：https://aistudio.google.com/apikey"
+            "  export GROQ_API_KEY='your-key-here'\n"
+            "API Key 申請：https://console.groq.com/keys"
         )
-    return ChatGoogleGenerativeAI(
+    return ChatGroq(
         model=model,
         temperature=temperature,
-        google_api_key=api_key,
+        groq_api_key=api_key,
     )
 
 
@@ -220,7 +220,7 @@ def main():
     """命令列互動模式"""
     print("=" * 50)
     print("  🏭 工廠導覽 Multi-Agent 系統")
-    print("  Powered by LangGraph + Gemini")
+    print("  Powered by LangGraph + Groq")
     print("=" * 50)
     print("輸入 'quit' 或 'q' 結束\n")
 
