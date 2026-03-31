@@ -2,7 +2,9 @@
 
 基於 LangGraph + Gemini 的智慧工廠導覽系統，運行在 Raspberry Pi 5 上。
 
-## 架構
+## 架構總覽
+
+### 系統架構圖
 
 ```mermaid
 flowchart TB
@@ -69,6 +71,80 @@ flowchart TB
     style SUP fill:#ff9800,color:#fff,stroke:#e65100
     style TG fill:#42a5f5,color:#fff
     style SE fill:#ef5350,color:#fff
+```
+
+### 專案檔案結構
+
+```
+factory-tour/
+├── main.py                    # FastAPI Web 伺服器 + 聊天介面
+├── factory_tour_agent.py      # Multi-Agent 核心（Supervisor + Agents + Tools）
+├── knowledge/
+│   └── areas.json             # 工廠知識庫（區域、路線、安全規範、緊急資訊）
+├── requirements.txt           # Python 套件依賴
+├── .env                       # 環境變數（GOOGLE_API_KEY）
+├── .env.example               # 環境變數範本
+├── .gitignore
+└── README.md
+```
+
+### 對話處理流程圖
+
+```mermaid
+sequenceDiagram
+    actor User as 訪客
+    participant Web as FastAPI<br/>Web 介面
+    participant Sup as Supervisor<br/>Agent
+    participant LLM as Gemini 2.0<br/>Flash
+    participant TG as Tour Guide<br/>Agent
+    participant SE as Safety Expert<br/>Agent
+    participant KB as Knowledge Base<br/>areas.json
+
+    User->>Web: POST /chat<br/>「組裝線A的設備有哪些？」
+    Web->>Sup: invoke(messages)
+
+    Note over Sup,LLM: Step 1: 路由決策
+    Sup->>LLM: 分析問題類型
+    LLM-->>Sup: → 廠區問題 → tour_guide
+
+    Note over Sup,TG: Step 2: 分派給專家
+    Sup->>TG: 轉交問題
+    TG->>LLM: 決定使用哪個工具
+    LLM-->>TG: → get_factory_info("組裝線A")
+
+    Note over TG,KB: Step 3: 查詢知識庫
+    TG->>KB: 讀取 areas.json
+    KB-->>TG: 組裝線A 的完整資料
+
+    Note over TG,LLM: Step 4: 生成回覆
+    TG->>LLM: 結合資料生成自然語言回答
+    LLM-->>TG: 友善的導覽說明
+    TG-->>Sup: 回傳結果
+    Sup-->>Web: 最終回覆
+    Web-->>User: 顯示回答
+```
+
+### 導覽路線地圖
+
+```mermaid
+graph LR
+    A["🏢 大廳<br/><small>訪客登記・領取裝備</small>"]
+    B["⚙️ 組裝線A<br/><small>SMT 貼片・回焊・AOI</small>"]
+    C["🔍 品管室<br/><small>AOI・X-ray・功能測試</small>"]
+    D["📦 倉儲區<br/><small>自動化立體倉庫</small>"]
+    E["🪑 會議室<br/><small>Q&A・合作討論</small>"]
+
+    A -->|"標準 & 快速"| B
+    B -->|"標準 & 快速"| C
+    C -->|"標準路線"| D
+    C -->|"快速路線"| E
+    D -->|"標準路線"| E
+
+    style A fill:#bbdefb,stroke:#1565c0
+    style B fill:#fff9c4,stroke:#f9a825
+    style C fill:#c8e6c9,stroke:#2e7d32
+    style D fill:#ffe0b2,stroke:#ef6c00
+    style E fill:#e1bee7,stroke:#7b1fa2
 ```
 
 ### 角色說明
