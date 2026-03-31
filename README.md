@@ -1,6 +1,6 @@
 # 工廠導覽 Multi-Agent 系統
 
-基於 LangGraph + Gemini 的智慧工廠導覽系統，運行在 Raspberry Pi 5 上。
+基於 LangGraph + Groq (Llama 3.3 70B) 的智慧工廠導覽系統，運行在 Raspberry Pi 5 上。
 
 ## 架構總覽
 
@@ -53,7 +53,7 @@ flowchart TB
     end
 
     subgraph Infra["⚙️ 基礎設施"]
-        GEMINI["☁️ Gemini 2.0 Flash<br/>(Google AI)"]
+        GEMINI["☁️ Groq Llama 3.3<br/>(Google AI)"]
         PI["🍓 Raspberry Pi 5<br/>16GB RAM"]
     end
 
@@ -194,6 +194,6 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 - Python 3.13
 - LangGraph 1.1 + langgraph-supervisor
-- LangChain + Google Gemini 2.0 Flash
+- LangChain + Google Groq Llama 3.3
 - FastAPI + Uvicorn
 - SQLite (對話持久化，選配)
