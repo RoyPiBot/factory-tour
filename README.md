@@ -77,12 +77,27 @@ flowchart TB
 
 ```
 factory-tour/
-├── main.py                    # FastAPI Web 伺服器 + 聊天介面
+├── main.py                    # FastAPI Web 伺服器 + REST API + 2D RPG 前端
 ├── factory_tour_agent.py      # Multi-Agent 核心（Supervisor + Agents + Tools）
+├── rag_engine.py              # RAG 知識檢索引擎（SentenceTransformer + ChromaDB）
+├── db.py                      # SQLite 對話持久化
+├── i18n.py                    # 多語系支援（中/英/日）
+├── tour_flow.py               # 導覽流程控制
 ├── knowledge/
-│   └── areas.json             # 工廠知識庫（區域、路線、安全規範、緊急資訊）
+│   ├── areas.json             # 工廠知識庫（區域、路線、安全規範）
+│   └── faq.json               # 常見問題集
+├── documents/                 # RAG 用文件資料夾
+├── static/
+│   ├── game.html              # 2D RPG 工廠導覽遊戲介面
+│   ├── js/                    # 前端 JavaScript（dialog.js, npc.js 等）
+│   ├── css/                   # 樣式表
+│   └── img/                   # 遊戲素材圖片
+├── templates/
+│   └── index.html             # Web 聊天介面模板
+├── tests/                     # 測試
+├── data/                      # 運行時資料（ChromaDB 向量庫等）
 ├── requirements.txt           # Python 套件依賴
-├── .env                       # 環境變數（GOOGLE_API_KEY）
+├── .env                       # 環境變數（API Keys）
 ├── .env.example               # 環境變數範本
 ├── .gitignore
 └── README.md
@@ -154,6 +169,7 @@ graph LR
 | **Supervisor** | 分析訪客問題，路由給對應的專家 Agent | — |
 | **Tour Guide** | 廠區介紹、設備說明、導覽路線 | `get_factory_info`, `get_all_areas`, `get_route_info` |
 | **Safety Expert** | 安全規範、防護裝備、緊急應變 | `get_safety_rules`, `get_all_safety_rules`, `get_emergency_info` |
+| **Knowledge Agent** | RAG 知識檢索，回答文件相關問題 | SentenceTransformer + ChromaDB |
 
 ## 快速開始
 
@@ -190,10 +206,20 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 工廠資訊存放在 `knowledge/areas.json`，可自行編輯新增區域。
 
+## 功能亮點
+
+- 🎮 **2D RPG 導覽介面** — 像素風遊戲地圖，點擊 NPC 觸發對話
+- 🧠 **RAG 知識檢索** — 上傳文件自動建立向量索引，支援語意搜尋
+- 🌐 **多語系** — 支援中文、英文、日文切換
+- 💾 **對話記憶** — SQLite 持久化，跨 session 保留對話歷史
+- 🛡️ **安全導覽** — 獨立的安全專家 Agent 處理緊急情況
+
 ## 技術棧
 
 - Python 3.13
 - LangGraph 1.1 + langgraph-supervisor
-- LangChain + Google Groq Llama 3.3
+- LangChain + Groq (Llama 3.3 70B)
 - FastAPI + Uvicorn
-- SQLite (對話持久化，選配)
+- SentenceTransformers (all-MiniLM-L6-v2) + ChromaDB
+- SQLite (對話持久化)
+- 2D RPG 前端 (HTML5 Canvas + JavaScript)
