@@ -1024,3 +1024,20 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [Agent Middleware](https://blog.langchain.com/agent-middleware/)
+
+---
+
+## 14. LangGraph v2 時間旅行與協議支援增強（2026/03）
+
+> **多代理系統成熟度新高峰**
+
+LangGraph v2 在 3 月進一步強化：
+
+- **時間旅行與中斷恢復**：支援 replay 功能，可恢復歷史檢查點狀態，同時修正子圖（subgraphs）不重用陳舊 RESUME 值的問題，確保複雜多層代理系統的狀態一致性
+- **跨協議代理通訊**：整合 MCP（Model Context Protocol）與 A2A（Agent-to-Agent communication），使多代理系統能跨不同框架協作，適合 OpenClaw 多渠道架構擴展
+- **GraphOutput 型別物件**：`invoke()` 回傳統一的 GraphOutput 物件含 `.value` 與 `.interrupts` 屬性，簡化複雜工作流的狀態管理
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026 - DEV Community](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
