@@ -151,6 +151,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
 
     使用 Double-check Locking 確保多執行緒環境下的效率和安全性。
     避免在建立新 agent 時阻塞其他語言的查詢。
+    首次查詢無鎖，只在需要建立新 Agent 時才加鎖，大幅降低競爭開銷。
     """
     if language in agent_apps:
         return agent_apps[language]
