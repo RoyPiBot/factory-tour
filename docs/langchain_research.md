@@ -1041,3 +1041,19 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026 - DEV Community](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 15. LangGraph v2 性能優化 — 節點級快取與延遲節點（2026/02-04）
+
+> **Pi 5 + 多代理工作流最佳化**
+
+LangGraph 2.0 導入節點級效能最佳化機制：
+
+1. **節點與工作級快取**（Node/Task Level Caching）：支援快取個別節點的執行結果，減少重複計算，特別適合 Pi 5 受限的記憶體與 CPU 環境，可顯著加速複雜圖遍歷
+2. **延遲節點支援**（Deferred Nodes）：使用者可標記節點在所有上游路徑完成後才執行，簡化依賴管理，適合 factory-tour 多代理協調場景
+3. **模型能力探測進階化**：Chat models 透過 `.profile` 屬性暴露結構化輸出、函數呼叫等支援能力，Agent 可動態選擇最佳模型路徑，進一步降低 Gemini API 調用成本
+
+Sources:
+- [LangGraph 2.0 Release - LangChain Changelog](https://changelog.langchain.com/)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
