@@ -1007,6 +1007,19 @@ LangGraph 新增三類核心 middleware：
 
 這些 middleware 特別適合在 Pi 5 + Gemini 的組合上使用，因為網路不穩定時可自動重試，同時監控對話安全性。
 
+---
+
+## 13. LangGraph 2.0 型別安全 API 與新 Middleware（2026/02 - 03）
+
+> **生產級框架成熟度里程碑**
+
+LangGraph 2.0（2026 年 2 月）正式發佈三年來生產環節驗證的最佳實踐。3 月 10 日推出了型別安全的串流與呼叫 API：
+
+- **version="v2" 型別安全串流**：所有輸出統一為 `StreamPart`，帶 `type`、`ns`、`data` 三個鍵，直接相容 Pydantic 或 dataclass 自動強制轉換
+- **Pydantic/dataclass 自動強制轉換**：`invoke()` 與 `stream()` 的輸出自動轉換為宣告的型別，減少手動序列化
+- **Model Profiles 動態能力探測**：每個 LLM 透過 `.profile` 屬性暴露結構化輸出、函數呼叫、Vision 等能力，Agent 可據此動態調度
+- **新增三大 Middleware**：Retry（指數退避重試）、Content Moderation（內容審核）、Summarization（上下文優化），特別適合 Pi 5 + 雲端 LLM 的組合
+
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)

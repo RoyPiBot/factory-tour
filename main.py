@@ -309,6 +309,7 @@ async def chat(req: ChatRequest):
     agent = get_agent(language)
 
     config = {"configurable": {"thread_id": req.session_id}}
+    # 使用指定的 session thread ID 調用 agent，確保多回合對話的連貫性
     try:
         result = agent.invoke(
             {"messages": [{"role": "user", "content": req.message}]},
