@@ -56,7 +56,7 @@ TEMPLATES_DIR = BASE_DIR / "templates"
 # ─── 全域變數 ───
 agent_apps: dict = {}  # language -> agent_app
 _agent_lock = threading.Lock()  # 保護 agent_apps 的並發初始化，避免多執行緒重複建立相同語言的 Agent
-tour_manager = TourManager()
+tour_manager = TourManager()  # 管理多個導覽 session 的狀態與進度
 rag_ready = False
 sensor_sim: SensorSimulator | None = None
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播

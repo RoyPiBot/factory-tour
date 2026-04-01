@@ -1090,3 +1090,19 @@ Sources:
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph: Build Stateful Multi-Agent Systems That Don't Crash](https://www.mager.co/blog/2026-03-12-langgraph-deep-dive/)
+
+---
+
+## 18. SQLite Checkpoint 安全更新與 LangGraph 版本管理（2026/04 重要補丁）
+
+> **生產部署必讀安全警告**
+
+2026 年 3 月底發現 LangGraph SQLite checkpoint 實作存在 SQL 注入漏洞（CVE-2025-67644，CVSS 7.3），攻擊者可透過 metadata filter 鍵值操縱 SQL 查詢。對於 Pi 5 上運行的 Factory Tour 系統特別關鍵：
+
+- **受影響版本**：所有在 2026-03-24 前發佈的版本，包括安裝教程中提及的 `langgraph-supervisor`
+- **修復方案**：立即升級至最新補丁版本（具體版本號待 LangChain 官方發佈），並檢查 `.env` 中的 SQLite 資料庫路徑權限
+- **Pi 5 部署建議**：定期執行 `pip install --upgrade langgraph`，設定 crontab 自動檢查更新，並備份 `~/.local/share/langgraph/checkpoints.db` 避免狀態遺失
+
+Sources:
+- [LangChain, LangGraph Flaws Expose Files, Secrets, Databases](https://thehackernews.com/2026/03/langchain-langgraph-flaws-expose-files.html)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
