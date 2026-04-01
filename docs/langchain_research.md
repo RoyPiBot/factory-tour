@@ -965,6 +965,49 @@ print(f"安全提示：{response.safety_warnings}")
 
 此特性減少了手動 JSON 解析和驗證的繁瑣，特別適合在 Raspberry Pi 上執行的資源受限環境。搭配 Node Caching，可進一步優化連續多輪對話的處理效率。
 
+---
+
+## 12. LangGraph Agent Middleware 與模型能力探測（2026/04/01 更新）
+
+> **生產環節關鍵新增**
+
+LangChain 1.1（2025 年 12 月）與 LangGraph 2026 Q2 更新引入了 **Agent Middleware** 與 **Model Profiles** 機制，進一步強化了 Agent 可靠性與智慧化調度能力。
+
+### 12.1 Model Profiles 自動能力探測
+
+模型現在透過 `.profile` 屬性暴露其支援的能力集合，包括：
+- 結構化輸出（Structured Output）
+- 函數呼叫（Function Calling）
+- JSON 模式支援
+- Vision 能力
+- 長上下文支援
+- 工具使用能力
+
+在工廠導覽場景，可據此動態選擇最適合的模型與 Agent：
+
+```python
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-pro")
+
+# 查詢模型能力
+if llm.model.profile.supports("vision"):
+    # 使用視覺檢測 Agent（例如 AOI 缺陷分析）
+    vision_agent = create_vision_inspector()
+elif llm.model.profile.supports("structured_output"):
+    # 使用結構化資料提取 Agent
+    data_agent = create_data_extractor()
+```
+
+### 12.2 新增 Middleware 系統
+
+LangGraph 新增三類核心 middleware：
+
+1. **模型 Retry Middleware**：自動重試失敗的模型呼叫，支援指數退避（exponential backoff）
+2. **內容審核 Middleware**（OpenAI Content Moderation）：檢測並處理不安全內容，適合公開導覽場景
+3. **Summarization Middleware**：利用 Model Profiles 決策何時總結長對話，維持上下文同時降低 token 消耗
+
+這些 middleware 特別適合在 Pi 5 + Gemini 的組合上使用，因為網路不穩定時可自動重試，同時監控對話安全性。
+
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [Agent Middleware](https://blog.langchain.com/agent-middleware/)
