@@ -896,7 +896,7 @@ function drawWhiteboard(ctx, x, y, h, label) {
    迷你地圖 — 升級版
    ══════════════════════════════════════════ */
 export function drawMinimap(ctx, canvasW, canvasH, playerX, playerY, visitedAreas) {
-  const scale = 0.12;
+  const scale = 0.09;
   const mw = MAP_COLS * TILE_SIZE * scale;
   const mh = MAP_ROWS * TILE_SIZE * scale;
   const mx = canvasW - mw - 12;

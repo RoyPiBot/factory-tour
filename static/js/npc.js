@@ -18,12 +18,12 @@ const NPC_DEFS = [
     emoji: '👩‍💼',
     portrait: '👩‍💼',
     color: '#66bb6a',
-    offsetX: 4, offsetY: 2,
+    offsetX: 5, offsetY: 3,
     greeting: '歡迎來到智慧工廠！我是接待員小美，需要我帶您參觀嗎？',
     idleFrames: ['👩‍💼', '👩‍💼', '🙋‍♀️', '👩‍💼'],
     // 巡邏路點（房間內 tile 偏移）
     patrolPoints: [
-      { x: 4, y: 2 }, { x: 2, y: 3 }, { x: 5, y: 4 }, { x: 4, y: 2 },
+      { x: 5, y: 3 }, { x: 3, y: 5 }, { x: 8, y: 6 }, { x: 5, y: 3 },
     ],
     // 隨機招呼語
     greetings: [
@@ -38,11 +38,11 @@ const NPC_DEFS = [
     emoji: '👷',
     portrait: '👷',
     color: '#ffa726',
-    offsetX: 4, offsetY: 4,
+    offsetX: 6, offsetY: 5,
     greeting: '嘿！歡迎來到 SMT 產線！這裡每小時可以處理 8 萬個零件呢！',
     idleFrames: ['👷', '👷', '🔧', '👷'],
     patrolPoints: [
-      { x: 4, y: 4 }, { x: 7, y: 3 }, { x: 3, y: 5 }, { x: 8, y: 4 },
+      { x: 6, y: 5 }, { x: 10, y: 4 }, { x: 4, y: 7 }, { x: 12, y: 5 },
     ],
     greetings: [
       '小心燙！回焊爐很熱', '要不要看看 SMT 流程？', '今日良率 99.87%！',
@@ -56,11 +56,11 @@ const NPC_DEFS = [
     emoji: '👩‍🔬',
     portrait: '👩‍🔬',
     color: '#29b6f6',
-    offsetX: 5, offsetY: 2,
+    offsetX: 7, offsetY: 3,
     greeting: '您好！我是品管室的小琳。我們的不良率控制在 0.1% 以下！',
     idleFrames: ['👩‍🔬', '👩‍🔬', '🔍', '👩‍🔬'],
     patrolPoints: [
-      { x: 5, y: 2 }, { x: 3, y: 3 }, { x: 7, y: 2 }, { x: 5, y: 3 },
+      { x: 7, y: 3 }, { x: 4, y: 4 }, { x: 10, y: 3 }, { x: 7, y: 5 },
     ],
     greetings: [
       '品質是我們的命脈', 'AOI 正在掃描中...', '來看看 X-ray 檢測？',
@@ -74,11 +74,11 @@ const NPC_DEFS = [
     emoji: '👨‍🔧',
     portrait: '👨‍🔧',
     color: '#ef5350',
-    offsetX: 5, offsetY: 3,
+    offsetX: 7, offsetY: 4,
     greeting: '歡迎到倉儲區！我們使用自動化倉儲系統，可存放一萬個棧板。',
     idleFrames: ['👨‍🔧', '👨‍🔧', '📦', '👨‍🔧'],
     patrolPoints: [
-      { x: 5, y: 3 }, { x: 3, y: 2 }, { x: 7, y: 4 }, { x: 5, y: 2 },
+      { x: 7, y: 4 }, { x: 4, y: 3 }, { x: 10, y: 5 }, { x: 7, y: 3 },
     ],
     greetings: [
       '堆高機通道請注意！', '今天出了 200 箱貨', '倉位 A3 剛進新料',
@@ -92,11 +92,11 @@ const NPC_DEFS = [
     emoji: '👨‍💼',
     portrait: '👨‍💼',
     color: '#ab47bc',
-    offsetX: 2, offsetY: 2,
+    offsetX: 4, offsetY: 3,
     greeting: '辛苦了！導覽即將結束，有任何問題都可以問我。',
     idleFrames: ['👨‍💼', '👨‍💼', '☕', '👨‍💼'],
     patrolPoints: [
-      { x: 2, y: 2 }, { x: 4, y: 3 }, { x: 2, y: 4 }, { x: 5, y: 2 },
+      { x: 4, y: 3 }, { x: 6, y: 4 }, { x: 3, y: 5 }, { x: 7, y: 3 },
     ],
     greetings: [
       '導覽怎麼樣？', '有什麼建議嗎？', '我們的目標是零災害',

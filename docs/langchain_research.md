@@ -928,3 +928,43 @@ LangGraph 在 2026 Q1 推出多項重要改進，強化生產級應用支援：
 2. **Model Profiles & Middleware**：LangGraph 2026 支援 `.profile` 屬性直接查詢 LLM 能力（如支援函數呼叫、vision、長上下文等），新增「模型 retry middleware」和「OpenAI 內容審核 middleware」。於工廠環境，可根據模型能力動態調度專業 Agent（文本分析 vs 視覺檢測），同步確保安全合規。
 
 這兩項更新大幅降低開發者在串流調試與異常處理的成本。
+
+---
+
+## 11. LangGraph 2.0 Output Coercion — 自動型別轉換（2026/04/01 補充）
+
+> **實務應用指南**
+
+LangGraph 2.0 新增 **Output Coercion** 功能，自動將 agent 輸出轉換為聲明的 Pydantic 模型或 dataclass，顯著降低後處理邏輯的複雜度。
+
+### 實際應用範例
+
+在工廠導覽系統中，若要確保每筆回應符合結構化格式：
+
+```python
+from pydantic import BaseModel
+from typing import List
+
+class FactoryTourResponse(BaseModel):
+    """結構化導覽回應"""
+    main_content: str          # 核心回答
+    safety_warnings: List[str] # 安全提示清單
+    follow_up_question: str    # 建議後續問題
+
+# 使用 v2 API + output coercion
+result = app.invoke(
+    {"messages": [{"role": "user", "content": user_input}]},
+    config=config,
+    stream_version="v2",
+)
+
+# result.value 自動轉換為 FactoryTourResponse 物件
+response: FactoryTourResponse = result.value
+print(f"安全提示：{response.safety_warnings}")
+```
+
+此特性減少了手動 JSON 解析和驗證的繁瑣，特別適合在 Raspberry Pi 上執行的資源受限環境。搭配 Node Caching，可進一步優化連續多輪對話的處理效率。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)

@@ -67,7 +67,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """應用啟動/關閉時執行"""
+    """應用啟動/關閉時執行 — 初始化 Agent、RAG、資料庫、感測器"""
     global rag_ready, sensor_sim, QUIZ_DATA
 
     # 初始化資料庫
