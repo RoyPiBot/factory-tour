@@ -1178,3 +1178,15 @@ Sources:
 Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+
+---
+
+## 22. LangSmith Fleet 統一 API Gateway 與企業級多代理協調（2026/03 企業方案）
+
+> **消除 AI 應用孤島，實現跨部門統一 LLM 網關**
+
+2026 年 LangChain 推出 LangSmith Fleet，專門解決企業組織中 AI 應用碎片化問題。Fleet 內置 API Gateway 功能，允許不同部門的開發團隊各自在本地用 LangGraph 開發多代理工作流，隨後無縫過渡至生產環境，無需重寫代碼。統一的 API Gateway 層整合 OpenAI、Anthropic、Gemini 等多模型提供商，開發者可透過中央配置切換或混搭 LLM，大幅降低成本與鎖定風險。對 Roy 的 Pi 5 + OpenClaw 多渠道系統而言，LangSmith Fleet 可作為輕量級代理協調層，管理 Factory Tour、nRF54L15 監測等多個獨立 LangGraph 工作流的統一入口，同時保留邊緣本地執行的靈活性。
+
+Sources:
+- [Introducing LangSmith Fleet for Enterprise Agent Management](https://explore.n1n.ai/blog/introducing-langsmith-fleet-enterprise-agent-management-2026-03-20)
+- [Beyond Single Agents: How to Build Collaborative AI Workflows with LangGraph](https://levelup.gitconnected.com/beyond-single-agents-how-to-build-collaborative-ai-workflows-with-langgraph-ead1f48f9534)
