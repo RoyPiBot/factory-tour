@@ -1189,4 +1189,16 @@ Sources:
 
 Sources:
 - [Introducing LangSmith Fleet for Enterprise Agent Management](https://explore.n1n.ai/blog/introducing-langsmith-fleet-enterprise-agent-management-2026-03-20)
+
+---
+
+## 23. LangSmith Fleet 企業級身份管理與 Deploy CLI 一鍵部署（2026/04 新增功能）
+
+> **從開發到生產，一個指令全搞定**
+
+LangSmith Fleet 在 2026 年進一步強化企業級協作能力，新增 **Agent Identity、Sharing 與 Permissions** 機制，允許組織內不同角色（開發者、審核者、運維人員）針對多代理工作流進行精細化權限控制。同時，**LangGraph Deploy CLI** 工具大幅簡化部署流程，開發者無需手動設定即可在一行命令內將本地開發的複雜 LangGraph 工作流直接推送至 LangSmith Deployment 基礎設施，真正實現「開發環境 → 生產環境」的無縫過渡。對於 Pi 5 上的 OpenClaw 多渠道系統而言，這意味著可快速迭代 Factory Tour 與 nRF54L15 監測代理，並透過統一的身份與權限層保護關鍵應用邏輯。
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph Agents in Production: Build Stateful AI Workflows with Python (2026)](https://use-apify.com/blog/langgraph-agents-production)
 - [Beyond Single Agents: How to Build Collaborative AI Workflows with LangGraph](https://levelup.gitconnected.com/beyond-single-agents-how-to-build-collaborative-ai-workflows-with-langgraph-ead1f48f9534)

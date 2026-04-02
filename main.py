@@ -278,6 +278,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
     from langchain_core.messages import AIMessage
 
+    # 過濾出實質性 AI 回覆，排除輔助訊息
     # 只考慮 AIMessage（跳過 HumanMessage、ToolMessage）
     ai_messages = [
         m for m in messages
