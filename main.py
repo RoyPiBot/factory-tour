@@ -268,8 +268,7 @@ async def editor():
 # ═══════════════════════════════════════════
 
 
-# 從回覆鏈中篩選最高品質的回答，自動過濾掉系統轉移訊息和空洞摘要
-# 優先返回有實質內容的 agent 回覆，確保導覽品質
+# 智慧回覆篩選：從多層次訊息鏈中自動提煉最佳回答
 def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）"""
     # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
