@@ -1106,3 +1106,22 @@ Sources:
 Sources:
 - [LangChain, LangGraph Flaws Expose Files, Secrets, Databases](https://thehackernews.com/2026/03/langchain-langgraph-flaws-expose-files.html)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 19. LangGraph 2.0 核心新功能與 2026 年最佳實踐
+
+**LangGraph 2.0 於 2026 年 2 月正式發佈**，整合三年的生產環境經驗，引入多項企業級特性：
+
+1. **LangGraph Cloud** — 託管執行與內置監控，降低本地部署負擔
+2. **Deep Agents** — 能夠動態生成子智能體、使用工具與檔案系統完成複雜任務
+3. **MCP（模型上下文協議）與 A2A（智能體間通信）** — 標準化智能體間的協作與工具連接
+4. **持久執行與人類在迴圈中** — 支援長時間執行、檢查點恢復與人工干預
+5. **LangSmith Fleet**（2026 年 3 月上線，原名 Agent Builder）— 新增成本追蹤與基準測試功能
+
+對於 Pi 5 上的 Factory Tour 系統，建議優先使用 `LangGraph 2.0` 的 Node Caching 與非同步 API，減少 API 呼叫並改進回應時間。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+- [Adding Long-Term Memory to LangGraph and LangChain Agents](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)

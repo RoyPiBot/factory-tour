@@ -272,6 +272,7 @@ async def editor():
 # 優先返回有實質內容的 agent 回覆，確保導覽品質
 def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）"""
+    # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
     from langchain_core.messages import AIMessage
 
