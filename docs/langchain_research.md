@@ -830,6 +830,34 @@ graph = workflow.compile()
 
 ---
 
+## 8. LangGraph 2026 最新特性更新
+
+> **2026-04 新增章節**：LangGraph 2.0 核心特性強化
+
+### 8.1 型別安全與流式處理升級
+
+LangGraph 2026 Q1 發布了**全新 v2 API**，為流式和同步呼叫增添型別安全：
+
+- **Type-safe streaming**：`stream_version="v2"` 回傳統一的 `StreamPart` TypedDict，每個 chunk 包含 `type`, `ns`, `data` 三個鍵
+- **Type-safe invoke**：`invoke_version="v2"` 回傳 `GraphOutput` 物件，含 `.value` 和 `.interrupts` 屬性
+- **Pydantic/dataclass 自動轉型**：輸出自動強制轉換到聲明的 Pydantic 模型或 dataclass 型態
+
+### 8.2 運維與中間件增強
+
+新增三個生產級中間件與工具鏈：
+
+1. **Model Retry Middleware**：模型呼叫失敗自動重試，支援指數退避策略
+2. **Content Moderation Middleware**：OpenAI 內容審核整合，自動偵測並處理不安全輸入
+3. **LangGraph Deploy CLI**：終端一行指令即可將 Agent 部署至 LangSmith，簡化上線流程
+
+### 8.3 高級控制特性
+
+**固定時間旅行（Time Travel）**：修復 interrupt 和子圖的 checkpoint 復原邏輯，重放操作不再複用過期狀態，子圖也能正確恢復父圖的歷史狀態。
+
+**模型 Profile**：所有聊天模型現暴露 `.profile` 屬性，可查詢支援的特性和能力（資料來自開源的 models.dev 專案）。
+
+---
+
 ## 8. 產業應用趨勢
 
 > **2026/03 第四次更新新增章節**
