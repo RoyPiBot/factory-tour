@@ -1215,3 +1215,15 @@ Sources:
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 25. LangGraph Checkpoint 機制與容錯能力深化（2026 年穩定性提升）
+
+> **狀態持久化與故障恢復成為核心競爭力**
+
+LangGraph 在 2026 年強化了 Checkpoint 持久化機制，成為業界最成熟的多代理容錯方案。每次狀態轉移均被自動持久化，支援時間旅行除錯、人類在迴圈中暫停恢復，以及執行中間故障恢復。特別適用於 Pi 5 上運行的長時間 Factory Tour 導覽或 nRF54L15 監測任務。此外，Deep Agents 新特性允許代理在執行時動態生成子代理負責特定任務，子代理可自主規劃、使用工具與檔案系統，完成後自動銷毀，充分發揮分佈式多代理的伸縮能力。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [How to Design a Production-Grade Multi-Agent Communication System Using LangGraph](https://www.marktechpost.com/2026/03/01/how-to-design-a-production-grade-multi-agent-communication-system-using-langgraph-structured-message-bus-acp-logging-and-persistent-shared-state-architecture/)
