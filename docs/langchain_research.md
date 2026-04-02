@@ -1166,3 +1166,15 @@ Sources:
 - [Agentic AI Frameworks 2026: LangGraph, CrewAI, LangChain](https://byteiota.com/agentic-ai-frameworks-2026-langgraph-crewai-langchain/)
 - [LangChain Announces Enterprise Agentic AI Platform Built with NVIDIA](https://blog.langchain.com/nvidia-enterprise/)
 - [Adding Long-Term Memory to LangGraph and LangChain Agents](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
+
+---
+
+## 21. LangGraph v1.1 型別安全與部署 CLI 革新（2026/03 月度更新）
+
+> **開發效率與生產部署同步躍進**
+
+2026 年 3 月，LangGraph 發佈 v1.1 版本，帶來多項生產級改進，特別針對 Pi 5 上的複雜多代理系統優化。版本 v1.1 引入 **Type-Safe Streaming** 與 **Type-Safe Invoke**，透過 version="v2" 參數實現統一的 StreamPart 輸出格式（包含 type、ns、data 鍵）；同時支援 Pydantic 與 dataclass 自動強制轉換，確保代理狀態管理的型別安全。新增 **LangGraph Deploy CLI** 工具，僅需一行命令即可將複雜的工業級代理直接部署至 LangSmith Deployment 基礎設施，無需手工設定。此外，Chat Models 新增 `.profile` 屬性（源自開源 models.dev 專案），代理可自動偵測 LLM 能力；框架級重試中間件與 OpenAI 內容審核中間件降低故障風險，適合對可靠性有高需求的 Factory Tour 與 nRF54L15 監測系統。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
