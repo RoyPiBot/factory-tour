@@ -1202,3 +1202,16 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph Agents in Production: Build Stateful AI Workflows with Python (2026)](https://use-apify.com/blog/langgraph-agents-production)
 - [Beyond Single Agents: How to Build Collaborative AI Workflows with LangGraph](https://levelup.gitconnected.com/beyond-single-agents-how-to-build-collaborative-ai-workflows-with-langgraph-ead1f48f9534)
+
+---
+
+## 24. 代理協作協議標準化：MCP 與 A2A（2026 年生態成熟）
+
+> **「USB for Agents」— 通用連接協議成為業界標準**
+
+2026 年 LangChain 生態見證了代理通訊協議的標準化浪潮。兩大協議正式確立：**MCP（Model Context Protocol）** 專責代理與工具的連接（Agent-Tool），而 **A2A（Agent-to-Agent Protocol）** 則管理代理之間的動態協作。MCP 已成為業界標準「USB for Agents」，使工具提供商可開發與多框架相容的工具模組，避免 LangGraph、CrewAI、AutoGen 等框架各自為政。對於 Roy 的 Pi 5 + OpenClaw + Factory Tour 多層架構而言，MCP 意味著無論 nRF54L15 監測子代理或 Gemini RAG 檢索代理，皆可以統一接口與主協調器通訊，無需針對不同框架重複開發工具層。同時，A2A 協議支援代理動態生成與任務委派，Factory Tour 中的產線導覽代理可運行時自動啟動，完成任務後自毀，大幅提升資源利用效率與系統靈活性。
+
+Sources:
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)

@@ -308,6 +308,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
     """對話端點（支援多語言，含 tool_use_failed 自動重試）"""
+    # 使用 thread_id 與 session 綁定，確保多回合對話的上下文連貫性
     language = (
         req.language if req.language in SUPPORTED_LANGUAGES else DEFAULT_LANGUAGE
     )
