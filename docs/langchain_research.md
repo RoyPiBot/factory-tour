@@ -1198,6 +1198,18 @@ Sources:
 
 LangSmith Fleet 在 2026 年進一步強化企業級協作能力，新增 **Agent Identity、Sharing 與 Permissions** 機制，允許組織內不同角色（開發者、審核者、運維人員）針對多代理工作流進行精細化權限控制。同時，**LangGraph Deploy CLI** 工具大幅簡化部署流程，開發者無需手動設定即可在一行命令內將本地開發的複雜 LangGraph 工作流直接推送至 LangSmith Deployment 基礎設施，真正實現「開發環境 → 生產環境」的無縫過渡。對於 Pi 5 上的 OpenClaw 多渠道系統而言，這意味著可快速迭代 Factory Tour 與 nRF54L15 監測代理，並透過統一的身份與權限層保護關鍵應用邏輯。
 
+---
+
+## 24. Agentic RAG 與長期記憶整合——Hindsight + LangGraph 協作（2026/04 最新進展）
+
+> **自主決策檢索系統，超越靜態管線**
+
+2026 年中期，LangGraph 生態與記憶系統的融合達到新高度。Hindsight 0.4.20（2026 年 3 月）正式整合 LangGraph，使代理可直接使用 Hindsight 長期記憶層作為工具或節點內的 BaseStore API。與過往固定序列的 RAG 不同，現代 Agentic RAG 系統現已演化為完整的決策智能體：代理無需預定義檢索步驟，而是自主規劃、檢索、推理、批判、重寫、反思，直到達成高信心答案或耗盡預算。Pi 5 上的 Factory Tour 系統可利用此模式，讓導覽代理透過 Hindsight 存儲歷史導覽軌跡與遊客偏好，在後續互動中自適應改進講解策略。LangSmith Fleet 的統一成本追蹤機制進一步解決傳統 RAG 的隱性開銷問題——不再只計 LLM token，而是整個代理工作流的完整成本。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [What's new in Hindsight 0.4.20](https://hindsight.vectorize.io/blog/2026/03/24/version-0-4-20)
+
 Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph Agents in Production: Build Stateful AI Workflows with Python (2026)](https://use-apify.com/blog/langgraph-agents-production)

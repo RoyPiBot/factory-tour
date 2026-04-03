@@ -71,6 +71,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """應用啟動/關閉時執行 — 初始化 Agent、RAG、資料庫、感測器"""
+    # 核心職責：依序初始化資料庫、Agent 系統、RAG 引擎、測驗題庫、感測器模擬器
     # 保證應用程式啟動時所有資源都已正確初始化，關閉時完整清理
     # 此生命週期管理器確保依賴資源有序初始化，避免資源洩漏及衝突
     global rag_ready, sensor_sim, QUIZ_DATA
