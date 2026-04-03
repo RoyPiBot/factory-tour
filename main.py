@@ -876,6 +876,7 @@ async def get_stats():
 async def health():
     """健康檢查"""
     try:
+        # 取得資料庫狀態與 session 計數，供前端判斷系統是否正常運作
         db_stats = database.get_stats()
         total_sessions = db_stats.get("total_sessions", 0)
     except Exception:

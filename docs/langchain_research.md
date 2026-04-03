@@ -1315,3 +1315,15 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
+## 32. LangGraph 性能優化與跨語言支援（2026 年 4 月架構完善）
+
+> **Redis 隊列 CPU 效率躍升 25%，JavaScript 生態補全型別支持**
+
+2026 年 4 月期間，LangGraph 核心基礎設施迎來關鍵優化。官方將 Redis 隊列實現從傳統鎖機制升級為 **zset with threads**，CPU 使用量下降 25%，同時消除不必要的索引鎖競爭。此優化對 Roy 的 Pi 5 邊界部署特別關鍵——資源受限環境中每一分的 CPU 效率都直接影響並行代理容量。同步地，LangGraph JavaScript 庫從 v1.1.0 升至 v1.1.2，新增 **mixed schema support** 與 **type bag patterns**，使 StateGraph 與 ConditionalEdgeRouter 工具類獲得完整型別安全，補齊 JS 生態與 Python 的型別能力缺口。此外，LangGraph 已確認相容 **Python 3.13**，允許開發者充分利用最新 Python 語言特性構建更高效的代理系統。
+
+Sources:
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangGraph vs OpenAI Assistants: Complete 2026 Comparison](https://is4.ai/blog/our-blog-1/langgraph-vs-openai-assistants-2026-369)
