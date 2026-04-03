@@ -64,6 +64,7 @@ sensor_sim: SensorSimulator | None = None
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 
 MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
+# 區域測驗資料快取 - 啟動時從 quizzes.json 載入，供 /quiz 端點使用
 QUIZ_DATA: dict = {}  # area_id -> questions
 
 
