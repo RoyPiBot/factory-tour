@@ -1302,3 +1302,16 @@ Sources:
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 31. LangGraph 檢查點恢復與 StreamPart 統一化（2026 年 4 月穩定性突破）
+
+> **邊界環境長時間運行的代理可靠性保證，零資料損失**
+
+2026 年 4 月，LangGraph v1.1 進一步強化了 **Replay Mechanism** 與 **Durable Execution**，修復了檢查點恢復中的過時 RESUME 值問題，確保子圖在復原父圖歷史狀態時不會使用陳舊資料。同時統一的 **StreamPart Output Format** (透過 `version="v2"`) 使每個流式 chunk 都包含一致的 type、ns、data 結構，大幅簡化客戶端解析邏輯，特別適合 Roy 的 Pi 5 上 Factory Tour 與 nRF54L15 監測系統在網路不穩定或電源波動時的長時間執行。這些改進確保代理中斷後能精確從檢查點復原，無損失狀態，是邊界計算場景下的關鍵可靠性保證。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
