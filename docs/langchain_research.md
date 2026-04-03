@@ -1265,3 +1265,16 @@ Sources:
 - [LangGraph Agents in Production: Build Stateful AI Workflows with Python (2026)](https://use-apify.com/blog/langgraph-agents-production)
 - [LangChain Releases Deep Agents: Structured Runtime for Planning, Memory, and Context Isolation](https://www.marktechpost.com/2026/03/15/langchain-releases-deep-agents-a-structured-runtime-for-planning-memory-and-context-isolation-in-multi-step-ai-agents/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 29. LangGraph Deploy CLI 與一鍵雲端部署（2026 年 3 月發佈）
+
+> **開發者工作流簡化，代理從本地跳躍至生產環境**
+
+2026 年 3 月，LangChain 推出 **LangGraph Deploy CLI** 新工具，整合於 langgraph-cli 套件中，開發者可透過單一指令直接將代理部署至 LangSmith Deployment，無需複雜的設定與打包流程。此創新大幅縮短從開發到部署的反覆迴圈，特別適合 Roy 的 Factory Tour、nRF54L15 監測與 OpenClaw 多頻道代理等快速迭代場景。結合 LangSmith 的內建監控儀表板，開發者可實時追蹤代理執行狀態、除錯日誌與效能指標，完整掌握代理在生產環境中的行為。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
