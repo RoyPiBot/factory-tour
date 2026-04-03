@@ -397,6 +397,7 @@ async def start_tour(req: TourStartRequest):
 async def next_stop(req: TourNextRequest):
     """前進到下一站"""
     result = tour_manager.next_stop(req.session_id)
+    # 同步最新導覽進度到資料庫，保持狀態一致性
 
     # 更新 SQLite
     try:
