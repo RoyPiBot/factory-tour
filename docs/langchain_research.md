@@ -1402,3 +1402,16 @@ Sources:
 - [Models - Docs by LangChain](https://docs.langchain.com/oss/python/langchain/models)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [GitHub - langchain-ai/langchain](https://github.com/langchain-ai/langchain)
+
+---
+
+## 38. LangGraph 2.0 架構升級——StateSchema、節點級快取與部署工具（2026 年 1–3 月）
+
+> **成熟的多 Agent 框架，引入類型安全的狀態管理與生產級部署能力**
+
+2026 年 1 月至 3 月，LangGraph 發布 2.0 重大版本，定義了三年生產實踐的成熟模式。核心創新包括：**StateSchema**（1 月 14 日發布）支援標準 JSON Schema，與 Zod、Valibot 等類型檢驗庫無縫整合，實現清晰的狀態定義；**ReducedValue** 與 **UntrackedValue** 提供細粒度的狀態管理，前者支援獨立的輸入輸出 Schema，後者定義執行時暫態狀態（如資料庫連線、快取）不納入檢查點；**Node/Task 級快取**減少冗餘計算；**Deferred Nodes** 支援延遲執行直到上游路徑完成；**Deploy CLI** 整合 LangSmith，一指令部署 Agent 至生產。這些升級對 Roy 的 Factory Tour 多 Agent 系統而言，意味著圖執行、狀態隔離與部署流程均達到生產成熟度，顯著降低了邊界 Raspberry Pi 環境中的複雜度與故障風險。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)

@@ -164,6 +164,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     避免在建立新 agent 時阻塞其他語言的查詢。
     首次查詢無鎖，只在需要建立新 Agent 時才加鎖，大幅降低競爭開銷。
     """
+    # 此模式避免對已初始化的 Agent 重複加鎖，提升並發效能
     # 快速路徑：檢查 agent 是否已初始化，避免不必要的鎖操作（Double-check Locking 優化）
     if language in agent_apps:
         return agent_apps[language]
