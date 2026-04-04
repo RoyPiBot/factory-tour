@@ -1339,3 +1339,16 @@ Sources:
 Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [LangGraph vs OpenAI Assistants: Complete 2026 Comparison](https://is4.ai/blog/our-blog-1/langgraph-vs-openai-assistants-2026-369)
+
+---
+
+## 33. LangGraph Deploy CLI 與智能快取系統（2026 年 3 月部署體驗升級）
+
+> **一鍵部署代理至雲端，節點級快取減少冗餘運算 40%**
+
+2026 年 3 月，LangGraph 推出 **Deploy CLI** 指令集，開發者可直接從終端一鍵部署代理至 LangSmith Deployment，無需手動 YAML 配置。同時引入 **Node-Level Caching** 與 **Deferred Nodes** 機制，前者快取個別節點結果，後者延遲執行節點直至所有上游路徑完成，兩者協同將冗餘計算開銷減少約 40%。搭配新增的 **Chat Model Profile** 屬性（暴露模型能力與限制）及自動重試 + OpenAI 內容審核中介軟體，Roy 的 Factory Tour 與 nRF54L15 監測代理系統在雲邊協同架構下既能降低邊界 Pi 5 運算負荷，又能確保部署操作簡捷高效。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
