@@ -1297,6 +1297,18 @@ Sources:
 
 2026 年 3 月，LangGraph v1.1 達到版本穩定，引入 **Type-Safe Streaming** 和 **Type-Safe Invoke** 兩大特性。開發者可透過 `version="v2"` 參數實現統一的 StreamPart 輸出格式，每個 chunk 都包含 type、ns 與 data 鍵，大幅降低運行時資料驗證負擔。同時，新增 **Pydantic 與 dataclass 自動型別轉換**，invoke() 輸出自動強制轉換為宣告的模型型別。LangChain 同步釋出 **DeepAgents v0.5.0**，支援非同步子代理、多模態能力與 Anthropic Prompt Caching，特別適合 Pi 5 上的 Factory Tour 導覽系統與 nRF54L15 監測代理整合視覺與語音輸入。這些更新使 Roy 的多代理架構更加穩健與高效。
 
+---
+
+## 31. LangSmith Fleet 企業級屬性型存取控制 ABAC（2026/04 進階安全特性）
+
+> **細粒度權限管理，確保多代理系統安全隔離**
+
+2026 年 4 月，LangSmith Fleet 新增 **ABAC（Attribute-Based Access Control）** 功能，在既有角色型存取控制（RBAC）基礎上引入標籤型策略。企業管理者可透過資源標籤進行精細化權限控制，例如限制特定開發者僅能存取標記為「Environment=Development」的專案與資料集。ABAC 層與層次化代理架構完美配合：Pi 5 邊緣層的代理可標記為「Local=True」，受限於本地執行權限；雲端 Factory Tour 與 nRF54L15 監測代理標記為「Cloud=True」並綁定企業級成本審計。策略支援 API 與 UI 雙向配置，自動在兩端強制執行，顯著提升 OpenClaw 多渠道系統在多團隊協作下的安全隔離與合規性。
+
+Sources:
+- [Attribute-Based Access Control (ABAC) – LangChain Docs](https://docs.langchain.com/langsmith/abac)
+- [LangChain March 2026: LangSmith Fleet & NVIDIA Integration](https://blog.langchain.com/march-2026-langchain-newsletter/)
+
 Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/)
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
