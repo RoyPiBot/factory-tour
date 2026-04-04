@@ -1352,3 +1352,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+
+---
+
+## 34. LangGraph v1.1 型別安全流與自動型別轉換（2026 年核心穩定性升級）
+
+> **StreamPart 統一介面，Pydantic/Dataclass 自動強制轉換，消除序列化不匹配風險**
+
+2026 年 LangGraph v1.1 推出 **Type-Safe Streaming** 與 **Type-Safe Invoke** 兩大核心特性，通過傳入 `version="v2"` 參數，開發者獲得統一的 `StreamPart` 型別輸出，每個資料塊均包含 `type`、`ns` 與 `data` 三個鍵，確保串流全端的型別可追蹤性。同步推出 `GraphOutput` 物件，封裝 `.value` 與 `.interrupts` 屬性，提升中斷點復原與狀態檢查的安全性。更關鍵的是 v2 模式自動將輸出強制轉換為宣告的 Pydantic 模型或 dataclass，消除序列化-反序列化過程中的型別漂移與資料遺失，對 Roy 的 Factory Tour 與 nRF54L15 監測系統而言，這意味著多代理狀態轉移與結果驗證不再需要手動型別檢查中介軟體，大幅降低邊界計算環境的認知負擔。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
