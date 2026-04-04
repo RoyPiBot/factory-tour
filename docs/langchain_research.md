@@ -1365,3 +1365,15 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 35. LangGraph v2 API 統一化與跨語言互操作性（2026 年 4 月生態整合）
+
+> **StreamPart 與 GraphOutput 成為業界標準，JavaScript/Python 完全同步**
+
+2026 年 4 月，LangGraph 推出的 **v2 API** 已成為跨語言互操作的金標準。透過統一的 `StreamPart` 輸出格式（type、ns、data 三鍵結構），Python 與 JavaScript SDK 在流式與同步調用時完全一致。GraphOutput 物件的 `.value` 與 `.interrupts` 屬性規範化了狀態檢查與中斷點復原邏輯。特別是自動型別轉換機制——無論是 Pydantic 模型或 dataclass，v2 模式均自動強制轉換，完全消除序列化漂移。對 Roy 的 Factory Tour 與 nRF54L15 監測系統而言，這意味著多代理工作流的狀態傳遞與驗證不再依賴手動中間層，大幅簡化邊界計算環境的複雜度，提升系統穩健性與可維護性。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
