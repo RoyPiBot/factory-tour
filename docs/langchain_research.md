@@ -1377,3 +1377,15 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 36. LangGraph 雲端部署與完整監測生態（2026 年 4 月下旬生態成熟）
+
+> **從邊界到雲端的無縫部署，LangSmith 整合監測所有 Agent 呼叫**
+
+2026 年 4 月，LangGraph 生態達到新的成熟度。官方推出 **Deploy CLI**，開發者可直接從終端一鍵將 Agent 系統部署至 LangSmith Deployment 雲端，無需手動編寫 YAML 配置。同步推進 **LangGraph Cloud** 託管執行環境，內建完整監測與故障復原機制。特別是 **LangSmith 深度整合**，能追蹤代理系統中每個 Agent 呼叫、工具執行、狀態轉移，提供全面的可觀測性。對 Roy 的 Factory Tour 與 nRF54L15 監測系統而言，這意味著可在 Pi 5 邊界運行本地 Agent，同時與雲端部署無縫協同，利用 LangSmith 儀表板統一監測全系統，顯著提升多 Agent 架構的可運維性與可靠性。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain - Changelog](https://changelog.langchain.com/)
