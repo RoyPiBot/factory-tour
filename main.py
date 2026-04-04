@@ -209,6 +209,7 @@ class TourStartRequest(BaseModel):
 
 
 class TourNextRequest(BaseModel):
+    """前進導覽到下一站的請求模型"""
     session_id: str
 
 
