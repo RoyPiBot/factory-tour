@@ -601,6 +601,7 @@ async def delete_document(source_file: str):
 # ═══════════════════════════════════════════
 
 
+# 客戶端透過此連線接收各廠區的即時感測數據（溫度、湿度、能耗等）
 @app.websocket("/ws/sensors")
 async def websocket_sensors(websocket: WebSocket):
     """WebSocket 端點 — 推送即時感測器數據"""

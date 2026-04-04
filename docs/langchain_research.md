@@ -1389,3 +1389,16 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 37. Chat Model Profile 與 models.dev 開源生態（2026 年 4 月模型能力透明化）
+
+> **統一的模型能力註冊表，開發者透過 .profile 屬性實現動態能力檢測與降級**
+
+2026 年 4 月，LangChain 推出 **Chat Model Profile** 機制，所有模型實例均暴露 `.profile` 屬性，內含結構化的模型能力資訊（如 `max_input_tokens`、`tool_calling`、`structured_output` 等），由社群驅動的開源項目 **models.dev** 提供權威數據源。開發者可在 Agent 系統中利用 profile 動態檢測模型能力，自動為受限模型組合能力降級策略（例如檢測模型不支援工具呼叫時自動降為文本處理模式）。對 Roy 的 nRF54L15 監測系統與 Factory Tour 多 Agent 架構而言，這意味著支援異質模型（包括邊界 Raspberry Pi 上的輕量本地模型和雲端高能力模型），系統可自動適配各模型的能力範圍，確保工作流於任何部署環境中都能安全執行，顯著提升邊雲協同架構的靈活性與相容性。
+
+Sources:
+- [Models - Docs by LangChain](https://docs.langchain.com/oss/python/langchain/models)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [GitHub - langchain-ai/langchain](https://github.com/langchain-ai/langchain)
