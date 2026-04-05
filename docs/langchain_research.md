@@ -1480,3 +1480,16 @@ Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 44. LangGraph v1.1 型態安全流與 Deploy CLI 生產部署（2026 年 3 月完整向後相容發佈）
+
+> **統一的流式 API 與一鍵部署工具，將開發至生產的邊界成本降至最低**
+
+2026 年 3 月，LangGraph v1.1 作為完整向後相容的增強版本發佈，聚焦於開發體驗與生產就緒能力。**Type-safe Streaming** 引入 `version="v2"` 參數，所有流輸出統一為 `StreamPart` 物件（含 type、ns、data 鍵），消除客戶端反覆的型態轉換；**Type-safe Invoke** 返回 `GraphOutput` 物件（含 .value 與 .interrupts 屬性），使中斷點檢查與狀態恢復程式化；**Pydantic 與 dataclass 自動強制轉型**，invoke() 與值流自動投射至宣告模型，消除樣板程式碼。同時 **LangGraph Deploy CLI** 一指令部署 Agent 至 LangSmith Deployment，無需手動容器化或伺服器管理。對 Roy 的 Factory Tour 與 nRF54L15 系統而言，此版本意味著開發循環大幅加速——Pi 5 本地開發的代理工作流，一指令推送至雲端執行，無縫回退至本地，完全滿足邊界可信系統的部署需求。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)

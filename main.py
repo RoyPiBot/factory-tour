@@ -47,7 +47,7 @@ import db as database
 
 load_dotenv()  # 載入環境變數 (.env 配置)
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 
 # ─── 路徑設定 ───
 BASE_DIR = Path(__file__).parent
