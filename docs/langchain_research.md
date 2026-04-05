@@ -1506,3 +1506,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 46. LangGraph 2026 模型能力檢測與智能重試中間件
+
+> **統一的模型特性探測與自動故障恢復，提升多代理系統的模型調用穩定性**
+
+2026 年，LangGraph 引入 **Model Profile 機制** 與 **中間件系統深化**。聊天模型透過 `.profile` 屬性動態暴露支援的能力（來自開源項目 models.dev），使多代理系統能在執行時動態感知模型的函數調用、視覺、結構化輸出等特性，避免不兼容調用。同時推出 **Model Retry Middleware**——自動對失敗的模型調用實施指數退避重試，無需手動包裝；以及 **OpenAI Content Moderation Middleware**——在代理輸出層自動檢測不安全內容，確保多代理系統的輸出安全性。對 Roy 的 Factory Tour 與 nRF54L15 系統而言，此機制意味著多代理工作流能智能適配不同的雲端模型（Gemini、Claude、OpenAI 等），自動降級策略確保邊界環境的穩定性與可靠性。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangChain - Changelog](https://changelog.langchain.com/)

@@ -46,7 +46,7 @@ from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_l
 import db as database
 
 load_dotenv()  # 載入環境變數 (.env 配置)
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)  # INFO 級別記錄所有重要事件
 # 初始化日誌系統以追蹤 API 請求與 Agent 執行狀態
 logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 
