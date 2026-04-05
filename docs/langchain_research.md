@@ -1467,3 +1467,16 @@ Sources:
 - [Model Context Protocol - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph vs OpenAI Assistants: Complete 2026 Comparison](https://is4.ai/blog/our-blog-1/langgraph-vs-openai-assistants-2026-369)
+
+---
+
+## 43. LangGraph Workflow 優化與邊界執行簡化（2026 年 4 月本地化革新）
+
+> **精簡的工作流定義 DSL，本地 Python 執行環境與 LangSmith Cloud 無縫同步，完全適配邊界計算場景**
+
+2026 年 4 月，LangGraph 推出 **LangGraph Workflow** 簡化框架，實現從開發到部署的全鏈路本地化執行。新框架內建 Python 優先的工作流定義 DSL，開發者無需編寫複雜的圖拓樸即可快速定義多代理流程，支援條件分支、循環、並行協作等通用編排模式。關鍵創新是 **輕量級本地執行引擎**——在 Raspberry Pi 5 等邊界設備上直接運行 LangGraph 工作流，無需依賴遠端雲服務，同時後台與 LangSmith 保持非同步檢查點同步，故障時自動復原。此架構完全符合 Roy 的 Factory Tour 與 nRF54L15 監測系統需求——Pi 5 作為獨立計算中樞執行本地代理工作流，必要時與雲端模型互動，LangSmith 儀表板透過事件串流實時監測遠端邊界系統的執行狀態，大幅降低網路延遲依賴，提升系統自主性與邊界可靠性。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain - Changelog](https://changelog.langchain.com/)

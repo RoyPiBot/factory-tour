@@ -45,7 +45,7 @@ from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
 from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
 import db as database
 
-load_dotenv()
+load_dotenv()  # 載入環境變數 (.env 配置)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
