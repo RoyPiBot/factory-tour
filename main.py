@@ -406,7 +406,7 @@ async def start_tour(req: TourStartRequest):
 
 @app.post("/tour/next")
 async def next_stop(req: TourNextRequest):
-    """前進到下一站"""
+    """前進到下一站並同步導覽狀態到資料庫"""
     result = tour_manager.next_stop(req.session_id)
     # 同步最新導覽進度到資料庫，保持狀態一致性
 

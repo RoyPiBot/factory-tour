@@ -1441,3 +1441,16 @@ Sources:
 - [A2A endpoint in Agent Server - Docs by LangChain](https://docs.langchain.com/langsmith/server-a2a)
 - [The Agent Protocol Stack: Why MCP + A2A + A2UI Is the TCP/IP Moment for Agentic AI](https://subhadipmitra.com/blog/2026/agent-protocol-stack/)
 - [A2A Protocol](https://a2a-protocol.org/latest/)
+
+---
+
+## 41. LangGraph v1.1 型態安全流與增強時間旅行特性（2026 年 3 月）
+
+> **完全向後相容的增強版本，引入 version="v2" API 實現型態檢查與流式處理革新**
+
+2026 年 3 月，LangGraph v1.1 發布重大增強，聚焦於型態安全與執行時復原。核心創新包括：**Type-safe Streaming** 支援 `version="v2"` 參數，所有流塊統一為 `StreamPart` 物件（含 type、ns、data 鍵值），完全向後相容；**Type-safe Invoke** 返回 `GraphOutput` 物件（含 .value 與 .interrupts 屬性），便於程序化檢查代理中斷點；**Pydantic & Dataclass 自動強制轉型**，invoke() 與流式輸出自動投射至宣告的 Pydantic 模型或 dataclass，消除類型轉換的樣板程式碼；**時間旅行修復**確保重放（replay）不再重用過時的 RESUME 值，子圖正確復原父代理的歷史檢查點，大幅提升邊界系統的容錯性。此版本對 Roy 的 Factory Tour 與 nRF54L15 多代理系統而言，意味著狀態交互、檢查點復原與事件流處理均達到工業級穩定，顯著降低 Raspberry Pi 環境中的型態錯誤與中斷恢復風險。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
