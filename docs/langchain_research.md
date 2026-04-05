@@ -1491,5 +1491,18 @@ Sources:
 
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 45. LangGraph v1.1 時間旅行修復與中斷管理深化（2026 年 3 月容錯能力突破）
+
+> **解決重放與子圖檢查點復原的關鍵問題，強化邊界多代理系統的故障自愈能力**
+
+2026 年 3 月 LangGraph v1.1 發佈中，**時間旅行（Time Travel）修復** 成為容錯能力的決定性突破。核心問題在於：當代理執行中斷並重新恢復時，先前版本會錯誤地重用過時的 RESUME 值，導致狀態不一致；對於子圖，父代理的檢查點復原失敗。v1.1 完全解決此問題——重放機制不再重用過時 RESUME，子圖正確復原父代理的歷史檢查點狀態，確保即使發生網路斷連或計算中斷，系統恢復後的狀態完全一致。此修復對 Roy 的 nRF54L15 監測系統與 Factory Tour 多代理架構至關重要——Raspberry Pi 邊界環境頻繁遭遇網路波動與電源事件，時間旅行修復意味著代理可從任意中斷點安全恢復，無須重新計算整條執行路徑，大幅降低邊界系統的故障恢復成本與資源消耗。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
