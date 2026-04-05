@@ -209,7 +209,10 @@ class TourStartRequest(BaseModel):
 
 
 class TourNextRequest(BaseModel):
-    """前進導覽到下一站的請求模型"""
+    """前進導覽到下一站的請求模型
+
+    包含 session_id 用於識別訪客的導覽進度，供 tour_manager 更新狀態。
+    """
     session_id: str
 
 

@@ -1454,3 +1454,16 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+
+---
+
+## 42. Model Context Protocol（MCP）作為代理工具統一樞紐（2026 年推廣）
+
+> **由 Anthropic 開發、Linux Foundation 維護，成為代理工具發現與執行的業界標準**
+
+2026 年，**Model Context Protocol（MCP）** 成為多代理系統中工具集成的統一標準，被譽為「代理的 USB 連接埠」。MCP 提供標準化機制讓代理發現、驗證與調用外部工具（API、資料庫、檔案系統、程式碼執行引擎），無需重複實作適配層。MCP 伺服器定義工具簽名與執行邏輯，代理客戶端透過統一介面透明調用，支援同步、非同步與串流操作。對 Roy 的 Factory Tour 與 nRF54L15 多代理系統而言，MCP 的關鍵價值在於：**工具複用**——一次編寫的 MCP 伺服器可被 LangGraph、CrewAI、Claude 等不同框架消費；**邊雲協同**——Pi 5 可公開 MCP 伺服器暴露本地資源（感應器、GPIO、SQLite），雲端代理透過 MCP 客戶端無縫調用；**動態發現**——代理無需預先綁定工具清單，可在執行時動態發現可用工具，為自適應多代理系統奠定基礎。
+
+Sources:
+- [Model Context Protocol - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph vs OpenAI Assistants: Complete 2026 Comparison](https://is4.ai/blog/our-blog-1/langgraph-vs-openai-assistants-2026-369)
