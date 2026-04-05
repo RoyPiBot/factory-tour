@@ -1428,3 +1428,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 40. LangGraph A2A 協議與 MCP 標準化整合（2026 年初跨框架協作）
+
+> **開放標準實現代理間通信，MCP + A2A 成為多代理通訊標準棧層**
+
+2026 年 1 月，LangGraph v0.2 推出 **A2A（Agent-to-Agent）協議** 與 **Model Context Protocol（MCP）** 作為一級協議目標。A2A 是由 Google 開發、已捐獻予 Linux Foundation 的開放標準，透過 `contextId`（會話分組）與 `taskId`（單次請求識別）兩層機制，支援不同框架的代理間進行多輪對話協作。同步地，MCP 標準化了代理與工具、API、資源的連接方式。兩者相輔相成：A2A 負責網路層代理間通信，MCP 負責資源層工具集成。對 Roy 的 Factory Tour 與 nRF54L15 監測系統而言，此標準化突破意味著可跨框架協作異質代理（例如 LangGraph、CrewAI、Google ADK），統一透過 A2A 協議交換任務與結果，顯著降低多源代理系統的集成複雜度，加強邊雲協同架構的互操作性。
+
+Sources:
+- [A2A endpoint in Agent Server - Docs by LangChain](https://docs.langchain.com/langsmith/server-a2a)
+- [The Agent Protocol Stack: Why MCP + A2A + A2UI Is the TCP/IP Moment for Agentic AI](https://subhadipmitra.com/blog/2026/agent-protocol-stack/)
+- [A2A Protocol](https://a2a-protocol.org/latest/)
