@@ -25,6 +25,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 更新：2026-04-06 (v3.0 持續維護與改進)
 # 系統使用 Groq API 作為多智能體的 LLM 引擎
 # 核心流程：用戶請求 → 導覽Agent → 知識檢索 → RAG 處理 → WebSocket 回應
+# 本版本已針對 nRF54L15 感測器與 NanoClaw 機械手臂整合優化
 """
 import asyncio
 import json
