@@ -1580,3 +1580,15 @@ Sources:
 Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 52. 代理通訊協議標準化 — MCP 與 A2A（2026 年）
+
+> **跨框架代理互操作性新標準，解鎖異構多代理生態的開放協作**
+
+2026 年，LangGraph 生態推動兩項協議標準的制定與整合，以解決多代理系統的互操作性問題。首先是 **Model Context Protocol（MCP）**——由 Anthropic 開發、現由 Linux Foundation 維護的開放標準，已成為「代理的 USB 端口」，規定了代理與工具的標準接口，使代理能透明地連接外部資料源、API 與計算資源，無需自訂整合；其次是 **Agent-to-Agent 通訊協議（A2A）**——定義了代理間的標準化通訊格式，允許異質代理（無論基於何種框架）通過統一的消息介面相互協作。對 Roy 的 Factory Tour 與 nRF54L15 監測系統而言，此標準化意味著未來可輕鬆整合來自不同團隊、不同技術棧的代理模組——感應器監測代理、決策代理、控制代理可各自獨立開發與優化，透過 MCP 與 A2A 標準無縫協作，大幅提升系統的模組化與可擴展性。
+
+Sources:
+- [DeepAgents 深度解析：LangChain 打造的复杂多智能体协作框架](https://aitoolly.com/zh/ai-news/article/2026-03-17-langchain-deepagents-langgraph)
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
