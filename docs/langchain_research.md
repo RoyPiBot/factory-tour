@@ -1554,5 +1554,17 @@ Sources:
 
 Sources:
 - [Deep Agents v0.5.0 Release Notes](https://github.com/langchain-ai/deep-agents/releases)
+
+---
+
+## 50. LangGraph v1.1 型態安全與流式傳輸新紀元（2026 年）
+
+> **型態檢查、自動強制轉換與實時串流，提升多代理系統的開發效率與可靠性**
+
+2026 年初，LangGraph 發布 v1.1 主要版本，引入 **型態安全流式傳輸（Type-Safe Streaming）** 與 **型態安全呼叫（Type-Safe Invoke）** 兩大核心特性，同時支援完整向後相容。新版本內建 **Pydantic 與 dataclass 自動強制轉換** 機制，開發者無需手動型態轉換即可確保狀態與輸入的型態一致性；型態安全流式傳輸允許開發者在實時取得代理邏輯流執行時的中間狀態與輸出，無需等待完整執行，降低端對端延遲。此外，LangGraph 正式支援 **Python 3.13**，並推出 **Cross-Thread Memory 跨會話記憶機制**——代理可跨多個獨立會話持久化與檢索記憶，實現更自然的多輪對話體驗。對 Roy 的多代理系統開發而言，此升級顯著提升代碼品質與可維護性——不再需要繁瑣的型態檢查與轉換邏輯，開發者可專注於業務流程的優化與多代理編排的創意設計。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
