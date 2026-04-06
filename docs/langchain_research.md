@@ -1591,4 +1591,17 @@ Sources:
 
 Sources:
 - [DeepAgents 深度解析：LangChain 打造的复杂多智能体协作框架](https://aitoolly.com/zh/ai-news/article/2026-03-17-langchain-deepagents-langgraph)
+
+---
+
+## 53. LangGraph 2026 年 4 月新功能 — 節點快取、延遲執行與模型鉤子（Node Caching / Deferred Nodes / Pre-Post Model Hooks）
+
+> **工作流優化與計算效率新突破，減少冗餘計算與上下文膨脹**
+
+2026 年 4 月，LangGraph 推出三項關鍵效能優化功能，進一步提升多代理系統的計算效率與可控性。**Node Caching** 機制自動快取個別節點的執行結果，跳過冗餘計算——當代理工作流中存在重複的數據處理或 LLM 調用時，此功能可顯著降低延遲與成本；**Deferred Nodes** 允許延遲節點執行至所有上游路徑完成，完美支援 map-reduce、共識與協作多代理場景，避免資源爭競；**Pre/Post Model Hooks** 提供模型調用前後的自訂邏輯插件，用於控制上下文膨脹、插入安全防護或實現人機審批暫停。對 Roy 在 Raspberry Pi 上構建的 Factory Tour 與 nRF54L15 監測系統而言，此三項功能直接改善邊界環境的資源約束問題——快取減少重複計算、延遲執行最佳化併發任務排程、模型鉤子強化監測代理的安全邊界，使複雜的多代理編排在有限的 Pi 資源下高效運行。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
