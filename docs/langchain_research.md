@@ -1543,3 +1543,16 @@ Sources:
 - [Announcing LangGraph Cloud: Running agents at scale, reliably](https://blog.langchain.com/langgraph-cloud/)
 - [LangSmith Deployment - Docs by LangChain](https://docs.langchain.com/langsmith/deployment)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 49. Deep Agents v0.5.0 — 非同步子代理與多模態文件支援（2026 年 3 月）
+
+> **LangGraph 官方代理開發框架進化，實現異步任務協作與視覺/音訊整合**
+
+2026 年 3 月，Deep Agents 框架發布 v0.5.0 alpha 版本，標誌著 LangGraph 生態在代理開發便利性與能力層面的重大躍進。核心升級包括：**非同步子代理（Async Subagents）** 支援代理並行啟動多個子工作流，無需序列阻塞等待，顯著提升複雜編排的吞吐量；**多模態文件支援** 擴展至視覺（圖像、圖表）與音訊（語音、音樂），使代理能處理結構化與非結構化的異質資料；**後端架構最佳化** 與 **Anthropic 提示快取整合** 減少重複計算與雲端費用。對 Roy 的 Factory Tour 與 nRF54L15 監測系統而言，此升級意味著可在 Pi 5 邊界環境中運行高性能的子代理編排——多個監測代理並行蒐集、分析感應器資料，同時支援音訊告警與視覺儀表板，無需複雜的手動協調，大幅降低邊界多代理系統的開發複雜度。
+
+Sources:
+- [Deep Agents v0.5.0 Release Notes](https://github.com/langchain-ai/deep-agents/releases)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
