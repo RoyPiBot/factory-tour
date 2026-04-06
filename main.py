@@ -46,6 +46,7 @@ from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_l
 import db as database
 
 load_dotenv()  # 載入環境變數 (.env 配置)
+# FastAPI 應用初始化前的系統準備：配置與日誌設定
 logging.basicConfig(level=logging.INFO)  # INFO 級別記錄所有重要事件
 # 初始化日誌系統以追蹤 API 請求與 Agent 執行狀態 - 便於除錯與監控多 Agent 互動流程
 logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用

@@ -1530,4 +1530,16 @@ Sources:
 Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 48. LangGraph Cloud（LangSmith Deployment）— 託管執行與容錯可擴展架構
+
+> **雲端原生的代理基礎設施，提供水平擴展與故障容忍，簡化大規模多代理部署**
+
+2026 年，LangChain 推出 **LangGraph Cloud**（後重命名為 **LangSmith Deployment**），作為完整的託管執行平台。系統透過容錯的任務隊列、分散式伺服器叢集與 PostgreSQL Checkpointer 實現水平擴展，可同時處理數百個並發用戶而不失效能；Checkpointer 確保大規模狀態與執行線程的持久化存儲，使代理工作流在網路波動或伺服器故障時無縫恢復。實時流式傳輸與原生監控整合，提供開發至生產的一體化可見性。對 Roy 的 Raspberry Pi 邊界系統而言，此雲端基礎設施補充了本地執行的限制——複雜的多代理編排可卸載至 LangSmith Deployment，同時在 Pi 邊界運行輕量級代理，實現邊雲協同架構。
+
+Sources:
+- [Announcing LangGraph Cloud: Running agents at scale, reliably](https://blog.langchain.com/langgraph-cloud/)
+- [LangSmith Deployment - Docs by LangChain](https://docs.langchain.com/langsmith/deployment)
 - [LangChain - Changelog](https://changelog.langchain.com/)
