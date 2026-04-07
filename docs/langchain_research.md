@@ -1649,3 +1649,16 @@ Sources:
 
 2026 年 4 月，LangGraph 生態進一步完善，推出兩項重要新工具：**LangGraph Cloud** 提供完全託管的代理執行環境，內建監控與日誌追蹤機制，使開發者無需自行維護容器基礎設施；**@langgraphjs/toolkit** 套件則為 TypeScript 開發者提供預建的代理模板（如 `createReactAgent`），消除樣板代碼，加速開發迭代。截至 2026 年 4 月，LangGraph TypeScript 月度下載量已超過 42,000，成為最廣泛採用的 TypeScript 多代理框架。對 Roy 在 Raspberry Pi 上開發的 Factory Tour 系統而言，此兩項工具意味著可在本地使用 Node.js + TypeScript 快速搭建多代理原型，然後一鍵推送至 LangGraph Cloud 進行生產級部署與監控，實現真正的邊雲一體化開發流程。
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 58. Agentic RAG 自適應迴圈與自我修正機制（2026 年）
+
+> **從靜態管道到動態推理引擎，RAG 系統透過代理循環實現自動查詢改寫、相關性評等與反思**
+
+2026 年，檢索增強生成（RAG）已超越固定的文件檢索→LLM 生成管道，進化為 **Agentic RAG** —— 一個由 LLM 充當核心推理引擎的自主代理系統。傳統 RAG 管道盲目將檢索結果傳遞給 LLM 生成答案，而 Agentic RAG 則透過以下循環機制達成自適應決策：**智慧檢索**——代理根據問題動態選擇檢索策略與資料源；**相關性評等**——代理自動判斷檢索文件的相關性，不足時觸發查詢改寫；**迭代反思**——代理在生成答案前進行中間推理與自我批評，確保證據充分後才輸出結果。LangGraph 的圖狀態機架構完美支援此模式——每一步的狀態轉換、檢索決策、評等結果都被持久化為顯式的圖節點，使整個推理過程透明可追溯。對 Roy 的 Factory Tour 與 nRF54L15 感應器監測系統而言，Agentic RAG 提供了一套決策框架——監測代理可根據即時感應器數據動態調整查詢邏輯，評估警告信號的相關性，反思異常模式的根本原因，無需硬編碼的決策樹，大幅提升邊界環境的智慧監測與故障診斷能力。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
+- [GOODBYE BASIC RAG — HELLO AGENTS: THE 2026 PLAYBOOK | Medium](https://medium.com/@krtarunsingh/goodbye-basic-rag-hello-agents-the-2026-playbook-python-langgraph-llamaindex-27e9f70f3428)

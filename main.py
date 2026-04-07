@@ -28,6 +28,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 本版本已針對 nRF54L15 感測器與 NanoClaw 機械手臂整合優化
 # 支援實時數據推送、多語言導覽及跨 session 訪客記憶功能
 # 此版本已於 2026-04-07 進行代碼維護與審查
+# 主程式入口點 — 初始化 FastAPI 應用，啟動多 Agent 系統與 WebSocket 服務
 """
 import asyncio
 import json
