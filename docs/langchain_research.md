@@ -1662,3 +1662,16 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
 - [GOODBYE BASIC RAG — HELLO AGENTS: THE 2026 PLAYBOOK | Medium](https://medium.com/@krtarunsingh/goodbye-basic-rag-hello-agents-the-2026-playbook-python-langgraph-llamaindex-27e9f70f3428)
+
+---
+
+## 59. LLMCompiler 架構 — 任務並行化與成本最佳化（2026 年）
+
+> **透過 DAG 任務圖與貪心排程，減少冗餘 LLM 調用、加速代理執行速度**
+
+2026 年，LangGraph 整合 **LLMCompiler** 這一高效的代理架構模式，由 Planner、Task Fetching Unit 與 Joiner 三層組成。Planner 將複雜任務流編譯成有向無環圖（DAG）的任務集合，Task Fetching Unit 則貪心地排程與並行執行所有已就緒的任務，避免串聯阻塞，Joiner 最終匯聚結果並回應用戶。相比順序執行的傳統代理，LLMCompiler 可顯著減少對 LLM 的冗餘調用次數，大幅降低 token 成本與延遲。對 Roy 在 Raspberry Pi 5 上運行的 Factory Tour 多代理系統而言，此架構提供了在邊界資源受限環境下最大化吞吐量與效率的關鍵策略——感應器監測、決策推理、執行控制等並行任務可同時進行，無需等待單一瓶頸，同時 LLM 調用成本與延遲均顯著下降。
+
+Sources:
+- [LLMCompiler - LangGraph](https://langchain-ai.github.io/langgraph/tutorials/llm-compiler/LLMCompiler/)
+- [langgraph/examples/llm-compiler - GitHub](https://github.com/langchain-ai/langgraph/blob/main/examples/llm-compiler/LLMCompiler.ipynb)
+- [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
