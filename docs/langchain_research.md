@@ -1629,3 +1629,15 @@ Sources:
 - [The State of AI Agent Frameworks in 2026 | Fordel Studios](https://fordelstudios.com/research/state-of-ai-agent-frameworks-2026)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+
+---
+
+## 56. LangGraph Deploy CLI 與模型能力動態檢測（2026 年 4 月）
+
+> **一鍵部署至 LangSmith + 運行時模型特性檢測，完整的開發到生產工作流**
+
+2026 年 4 月，LangGraph 推出 **Deploy CLI**，允許開發者直接從終端機執行 `langgraph deploy` 命令，自動化打包、驗證與部署至 LangSmith Deployment 的整個流程，無需複雜的容器設定或手動 CI/CD 配置。同時強化 **Model Profile 機制**——聊天模型透過 `.profile` 屬性動態回報支援的功能（如函數調用、視覺、結構化輸出），資料來自開源項目 models.dev，使多代理系統能在執行時自動偵測模型能力並調整策略。對 Roy 的 Factory Tour 系統而言，此機制意味著可快速將 Pi 上開發的多代理工作流推送至雲端擴展，同時支援自動降級至輕量級模型（如 Haiku）當雲端模型不可用時，完全實現邊雲一體的生產級部署。
+
+Sources:
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
