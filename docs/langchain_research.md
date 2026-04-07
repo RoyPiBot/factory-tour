@@ -1297,6 +1297,18 @@ Sources:
 
 2026 年 3 月，LangChain 推出 **LangGraph Deploy CLI** 新工具，整合於 langgraph-cli 套件中，開發者可透過單一指令直接將代理部署至 LangSmith Deployment，無需複雜的設定與打包流程。此創新大幅縮短從開發到部署的反覆迴圈，特別適合 Roy 的 Factory Tour、nRF54L15 監測與 OpenClaw 多頻道代理等快速迭代場景。結合 LangSmith 的內建監控儀表板，開發者可實時追蹤代理執行狀態、除錯日誌與效能指標，完整掌握代理在生產環境中的行為。
 
+---
+
+## 30. DeepAgents：結構化子代理執行框架（2026 年 3 月發佈）
+
+> **代理動態規劃、子代理自主決策——任務分解的新標準**
+
+2026 年初，LangChain 官方發佈 **DeepAgents**，這是一個專為複雜多層次任務設計的結構化子代理執行框架。DeepAgents 核心創新在於：父代理可在運行時動態生成專責子代理，各子代理擁有獨立的規劃空間、檔案系統沙箱、專用工具集與長期記憶上下文，在完成委派任務後自動銷毀，無需人工干預。此機制完美解決傳統單體代理在複雜任務中的規模化困境。對 Roy 的 Pi 5 上的應用而言，Factory Tour 主代理可動態啟動「樓層導覽子代理」與「設備監控子代理」，各自獨立規劃與執行，透過明確的任務邊界與資源隔離確保系統穩定性。內建的**成本追蹤機制**詳細記錄每個子代理的 token 消耗與工具呼叫次數，幫助開發者快速識別成本瓶頸，實現更精細的資源優化。
+
+Sources:
+- [LangChain Releases Deep Agents: Structured Runtime for Planning, Memory, and Context Isolation](https://www.marktechpost.com/2026/03/15/langchain-releases-deep-agents-a-structured-runtime-for-planning-memory-and-context-isolation-in-multi-step-ai-agents/)
+- [DeepAgents 深度解析：LangChain 打造的複雜多智能體協作框架 | AIToolly](https://aitoolly.com/zh/ai-news/article/2026-03-17-langchain-deepagents-langgraph)
+
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 
