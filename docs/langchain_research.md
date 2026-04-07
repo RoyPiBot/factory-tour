@@ -1710,3 +1710,15 @@ Sources:
 Sources:
 - [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Before You Upgrade to LangGraph in 2026 | Agent Framework Hub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 61. LangGraph TypeScript 統治市場 — 周下載量突破 42,000、Python 功能完全對等（2026 年 4 月）
+
+> **TypeScript 版本與 Python 實現功能完全對等，成為開發者首選多代理框架**
+
+2026 年 4 月最新統計顯示，LangGraph TypeScript 套件周下載量已突破 **42,000 次**，成為當代最廣泛採用的 TypeScript 多代理開發框架，徹底扭轉早年 Python 一家獨大的局面。更關鍵的是，TypeScript 版本已達成與 Python 版本的 **完全功能對等**——包括 StateGraph、條件邊、檢查點持久化、流式傳輸、人機審批暫停（human-in-the-loop）等所有核心能力均已實現。此發展對 Roy 在 Raspberry Pi 上的 Factory Tour 與 nRF54L15 監測系統而言意義重大——可直接使用熟悉的 TypeScript/Node.js 開發多代理編排，無需轉換至 Python，同時享受與全球企業級部署等同的功能與穩定性，大幅縮短開發與學習曲線。
+
+Sources:
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
