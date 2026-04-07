@@ -897,6 +897,17 @@ LangGraph 2026 Q1 發布了**全新 v2 API**，為流式和同步呼叫增添型
 - [LangGraph 1.0 GA 公告](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [LangChain Changelog](https://changelog.langchain.com/)
 - [langgraph-supervisor GitHub](https://github.com/langchain-ai/langgraph-supervisor-py)
+
+## 10. 2026 Protocol 標準化與產業生態成熟
+
+> **2026-04 新增**：MCP 與 A2A 標準化
+
+隨著 Agentic AI 進入生產階段，兩大通信協議已成為業界標準：
+
+1. **MCP（Model Context Protocol）**：由 Anthropic 開發、現由 Linux Foundation 維護，作為 Agent-Tool 連接的「USB 標準」，確保工具可跨不同框架複用
+2. **A2A（Agent-to-Agent）**：Agent 之間的標準化通信協議，支援動態生成子 Agent，實現大規模 Multi-Agent Swarm
+
+根據 Gartner 2026年 Q1 報告，全球 40% 企業應用預期在年底前嵌入 Agent 能力，相比 2025 年的 12% 成長超過 3 倍。LangGraph 作為最成熟的 Python 框架，已被 Klarna、Uber、Replit、Elastic 等頭部公司用於生產環境，TypeScript 版本月下載量已超過 42,000 次。
 - [langchain-google-genai PyPI](https://pypi.org/project/langchain-google-genai/)
 - [LangChain Google 整合文件](https://docs.langchain.com/oss/python/integrations/providers/google)
 - [Google ADK 文件](https://google.github.io/adk-docs/)
