@@ -31,6 +31,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 主程式入口點 — 初始化 FastAPI 應用，啟動多 Agent 系統與 WebSocket 服務
 # 依賴 Groq API、SQLite 資料庫與 LangGraph 多智能體框架
 # 🚀 核心特性：自適應多語言、實時感測器集成、智能知識檢索
+# 💾 支援持久化儲存訪客互動記錄與知識檢索結果
 """
 # 本模組為工廠導覽系統的核心入口，整合 LangGraph Multi-Agent 架構與 Groq API
 import asyncio

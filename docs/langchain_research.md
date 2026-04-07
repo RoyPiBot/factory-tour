@@ -1698,3 +1698,15 @@ Sources:
 - [LLMCompiler - LangGraph](https://langchain-ai.github.io/langgraph/tutorials/llm-compiler/LLMCompiler/)
 - [langgraph/examples/llm-compiler - GitHub](https://github.com/langchain-ai/langgraph/blob/main/examples/llm-compiler/LLMCompiler.ipynb)
 - [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 60. Type-Safe Streaming APIs 與 Node-Level Caching — 生產級流式傳輸與計算最佳化（2026 年 3 月）
+
+> **完全型安全的串流 API、自動型別強制轉換、節點級快取，提升邊界代理的即時響應與運算效率**
+
+2026 年 3 月，LangGraph v2 推出 **Type-Safe Streaming**，引入統一的 StreamPart 輸出格式，每個串流塊均包含 type、namespace 與 data 三個欄位，並提供可從 langgraph.types 匯入的 TypedDict，確保用戶端能以完全型安全的方式處理串流事件，無需手動解析或型別轉換。同步推出的 **v2 invoke API** 則自動回傳 GraphOutput 物件，包含 .value 與 .interrupts 屬性，支援人工干預（human-in-the-loop）工作流。此外，**Node-Level Caching** 機制允許開發者在個別圖節點層級設定快取，避免重複計算上游節點的結果，特別適合涉及多次檢索或 LLM 推論的複雜代理系統。對 Roy 在 Raspberry Pi 5 上開發的 Factory Tour 多代理系統而言，此等功能意味著不僅可透過類型安全保證流式 WebSocket 通訊的穩定性，更能透過節點快取大幅減少本地邊界設備的計算負荷，使得高頻的感應器監測與決策迴圈在資源受限環境下仍能保持低延遲與高效率。
+
+Sources:
+- [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [Before You Upgrade to LangGraph in 2026 | Agent Framework Hub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
