@@ -27,6 +27,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 核心流程：用戶請求 → 導覽Agent → 知識檢索 → RAG 處理 → WebSocket 回應
 # 本版本已針對 nRF54L15 感測器與 NanoClaw 機械手臂整合優化
 # 支援實時數據推送、多語言導覽及跨 session 訪客記憶功能
+# 此版本已於 2026-04-07 進行代碼維護與審查
 """
 import asyncio
 import json
