@@ -1772,3 +1772,15 @@ Sources:
 Sources:
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 66. Agentic RAG 與批判者迴圈——自主決策檢索增強生成（2026 年 4 月）
+
+> **自動決策、迭代檢索、批判反思迴圈，解決 RAG 系統的幻覺與檢索不精問題**
+
+2026 年 4 月，LangGraph 驅動的 **Agentic RAG** 模式成為業界標準，相較於傳統單次檢索的 RAG，Agentic RAG 系統由多個自主代理組成，包括查詢重寫代理、檢索代理、批判者代理與反思代理，形成完整的計畫—執行—評價迴圈。核心創新在於 **批判者代理**——每次檢索後立即由 LLM 代理評分答案品質，若未達閾值則觸發迭代重寫查詢、擴展檢索範圍、或融合多源文獻，直到代理確信答案品質或達成預算限制；同時 **Graph-of-Thought 推理** 允許複數檢索路徑並行，最後由裁判代理選出最佳答案。LangSmith 整合自動追蹤每個代理節點、狀態變化與批判分數，開發者可按迭代次數、檢索命中率、幻覺率等指標聚合監測，實現全鏈路可觀測性。對 Roy 在 Tunghai University 的 RAG 專案而言，此架構意味著可從單調的文件檢索升級為知識驗證系統，配合 Gemini 與 ChromaDB，自動確保回答的準確性與來源可追蹤。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
