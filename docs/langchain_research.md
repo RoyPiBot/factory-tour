@@ -1734,3 +1734,16 @@ Sources:
 Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph vs CrewAI vs OpenAI Agents — TS Comparison 2026](https://langgraphjs.guide/comparison/)
+
+---
+
+## 63. LangGraph v1.1 型別安全改進與中斷時間旅行修復（2026 年 3 月）
+
+> **完全向後相容的大版本更新，型別安全串流、中斷恢復、子圖狀態復原實現生產級穩定性**
+
+2026 年 3 月，LangGraph 發布 **v1.1**，進一步強化型別安全與故障恢復機制。核心更新包括：**Type-Safe Streaming v2** — 開發者可透過 `stream(version="v2")` 啟用統一的 StreamPart 輸出格式，每個串流塊包含 type、namespace 與 data 欄位，搭配型別字典實現完全型安全；**Type-Safe Invoke v2** — 呼叫 `invoke(version="v2")` 時自動回傳 GraphOutput 物件，包含 .value 與 .interrupts 屬性，並支援 Pydantic 與 dataclass 的自動型別強制轉換；**中斷與子圖時間旅行修復** — 解決重放機制中 RESUME 值複用導致的狀態污染，子圖能正確復原父圖歷史檢查點的狀態。此版本完全向後相容，意味著現有代碼無需修改即可升級。對 Roy 在 Raspberry Pi 5 上的 Factory Tour 與 nRF54L15 系統而言，此更新意味著可透過 WebSocket 實現完全型安全的即時串流通訊，同時人機審批循環的中斷與復原機制更加堅實，支援複雜的多層級代理協調無需擔心狀態不一致問題。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
