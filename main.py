@@ -40,6 +40,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 啟動時自動初始化資料庫、知識檢索器與五個 Agent 實例
 # 關鍵依賴：Groq API、FastAPI、LangGraph 多智能體框架、SQLite 資料庫管理
 # 負責管理多智能體協調、非同步事件處理及 WebSocket 即時通信功能
+# 系統主程式：工廠多智能體導覽系統的啟動和協調中心
 import asyncio
 import json
 import logging

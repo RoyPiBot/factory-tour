@@ -1784,3 +1784,15 @@ Sources:
 Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
+
+---
+
+## 67. LangSmith Fleet 與 Polly AI 助手——企業級代理治理與自動化代理管理（2026 年）
+
+> **統一代理身份、權限管理、代理間協作，Polly AI 內建工程師級決策代理，實現全公司代理體系的自動化治理**
+
+2026 年，LangChain 發布 **LangSmith Fleet** 升級，原先的 Agent Builder 演進為企業級代理管理平臺。Fleet 核心功能包括：**代理身份與共享機制**——每個代理擁有獨立身份、版本管理與存取控制，團隊成員可依角色、部門、專案精細化分享與使用代理，完全實現代理即服務（Agents-as-a-Service）；**權限管理與合規稽核**——管理員可限制特定代理的工具調用範圍、資料存取權限、API 額度，所有代理操作均被記錄於 LangSmith 審計日誌，滿足企業合規要求；**Polly AI 助手全面上線**——Polly 是內置於 LangSmith 的 LLM 驅動代理，可代表人類工程師團隊自動執行代理除錯、最佳化、部署等工程任務，甚至可在代理出現異常時自動回滾或修補。Polly 支援自然語言指令，例如「修復第 3 號代理的檢索準確度」或「將工廠監測代理部署至 5 個邊界節點」，無需手動編寫。對 Roy 的多專案架構而言，此功能意味著 Factory Tour、nRF54L15、RAG 系統的全體代理可統一納入 Fleet 管理，Roy 可透過 Polly 與自然語言快速迭代、共享、部署各專案的代理，大幅降低運維成本。
+
+Sources:
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [LangChain - Changelog](https://changelog.langchain.com/)
