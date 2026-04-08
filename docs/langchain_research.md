@@ -1809,3 +1809,15 @@ Sources:
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026 - DEV Community](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [AI Agents in 2026: LangGraph vs CrewAI vs Smolagents with Real Benchmarks on Local LLMs - DEV Community](https://dev.to/pooyagolchian/ai-agents-in-2026-langgraph-vs-crewai-vs-smolagents-with-real-benchmarks-on-local-llms-4ma1)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 69. Deferred Nodes 與動態工作流編排——延遲執行優化複雜決策樹（2026 年 4 月）
+
+> **延遲節點支援，在所有上游路徑完成前暫停節點執行，實現高效的條件分岐與動態工作流編排**
+
+2026 年 4 月，LangGraph v1.1.6 推出 **Deferred Nodes** 機制，允許開發者將某些計算密集型或依賴多個上游結果的節點標記為延遲執行，系統自動在所有前置節點完成後才觸發其執行，無需額外的手動同步邏輯。結合既有的 **Node-Level Caching**，開發者可精細化控制哪些中間結果被快取、哪些節點被延遲執行，大幅降低 Factory Tour 和 nRF54L15 邊界系統的計算開銷，在資源受限的 Raspberry Pi 5 上實現千毫秒級的決策迴應時間。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph - GitHub](https://github.com/langchain-ai/langgraph/releases)
