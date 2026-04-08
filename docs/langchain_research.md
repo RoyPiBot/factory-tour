@@ -1722,3 +1722,15 @@ Sources:
 Sources:
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 62. Subgraph 模組化架構與多代理團隊協作（2026 年 4 月）
+
+> **在更大的圖中嵌入更小的圖，實現模組化的多代理編排與層級化決策**
+
+2026 年 4 月，LangGraph 推出 **Subgraph** 功能，允許開發者在一個父級圖中嵌入多個獨立的子圖（小型圖），每個子圖可代表一個專門的代理或工作流。此設計顯著提升了複雜多代理系統的模組化程度——例如 Factory Tour 系統可拆分為「設備監測子圖」、「異常診斷子圖」、「維修排程子圖」等，每個子圖獨立開發與測試，最後由父圖統一協調。Subgraph 支援完整的狀態傳遞與檢查點持久化，使各代理團隊間的協作既透明又高效，特別適合大規模企業級多代理部署。對 Roy 的 nRF54L15 感應器監測系統而言，此架構意味著可構建層級化的監測—分析—決策—執行管道，每層均為獨立的子圖，支援動態擴展新的監測節點或決策規則，無需重寫整個系統。
+
+Sources:
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph vs CrewAI vs OpenAI Agents — TS Comparison 2026](https://langgraphjs.guide/comparison/)
