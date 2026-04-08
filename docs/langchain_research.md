@@ -1747,3 +1747,16 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 64. LangGraph Deploy CLI 與 TypeScript 功能對等（2026 年 4 月）
+
+> **一鍵部署到 LangSmith 生產環境，TypeScript 與 Python 完全功能對等，加速跨語言多代理開發**
+
+2026 年 4 月，LangGraph 推出 **Deploy CLI** 新工具，開發者可透過 `langgraph-cli` 單一命令將代理系統直接部署至 LangSmith Deployment，無需複雜的容器編排或基礎架構配置。同時 TypeScript 版本實現與 Python 完全功能對等——StateGraph、條件邊、檢查點、流式輸出、人機迴圈等核心功能無差異支援。此進展對 Roy 的跨平台開發至關重要：Factory Tour 系統與 nRF54L15 感應器框架可用 TypeScript 統一開發前後端，透過 Deploy CLI 快速疊代與上線，企業級客戶（Uber、LinkedIn、GitLab）已驗證此架構的生產穩定性。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
