@@ -1760,3 +1760,15 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 65. Agent Middleware 與自動重試機制（2026 年）
+
+> **內建失敗重試、指數退避與內容審核，提升代理系統的魯棒性與安全合規**
+
+2026 年，LangGraph 推出 **Agent Middleware** 套件，為多代理系統增加自動韌性與安全機制。首要功能是 **自動重試中間件**——可對失敗的模型調用自動重試，支援可配置的指數退避策略，避免瞬間網路抖動或 API 限流導致整個工作流中斷；其次是 **OpenAI 內容審核中間件**，實時檢測代理輸出中的不安全內容，防止有害信息滲透。此等中間件開箱即用，無需手動編寫，顯著提升企業級代理系統的穩定性與合規性。對 Roy 的 Factory Tour 與 nRF54L15 邊界監測系統而言，自動重試機制意味著感應器數據傳輸中斷時無需人工干預，內容審核機制則確保異常警告信息經過把關後才上報，實現更加靠譜的自主代理行為。
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
