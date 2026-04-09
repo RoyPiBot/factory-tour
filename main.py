@@ -45,6 +45,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 系統主程式：工廠多智能體導覽系統的啟動和協調中心
 # 核心功能：RAG 知識檢索 + WebSocket 即時推送 + 多語言支援 + 訪客記憶管理
 # 模組依賴初始化 — 非同步事件迴圈、日誌系統、環境變數讀取
+# 核心模組：FastAPI 伺服器與 LangGraph 多智能體系統的協調核心
 import asyncio
 import json
 import logging

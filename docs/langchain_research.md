@@ -1846,3 +1846,15 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 72. Durable State 與內建持久檢查點——自動儲存與恢復代理執行狀態（2026 年）
+
+> **代理執行狀態自動持久化，無需手動資料庫邏輯，支援多日審批流程與後台工作**
+
+2026 年，LangGraph 的 **Durable State** 機制成為核心特性，代理執行的每個中間狀態自動持久化至 LangSmith，開發者無需編寫自訂資料庫邏輯。此特性特別適合長執行時間的工作流，例如多日審批流程或後台排程工作——代理可在任意檢查點中斷並恢復，無需重新計算上游節點。對 Roy 的 Factory Tour 與 nRF54L15 系統而言，Durable State 意味著邊界節點的監測工作流可跨越多個日週期，即使 Raspberry Pi 重啟也能無縫恢復，並透過 LangSmith 儀表板追蹤長期工作的進度與成本。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
