@@ -1821,3 +1821,15 @@ Sources:
 Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph - GitHub](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 70. LangGraph Deploy CLI 與 TypeScript 功能對等——單指令部署與跨語言統一開發（2026 年 4 月）
+
+> **LangSmith 原生部署工具上線，TypeScript 版本與 Python 完全對等，LangGraph 邁向雙語生態成熟**
+
+2026 年 4 月，LangGraph v1.1.6 推出 **Deploy CLI** 工具，開發者無需手動配置 CI/CD，一行指令即可將代理從本地部署至 LangSmith Deployment。同時 **TypeScript 版本達到完全功能對等**——StateGraph、條件邊、檢查點、流式輸出、人機迴圈、@langgraphjs/toolkit 提供的 createReactAgent 樣板等核心功能全數可用，消除 Python/TypeScript 間的能力鴻溝。對 Roy 的 Factory Tour、nRF54L15 與 RAG 系統而言，此更新意味著可用 TypeScript 統一開發跨平臺代理，透過 Deploy CLI 快速迭代測試，將邊界模型與雲端決策系統無縫整合到企業 LangSmith 部署流水線，大幅加速從原型到生產的時間。
+
+Sources:
+- [LangGraph TypeScript Guide 2026](https://langgraphjs.guide/)
+- [LangChain - Changelog](https://changelog.langchain.com/)
