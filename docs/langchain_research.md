@@ -1870,3 +1870,15 @@ Sources:
 Sources:
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+
+---
+
+## 74. 開放代理平臺與本地 Studio——無代碼建造與實時除錯（2026 年）
+
+> **LangChain 推出 Open Agent Platform 與本地 LangGraph Studio v2，降低代理開發門檻，提升企業級可視化除錯能力**
+
+2026 年，LangChain 正式發布 **Open Agent Platform**——第一個真正無代碼的代理建造者，產品經理與非技術使用者無需編寫程式碼即可透過 UI 選擇 MCP 工具、自訂提示詞、選擇模型與連接資料來源，整個後端由 LangGraph Platform 驅動。同時，**LangGraph Studio v2** 演進為可在本地獨立運行的代理 IDE（無需桌面應用程式），開發者可視化與除錯代理互動流程、直接將 LangSmith 的追蹤記錄拉入 Studio 進行調查、新增範例至評估資料集，並在 UI 中直接修改提示詞——大幅加速迭代週期。對 Roy 的 Factory Tour 多代理系統而言，此舉意味著可用拖放式建造器快速組建監測與協調代理，無需深入 Python 程式碼，使系統維護與升級變得輕鬆無比。
+
+Sources:
+- [Recap of Interrupt 2025: The AI Agent Conference by LangChain](https://blog.langchain.com/interrupt-2025-recap/)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
