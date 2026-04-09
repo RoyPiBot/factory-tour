@@ -1906,4 +1906,16 @@ Sources:
 
 Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 77. LangGraph 2026 Q2 — Deep Agents 非同步子代理與多模態文件處理（2026 年 4 月）
+
+> **Deep Agents 支援非同步後臺子代理執行；多模態檔案讀取正式上線；Python 3.9 停用，Python 3.14 完全相容**
+
+2026 年 4 月，LangGraph 在多代理協調與多模態處理領域實現關鍵突破。**Deep Agents 非同步子代理**功能於 4 月 7 日上線，允許主代理在執行背景任務的同時繼續與使用者互動，無需等待子代理完成——這對 Roy 的 Factory Tour 監測系統而言，意味著可並行執行數十個 nRF54L15 邊界感知任務而主協調代理保持即時回應。同時，`read_file` 工具現已支援 PDF、音訊與視訊檔案，超越純文字與圖像限制，為多模態 RAG 系統提供更豐富的資料源。LangGraph 1.1.x 版本同步更新，正式停用 Python 3.9 支援，並驗證 Python 3.14 完全相容，確保 Raspberry Pi 環境的長期技術棧可維護性。此外，新增類型安全的流式輸出（`version="v2"`）與檢查點復原能力，進一步鞏固生產級部署基礎。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)

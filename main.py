@@ -98,6 +98,7 @@ MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
 # 防止過長訊息造成 API 配額超支與回應延遲
 # 區域測驗資料快取 - 啟動時從 quizzes.json 載入，供 /quiz 端點使用
 QUIZ_DATA: dict = {}  # area_id -> questions
+# 區域測驗題目由 quizzes.json 動態載入，支援多語言與難度分級
 
 
 @asynccontextmanager
