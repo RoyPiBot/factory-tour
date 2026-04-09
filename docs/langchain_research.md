@@ -1858,3 +1858,15 @@ Sources:
 Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+
+---
+
+## 73. LangGraph TypeScript 完全功能對等與生態擴展（2026 年 4 月）
+
+> **跨語言統一開發時代來臨，TypeScript 版本功能完全與 Python 對等**
+
+2026 年 4 月，LangGraph 實現了 Python 與 TypeScript 版本的完全功能對等，特別是 @langgraphjs/toolkit 套件提供的 `createReactAgent` 樣板消除了跨語言開發的學習曲線與程式碼差異。開發者現可用 TypeScript 統一構建 Factory Tour 主代理與 nRF54L15 邊界感應器協調層，享受原生型別安全、Deno/Node.js 跨執行環境相容性，以及與 OpenClaw TypeScript 棧的無縫整合。新版 TypeScript 版本支援流式輸出、檢查點、人機迴圈、Model Profiles 能力探測等企業級特性，進一步鞏固 LangGraph 作為跨平臺多代理開發首選框架的地位。
+
+Sources:
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)

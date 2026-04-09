@@ -291,7 +291,7 @@ async def root():
 
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard():
-    """舊版 Dashboard 介面"""
+    """舊版 Dashboard 介面 - 動態載入 index.html 範本"""
     html_file = TEMPLATES_DIR / "index.html"
     if html_file.exists():
         return HTMLResponse(html_file.read_text(encoding="utf-8"))
