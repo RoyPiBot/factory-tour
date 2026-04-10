@@ -1932,3 +1932,16 @@ Sources:
 - [Releases · langchain-ai/langgraph - GitHub](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+
+---
+
+## 79. LangGraph 2026 Q2 架構演進——StateSchema 標準化、型別安全串流與選擇性狀態追蹤（2026 年 4 月）
+
+> **StateSchema 導入 Standard JSON Schema 標準化，消除供應商鎖定；ReducedValue 與 UntrackedValue 提供精粒度狀態管理；.stream() 方法型別安全化，開發體驗大幅提升**
+
+2026 年 Q2，LangGraph 在架構設計與開發者體驗方面實現重大里程碑。**StateSchema** 正式支援 Standard JSON Schema（相容於 Zod 4、Valibot、ArkType 等多個第三方驗證庫），消除特定框架的供應商鎖定，允許開發者靈活選擇驗證方案。**ReducedValue** 與 **UntrackedValue** 兩大新特性分別支援獨立的輸入輸出型別定義與瞬態狀態管理（資料庫連線、快取、執行時組態等），提供精細化的狀態追蹤控制，減少不必要的檢查點負擔。**.stream() 方法型別安全化**消除了型別轉換的不安全操作，與新增的 .addNode({node1, node2}) 與 .addSequence({node1, node2}) 快捷方式一同大幅降低樣板程式碼，加速多代理系統的原型開發。對 Roy 的 Factory Tour、nRF54L15 分散式監測系統與 RAG 架構而言，這些更新意味著可用更簡潔、型別安全的方式定義複雜工作流狀態，同時通過選擇性 UntrackedValue 確保高頻邊界感知資料不被持久化，優化 Raspberry Pi 5 的記憶體與儲存效率。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
