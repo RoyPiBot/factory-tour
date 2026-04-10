@@ -1970,3 +1970,16 @@ Sources:
 Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 81. LangGraph 3 月型別安全革新與 Deep Agents 多模態擴展——StreamPart 統一、時間旅行完善、背景任務非同步化（2026 年 3-4 月）
+
+> **LangGraph 3 月推出 version="v2" 統一 StreamPart 型別系統與 invoke 安全化；4 月 Deep Agents 多模態檔案讀取支援 PDF、音訊與視訊；所有更新完全向後相容，開發體驗與生產穩定性同步躍升**
+
+2026 年 3 月，LangGraph 在型別安全與流式輸出統一上實現重大突破。**StreamPart 型別統一** 透過新的 `version="v2"` 參數，確保 `.stream()` 與 `.astream()` 方法返回一致的結構——每個塊都包含 `type`、`ns` 與 `data` 三個欄位，並可從 `langgraph.types` 匯入對應的 TypedDict，完全消除型別推斷的歧義。同時，**TypeScript/Python invoke 安全化**允許開發者於 `invoke()` 呼叫中取得帶有 `.value` 與 `.interrupts` 屬性的 GraphOutput 物件，並自動強制轉型至宣告的 Pydantic 模型或資料類別。3 月中旬發布的**時間旅行修復**提升了中斷與子圖互動的重放精度，確保重放時不再復用過期的 RESUME 值，子圖也能正確恢復父節點的歷史檢查點，奠定容錯工作流的可靠基礎。4 月，Deep Agents 引入**非同步子代理支援**與**多模態檔案讀取**——`read_file` 工具現已支援 PDF、音訊與視訊檔案，超越純文字與圖像，為 Roy 的多模態 RAG 系統與 Factory Tour 影像分析管道提供豐富資料源。所有更新完全向後相容，`version="v2"` 採用可選，確保現有部署平穩升級。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
