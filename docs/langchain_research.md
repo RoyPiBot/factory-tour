@@ -1945,3 +1945,15 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 80. LangGraph Python 3.14 完全支援與企業級發布週期——2026 年 4 月穩定化（2026 年 4 月）
+
+> **LangGraph 1.1 系列已驗證 Python 3.14 完全相容；三週固定發布週期確立，每月第二週發布補丁，企業級邊界系統的長期維護路線圖明朗化**
+
+2026 年 4 月，LangGraph 官方發布週期正式穩定化為三週迴圈制，第二週發布補丁版本，確保 Roy 的 Raspberry Pi 5 環境持續獲得安全更新與效能改善。同時 Python 3.14 完全相容驗證確認，邊界監測系統可長期部署於最新 Python 運行時，享受 JIT 編譯優化與更佳的非同步 I/O 性能。Official Changelog 記錄每週增量更新，包括新增 MCP (Model Context Protocol) 整合、增強型錯誤診斷工具，確保 Factory Tour 與 nRF54L15 邊界架構可精確追蹤代理決策路徑與成本分配。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
