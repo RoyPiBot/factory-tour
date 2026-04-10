@@ -1919,3 +1919,16 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 78. LangGraph 1.1.6 與生產級穩定性——JavaScript 彈性恢復、節點級快取與模型能力探測（2026 年 4 月）
+
+> **LangGraph v1.1.6 邁向企業生產級成熟，JavaScript 原生 reconnectOnMount 支援網路中斷自動恢復；節點級快取消除冗餘計算；Model Profile 統一能力探測跨 40+ 模型**
+
+2026 年 4 月中旬，LangGraph v1.1.6 穩定版發布，標誌著框架邁入企業級生產穩定里程碑。**JavaScript 彈性恢復** (`reconnectOnMount`) 使前端應用於頁面重載或網路波動時自動恢復流，無需使用者重新提交；**節點級快取機制** (Node/Task-Level Caching) 讓開發者精確控制工作流中哪些計算結果被持久化，大幅減少 Raspberry Pi 5 上的重複計算開銷；**Model Profile 能力探測**透過統一的 `.profile` 屬性向代理公開模型支援的功能清單（涵蓋 GPT-4o、Claude 3.5 Sonnet、Gemini 等 40+ 商業與開源模型），使多模型代理協作決策更加透明與穩健。TypeScript npm 週下載量已達 42,000+ 次，顯示跨語言生態的強勢增長。對 Roy 的 Factory Tour、nRF54L15 與 RAG 系統而言，此版本代表 LangGraph 已成熟足以支撐 24/7 生產級部署，企業級錯誤恢復與成本最佳化能力已內建於核心框架。
+
+Sources:
+- [Releases · langchain-ai/langgraph - GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
