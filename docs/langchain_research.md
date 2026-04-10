@@ -1099,6 +1099,23 @@ Sources:
 
 ---
 
+## 16. Deep Agents 與多媒體支援擴展（2026/04）
+
+> **Agent 工具鏈與跨端一致性升級**
+
+LangGraph v1.1.6（2026 年 4 月 8 日發佈）進一步強化 Deep Agents 與跨端一致性：
+
+- **非同步子代理支援**：子代理可在後臺無阻塞執行，用戶持續互動時任務同步進行，特別適合工廠導覽多任務協調
+- **多媒體讀取工具擴展**：`read_file` 工具現已支援 PDF、音訊、影片等多種格式，配合 Vision 能力實現更豐富的多模態工作流
+- **TypeScript 功能對等**：TypeScript 版本與 Python 功能全面對等，包括 StateGraph、條件邊界、檢查點、串流與人類干預
+- **JavaScript 自動重連機制**：`reconnectOnMount` 特性使前端應用具備頁面重載或網路中斷後的自動恢復能力，提升 SPA 穩定性
+
+Sources:
+- [LangGraph Latest Releases - GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Next-Generation Agentic RAG with LangGraph 2026 - Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
 ## 16. LangGraph 2026 多代理協作與 LangSmith 可觀測性整合
 
 > **2026/04/01 產業動態更新**
