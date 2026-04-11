@@ -2109,3 +2109,16 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 88. LangGraph v1.1.6 穩定版本與 Python 版本戰略調整——放棄 3.9 支援、Python 3.14 完全相容、ToolNode 並行優化（2026 年 4 月）
+
+> **LangGraph 1.1.6 於 2026 年 4 月 3 日發佈；停止支援 Python 3.9，新增 Python 3.14 完全相容性；ToolNode 預設順序執行，但支援並行執行以降低多工具調用延遲；與 Microsoft Foundry Agent Service 深度集成，工業級邊界監測應用進一步成熟**
+
+2026 年 4 月，LangGraph 1.1.6 版本正式發佈，標誌著框架在版本管理與效能優化上的重大進展。**Python 版本策略調整**反映了生態演進——LangGraph 1.1.x 系列正式停止對 Python 3.9 的支援，同時驗證了對 Python 3.14 的完全相容性，確保 Roy 的 Raspberry Pi 5 環境可採用最新 Python 運行時的 JIT 編譯優化與非同步 I/O 性能提升，特別有利於高頻 nRF54L15 感測器融合與實時邊界監測。**ToolNode 並行執行優化**允許開發者在單次 LLM 回應中動態選擇工具的執行方式——預設順序執行以維持執行順序的確定性，但當 LLM 並行請求多個工具時，平行執行可顯著降低端到端延遲，對 Factory Tour 的動態導覽與並行邊界感知具有重要意義。**Microsoft Foundry Agent Service 深度整合**進一步擴大了企業級部署選項，LangGraph 現可無縫對接 Microsoft 生態的 OpenAI Responses API，支援來自多個模型提供商的模型，使 Roy 的分散式監測系統具備更靈活的模型選擇與成本優化空間。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
