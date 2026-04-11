@@ -1549,6 +1549,19 @@ Sources:
 
 ---
 
+## 46. LangGraph TypeScript 全生態同步與 @langgraphjs/toolkit 快速開發（2026 年 4 月跨語言完全等效）
+
+> **JavaScript SDK 與 Python 完全同步，官方範本庫加速全棧代理開發**
+
+2026 年 4 月，LangGraph JavaScript 生態達到與 Python 完全等效的成熟度。**@langgraphjs/toolkit** 套件發布，提供 `createReactAgent` 等預製代理範本，開發者無需手寫圖定義與狀態管理，直接透過單一函式呼叫建立功能完整的多工具代理。TypeScript 原生型態支援現已涵蓋 StateGraph、ConditionalEdgeRouter、StreamPart、GraphOutput 等全核心 API，完全消除 JavaScript 與 Python 開發體驗的落差。特別是 v1.1.2 新增的 **mixed schema support** 與 **type bag patterns**，使 JavaScript 開發者可宣告複雜的異質狀態型態（如 Union、Discriminated Union），自動型別推導與編譯時檢查品質達到 Python Pydantic 的水準。對 Roy 的 Factory Tour 多代理系統而言，此更新意味著前後端代理可採用統一的 LangGraph 開發框架——Node.js 後端與 Web 前端均用同一組 API 與型態系統，大幅降低全棧多代理系統的認知負擔與整合複雜度。
+
+Sources:
+- [LangGraph JavaScript Release – TypeScript Parity Achieved](https://blog.langchain.com/langgraphjs-v1-1-toolkit-release/)
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+- [LangGraph v1.1.0 Releases - JavaScript SDK](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
 ## 46. LangGraph 2026 模型能力檢測與智能重試中間件
 
 > **統一的模型特性探測與自動故障恢復，提升多代理系統的模型調用穩定性**
