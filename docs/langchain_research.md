@@ -2039,3 +2039,16 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 84. LangGraph 計算優化與工具生態擴張——節點快取、延遲執行、模型前置鉤子與內建供應商工具（2026 年 4 月）
+
+> **節點快取機制減少冗餘計算，延遲節點支援複雜協作工作流；Pre/Post Model Hooks 攔截與控制 LLM 呼叫；內建供應商工具整合網路搜尋與 RemoteMCP，無需額外設定**
+
+2026 年 4 月，LangGraph 在計算優化與工具整合方面推出三項關鍵增強。**節點快取**（Node Caching）允許開發者對工作流中的個別節點進行結果快取，跳過冗餘計算，特別是在迭代開發時大幅加速執行週期。**延遲節點**（Deferred Nodes）延迟子節點的執行直至所有上游路徑完成，完美適用於對應-歸約、共識決策與多代理協作工作流——Roy 的 Factory Tour 多邊界感知系統可透過此機制優雅地實現數十個 nRF54L15 感測器的非同步融合。**Pre/Post Model Hooks** 允許開發者在模型呼叫前後插入自訂邏輯（控制上下文膨脹、新增防護欄、人類審核），使代理決策更加可控與透明。**內建供應商工具**（Built-in Provider Tools）現已原生支援網路搜尋、RemoteMCP 等功能，無需編寫 API 包裝器即可直接在 ReAct 代理中使用，大幅降低多模態 RAG 系統的整合複雜度。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
