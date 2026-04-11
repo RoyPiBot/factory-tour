@@ -98,6 +98,7 @@ agent_apps: dict = {}  # language -> agent_app
 _agent_lock = threading.Lock()  # 保護 agent_apps 的並發初始化，避免多執行緒重複建立相同語言的 Agent，採用 Double-check Locking 優化並發效能
 # 使用 Double-check Locking 模式確保多語言 Agent 的高效率初始化
 tour_manager = TourManager()  # 管理多個導覽 session 的狀態與進度
+# 此管理器協調遠端遊客與本地系統間的導覽流程，實現跨 session 訪客記憶功能
 rag_ready = False
 # RAG 引擎初始化狀態旗標，供健康檢查與文件上傳 API 判斷是否可用
 # 若 RAG 模組無法載入（如 chromadb 未安裝），此旗標保持 False
