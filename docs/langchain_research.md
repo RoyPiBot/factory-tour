@@ -2065,3 +2065,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
+
+---
+
+## 86. LangGraph v1.1 類型安全與 Deep Agents 多模態擴張——流式輸出類型化、子代理非同步支援、多格式檔案處理（2026 年 4 月）
+
+> **LangGraph v1.1 推出類型安全流式傳輸與 invoke，自動 Pydantic/dataclass 強制轉換；Deep Agents v0.5.0 支援異步子代理與多模態（PDF/音訊/影片），Anthropic 提示快取最佳化記憶體成本**
+
+2026 年 4 月，LangGraph v1.1 發佈系列類型安全增強，直接提升開發體驗與執行時穩定性。**類型安全流式傳輸**（version="v2"）統一 stream()/astream() 輸出格式為 StreamPart 物件，包含 type、ns、data 三個鍵，使 Roy 的 Factory Tour 邊界感知系統可可靠地解析多代理決策鏈；**類型安全 invoke** 返回 GraphOutput 物件（.value 與 .interrupts 屬性），自動強制轉換為宣告的 Pydantic 模型或 dataclass，大幅降低序列化/反序列化錯誤。同時，**Deep Agents v0.5.0 Alpha** 推出異步子代理框架，允許多個子代理並行執行複雜任務；**多模態工具支援**擴展至 PDF、音訊與影片檔案，read_file 工具無需額外包裝即可處理，便於 nRF54L15 多感測器融合與研究文獻自動分析；**Anthropic 提示快取改進**進一步降低重複呼叫的成本與延遲，對 Roy 的高頻監測系統至關重要。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
