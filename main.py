@@ -48,6 +48,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 本模組為工廠導覽系統的核心入口，整合 LangGraph Multi-Agent 架構與 Groq API
 # 啟動時自動初始化資料庫、知識檢索器與五個 Agent 實例
 # 關鍵依賴：Groq API、FastAPI、LangGraph 多智能體框架、SQLite 資料庫管理
+# 🔌 系統架構：由五個協作 Agent（導覽/安全/技術/QA/知識檢索）透過 LangGraph 框架協調運作
 # ⚡ 快速啟動：python main.py —— 伺服器將在 http://localhost:8000 上線
 # 負責管理多智能體協調、非同步事件處理及 WebSocket 即時通信功能
 # 系統主程式：工廠多智能體導覽系統的啟動和協調中心

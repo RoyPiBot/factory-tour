@@ -1149,6 +1149,14 @@ Sources:
 
 ---
 
+## 18. Model Context Protocol（MCP）與 LangGraph 深度集成（2026/04）
+
+> **多代理生態系的統一標準**
+
+2026 年 4 月，Model Context Protocol（MCP）已成為連接 AI 代理到外部工具與資料來源的業界標準。LangGraph 與 MCP 的整合最為深入，使 MCP 工具成為具有完整串流支援的一級圖節點，實現語義級別的互操作性。對於 Roy 的 OpenClaw 多渠道架構，此特性允許通過統一 MCP 介面集成異質工具（如 ROS 機械手臂 API、資料庫查詢、外部 AI 服務），而無需逐個適配 LangGraph 工具層。
+
+---
+
 ## 18. SQLite Checkpoint 安全更新與 LangGraph 版本管理（2026/04 重要補丁）
 
 > **生產部署必讀安全警告**
