@@ -88,6 +88,7 @@ load_dotenv()  # 載入環境變數 (.env 配置)
 logging.basicConfig(level=logging.INFO)  # INFO 級別記錄所有重要事件
 # 初始化日誌系統以追蹤 API 請求與 Agent 執行狀態 - 便於除錯與監控多 Agent 互動流程
 logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
+# 🔍 日誌追蹤：記錄感測器資料、WebSocket 連線與多智能體決策過程，支援事後分析
 
 # ─── 路徑設定 ───
 BASE_DIR = Path(__file__).parent

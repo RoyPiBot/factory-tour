@@ -2097,3 +2097,15 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+
+---
+
+## 87. LangGraph 跨線程記憶與語義檢索——Agent 長期記憶的自適應檢索（2026 年 4 月最新動態）
+
+> **LangGraph 2.0 在 Python 與 JavaScript 實現跨線程記憶共享；語義搜索引擎使 Agent 能基於含義（非精確匹配）檢索相關記憶；混合 Schema 與類型包模式強化狀態圖的類型安全與靈活性**
+
+根據 2026 年 4 月的最新開發進展，LangGraph 在記憶系統與型別機制上達成重大突破。**跨線程記憶支援**（Cross-Thread Memory）現已在 Python 與 JavaScript 版本同步實現，使不同執行線程的 Agent 能共享長期記憶庫，特別適合 Pi 5 上的 Factory Tour 系統——多個並行導覽會話可透過共享記憶池動態學習訪客偏好與常見問題模式。**語義記憶檢索**（Semantic Memory Search）利用向量嵌入與相似度計算，Agent 無需逐字匹配即可找到含義相近的過往情境，大幅提升從大規模記憶庫中精準召回的能力，對 Roy 的多模態 RAG 系統與研究知識積累至關重要。此外，**混合 Schema 支援**使 StateGraph 可同時使用 TypedDict 與自訂 Pydantic 類型，降低大型多代理系統的型別約束；**GraphNode 與 ConditionalEdgeRouter 的類型包模式**進一步強化了邊界轉移邏輯的型別安全，使複雜工作流的維護成本與誤用風險大幅下降。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
