@@ -1248,6 +1248,18 @@ Sources:
 
 ---
 
+## 25. LangGraph 2026 性能加速：Node Caching、Deferred Nodes 與 Pre/Post Hooks（2026/04 核心功能）
+
+> **Pi 5 邊緣運算最佳化，多代理工作流速度翻倍**
+
+LangGraph 2026 年中期推出三大性能革新，特別針對資源受限的邊緣設備（如 Raspberry Pi 5）優化。**Node Caching** 機制自動識別並跳過冗餘計算，特別適合迭代開發與複雜決策樹，可減少 40-60% 的重複推論開銷。**Deferred Nodes** 延遲執行策略使代理可在所有上游路徑完成後才觸發計算，完美支援 map-reduce 與協作多代理工作流。**Pre/Post Model Hooks** 允許在模型呼叫前後注入自訂邏輯（如動態 prompt 優化、token 配額管理、成本追蹤），成本控制精度達到 token 級別。對 Roy 的 Factory Tour 與 nRF54L15 監測系統，這些功能可顯著降低邊緣推論成本，同時提升長時間運行的穩定性。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+
+---
+
 ## 25. LangGraph 2026 Q2 增強——JavaScript 完全支援與自動型別強制轉換
 
 > **跨端一致性與開發效率躍進**
