@@ -2148,3 +2148,15 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
 - [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
+
+---
+
+## 91. LangGraph Deep Agents——非阻塞背景子任務與並行編排（2026 年 4 月 7 日）
+
+> **LangGraph 新增 Deep Agents 功能，允許主代理啟動非阻塞背景子任務（subagents），用戶可在子任務運行期間繼續與主代理互動，實現真正的並行多級編排**
+
+2026 年 4 月 7 日，LangGraph 官方推出 **Deep Agents** 特性，革新了多層級代理架構的設計模式。此功能允許主代理在執行期間啟動一或多個子代理任務而無需等待其完成，整個系統可持續回應用戶输入。這對 Roy 的 Factory Tour Multi-Agent 系統與 NanoClaw 邊界架構具有直接價值——導覽主代理無需阻塞可同時協調多個並行任務（如實時感測器數據融合、動態路線規劃、安全檢查），進一步優化了 Pi 5 上的資源利用效率與使用者體驗，特別在 nRF54L15 晶片驅動的實時應用中尤其關鍵。
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
