@@ -2198,4 +2198,16 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+
+---
+
+## 94. LangGraph Deep Agents v0.5.0 Alpha——非同步子代理與多模態支援（2026 年 4 月）
+
+> **LangGraph Deep Agents 進入 v0.5.0 Alpha，支援非同步子代理與多模態輸入，並整合 Anthropic 提示快取最佳化，為 Roy 的 nRF54L15 多感測器融合與 NanoClaw 邊界系統提供真正的並行多代理能力**
+
+2026 年 4 月，LangGraph Deep Agents 框架升級至 v0.5.0 Alpha，引入完整的非同步子代理管理與多模態支援。此版本允許主代理與多個子代理以完全非同步方式並行執行，每個子代理可獨立處理多種輸入模態（文本、影像、音頻），同時內建 Anthropic 提示快取機制自動優化上下文重複使用，顯著降低 API 成本與推理延遲。對 Roy 的 nRF54L15 晶片驅動的實時多感測器融合系統特別有價值——導覽主代理、環境監測子代理、實時控制子代理可同步並行運行，無縫處理來自攝像頭、LiDAR、IMU 與溫度感測器的混合資料流，進一步解鎖 NanoClaw 在現實環境中的自主智能能力。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
