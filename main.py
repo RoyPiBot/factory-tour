@@ -18,7 +18,7 @@ AI 後端：Groq (Llama 4 Scout / 可透過 GROQ_MODEL 環境變數切換)
   - 🆕 分析事件追蹤
   - ⚙️ 部署環境：Raspberry Pi 5 + Groq API LLM 後端
 
-v3.0 — 全面升級版
+v3.0 — 全面升級版 (已整合 nRF54L15 感測器與 NanoClaw 機械手臂)
 v2.1 — 整合東海大學 RAG 專案（方案A）
 
 作者：Roy (YORROY123)

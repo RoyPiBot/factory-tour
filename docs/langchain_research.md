@@ -2160,3 +2160,16 @@ Sources:
 Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
+
+---
+
+## 92. LangGraph 2.0 型別安全流式傳輸與節點快取——加速 RAG 與多代理推理（2026 年 4 月）
+
+> **LangGraph 2.0 引入 Type-Safe Streaming (version="v2")、Node/Task Level Caching 與改進的開發體驗，使 Roy 的 RAG 系統與 Factory Tour 代理實現更高效的推理執行與內存利用**
+
+根據 2026 年 4 月的官方發佈，LangGraph 2.0 在型別安全與效能優化上達成雙重突破。**型別安全流式傳輸** (Type-Safe Streaming v2) 允許開發者在呼叫 `stream()` / `astream()` 時指定 `version="v2"`，獲得統一的 `StreamPart` 輸出格式，每個數據塊包含 `type`、`ns` 與 `data` 鍵，同時提供 `GraphOutput` 物件存取 `.value` 與 `.interrupts` 屬性，大幅簡化了流式數據處理邏輯。**節點級快取** (Node/Task Level Caching) 允許在工作流中快取各別節點的執行結果，特別適合 Roy 的 RAG 系統——重複查詢可直接返回快取嵌入或檢索結果，顯著降低向量數據庫與 LLM 的調用頻率，在 Pi 5 上實現更低的延遲與更高的吞吐。此外，新的 `.addNode({node1, node2, ...})` 與 `.addSequence({node1, node2, ...})` 方法進一步簡化 StateGraph 的構造，使複雜多代理系統的程式碼更簡潔易讀。
+
+Sources:
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
