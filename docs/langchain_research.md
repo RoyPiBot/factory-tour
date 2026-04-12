@@ -2135,3 +2135,16 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 90. LangGraph TypeScript 生態成熟——功能奇偶性達成，企業級套件加速採用（2026 年 4 月）
+
+> **LangGraph JavaScript/TypeScript 版本已實現與 Python 完全功能奇偶性，新增 @langgraphjs/toolkit 開箱即用代理模板，成為全棧應用開發首選**
+
+2026 年 4 月，LangGraph 的 TypeScript 版本達到關鍵里程碑——核心功能（StateGraph、條件邊、檢查點、流式傳輸與人類參與迴圈）已完全對齊 Python 版本，終結長期的功能差距問題。新推出的 @langgraphjs/toolkit 套件提供 `createReactAgent` 等開箱即用的代理範本，大幅降低 Node.js/Deno 全棧應用的開發門檻。此更新對 Roy 的 OpenClaw 平台特別有意義——TypeScript 統一的前後端智能代理架構，可強化 Web UI 與服務器端多代理編排的深度整合，同時相容 NanoClaw 嵌入式邊界環境的 Deno 運行時，使整個生態系統從感測層到應用層實現無縫協作。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+- [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
