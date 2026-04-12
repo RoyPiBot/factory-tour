@@ -2186,3 +2186,16 @@ Sources:
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 93. LangGraph 1.1.6 中間件生態成熟——內容審核、失敗重試與摘要化中間件開箱即用（2026 年 4 月 3 日）
+
+> **LangGraph 1.1.6 強化中間件系統，新增 OpenAI 內容審核、指數退避重試、動態摘要化中間件，Type-Safe Streaming v2 與 Type-Safe Invoke v2 統一串流與叫用介面，進一步降低企業級部署的安全門檻與運維複雜度**
+
+2026 年 4 月 3 日發佈的 LangGraph 1.1.6 在中間件與型別安全流式傳輸上達成關鍵突破。**新型中間件套件**包含三項核心功能：OpenAI 內容審核中間件可自動檢測並阻止不安全的使用者輸入、模型輸出與工具結果；自動重試中間件支援可配置的指數退避策略，使 LLM 呼叫的失敗恢復更優雅；動態摘要化中間件透過模型配置文件適應性觸發上下文摘要，有效控制 Token 消耗與提示長度。**Type-Safe Streaming v2** 與 **Type-Safe Invoke v2** 統一了 `stream()` 與 `invoke()` 的輸出格式——每個串流分塊包含 `type`、`ns`、`data` 鍵，GraphOutput 物件提供 `.value` 與 `.interrupts` 屬性存取，使 Roy 的 Factory Tour 與 NanoClaw 邊界系統的實時串流處理更加型別安全、易於除錯。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
