@@ -2100,6 +2100,19 @@ Sources:
 
 ---
 
+## 87. LangGraph v1.0 正式發布與企業級檢查點機制——時間旅行調試、人類干預暫停/恢復、生產級穩定性驗證（2026年4月）
+
+> **LangGraph v1.0 正式發布，企業級檢查點持久化確立；內建時間旅行調試、暫停/恢復機制與多日批准流程支援；月搜尋量27,100次，超越所有競品框架，被Klarna/Uber等全球科技企業驗證**
+
+2026年4月，LangGraph v1.0 正式邁入通用可用階段，標誌著開源多代理框架的生產級成熟。**企業級檢查點機制**是核心突破——每個狀態轉換自動持久化，支援時間旅行調試（travel backward through agent decisions）與無縫恢復，對Roy的nRF54L15邊界監測系統與分散式Factory Tour至關重要。**內建人類干預**（Human-in-the-Loop）支援在任意節點暫停代理執行，等待人類批准後自動繼續，完美適配多日審批流程與高風險決策。**月搜尋量突破27,100次**，成為最廣泛採納的多代理框架，超越CrewAI與其他競品，被Klarna、Uber、Replit等全球科技龍頭驗證生產級穩定性。@langchain/langgraph v1.1.2 進一步引入混合schema支援與TypedDict工具，使Roy的TypeScript/Python協力開發體驗同步躍升。
+
+Sources:
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [LangGraph AI Framework 2025: Complete Architecture Guide + Multi-Agent Orchestration Analysis - Latenode Blog](https://latenode.com/blog/ai-frameworks-technical-infrastructure/langgraph-multi-agent-orchestration/langgraph-ai-framework-2025-complete-architecture-guide-multi-agent-orchestration-analysis)
+
+---
+
 ## 87. LangGraph 跨線程記憶與語義檢索——Agent 長期記憶的自適應檢索（2026 年 4 月最新動態）
 
 > **LangGraph 2.0 在 Python 與 JavaScript 實現跨線程記憶共享；語義搜索引擎使 Agent 能基於含義（非精確匹配）檢索相關記憶；混合 Schema 與類型包模式強化狀態圖的類型安全與靈活性**
