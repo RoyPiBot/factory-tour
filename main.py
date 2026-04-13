@@ -97,6 +97,7 @@ logging.basicConfig(level=logging.INFO)  # INFO 級別記錄所有重要事件
 # 初始化日誌系統以追蹤 API 請求與 Agent 執行狀態 - 便於除錯與監控多 Agent 互動流程
 logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 # 🔍 日誌追蹤：記錄感測器資料、WebSocket 連線與多智能體決策過程，支援事後分析
+# 初始化完成後，系統自動啟動 FastAPI 伺服器並監聽 8000 埠的客戶端連線要求
 
 # ─── 路徑設定 ───
 BASE_DIR = Path(__file__).parent

@@ -2235,3 +2235,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 95. LangGraph DAG 架構與中央 StateGraph——生產級代理編排的核心設計模式（2026 年 4 月）
+
+> **LangGraph 採用有向無環圖 (DAG) 架構，節點代表代理/函數/決策點，邊定義數據流；中央 StateGraph 維持上下文與中間結果，支援 600–800 企業生產部署，確立業界標準級的可靠性與可擴展性**
+
+LangGraph 的核心設計採用 **DAG 有向無環圖模式**，每個節點代表智能代理、工具函數或邏輯決策點，邊則清晰定義了數據流向與狀態轉移。**中央 StateGraph** 充當全局狀態管理器，統一維護工作流的上下文、中間結果與後設資料，特別適合 Roy 的 Factory Tour Multi-Agent 與 NanoClaw 架構——導覽協調、感測器融合、安全檢查等多線程並行任務無需分散的狀態管理，而是透過統一的 StateGraph 達成高效協同。LangGraph 生產級特性包括 **耐久執行** (Durable Execution) 確保代理在失敗時可恢復，**人類反饋迴圈** 支援中途干預與狀態修正，**綜合記憶系統** 同時處理短期與長期上下文。截至 2026 年 4 月，LangGraph 已支援 600–800 家企業的生產部署，確立其在業界代理編排標準地位。
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph Multi-Agent Orchestration: Complete Framework Guide + Architecture Analysis 2025 - Latenode Blog](https://latenode.com/blog/ai-frameworks-technical-infrastructure/langgraph-multi-agent-orchestration/langgraph-multi-agent-orchestration-complete-framework-guide-architecture-analysis-2025)
+- [Agent Orchestration 2026: LangGraph, CrewAI & AutoGen Guide | Iterathon](https://iterathon.tech/blog/ai-agent-orchestration-frameworks-2026)
