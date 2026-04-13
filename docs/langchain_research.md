@@ -2279,3 +2279,16 @@ Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 97. LangGraph v1.1——節點快取、延遲節點與模型鉤子優化（2026 年）
+
+> **LangGraph v1.1 引入 Node Caching 跳過冗餘計算、Deferred Nodes 實現 Map-Reduce 與共識工作流、Pre/Post Model Hooks 允許上下文控制與防護欄插入，三項機制共同提升複雜多代理系統的效能與靈活性**
+
+LangGraph v1.1 的三項核心優化直接提升 Roy 的多代理系統效率。**Node Caching** 允許快取個別節點的執行結果，避免迭代開發與生產運行中的冗餘計算，對 Factory Tour 導覽代理的路線規劃與感測器融合特別有價值——同一路線的重複查詢可直接返回快取結果，降低 CPU 與記憶體消耗。**Deferred Nodes** 延遲執行直到所有上游路徑完成，完美適配 Map-Reduce 模式（多子代理並行處理），亦適用於多代理共識決策——NanoClaw 邊界系統中的多感測器資料融合可先由並行子代理處理各自資料，再由中央 Deferred Node 聚合結果。**Pre/Post Model Hooks** 允許在模型呼叫前後插入自訂邏輯——Pre Hook 可主動控制 Token 消耗與上下文膨脹，Post Hook 則可應用防護欄檢查與人類在迴圈驗證，進一步強化 Pi 5 上關鍵任務的安全性與可審計性。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
