@@ -1934,6 +1934,18 @@ Sources:
 
 ---
 
+## 74. LangGraph v1.1 中間件系統深化——自動重試與內容審核（2026 年 4 月）
+
+> **模型呼叫失敗自動重試、指數退避策略、OpenAI 內容審核一體化，企業級代理系統的韌性新高峰**
+
+2026 年 4 月，LangGraph 推出強化的中間件系統，將代理系統的容錯能力與安全合規推至新高度。核心功能包括：**Model Retry Middleware** 自動對失敗的模型 API 呼叫實施指數退避重試（可自訂重試次數與延遲策略），無需手動包裝異常處理邏輯，特別適合應對瞬間網路波動或 API 限流；**OpenAI Content Moderation Middleware** 在代理生成輸出時即時檢測不安全內容（暴力、騷擾、仇恨言論等），確保多代理系統的輸出符合企業合規標準，完全自動化無需人工審閱。此等中間件開箱即用，與 LangGraph 任意版本無縫整合。對 Roy 的 Factory Tour 與 nRF54L15 邊界監測系統而言，此更新意味著感應器數據傳輸中斷或模型服務臨時故障時，代理系統可自動恢復而不中斷監測迴圈，同時異常警告信息經過內容審核把關後才上報，實現更加靠譜與自主的邊界計算環境。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 74. 開放代理平臺與本地 Studio——無代碼建造與實時除錯（2026 年）
 
 > **LangChain 推出 Open Agent Platform 與本地 LangGraph Studio v2，降低代理開發門檻，提升企業級可視化除錯能力**

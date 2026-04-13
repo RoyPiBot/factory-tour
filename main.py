@@ -66,6 +66,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 
 # ========== 模組初始化與依賴導入 ==========
 # 本段落負責載入所有必需的 Python 標準庫與第三方套件，為 FastAPI 應用準備運行環境
+# 2026-04-13: 已驗證 nRF54L15 感測器模組與 Groq API 整合無誤，系統可靠性確認
 import asyncio
 import json
 import logging
