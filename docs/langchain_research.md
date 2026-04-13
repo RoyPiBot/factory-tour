@@ -2300,3 +2300,20 @@ Sources:
 > **LangGraph 推出生產級中間件套件，包含 OpenAI 內容審核、指數退避自動重試與模型配置文件驅動的動態摘要化，為 Roy 的 Factory Tour 與 NanoClaw 提供企業級安全防護與成本優化機制**
 
 2026 年 4 月，LangGraph 的中間件生態達成關鍵成熟度，三項新中間件開箱即用。**OpenAI 內容審核中間件**自動檢測並阻止不安全的使用者輸入、LLM 輸出與工具結果，對 Roy 的 Factory Tour 導覽系統尤為重要——訪客提示或感測器異常資料可在傳送前進行審核。**模型重試中間件**支援可配置的指數退避策略，使網路抖動或暫時故障時 LLM 呼叫更優雅恢復，確保 Pi 5 上的代理任務不因瞬間故障中斷。**動態摘要化中間件**透過模型配置文件適應性觸發上下文摘要，自動控制 Token 消耗與提示長度，對 Roy 的 RAG 系統特別有效——長期對話自動壓縮舊轉錄，降低 Gemini API 成本並加速推理。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
+## 99. LangGraph v2 Type-Safe API——完整型別檢查與無縫跨平台相容性（2026 年 4 月）
+
+> **LangGraph v2 引入 version="v2" 全棧型別安全機制，.stream() 與 .invoke() 方法支援完整型別推導、自動資料轉型，同時新增 .addNode() 與 .addSequence() API 簡化圖構建，JavaScript reconnectOnMount 特性提升跨越網路抖動的可靠性，為 Roy 的多代理系統提供企業級開發者體驗**
+
+2026 年 4 月，LangGraph v2 成熟發佈，三大改進直接提升代理系統的程式碼品質與執行穩定性。**Type-Safe Streaming 與 Invoke**——指定 version="v2" 後，.stream() 與 .invoke() 輸出自動轉型為開發者宣告的 Pydantic Model 或 dataclass，GraphOutput 物件提供統一的 .value 與 .interrupts 屬性，完全消除型別轉換的運時錯誤，對 Roy 的 NanoClaw 多感測器融合工作流至關重要。**精簡圖構建 API**——.addNode() 與 .addSequence() 方法大幅減少樣板代碼，相比舊式 StateGraph 構建方式，新代碼路線更直觀，開發效率提升 30–50%。**JavaScript 彈性恢復**——reconnectOnMount 特性使 Web UI 與行動應用可自動恢復頁面重載或網路中斷後的流，無縫銜接之前的推理進度，對 Roy 的 OpenClaw Web 前端與 NanoClaw 行動監控應用特別有價值——用戶無需重新觸發導覽流或感測器查詢，系統自動從上次中斷點接續。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph: The Future of Stateful AI Workflows](https://www.blog.qualitypointtech.com/2026/04/langgraph-future-of-stateful-ai.html)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
