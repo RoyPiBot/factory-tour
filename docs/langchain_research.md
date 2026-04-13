@@ -2292,3 +2292,11 @@ Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 98. LangGraph 中間件生態成熟——內容審核、失敗重試與動態摘要化（2026 年 4 月）
+
+> **LangGraph 推出生產級中間件套件，包含 OpenAI 內容審核、指數退避自動重試與模型配置文件驅動的動態摘要化，為 Roy 的 Factory Tour 與 NanoClaw 提供企業級安全防護與成本優化機制**
+
+2026 年 4 月，LangGraph 的中間件生態達成關鍵成熟度，三項新中間件開箱即用。**OpenAI 內容審核中間件**自動檢測並阻止不安全的使用者輸入、LLM 輸出與工具結果，對 Roy 的 Factory Tour 導覽系統尤為重要——訪客提示或感測器異常資料可在傳送前進行審核。**模型重試中間件**支援可配置的指數退避策略，使網路抖動或暫時故障時 LLM 呼叫更優雅恢復，確保 Pi 5 上的代理任務不因瞬間故障中斷。**動態摘要化中間件**透過模型配置文件適應性觸發上下文摘要，自動控制 Token 消耗與提示長度，對 Roy 的 RAG 系統特別有效——長期對話自動壓縮舊轉錄，降低 Gemini API 成本並加速推理。
