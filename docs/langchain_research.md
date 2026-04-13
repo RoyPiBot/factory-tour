@@ -2317,3 +2317,16 @@ Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangGraph: The Future of Stateful AI Workflows](https://www.blog.qualitypointtech.com/2026/04/langgraph-future-of-stateful-ai.html)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 100. LangGraph 生態里程碑——GitHub 星數突破 126,000 & Deep Agents v0.5.0 發佈（2026 年 4 月）
+
+> **LangGraph 發展達成關鍵里程碑：GitHub 星數超越 126,000，Deep Agents v0.5.0 推出非同步子代理、多模態支援與 Anthropic 提示快取優化，展示 LangGraph 從學術參考實現演進為生產級多代理編排標準的成熟軌跡**
+
+截至 2026 年 4 月，LangGraph 已累積超 126,000 GitHub 星，成為圖式多步驟有狀態 AI 工作流編排的業界標準。同時發佈的 **Deep Agents v0.5.0** 進一步擴展 LangGraph 的能力邊界。**非同步子代理**允許主代理並行委派多個子代理獨立處理複雜子任務，完美適配 Roy 的 NanoClaw 邊界系統——Factory Tour 導覽主代理可同時派遣感測器查詢子代理、安全檢查子代理與即時控制子代理並行作業，全域超時保護確保整個流程不超過時限。**多模態支援**擴展代理理解與回應圖片、音頻與結構化資料的能力，對整合 Pi 5 攝像頭、麥克風與邊界感測器的系統尤為關鍵。**Anthropic 提示快取優化**利用原生結構化輸出與快取機制，降低重複推理成本——常用的導覽腳本與感測器解讀 prompt 可在快取中複用，加速後續請求並節省 API 成本，完全符合 Roy 對成本效益的要求。
+
+Sources:
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
