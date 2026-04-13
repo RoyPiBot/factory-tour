@@ -2266,3 +2266,16 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph Multi-Agent Orchestration: Complete Framework Guide + Architecture Analysis 2025 - Latenode Blog](https://latenode.com/blog/ai-frameworks-technical-infrastructure/langgraph-multi-agent-orchestration/langgraph-multi-agent-orchestration-complete-framework-guide-architecture-analysis-2025)
 - [Agent Orchestration 2026: LangGraph, CrewAI & AutoGen Guide | Iterathon](https://iterathon.tech/blog/ai-agent-orchestration-frameworks-2026)
+
+---
+
+## 96. LangSmith Fleet——企業級代理身份、共享與權限管理（2026 年）
+
+> **LangSmith 推出 Fleet 功能，將 Agent Builder 升級為完整的企業代理管理系統，提供身份認證、跨團隊共享、精細化權限控制，實現企業級多代理治理與審計追蹤**
+
+2026 年，LangChain 的監控與治理平台 LangSmith 推出 **Fleet** 新功能，取代舊有的 Agent Builder，成為企業級代理編排的中央管制枢紐。Fleet 允許組織為每個代理賦予身份、設定共享範圍（個人/團隊/公開），並透過細粒度的權限控制確保敏感操作（如數據查詢、工具呼叫）經過適當授權。對 Roy 的 OpenClaw 多代理平台和 NanoClaw 邊界系統而言，Fleet 提供了一套統一的代理生命周期管理——Factory Tour 導覽代理、感測器融合子代理、安全檢查工作流等可在單一中央儀表板進行版本控制、存取管理與審計記錄，同時保護 Pi 5 上關鍵任務的隔離與可追蹤性，進一步強化整個生態系統的企業級可靠性與合規性。
+
+Sources:
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
