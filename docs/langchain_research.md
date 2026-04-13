@@ -1099,6 +1099,24 @@ Sources:
 
 ---
 
+## 16. LangGraph 1.1.6 — 記憶系統強化與分散執行（2026/04）
+
+> **多代理系統記憶層革新**
+
+LangGraph 於 2026 年 4 月 3 日發佈 v1.1.6，重點強化記憶系統與分散執行能力。新版本放棄 Python 3.9 支援，新增 Python 3.14 相容性。核心創新包括：
+
+1. **向量資料庫整合記憶**：即將支援向量資料庫集成，實現語意記憶功能，Agent 可跨多輪對話檢索相關歷史知識，適合工廠導覽中的經驗累積
+2. **分散式執行架構**：支援多機部署，充分利用 Pi 5 集群或邊緣設備協作，進一步降低單機負載
+3. **LangGraph Studio 可視化工具**：提供圖形化編排與即時監控儀表板，便於調試複雜多代理工作流
+
+搭配既有 Checkpoint 特性（隨時中斷、恢復、人工介入），LangGraph 已成為工業級多代理系統首選框架。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph 深度解析：構建可靠、可控的 AI Agent 框架](https://zhuanlan.zhihu.com/p/1945401093786940263)
+
+---
+
 ## 16. Deep Agents 與多媒體支援擴展（2026/04）
 
 > **Agent 工具鏈與跨端一致性升級**
