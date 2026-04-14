@@ -2413,3 +2413,15 @@ Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 106. Deep Agents v0.5.0——非同步子代理、多模態支援與 Anthropic 提示快取（2026 年 4 月）
+
+> **Deep Agents v0.5.0 Alpha 發佈，引入非同步子代理委派、擴展多模態檔案支援（PDF、音頻、影片）與 Anthropic 提示快取優化，同時新增模型重試中間件與內容審核防護，為 Roy 的 NanoClaw 邊界系統與 Factory Tour 提供企業級非同步協調與成本優化機制**
+
+Deep Agents v0.5.0 進一步成熟 LangGraph 的子代理生態。**非同步子代理**允許主代理並行委派多個背景任務而不阻塞主執行緒，Roy 的 Factory Tour 導覽系統可同時派遣感測器數據查詢、安全檢查與即時控制子代理，全域超時保護確保流程不超時限。**多模態檔案支援**擴展 read_file 工具，現支援 PDF、音頻與影片，使 NanoClaw 邊界系統能理解攝像頭影像、語音指令與結構化報告。**Anthropic 提示快取優化**利用原生結構化輸出與快取機制，常用導覽腳本與感測器解讀 prompt 可複用快取，加速推理並節省 API 成本，完全符合 Roy 對成本效益的要求。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
