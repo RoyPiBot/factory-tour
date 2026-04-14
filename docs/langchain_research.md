@@ -2425,3 +2425,16 @@ Deep Agents v0.5.0 進一步成熟 LangGraph 的子代理生態。**非同步子
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 107. LangGraph v1.1.6 生產級加固——Interrupt 原生返回、AES 加密儲存與 Go 代理默認啟用（2026 年 4 月）
+
+> **LangGraph v1.1.6（2026 年 4 月 8-10 日發佈）推出三項生產級功能：Interrupt 直接內嵌於 .invoke() 與「values」流模式無需額外 getState() 調用、LANGGRAPH_AES_JSON_KEYS 允許機敏資料欄位的原生加密儲存、Go 代理編譯實現默認啟用以提升執行效能，為 Roy 的 NanoClaw 邊界系統與 Factory Tour 提供完整的中斷恢復、敏感資料保護與高效代理執行基礎**
+
+LangGraph v1.1.6 是一次關鍵的生產級加固。**Interrupt 原生返回機制**賦予代理更優雅的暫停-恢復模式——使用者中斷、人類審核或資源限制觸發的 Interrupt 現可直接內嵌在 GraphOutput 物件中返回，應用無需額外呼叫 getState()，大幅簡化中斷處理邏輯，對 Factory Tour 的訪客互動暫停（等待導覽許可）與 NanoClaw 的人類在迴圈驗證特別重要。**AES 加密儲存**透過環境變數 LANGGRAPH_AES_JSON_KEYS 指定欄位名稱，自動對敏感資訊（API 密鑰、使用者隱私資料、感測器令牌）進行 AES 加密，符合企業安全與合規要求，Roy 的研究資料與個人偏好設定可安全持久化。**Go 代理默認啟用**將高效能 Go 語言編譯的代理實現設為默認後端，取代 Python 原生實現，執行效能提升 2–5 倍，特別適合 Pi 5 輕量級硬體——複雜的多代理協調與感測器融合工作流現可在邊界計算環境中以最優效能運行。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
