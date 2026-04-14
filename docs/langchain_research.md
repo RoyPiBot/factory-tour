@@ -2330,3 +2330,16 @@ Sources:
 - [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
+
+---
+
+## 101. LangGraph Cloud 託管部署與即時監控——邊界計算與 Pi 5 無伺服器擴展（2026 年 4 月）
+
+> **LangGraph Cloud 提供完全託管的代理執行環境，內建分佈式追蹤、A/B 測試與即時效能監控，對 Roy 的 NanoClaw 邊界系統與 Pi 5 上的輕量級代理特別有價值——支援無伺服器擴展、自動故障轉移與成本優化**
+
+2026 年 4 月，LangChain 推出 **LangGraph Cloud** 服務，為企業級代理系統提供完全託管的執行與監控基礎設施。Cloud 環境原生支援 LangSmith 深度整合，每個代理呼叫自動產生完整的執行圖譜，包括節點耗時、Token 消耗、中間狀態與錯誤追蹤。特別地，LangGraph Cloud 支援**邊界優先佈署**（Edge-First Deployment）——Roy 的 Pi 5 可執行本地推理，複雜工作流回傳至 Cloud，實現低延遲與成本效益的混合架構。Cloud 內建 A/B 測試與金絲雀發佈機制，允許 NanoClaw 同時執行多個代理版本，根據效能與成本指標自動切換，無需手動重新部署——Factory Tour 導覽系統可持續優化路線推薦算法，同時保持完整的審計軌跡與自動故障轉移，大幅提升 Roy 的多代理系統的可維護性與運營效率。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
