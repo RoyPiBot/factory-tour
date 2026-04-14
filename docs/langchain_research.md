@@ -2369,3 +2369,11 @@ Sources:
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026 - DEV Community](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [State of AI Agents](https://www.langchain.com/state-of-agent-engineering)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 104. LangGraph 記憶系統進化——跨執行緒上下文共享與語義向量檢索（2026 年）
+
+> **LangGraph 2026 推出生產級記憶解決方案：跨執行緒記憶支援（Python & JavaScript）允許多對話並行時共享知識庫，語義搜尋突破關鍵字侷限，代理可透過向量相似度檢索歷史對話，特別適合 Roy 的 Factory Tour 多訪客併行導覽與 Tunghai RAG 系統的長期知識發現**
+
+LangGraph 2026 年的記憶系統達成企業級成熟度。**跨執行緒記憶支援**使不同對話執行緒的代理能共同存取與更新全域知識庫，對 Factory Tour 系統中多訪客併行導覽場景至關重要——某訪客提出的常見問題與代理回應自動積累至共享記憶，後續訪客即時受惠於集體經驗，大幅提升導覽效率。**語義記憶搜尋**基於向量嵌入而非關鍵字匹配，代理能以語義相似度檢索歷史對話、事件記錄與結構化知識，完美適配 Roy 的 Tunghai RAG 專案——累積的研究論文與學術筆記可透過智慧語義推薦發現隱含關聯，加強跨領域知識發現，轉化為實際研究靈感。
