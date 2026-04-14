@@ -2400,3 +2400,16 @@ Sources:
 > **LangGraph 2026 推出生產級記憶解決方案：跨執行緒記憶支援（Python & JavaScript）允許多對話並行時共享知識庫，語義搜尋突破關鍵字侷限，代理可透過向量相似度檢索歷史對話，特別適合 Roy 的 Factory Tour 多訪客併行導覽與 Tunghai RAG 系統的長期知識發現**
 
 LangGraph 2026 年的記憶系統達成企業級成熟度。**跨執行緒記憶支援**使不同對話執行緒的代理能共同存取與更新全域知識庫，對 Factory Tour 系統中多訪客併行導覽場景至關重要——某訪客提出的常見問題與代理回應自動積累至共享記憶，後續訪客即時受惠於集體經驗，大幅提升導覽效率。**語義記憶搜尋**基於向量嵌入而非關鍵字匹配，代理能以語義相似度檢索歷史對話、事件記錄與結構化知識，完美適配 Roy 的 Tunghai RAG 專案——累積的研究論文與學術筆記可透過智慧語義推薦發現隱含關聯，加強跨領域知識發現，轉化為實際研究靈感。
+
+---
+
+## 105. LangGraph Agent Server 穩定性升級與 Python 3.14 生產級支援（2026 年 4 月）
+
+> **LangGraph Agent Server（API 平台）於 2026 年 4 月進行關鍵升級：修復 Istio 路徑前綴下的 OpenAPI /docs 請求，優化執行緒關閉機制，同時全面支援 Python 3.14 並停用 Python 3.9，確保 Roy 的邊界計算與雲端代理系統的完全相容性與高可靠性**
+
+2026 年 4 月，LangGraph Agent Server 達成生產級穩定性里程碑。**Istio 相容性修復**解決了在 Kubernetes/Istio 環境中使用路徑前綴時 OpenAPI /docs 頁面「試用」功能返回 405 錯誤的問題，對 Roy 在企業 K8s 叢集部署 NanoClaw 與 Factory Tour 特別重要——確保開發人員與營運人員能透過 Web UI 直接測試代理 API，加速除錯與驗證流程。**執行緒關閉優化**將 signal.raise_signal(SIGINT) 改為 sys.exit()，徹底解決隊列阻塞導致應用掛起的頑疾，特別適合 Pi 5 輕量級資源環境——長時間運行的多代理系統現在能優雅關閉而無殭屍執行緒。**Python 3.14 完整支援**使 LangGraph 適配最新 Python 版本，同步停用 Python 3.9，迫使開發者升級至現代版本，享受性能優化與新型別系統，Roy 的 OpenClaw、Tunghai RAG 與 NanoClaw 系統現可無障礙遷移至 Python 3.14 環境。
+
+Sources:
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
