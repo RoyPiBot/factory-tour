@@ -2062,6 +2062,18 @@ Sources:
 
 ---
 
+## 79. SystemMessage 與提示詞快取——高級提示詞工程與成本最佳化（2026 年 4 月）
+
+> **LangGraph create_agent 原生支援 SystemMessage 物件、自動快取控制與結構化內容區塊，實現成本最優的多模型代理編排**
+
+2026 年 4 月，LangGraph 的 `create_agent` 與 `createReactAgent` 現已支援直接傳遞 SystemMessage 實例至 `system_prompt` 參數，允許開發者利用 Anthropic Prompt Caching 等進階功能——在長期監測場景中，相同的系統提示詞可被緩存以避免重複計費，特別適合 Factory Tour 與 nRF54L15 等持續執行的邊界代理。開發者可透過 `cache_control={"type": "ephemeral"}` 在 SystemMessage 中啟用 Anthropic 的快取機制，大幅降低高頻代理調用的成本（對 Claude 模型可降低 90% 快取命中時的輸入 token 成本）。此特性融合了 LangGraph 的模塊化設計與 Anthropic 的成本最佳化能力，對 Roy 在資源受限 Raspberry Pi 環境上運行的長期監測系統而言，意味著可用企業級成本效率部署智慧邊界代理，無需擔心 LLM 調用成本的線性上升。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
 ## 79. LangGraph 2026 Q2 架構演進——StateSchema 標準化、型別安全串流與選擇性狀態追蹤（2026 年 4 月）
 
 > **StateSchema 導入 Standard JSON Schema 標準化，消除供應商鎖定；ReducedValue 與 UntrackedValue 提供精粒度狀態管理；.stream() 方法型別安全化，開發體驗大幅提升**

@@ -1,5 +1,6 @@
 """
 main.py - 工廠導覽 Multi-Agent Web API v3.0
+🚀 智能工廠導覽平台 — 實時感測器 + LangGraph + Groq LLM 多代理協作
 使用 FastAPI 提供 RESTful + WebSocket 介面
 AI 後端：Groq (Llama 4 Scout / 可透過 GROQ_MODEL 環境變數切換)
 
