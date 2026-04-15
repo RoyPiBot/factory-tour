@@ -2438,3 +2438,16 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 108. LangSmith Deployment AWS Marketplace 集成與多轉對話觀測性（2026 年 4 月）
+
+> **LangSmith Deployment（原 LangGraph Platform）登陸 AWS Marketplace，企業可中央採購與 VPC 部署；新增 Insights Agent 自動叢聚追蹤模式、Multi-Turn Evals 全對話評估，加強 Roy 的 Factory Tour 與 NanoClaw 系統的端到端觀測與企業合規**
+
+2026 年 4 月，LangSmith Deployment 進一步深化企業級應用。**AWS Marketplace 集成**允許企業 IT 團隊透過 AWS 控制台中央採購 LangSmith，支援 Bring Your Own Cloud（BYOC）於私有 VPC 內運行，無需繞過企業採購流程，特別適合金融、製造等受監管行業——Roy 的 Factory Tour 部署至工廠內部網絡時可遵循企業安全政策。**Insights Agent** 自動叢聚生產環境中的代理追蹤，識別高頻失敗模式、性能瓶頸與使用者行為異常，幫助 Roy 發現 NanoClaw 邊界系統中感測器融合的潛在最佳化點。**Multi-Turn Evals** 評估完整對話流程而非單一回應，使 Roy 能檢驗 Factory Tour 導覽系統跨多輪互動的任務成功率、訪客滿意度與知識傳達效果。
+
+Sources:
+- [LangSmith: Agent Deployment Infrastructure for Production AI Agents](https://www.langchain.com/langsmith/deployment)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [What Is LangSmith? Complete 2026 Guide for LLM Developers](https://www.trantorinc.com/blog/what-is-langsmith)
