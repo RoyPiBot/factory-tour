@@ -2515,3 +2515,16 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+
+---
+
+## 112. LangGraph 中間件生態——模型重試、內容審核與安全防護（2026 年 4 月）
+
+> **LangChain 1.1 於 2026 年 4 月推出企業級中間件框架：ModelRetryMiddleware 提供可配置指數退避的自動重試機制；ContentModerationMiddleware 整合 OpenAI 內容審核，對使用者輸入、模型輸出與工具結果進行實時檢測；框架預設內建多項中間件（摘要、PII 隱匿、安全攔截），開發者可繼承 AgentMiddleware 客製化業務專有防護，為 Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統奠立生產級安全基礎**
+
+LangChain 的中間件架構透過輕量級 hook 機制提供結構化代理客製化能力。**ModelRetryMiddleware** 將失敗的模型呼叫透過可配置的重試次數、退避因子與初始延遲自動重試，特別適合 Pi 5 網絡不穩定場景——Factory Tour 訪客向導的模型推理即使暫時超時亦可智慧重試而無需中斷對話。**ContentModerationMiddleware** 透過 OpenAI 內容審核 API 實時檢測用戶提交的文本、模型生成的回應與工具返回的結果，識別並攔截不安全內容（仇恨、暴力、隱私洩漏），對涉及敏感研究資料的 Tunghai RAG 系統至關重要——確保知識庫查詢結果符合倫理與合規標準。框架預設內建摘要、重試、PII 隱匿等通用中間件，無需額外開發即可應用企業最佳實踐，同時保留完整的客製化接口供 Roy 根據 NanoClaw 邊界安全政策編寫專有防護層。
+
+Sources:
+- [How Middleware Lets You Customize Your Agent Harness](https://blog.langchain.com/how-middleware-lets-you-customize-your-agent-harness/)
+- [LangChain 1.1 in Action: Model Profiles, Middleware, Safety and Production Best Practices 🚀](https://medium.com/@theshubhamgoel/langchain-1-1-in-action-model-profiles-middleware-safety-and-production-best-practices-9da365daac06)
+- [Under the Hood: Middleware, Sub-Agents, and Deep Agent LangGraph Orchestration](https://medium.com/@richardhightower/under-the-hood-middleware-sub-agents-and-langgraph-orchestration-7f57602266e4)
