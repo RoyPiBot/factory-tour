@@ -1999,6 +1999,19 @@ Sources:
 
 ---
 
+## 75. LangGraph v1.1 工作流完全升級——Node Caching 與 Deferred Nodes（2026 年 3 月）
+
+> **Node 層級快取與延遲節點編排，顯著加速迭代開發與邊界計算，支援 Python 與 TypeScript 完全統一**
+
+2026 年 3 月發佈的 LangGraph v1.1 推出關鍵的工作流最佳化機制。**Node Caching** 允許開發者為個別節點配置快取策略，系統自動跳過冗餘計算並重複利用中間結果，特別適合迭代開發與原型驗證階段，可顯著縮短反覆測試週期。**Deferred Nodes** 機制延遲節點執行直至所有上游路徑完成，完美支援 map-reduce 模式、共識協議與協作式多代理工作流——無需手動同步邏輯。對 Roy 的 Factory Tour 與 nRF54L15 邊界系統而言，此更新意味著可在 Raspberry Pi 5 的受限資源下構建高效能多代理系統，透過快取避免感應器數據重複計算，透過延遲節點實現智慧協調，整體系統迴應延遲降至毫秒級。
+
+Sources:
+- [LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 75. LangGraph 市場主導與企業級採用浪潮——2.0 發布超越 CrewAI、Gartner 預測 40% 企業嵌入代理能力（2026 年 4 月）
 
 > **LangGraph 2.0 於 2 月推出後，4 月初已奪得 126,000+ GitHub 星標領先 CrewAI；Klarna、Uber、Replit、Elastic 等財富 500 強驗證生產級能力；Gartner 3 月報告預測 2026 年底 40% 企業應用將內嵌代理功能，LangGraph 已成實質市場標準**
