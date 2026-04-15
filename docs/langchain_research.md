@@ -2476,3 +2476,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 110. MCP 與 A2A 協議——多代理互聯的開放標準（2026 年）
+
+> **LangGraph 2026 年採納兩項開放標準化協議：MCP（Model Context Protocol）作為「代理的 USB 連接器」統一工具發現與調用，A2A（Agent-to-Agent Protocol）定義代理間通訊規範；兩者共同構築跨框架、跨廠商的多代理生態，使 Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統能無縫整合異構代理與第三方工具**
+
+2026 年 3 月，兩項開放標準在 LangGraph 社群中獲得廣泛採納。**MCP（Model Context Protocol）**為代理與外部工具建立統一通訊層，如同計算機的「USB 連接器」——代理不再硬編碼工具呼叫邏輯，而是透過 MCP 動態發現、協商與調用任意工具（API、資料庫、專有系統），完全解耦代理實現與工具生態，Roy 的 Factory Tour 可輕鬆接入工廠原有的 SCADA、ERP 系統而無需修改核心代理邏輯。**A2A（Agent-to-Agent Protocol）**定義多代理系統間的消息格式與路由規則，使 NanoClaw 的邊界協調代理與雲端控制代理能以標準化方式協同，無需依賴特定框架的私有通訊機制，孵化出真正的開放多代理生態。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)

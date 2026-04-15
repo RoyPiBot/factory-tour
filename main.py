@@ -136,6 +136,7 @@ MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
 # 區域測驗資料快取 - 啟動時從 quizzes.json 載入，供 /quiz 端點使用
 QUIZ_DATA: dict = {}  # area_id -> questions
 # 區域測驗題目由 quizzes.json 動態載入，支援多語言與難度分級
+# 初始化時為空，由 lifespan 函數在應用啟動時動態填充
 
 
 @asynccontextmanager
