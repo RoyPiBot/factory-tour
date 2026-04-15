@@ -2528,3 +2528,16 @@ Sources:
 - [How Middleware Lets You Customize Your Agent Harness](https://blog.langchain.com/how-middleware-lets-you-customize-your-agent-harness/)
 - [LangChain 1.1 in Action: Model Profiles, Middleware, Safety and Production Best Practices 🚀](https://medium.com/@theshubhamgoel/langchain-1-1-in-action-model-profiles-middleware-safety-and-production-best-practices-9da365daac06)
 - [Under the Hood: Middleware, Sub-Agents, and Deep Agent LangGraph Orchestration](https://medium.com/@richardhightower/under-the-hood-middleware-sub-agents-and-langgraph-orchestration-7f57602266e4)
+
+---
+
+## 113. LangGraph 節點級緩存與中斷機制重構——工作流加速與代理檢查點（2026 年 4 月）
+
+> **LangGraph v1.1 推出節點/任務級緩存（Node/Task Level Caching），允許開發者快取個別節點的運算結果，大幅降低冗餘計算開銷；同時完整重構 Interrupts 機制，中斷點現已直接在 .invoke() 與 "values" 串流模式中返回，無需額外呼叫 getState()，大簡化 Roy 的 Factory Tour 訪客互動檢查點與 NanoClaw 邊界決策暫停流程**
+
+節點級緩存透過結構化快取層讓 Roy 的多代理系統在重複造訪相同工作流段落時顯著加速。Factory Tour 導覽系統若訪客重複詢問相同景點資訊，緩存可避免重新計算特徵提取、向量化與模型推理，Pi 5 的有限資源得以更有效地分配予即時感測器輪詢與邊界協調。**Interrupts 機制簡化**則使代理在人類審核點、安全檢查或外部決策時暫停，完整的中斷資訊立即返回開發者，無需額外查詢狀態——NanoClaw 的邊界安全策略可精準捕捉需要人工介入的決策節點（例如危險區域權限申請），直接集成進人機交互工作流，提升系統的可控性與透明度。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)

@@ -107,6 +107,7 @@ import db as database
 
 load_dotenv()  # 載入環境變數 (.env 配置)
 # 確保所有必要的 API Keys（Groq/Gemini）已在 .env 中正確設置
+# 本系統依賴 GROQ_API_KEY 作為多智能體的 LLM 引擎供應，未設置將導致 Agent 初始化失敗
 # FastAPI 應用初始化與智能體管理系統
 # FastAPI 應用初始化前的系統準備：配置與日誌設定、初始化資料庫與知識庫
 # 使用 Groq API 作為 LLM 後端，支援即時多智能體導覽與 WebSocket 感測器推播
