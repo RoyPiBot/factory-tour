@@ -2502,3 +2502,16 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 111. LangGraph 型別安全串流與可恢復流——邊界系統中的即時資料流與容錯傳輸（2026 年 4 月）
+
+> **LangGraph v2.0 推出型別安全串流機制（版本 v2），統一 StreamPart 格式為 {type, ns, data}；新增可恢復流（Resumable Streams）透過 reconnectOnMount 自動應對網頁重新加載與網路中斷，無損傳輸支援；使 Roy 的 Factory Tour 導覽系統與 NanoClaw 邊界協調代理能穩健地實時推送感測器資料、訪客互動事件，即使用戶端連線中斷亦可無縫恢復**
+
+LangGraph v2.0 大幅強化了串流可靠性與開發體驗。**型別安全串流**透過傳入 `version="v2"` 至 `.stream()` / `.astream()` 方法，每一個資料塊（chunk）統一返回 `{type, ns, data}` 的 TypedDict 結構，確保所有流模式（state_updates、values、debug 等）享受完整的型別檢查，消除 Roy 在 Factory Tour 前端實時繪製訪客行動軌跡、NanoClaw 邊界監測儀表板時的型別推斷不確定性。**可恢復流（Resumable Streams）**則透過 `reconnectOnMount` 配置自動處理用戶端頁面重新載入與網路暫時斷線，流暫停後自動重新連接，無損合併已發送的資料，無需額外程式碼——Pi 5 上的 WebSocket 連線即使面臨網際網路波動亦能保證使用者端完整接收即時感測器讀數、機械手臂狀態更新。這兩項功能聯合賦予 Roy 的多代理系統企業級的即時通訊可靠性。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
