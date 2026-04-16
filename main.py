@@ -332,6 +332,7 @@ class HealthResponse(BaseModel):
 @app.get("/", response_class=HTMLResponse)
 async def root():
     """首頁 - 全螢幕 RPG 遊戲導覽（返回靜態 HTML 遊戲介面，使用 WebSocket 與後端通訊）"""
+    # 此端點為 factory-tour 系統的遊戲化導覽介面入口點
     game_file = BASE_DIR / "static" / "game.html"
     if game_file.exists():
         return HTMLResponse(game_file.read_text(encoding="utf-8"))
