@@ -994,6 +994,7 @@ async def get_i18n(language: str):
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
+# 應用主程式進入點 — 透過 uvicorn 啟動 FastAPI 伺服器，監聽指定的主機與埠號
 if __name__ == "__main__":
     import uvicorn
 

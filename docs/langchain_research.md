@@ -2591,4 +2591,17 @@ Sources:
 - [LangChain - Changelog | Deferred nodes in LangGraph](https://changelog.langchain.com/announcements/deferred-nodes-in-langgraph)
 - [Parallel Nodes in LangGraph: Managing Concurrent Branches with the Deferred Execution | by Giuseppe Murro | Medium](https://medium.com/@gmurro/parallel-nodes-in-langgraph-managing-concurrent-branches-with-the-deferred-execution-d7e94d03ef78)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+
+---
+
+## 118. LangGraph 檢查點背景刪除與 gRPC 串流——效能優化與遠端協調強化（2026 年 4 月）
+
+> **LangGraph 2026 年 4 月版本實現檢查點背景刪除（Background Checkpoint Deletion），消除執行緒刪除與修剪操作的 I/O 阻塞，同時新增 gRPC 客戶端支持流式運行（via FF_USE_CORE_API 特性旗標）；遠端 Agent Server 與 Pi 5 本地邊界系統的通訊延遲與吞吐量進一步優化，尤其適合 NanoClaw 高頻感測器回路與 Factory Tour 即時多代理協調**
+
+檢查點管理的非阻塞演進強化了大規模工作流的穩定性。**背景刪除機制**：Roy 的 Factory Tour 與 Tunghai RAG 系統積累的歷史檢查點可在後台非同步刪除與修剪，無需暫停主工作流等待 I/O 完成，特別在 Pi 5 有限的儲存與 I/O 頻寬下，這項優化大幅降低了長時間執行工作流因檢查點堆積導致的效能衰退。**gRPC 串流客戶端**：新的 gRPC 前端透過 FF_USE_CORE_API 旗標啟用，相比 REST 的連續輪詢，gRPC 二進制串流提供更低延遲與更高效的序列化，NanoClaw 邊界系統的加速度、溫度、濕度等感測器回路可透過 gRPC 以更稀疏的網路足跡實現即時推送，雲端 Agent Server 與邊界代理的雙向通訊更加敏捷精確。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/?categories=cat_ZWTyLBFVqdtSq)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
