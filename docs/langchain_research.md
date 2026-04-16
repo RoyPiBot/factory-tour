@@ -2566,3 +2566,16 @@ LangGraph 的型別系統進一步深化。**Pydantic Coercion** 自動將傳入
 Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 116. LangGraph v1.1 型別安全推理與GraphOutput——工作流可靠性與資料一致性（2026 年 4 月）
+
+> **LangGraph v1.1 推出 type-safe invoke 機制（版本 v2），傳遞 version="v2" 至 invoke() / ainvoke() 返回 GraphOutput 物件，含 .value 與 .interrupts 屬性；自動強制轉換為聲明的 Pydantic 模型或 Dataclass，確保工作流輸出型別的完全一致性，消除 Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統中的型別推斷不確定性與資料驗證 bug**
+
+LangGraph v1.1 的 type-safe invoke 機制大幅提升生產工作流的可靠性。**GraphOutput 統一結構**：呼叫 `invoke(version="v2")` 或 `ainvoke(version="v2")` 時，返回值不再是原始字典，而是具備完整型別資訊的 GraphOutput 物件，含 `.value`（最終狀態）與 `.interrupts`（中斷點列表）兩個強型別屬性，開發者立即獲得 IDE 自動補全與靜態型別檢查。**自動型別強制轉換**：若代理工作流聲明返回 Pydantic Model 或 Dataclass，框架自動將最終狀態強制轉換至該型別，執行時驗證欄位完整性，失敗時拋出清晰的驗證錯誤，不允許型別污染悄悄遺漏——Roy 的 Factory Tour 若預期返回 `TourState(location=str, visitors=int, duration=float)`，不符合的輸出立即被捕捉，消除下游資料格式假設的脆弱性，特別適合複雜的 Pi 5 邊界系統與雲端協調。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)

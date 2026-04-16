@@ -364,7 +364,10 @@ async def editor():
 # 智慧回覆篩選：從多層次訊息鏈中自動提煉最佳回答
 # 過濾掉轉移訊息和低價值的系統訊息，優先返回實質性的 Agent 回覆
 def _find_best_reply(messages) -> tuple[str, str | None]:
-    """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）"""
+    """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）
+
+    此函數負責過濾 LangGraph 多 Agent 對話中的冗長訊息鏈，提煉最有價值的答覆。
+    """
     # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
     # 此邏輯確保使用者只看到有意義的回答，而非中間過程的轉移訊息或空白回應
