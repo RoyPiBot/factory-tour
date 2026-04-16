@@ -131,6 +131,7 @@ tour_manager = TourManager()  # 管理多個導覽 session 的狀態與進度
 rag_ready = False
 # RAG 引擎初始化狀態旗標，供健康檢查與文件上傳 API 判斷是否可用
 # 若 RAG 模組無法載入（如 chromadb 未安裝），此旗標保持 False
+# 🔌 感測器與 WebSocket 通信層：實現工廠即時感測器數據推送與遠端控制
 sensor_sim: SensorSimulator | None = None
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 

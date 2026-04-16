@@ -2554,3 +2554,15 @@ Sources:
 - [LangGraph: The Future of Stateful AI Workflows | QualityPoint Technologies](https://www.blog.qualitypointtech.com/2026/04/langgraph-future-of-stateful-ai.html)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
+## 115. LangGraph Pydantic 與 Dataclass 強制轉換——型別驅動工作流的自動化狀態管理（2026 年）
+
+> **LangGraph v1.1 新增 Pydantic v2 與原生 Python Dataclass 的自動型別強制轉換（Coercion）機制，狀態轉移時自動驗證與序列化，無需手寫繁瑣的型別轉換代碼；結合型別安全串流，Roy 的 Factory Tour 與 NanoClaw 邊界系統可享受端對端的型別檢查與資料驗證，大幅降低執行時錯誤與資料格式不匹配的風險**
+
+LangGraph 的型別系統進一步深化。**Pydantic Coercion** 自動將傳入的原始字典、JSON 或不完全型別的狀態轉換為嚴格的 Pydantic Model，執行時立即驗證欄位完整性與型別規範，開發者無需在每個節點額外寫轉換層；Factory Tour 的訪客互動狀態（含時間戳、位置、回應記錄）可直接定義為 Pydantic 模型，框架自動確保資料流轉過程中無型別污染。**Dataclass 強制轉換**對使用標準 Python @dataclass 的開發者更加親切，避免 Pydantic 額外的相依性開銷，特別適合 Pi 5 輕量級環境——NanoClaw 邊界系統的感測器融合狀態（溫度、濕度、加速度）可用簡潔的 Dataclass 定義，LangGraph 自動處理型別轉換與驗證，完整減少記憶體與 CPU 開銷。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
