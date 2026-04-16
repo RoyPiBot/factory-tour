@@ -2539,5 +2539,18 @@ Sources:
 
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 114. LangGraph v1.1.6 Python 3.14 相容性與 A2A 串流修復——生態擴展與企業可靠性鞏固（2026 年 4 月）
+
+> **LangGraph v1.1.6 達成 126,000+ GitHub stars，停止支持 Python 3.9、新增 Python 3.14 相容性；Agent Server 4 月 9 日更新修復 A2A 串流中斷工件分發、OpenAPI Istio 路徑前綴相容、信號處理穩定性，使 Roy 的 Factory Tour 與 NanoClaw 邊界系統在未來 Python 版本中保持前沿支援，同時強化多代理通訊與企業部署的可靠性**
+
+LangGraph 框架生態持續成熟。**Python 版本策略調整**反映 LangGraph 作為生產級框架的演進——停止支持已退役的 Python 3.9，同時搶先支援 Python 3.14，確保 Roy 的多代理開發環境始終與 CPython 發展路徑同步，享受最新語言特性與效能優化。**Agent Server 關鍵修復**強化了多代理系統的穩定性：A2A 串流中斷工件（interrupt artifacts）現正確分發為獨立的 artifact-update 事件，使邊界協調代理與雲端代理通訊更加精確無誤；OpenAPI 文檔相容 Istio 路徑前綴，企業網絡拓撲部署不再受限；信號處理從 signal.raise_signal(SIGINT) 遷移至 sys.exit()，提升優雅關閉穩定性，保障 Pi 5 上的長時間執行工作流不因訊號競態而崩潰。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangGraph: The Future of Stateful AI Workflows | QualityPoint Technologies](https://www.blog.qualitypointtech.com/2026/04/langgraph-future-of-stateful-ai.html)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)

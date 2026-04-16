@@ -366,6 +366,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）"""
     # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
+    # 此邏輯確保使用者只看到有意義的回答，而非中間過程的轉移訊息或空白回應
     from langchain_core.messages import AIMessage
 
     # 過濾出實質性 AI 回覆，排除輔助訊息
