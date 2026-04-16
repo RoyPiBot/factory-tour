@@ -2630,3 +2630,15 @@ Sources:
 - [DeepAgents 深度解析：LangChain 打造的複雜多智能體協作框架 | AIToolly](https://aitoolly.com/zh/ai-news/article/2026-03-17-langchain-deepagents-langgraph)
 - [基於LangGraph實現多Agent系統從架構設計到通訊機制的深度指南 - 開發者社群 - 阿里雲](https://developer.aliyun.com/article/1626193)
 - [LangSmith: Agent Deployment Infrastructure for Production AI Agents](https://www.langchain.com/langsmith/deployment)
+
+---
+
+## 121. StateSchema 與 Standard JSON Schema 支持——庫無關的狀態定義與交互操作性（2026 年 1 月）
+
+> **LangGraph 2026 年 1 月引入 StateSchema，一套庫無關的狀態定義方式，相容 Zod、Valibot、ArkType 等任何遵循 Standard JSON Schema 規範的驗證庫；Roy 的 Factory Tour 與 NanoClaw 邊界系統無需綁定單一驗證框架，可靈活選擇最輕量的 schema 庫，並支援 ReducedValue 自訂累加器與 UntrackedValue 瞬時狀態，進一步優化 Pi 5 記憶體與檢查點儲存成本**
+
+StateSchema 機制解耦了 LangGraph 與特定 schema 驗證庫的依賴，提升了跨專案與跨團隊的互操作性。**庫無關定義**：開發者無需強制使用 Pydantic，可直接採用輕量級的 Zod（JavaScript）或 ArkType（Python），甚至純 JSON Schema，Pi 5 的資源約束不再限制 schema 框架選型。**ReducedValue 自訂累加器**：Factory Tour 的訪客歷史軌跡可宣告為 ReducedValue，LangGraph 自動以自訂累加器邏輯（如堆疊、聚合或計數）維護狀態，無需外部累加循環。**UntrackedValue 瞬時狀態**：NanoClaw 邊界系統的臨時計算結果（如中間的距離計算、暫存的感測器讀值）可標記為 UntrackedValue，框架自動排除檢查點持久化，節省 I/O 與儲存成本。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
