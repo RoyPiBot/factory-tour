@@ -143,6 +143,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 # 初始化時為空，由 lifespan 函數在應用啟動時動態填充
 
 
+# 定義應用啟動與關閉時的生命週期管理，初始化資料庫、Agent、RAG 等關鍵資源
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """應用啟動/關閉時執行 — 初始化 Agent、RAG、資料庫、感測器

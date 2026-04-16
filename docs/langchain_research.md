@@ -2605,3 +2605,16 @@ Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 119. LangGraph Deploy CLI——一鍵部署代理至生產環境（2026 年 3 月）
+
+> **LangChain 2026 年 3 月推出 Deploy CLI（langgraph-cli 新指令），支援單一命令將本地 LangGraph 代理部署至 LangSmith Deployment；CLI 自動構建 Docker 映象、配置 Postgres 持久化與 Redis 串流訊息服務，無需手動基礎設施配置；開發者可快速從原型推進至生產環境，並輕鬆整合 GitHub Actions、GitLab CI、Bitbucket Pipelines 等 CI/CD 工作流，賦予 Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統企業級的自動化部署能力**
+
+LangGraph Deploy CLI 簡化了多代理系統從本地開發到遠端部署的整個生命週期。**一鍵部署**：Roy 只需執行 `uvx --from langgraph-cli@latest langgraph deploy`，CLI 自動構建適配 Pi 5 環境與雲端伺服器的 Docker 映象，無需撰寫 Dockerfile 或手動配置容器化流程。**自動基礎設施配置**：CLI 自動配置 Postgres 資料庫用於代理狀態持久化、Redis 用於多代理間的訊息串流與事件分發，避免複雜的手工配置——Factory Tour 與 NanoClaw 的檢查點、歷史軌跡、代理通訊記錄無縫保存與恢復。**CI/CD 無縫整合**：部署命令與現代 DevOps 工作流完全相容，Roy 可直接在 GitHub Actions 工作流中加入 `langgraph deploy`，實現提交代碼即自動部署的全自動化流程。**輔助管理指令**：`langgraph deploy list` 列舉所有部署、`langgraph deploy logs` 檢視即時日誌、`langgraph deploy delete` 移除過時部署，大幅降低營運複雜度。
+
+Sources:
+- [Introducing deploy cli - LangChain Blog](https://www.langchain.com/blog/introducing-deploy-cli)
+- [🚀 LangGraph Platform: New deployment options for agent infrastructure - Changelog](https://changelog.langchain.com/announcements/langgraph-platform-new-deployment-options-for-agent-infrastructure)
+- [LangSmith: Agent Deployment Infrastructure for Production AI Agents](https://www.langchain.com/langsmith/deployment)
