@@ -2655,3 +2655,15 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [Top 11 AI Agent Frameworks (2026): Expert-Tested & Reviewed | Lindy](https://www.lindy.ai/blog/best-ai-agent-frameworks)
+
+---
+
+## 123. 節點級任務快取——減少重複計算與提升工作流效率（2026 年）
+
+> **LangGraph 在 2026 年引入節點級任務快取機制，允許開發者對工作流中的個別節點結果進行快取，避免重複計算並減輕 Pi 5 計算負荷；Roy 的 Factory Tour 導覽路線規劃節點、NanoClaw 邊界系統的感測器融合與路徑規劃節點可各自啟用快取策略，支援細粒度的 TTL 設定與手動失效控制，同時新增 .addNode() 與 .addSequence() 方法簡化 StateGraph 構建流程，進一步優化多代理系統的效能與 Pi 5 的資源消耗**
+
+節點級快取機制將任務計算結果按節點粒度存儲，相同輸入無需重新執行昂貴的計算邏輯。Factory Tour 中，訪客路線規劃若多次查詢相同區域的導覽資訊，快取層自動返回已計算的路線方案，無需重新觸發 LLM 推理或地圖查詢，降低 API 呼叫成本與回應時間。NanoClaw 邊界系統的感測器融合節點（將多個加速度、角度、距離感測器讀值融合為統一狀態表示）可啟用短期快取（TTL 數秒），避免同一週期內的重複融合計算。StateGraph 新增的 .addNode() 批量註冊與 .addSequence() 序列化方法減少樣板代碼，讓開發者專注於業務邏輯而非基礎設施配置。
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
