@@ -1398,6 +1398,18 @@ Sources:
 - [LangChain Releases Deep Agents: Structured Runtime for Planning, Memory, and Context Isolation](https://www.marktechpost.com/2026/03/15/langchain-releases-deep-agents-a-structured-runtime-for-planning-memory-and-context-isolation-in-multi-step-ai-agents/)
 - [DeepAgents 深度解析：LangChain 打造的複雜多智能體協作框架 | AIToolly](https://aitoolly.com/zh/ai-news/article/2026-03-17-langchain-deepagents-langgraph)
 
+---
+
+## 31. LangGraph Token 串流與成本優化策略（2026 年生產級部署）
+
+> **逐 Token 實時推送與精細化成本追蹤**
+
+2026 年 LangGraph 強化了原生 **Per-Node Token Streaming** 能力，支援每個圖節點的粒度化 token 流式輸出，包括 LLM token、工具呼叫、狀態轉移與節點執行日誌的實時推送。與傳統批量執行不同，串流架構允許前端立即展示中間結果，無需等待整個代理執行完成，大幅改善使用者體驗。實務上，一個三節點研究代理每次查詢可消耗 10-50K tokens，為此 LangGraph 提供 token 計數回調、按需預算限制、回應快取與提示詞優化等多層成本控制機制。對 Pi 5 上的 Factory Tour 與 nRF54L15 長時間監測系統而言，可透過設置 token 預算閾值與早期結果串流，精確控制運行成本，避免單次查詢成本超支。
+
+Sources:
+- [LangGraph Agents in Production: Build Stateful AI Workflows with Python (2026) | Use Apify](https://use-apify.com/blog/langgraph-agents-production)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 

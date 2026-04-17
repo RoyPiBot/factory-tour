@@ -998,6 +998,7 @@ async def get_i18n(language: str):
 
 
 # 掛載靜態檔案（放在所有路由之後）
+# 此步驟確保 API 路由優先匹配，靜態資源為備選方案
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
