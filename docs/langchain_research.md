@@ -2679,3 +2679,15 @@ Sources:
 Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+
+---
+
+## 124. 模型能力探測與內容審核中間件——智能模型選擇與安全決策防線（2026 年）
+
+> **LangGraph 2026 年新增 Chat Model Profile 能力探測機制與 OpenAI 內容審核中間件；模型物件透過 .profile 屬性暴露支援的功能清單（如快取、流式、視覺理解），開發者可動態調整工作流策略；OpenAI content moderation middleware 自動檢測與隔離不安全內容，適用於 Factory Tour 訪客互動審核、NanoClaw 邊界系統的高風險指令防衛，同時新增 Model Retry Middleware 自動重試失敗呼叫，確保多代理系統的韌性與安全性**
+
+模型能力探測與動態策略調整提升了多代理系統的靈活性與可靠性。**Chat Model Profile**：Roy 的 Factory Tour 導覽代理在選擇模型時，可透過 `model.profile` 查詢是否支援快取控制（cache_control）、流式輸出（streaming）、視覺理解（vision），進而動態選擇最適的推理策略——若模型不支援視覺，改用純文字路線描述；若支援流式，啟用漸進式回應提升使用體驗，無需過度配置。**OpenAI 內容審核中間件**：Factory Tour 的訪客問答互動透過內容審核層自動檢測及時過濾不當或不安全的查詢，NanoClaw 邊界系統的高風險操作指令（例如越權存取或異常控制序列）亦被攔截，降低被誤導執行危險操作的風險，符合企業級安全要求。**Model Retry Middleware**：網路抖動或臨時 API 故障不再導致代理執行中斷，重試中間件以指數退避策略自動重新提交失敗的 LLM 呼叫，提升系統可用性與終端使用者體驗。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)

@@ -84,6 +84,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 本段落負責載入所有必需的 Python 標準庫與第三方套件，為 FastAPI 應用準備運行環境
 # 2026-04-13: 已驗證 nRF54L15 感測器模組與 Groq API 整合無誤，系統可靠性確認
 # 此處開始依序導入標準庫與第三方套件，確保 FastAPI 伺服器與多智能體系統正常運作
+# 🎯 核心進入點：整合五大 Agent（導覽、安全、技術、QA、知識檢索）與實時感測器推送，已於 Raspberry Pi 5 上完全驗證
 import asyncio
 import json
 import logging
