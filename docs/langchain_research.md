@@ -1099,6 +1099,24 @@ Sources:
 
 ---
 
+## 16. StateSchema 與工作流更新 — 跨庫通用狀態定義（2026/01-04）
+
+> **開發效率與框架彈性革新**
+
+LangGraph 1.1 推出 **StateSchema** 機制，提供與庫無關（Library-Agnostic）的圖狀態定義方式，支持遵循 Standard JSON Schema 規範的任何驗證庫（Zod 4、Valibot、ArkType 等），大幅降低狀態管理複雜度。核心新增：
+
+- **ReducedValue**：支持自訂 reducer 邏輯，可分離輸入與輸出架構，確保類型安全的 reducer 輸入
+- **UntrackedValue**：定義暫時性狀態（如資料庫連線、快取、運行期配置），執行期存在但永不被檢查點持久化
+
+配合工作流改進（Pre/Post Model Hooks、內置提供商工具如網頁搜尋與 RemoteMCP），以及 LangGraph Cloud 與多代理協作特性，LangGraph 於 2026 年上半年確立了生產級多代理系統的完整工具鏈。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 16. LangGraph 1.1.6 版本發佈與生態擴展方向（2026/04）
 
 > **2026 年 Q2 多代理框架生態成熟化**
