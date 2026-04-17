@@ -2099,6 +2099,18 @@ Sources:
 
 ---
 
+## 80. LangGraph v1.1 類型安全與模型前置/後置鉤子——完全無類型錯誤的多代理工作流（2026 年 3 月）
+
+> **LangGraph v1.1 推出原生類型安全的流式輸出與 Pydantic 自動強制轉型；Pre/Post Model Hooks 支援内容守衛與上下文最佳化，無需第三方包裝**
+
+2026 年 3 月，LangGraph v1.1 在類型安全與模型可觀測性方面實現重大突破。**Type-Safe Streaming** 允許開發者傳遞 `version="v2"` 至 `stream()`/`astream()` 方法，獲得統一的 `StreamPart` 格式（每個塊都包含 `type`、`ns`、`data` 字段），配合 `langgraph.types` 中的 TypedDict 定義，消除運行時類型檢查的負擔。**Type-Safe Invoke** 通過 `version="v2"` 返回 `GraphOutput` 物件，支援 `.value` 與 `.interrupts` 屬性，並自動將輸出強制轉型為聲明的 Pydantic 模型或 dataclass 類型，對資料管道安全性至關重要。**Pre/Post Model Hooks** 則允許在模型調用前後注入自訂邏輯——Pre Hook 可控制上下文膨脹（自動截斷冗長歷史）、Post Hook 可啟用內容守衛與人工審核迴圈，無需額外的中介層。對 Roy 的 Factory Tour 多代理系統而言，此特性意味著邊界代理間的數據交換完全類型檢查、關鍵決策自動經過守衛檢驗，大幅降低邊界感知系統的故障率與成本超支風險。
+
+Sources:
+- [LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
 ## 79. LangGraph 2026 Q2 架構演進——StateSchema 標準化、型別安全串流與選擇性狀態追蹤（2026 年 4 月）
 
 > **StateSchema 導入 Standard JSON Schema 標準化，消除供應商鎖定；ReducedValue 與 UntrackedValue 提供精粒度狀態管理；.stream() 方法型別安全化，開發體驗大幅提升**
