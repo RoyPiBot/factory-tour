@@ -971,6 +971,7 @@ async def get_stats():
 # ═══════════════════════════════════════════
 
 
+# 🏥 系統健康狀態檢查端點 — 回傳 Agent、RAG、資料庫等模組的狀態概覽
 @app.get("/health", response_model=HealthResponse)
 async def health():
     """健康檢查"""

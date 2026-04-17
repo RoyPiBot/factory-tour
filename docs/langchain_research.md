@@ -2690,4 +2690,15 @@ Sources:
 
 Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 125. LangGraph 2.0 正式發布——護欄節點與企業級安全防線（2026 年 2 月）
+
+> **LangChain 2026 年 2 月推出 LangGraph 2.0 穩定版本，新增官方護欄節點（Guardrail Nodes）與宣告式內容過濾、速率限制、稽核日誌等企業級安全特性；開發者可無程式碼配置就地安全防線，自動檢測並隔離不當輸入與輸出，Roy 的 Factory Tour 訪客互動、NanoClaw 邊界系統的高風險操作指令可透過護欄層自動防衛，同時完整稽核日誌追蹤每次決策與狀態轉移，符合監管審計要求**
+
+LangGraph 2.0 將安全防線從應用層下沉至框架層，提升了多代理系統的韌性與合規性。**護欄節點**：Roy 的 Factory Tour 可在訪客互動節點前置護欄節點，自動檢測及隔離不安全或超出領域的用戶查詢，無需編寫檢測邏輯。**宣告式配置**：開發者直接在 StateGraph 定義中指定 rate_limit、content_filter、audit_mode 等策略，框架自動應用，無需複雜中間件程式碼。**企業級稽核**：NanoClaw 邊界系統的每次狀態轉移、決策節點執行、邊界跨越操作均被自動記錄，Pi 5 可生成完整的稽核軌跡供事後合規檢驗。
+
+Sources:
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026 - DEV Community](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
