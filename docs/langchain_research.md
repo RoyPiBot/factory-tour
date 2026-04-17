@@ -2732,3 +2732,15 @@ LangGraph 2.0 將安全防線從應用層下沉至框架層，提升了多代理
 Sources:
 - [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026 - DEV Community](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
+## 126. Deep Agents——多層級代理協作與檔案系統整合（2026 年）
+
+> **LangGraph 2026 年推出 Deep Agents 機制，支援代理規劃、子代理委派與檔案系統整合，允許複雜任務的多層級分解與自動執行；Roy 的 Factory Tour 導覽系統可利用 Deep Agents 將訪客導覽任務分解為子代理（路線規劃代理、景點介紹代理、安全檢查代理），各自獨立決策與執行，共享統一的檔案系統快取；NanoClaw 邊界系統的高危操作亦可委派至專責子代理執行驗證與防禦，提升系統的可組合性、擴展性與任務分解效率**
+
+Deep Agents 將代理編排從單層網絡擴展到多層級協作模式。**多層級規劃與委派**：Factory Tour 的主代理在接收訪客導覽請求時，可將複雜任務自動分解為子任務，如「規劃最佳路線」委派給路線規劃代理、「收集景點知識」委派給知識聚合代理、「確保安全訪問」委派給安全審核代理，各子代理獨立執行並回報進度，主代理整合結果後生成最終回應。**檔案系統共享**：所有代理層級共享統一的檔案系統快取，避免重複計算與知識冗餘，Pi 5 的存儲與計算資源得以最大化利用。**邊界防禦應用**：NanoClaw 的邊界系統遭遇異常操作指令時，可自動委派至安全驗證代理執行深度檢查與隔離，降低單點故障風險，提升多代理系統的可靠性與安全性。
+
+Sources:
+- [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
