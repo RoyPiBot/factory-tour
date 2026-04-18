@@ -2755,4 +2755,17 @@ Sources:
 
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 128. LangGraph Checkpointing 與市場領導地位——生產級框架成熟度確立（2026 年）
+
+> **LangGraph 2026 年經企業驗證確立市場領導地位，月檢索量達 27,100 次（較 CrewAI 的 14,800 次領先 83%）；核心優勢在於內建 Checkpointing 機制與強大的時間旅行除錯能力，每次狀態轉移自動持久化，支援中斷恢復、人工介入審批與事後根因分析，特別適合 Roy 的 Factory Tour 與 NanoClaw 邊界系統的關鍵決策節點守護；同時支援任意節點的 Token 串流與子圖組合，進一步優化多代理工作流的透明度與可組合性**
+
+LangGraph 的 Checkpointing 與 Token 串流機制已成為生產級多代理系統的標準特性。**內建檢查點持久化**：Factory Tour 的每次導覽狀態轉移（訪客位置、景點查詢、安全檢查結果）自動保存至持久化層，框架支援 Replay 功能恢復歷史檢查點，允許 Roy 時間旅行重放任意時刻的代理決策序列，無需手工日誌解析或重新執行，加速故障根因分析。**人工介入暫停與恢復**：Factory Tour 的高風險決策（如進入受限區域或超出導覽範圍）可在安全檢查節點暫停，觀測者在 LangSmith 平臺即時審視狀態並修改上下文（例如調整訪客權限或添加安全警告），隨後恢復執行，完全符合企業級決策防線需求。**Token 串流與 GraphOutput**：Factory Tour 的導覽代理在生成景點介紹時，可串流單個 Token 至前端，實現漸進式回應體驗；所有節點輸出統一包裝於 GraphOutput 物件（含 `.value` 與 `.interrupts` 屬性），簡化複雜工作流的狀態管理與異常處理。**子圖組合**：NanoClaw 邊界系統可將感測器融合子圖、路徑規劃子圖、風險評估子圖各自設計為完整的 LangGraph，隨後組合為父圖的單個節點，提升模組化程度與團隊並行開發效率。
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
