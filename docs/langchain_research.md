@@ -2042,6 +2042,18 @@ Sources:
 
 ---
 
+## 76. Pre/Post Model Hooks 與自動上下文管理——模型調用前後的攔截與強化（2026 年）
+
+> **在模型呼叫前後執行自訂邏輯，自動控制上下文膨脹、插入護欄與人機審批，完善多代理系統的可控性與安全性**
+
+2026 年，LangGraph v1.1 推出 **Pre/Post Model Hooks** 機制，開發者可在模型呼叫的前後階段註冊自訂函式，實現靈活的干預與增強邏輯。**Pre-Model Hook** 在模型接收輸入前執行，用途包括：自動檢測上下文是否過度膨脹並精簡、追蹤模型入參的 token 消耗、插入合規性檢查與提示詞強化；**Post-Model Hook** 在模型輸出後執行，用途包括：自動評估生成內容的品質與相關性、插入人機審批暫停點、動態調整後續推理路徑。與 LangSmith 集成後，所有 Hook 的執行記錄均被持久化，開發者可在監控儀表板觀察模型調用的完整生命週期，精準定位成本超支或品質下降的節點。對 Roy 的 Factory Tour 與 nRF54L15 邊界系統而言，此特性意味著可在感應器數據驅動的決策迴圈中自動控制 LLM 的過度思考，同時透過 Post-Hook 動態調整警告級別，實現經濟高效且可信賴的邊界智能化。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 75. LangGraph 市場主導與企業級採用浪潮——2.0 發布超越 CrewAI、Gartner 預測 40% 企業嵌入代理能力（2026 年 4 月）
 
 > **LangGraph 2.0 於 2 月推出後，4 月初已奪得 126,000+ GitHub 星標領先 CrewAI；Klarna、Uber、Replit、Elastic 等財富 500 強驗證生產級能力；Gartner 3 月報告預測 2026 年底 40% 企業應用將內嵌代理功能，LangGraph 已成實質市場標準**

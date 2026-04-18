@@ -239,6 +239,7 @@ app.add_middleware(
 
 # ─── 取得/建立 Agent App ───
 # 🔒 核心特性：Double-check Locking 模式確保多語言 Agent 的高效率與執行緒安全
+# 支援動態多語言初始化與執行緒安全的快取機制，是系統多代理協調的核心樞紐
 def get_agent(language: str = DEFAULT_LANGUAGE):
     """取得指定語言的 Agent，若不存在則建立（執行緒安全）
 
