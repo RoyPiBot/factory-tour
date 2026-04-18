@@ -2744,3 +2744,15 @@ Deep Agents 將代理編排從單層網絡擴展到多層級協作模式。**多
 Sources:
 - [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 127. TypeScript 型別增強與條件邊界型別推導——提升邊界定義的型別安全（2026 年）
+
+> **LangGraph @langchain/langgraph 1.1.0 版本引入高級型別工具與條件邊界型別推導機制，使開發者在定義狀態轉移與邊界條件時獲得完整的型別安全與自動補完支援；Roy 的 Factory Tour 導覽代理與 NanoClaw 邊界系統在 TypeScript 環境下可充分利用型別推導，自動推斷節點輸入輸出型別與邊界條件函式的返回型別，捕捉編譯時型別錯誤而非運行時故障，同時新增 NodeDef<> 與 ConditionalEdge<> 型別工具簡化複雜狀態圖的定義與維護**
+
+型別安全的邊界定義提升了 Factory Tour 與 NanoClaw 系統的開發效率與可維護性。**型別推導工具**：開發者在 StateGraph 中定義節點與邊界時，TypeScript 編譯器自動推斷狀態物件的結構、節點處理器的參數型別與條件邊界函式的簽章，避免低級型別不匹配錯誤。**NodeDef<> 與 ConditionalEdge<> 型別**：Factory Tour 的路線規劃節點輸入型別自動約束為 `{ route: string; location: string }` 不會接受其他結構的狀態，條件邊界函式 `(state: State) => "route_a" | "route_b"` 的返回型別亦被嚴格驗證，編譯器可即時指出型別衝突。**自動補完與文檔**：IDE 的智能補完與懸停型別提示極大降低了開發者的認知負荷，複雜的多代理協調邏輯變得更易理解與演化。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
