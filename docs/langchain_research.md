@@ -2675,6 +2675,19 @@ Sources:
 
 ---
 
+## 121. LangGraph 與 Anthropic 提示快取的深度整合——成本最佳化與延遲優化（2026 年 4 月）
+
+> **LangGraph v1.1 原生支持 Anthropic Prompt Caching，開發者可在 SystemMessage 中啟用 cache_control={"type": "ephemeral"}，長期對話與重複推理場景下輸入 Token 成本削減 90%；尤其適合 Roy 的 Factory Tour 多訪客導覽與 Tunghai RAG 長期研究系統，實現企業級成本控制與即時回應性的完美平衡**
+
+2026 年 4 月，LangGraph 與 Anthropic 提示快取的深度整合達成里程碑。Roy 的多代理系統可透過 `createReactAgent` 或 `create_agent` 的 `system_prompt` 參數直接傳遞 Anthropic 的 `SystemMessage` 物件，無需額外包裝層，框架自動應用 `cache_control={"type": "ephemeral"}` 快取控制。Factory Tour 導覽系統中，訪客導覽的系統提示詞（景點介紹、安全規範、互動指南）只需在首次計算時傳輸完整 Token，後續同日訪客的請求可直接命中快取，輸入 Token 成本最高削減 90%，同時保持毫秒級回應延遲。Tunghai RAG 專案中，常用的文獻檢索提示詞、研究論文索引、領域知識背景亦可持久化快取，研究人員日常查詢均受惠於高命中率，大幅降低 Gemini API 的長期營運成本，使 Roy 的邊界計算與雲端協調系統具備商業級的成本效益。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 121. StateSchema 與 Standard JSON Schema 支持——庫無關的狀態定義與交互操作性（2026 年 1 月）
 
 > **LangGraph 2026 年 1 月引入 StateSchema，一套庫無關的狀態定義方式，相容 Zod、Valibot、ArkType 等任何遵循 Standard JSON Schema 規範的驗證庫；Roy 的 Factory Tour 與 NanoClaw 邊界系統無需綁定單一驗證框架，可靈活選擇最輕量的 schema 庫，並支援 ReducedValue 自訂累加器與 UntrackedValue 瞬時狀態，進一步優化 Pi 5 記憶體與檢查點儲存成本**

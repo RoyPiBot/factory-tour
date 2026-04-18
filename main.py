@@ -334,6 +334,7 @@ class HealthResponse(BaseModel):
 # ═══════════════════════════════════════════
 # 頁面端點
 # ═══════════════════════════════════════════
+# 此區段定義返回 HTML 遊戲介面與 Dashboard 的路由端點，供訪客與管理員使用
 
 
 @app.get("/", response_class=HTMLResponse)
