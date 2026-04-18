@@ -2821,3 +2821,15 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Top 5 AI Agent Frameworks 2026: LangGraph, CrewAI & More](https://www.intuz.com/blog/top-5-ai-agent-frameworks-2025)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 131. LangGraph + MCP 整合：多代理編排與外部工具生態無縫銜接（2026 年 4 月）
+
+> **LangGraph 的狀態圖執行時與 Anthropic 的模型上下文協議（MCP）完全組合互補，提供結構化執行引擎搭配檢查點持久化與人工介入支援，可與網頁基礎 MCP 伺服器無縫整合；Deep Agents 新功能允許代理規劃、使用子代理與檔案系統進行複雜任務，搭配改進的記憶管理（Markdown 與 JSON），形成生產級多代理編排的完整解決方案，Roy 的 NanoClaw 邊界系統可透過 MCP 介接感測器、資料庫與外部服務，實現真正的多層級代理協作與自主決策**
+
+LangGraph 與 MCP 整合代表多代理系統發展的重要轉折點。**MCP 生態銜接**：LangGraph 的圖形狀態引擎提供持久化與檢查點機制，與 MCP 伺服器協作時能構築完整的多代理協調框架，支援網頁基礎 MCP 服務的無縫接入，NanoClaw 可透過 MCP 標準協議與實時感測器網絡、歷史資料庫、風險預警系統對話。**Deep Agents 與記憶管理**：代理可執行多層級規劃、動態生成子代理、訪問檔案系統，結合改進的 Markdown/JSON 記憶體機制，支援長期任務的狀態保存與恢復，完全符合邊界系統的多時序決策需求。
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
