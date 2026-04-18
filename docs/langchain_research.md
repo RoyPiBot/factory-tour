@@ -2792,5 +2792,18 @@ LangGraph 的 Checkpointing 與 Token 串流機制已成為生產級多代理系
 Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 129. LangGraph v1.1 型別安全串流與節點快取增強——完全向後相容的開發體驗躍升（2026 年 4 月）
+
+> **LangGraph v1.1 版本新增 Type-Safe Streaming (version="v2") 與 Type-Safe Invoke 機制，統一的 StreamPart 物件結構與 GraphOutput 回傳型別提升了 TypeScript 開發的型別安全性與可維護性；新增 Node Caching 與 Deferred Nodes 特性，允許細粒度的計算快取與延遲執行，進一步優化 Roy 的 Factory Tour 與 NanoClaw 邊界系統的性能與資源利用率；Pre/Post Model Hooks 插件機制支援模型呼叫前後的自訂邏輯注入，完全向後相容無破壞性升級，降低遷移成本**
+
+LangGraph v1.1 強化了開發者體驗與多代理系統的效能邊界。**Type-Safe Streaming**：傳遞 `version="v2"` 至 `stream() / astream()` 時，框架統一返回含 `type`、`ns`、`data` 欄位的 StreamPart 物件，每種模式均可從 `langgraph.types` 匯入具體的 TypedDict 定義，Factory Tour 的串流景點介紹不再需要型別強制轉換。**Node Caching 與 Deferred Nodes**：新增快取機制自動儲存節點執行結果，避免重複計算；Deferred Nodes 延遲執行至上游路徑完成，特別適合 Map-Reduce 與多代理共識決策流程，NanoClaw 的感測器融合與風險評估可充分受益。**Pre/Post Model Hooks**：在模型呼叫前注入上下文精簡邏輯（防止 Token 膨脹），呼叫後插入護欄檢查或人工介入審批，完全符合企業級安全與治理需求。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [LangGraph for Beginners: Build Intelligent AI Agents in 2026 - Gistrol](https://gistrol.com/2026/04/04/langgraph-for-beginners-build-intelligent-ai-agents-in-2026/)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)

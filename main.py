@@ -1011,6 +1011,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # 應用主程式進入點 — 透過 uvicorn 啟動 FastAPI 伺服器，監聽指定的主機與埠號
 # 支援熱重載開發模式，便於快速迭代與除錯工廠導覽系統
+# 🎯 核心入口：初始化完成後等待客戶端連線，提供多語言導覽與即時感測器推送服務
 if __name__ == "__main__":
     import uvicorn
 
