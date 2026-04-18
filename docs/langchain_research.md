@@ -2097,6 +2097,19 @@ Sources:
 
 2026 年 4 月，LangGraph 在多代理協調與多模態處理領域實現關鍵突破。**Deep Agents 非同步子代理**功能於 4 月 7 日上線，允許主代理在執行背景任務的同時繼續與使用者互動，無需等待子代理完成——這對 Roy 的 Factory Tour 監測系統而言，意味著可並行執行數十個 nRF54L15 邊界感知任務而主協調代理保持即時回應。同時，`read_file` 工具現已支援 PDF、音訊與視訊檔案，超越純文字與圖像限制，為多模態 RAG 系統提供更豐富的資料源。LangGraph 1.1.x 版本同步更新，正式停用 Python 3.9 支援，並驗證 Python 3.14 完全相容，確保 Raspberry Pi 環境的長期技術棧可維護性。此外，新增類型安全的流式輸出（`version="v2"`）與檢查點復原能力，進一步鞏固生產級部署基礎。
 
+---
+
+## 78. LangGraph 類型安全 v2 與時間旅行中斷機制——流式輸出統一化與歷史狀態復原（2026 年 4 月）
+
+> **LangGraph v1.1.1 推出 version="v2" 類型安全流式輸出與調用；中斷點與子圖的時間旅行支援完全修復，歷史回放無需重用過期的 RESUME 值**
+
+2026 年 4 月，LangGraph 正式推出 **version="v2"** 規範，核心特性包括：**Type-Safe Streaming** 統一所有流式輸出為具結構化 `StreamPart` 型別（含 type、ns、data 鍵），每個模式皆可從 `langgraph.types` 匯入對應的 TypedDict；**Type-Safe Invoke** 提供結構化傳回值，呼叫 `invoke()` 與 `ainvoke()` 時自動回傳 `GraphOutput` 物件（含 `.value` 與 `.interrupts` 屬性），完全相容 Pydantic 模型與 dataclass 自動強制轉型。與此同時，**Time Travel with Interrupts & Subgraphs** 功能修復了歷史狀態復原的核心缺陷——回放模式不再重用陳舊的 RESUME 值，子圖可正確恢復父圖的歷史檢查點。此等增強對 Roy 的 nRF54L15 分散式邊界系統而言，意味著可安全地在時間軸上任意回溯多代理執行狀態，進行完整的監管審計、故障診斷與系統重現，同時型別安全保障了跨執行環境（Pi 本地、雲端 LangSmith）的數據一致性與開發信心。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
