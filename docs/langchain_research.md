@@ -2884,3 +2884,17 @@ Sources:
 - [Deep Agents v0.5.0 Alpha Release - LangChain Blog](https://www.langchain.com/blog/deep-agents-alpha)
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 134. Langflow 1.8.4 與可視化代理構建——低代碼 MCP 編排與 LangGraph 視覺化整合（2026 年 4 月）
+
+> **Langflow v1.8.4 (2026 年 4 月) 推出改進的代理節點、原生 MCP 伺服器導出與深度 LangGraph 整合，允許開發者以視覺畫布方式設計複雜的多代理工作流並直接匯出為 MCP 伺服器供下游代理消費；新增全局變數支援在 MCP 伺服器標頭中安全存儲敏感值，Streamable HTTP 傳輸支援提升了 MCP 客戶端與伺服器的實時串流能力，Roy 的 NanoClaw 邊界系統可透過 Langflow 低代碼畫布快速原型化多代理決策流，無需編寫複雜的 TypeScript 圖定義即可實現與 LangGraph 的無縫銜接**
+
+Langflow 的可視化編排與 LangGraph 的圖形執行引擎形成完整的低代碼到高性能的開發棧。**可視化代理節點設計**：Langflow 1.8.4 的改進代理節點允許拖拽式構建代理邏輯，每個節點自動映射至 LangGraph 的狀態圖結構，降低多代理系統的進入門檻；NanoClaw 的感測器融合、風險評估、應急回應子代理可在 Langflow 畫布上直觀組織，邏輯關係一目瞭然。**MCP 伺服器導出與生態銜接**：完成的 Langflow 流程可直接導出為 MCP 伺服器，使其他基於 MCP 協議的代理無需自訂膠水代碼即可消費，Factory Tour 的導覽規劃邏輯與 NanoClaw 的邊界決策引擎可各自封裝為 MCP 伺服器微服務，實現模組化的多代理系統。**全局變數與安全管理**：Streamable HTTP 傳輸與全局變數支援確保 API 金鑰、資料庫連接等敏感配置安全隔離，Pi 5 上的 Langflow 伺服器可安全地與外部感測器網絡、遠程日誌系統對接。
+
+Sources:
+- [Langflow: Features, Pricing & Review (April 2026)](https://aipedia.wiki/tools/langflow/)
+- [Langflow release notes | Langflow Documentation](https://docs.langflow.org/release-notes)
+- [Use Langflow as an MCP server | Langflow Documentation](https://docs.langflow.org/mcp-server)
+- [Langflow vs LangGraph: A Detailed Comparison](https://www.zenml.io/blog/langflow-vs-langgraph)
