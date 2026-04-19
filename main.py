@@ -143,6 +143,7 @@ MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
 QUIZ_DATA: dict = {}  # area_id -> questions
 # 區域測驗題目由 quizzes.json 動態載入，支援多語言與難度分級
 # 初始化時為空，由 lifespan 函數在應用啟動時動態填充
+# ✨ 測驗成績與答題記錄同步存儲至 SQLite，供訪客進度追蹤使用
 
 
 # 應用生命週期管理 — 確保所有資源有序初始化與清理，是 factory-tour 系統穩定性的基石
