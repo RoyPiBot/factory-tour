@@ -269,6 +269,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     return agent_apps[language]
 
 
+# 定義 FastAPI 資料驗證模型，確保所有 API 輸入與輸出的類型安全
 # ─── 資料模型 ───
 class ChatRequest(BaseModel):
     message: str

@@ -2910,5 +2910,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
+
+---
+
+## 136. LangGraph v1.1 型別安全流式傳輸與工作流最佳化——端到端生產級代理架構的完整解決方案（2026 年 4 月）
+
+> **LangGraph v1.1 版本於 2026 年 4 月發布，引入型別安全的流式傳輸（type-safe streaming）與型別安全的調用（type-safe invoke），開發者透過 `version="v2"` 參數啟用統一的 StreamPart 輸出格式，每個數據塊包含 type、ns、data 鍵位確保完整的型別推斷；新增節點快取（Node Caching）跳過冗餘計算、延遲節點（Deferred Nodes）確保上游路徑完成後再執行、前後置模型掛鉤（Pre/Post Model Hooks）用於代理決策流中的自訂邏輯注入，內建提供商工具（web 搜尋、遠程 MCP）免去手動集成成本；Pydantic 與 dataclass 自動強制轉換進一步簡化狀態管理，Roy 的 NanoClaw 與 Factory Tour 可直接利用這些特性構建完全型別安全的邊界系統與導覽代理，享受開發效率與執行時型別檢查的雙重保障**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Use Langflow as an MCP server | Langflow Documentation](https://docs.langflow.org/mcp-server)
 - [Langflow vs LangGraph: A Detailed Comparison](https://www.zenml.io/blog/langflow-vs-langgraph)
