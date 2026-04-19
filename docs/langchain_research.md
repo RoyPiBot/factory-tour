@@ -1997,6 +1997,20 @@ Sources:
 
 > **跨語言統一開發時代來臨，TypeScript 版本功能完全與 Python 對等**
 
+---
+
+## 74. LangGraph v1.1 新增中間件系統——自動重試與內容審核（2026 年 4 月）
+
+> **內建失敗自動重試與指數退避策略，OpenAI 內容審核中間件實時檢測代理輸出的有害內容**
+
+2026 年 4 月，LangGraph v1.1 推出強化的 **Middleware 系統**，為多代理系統增加自動容錯與安全能力。首要功能是 **Model Retry Middleware** —— 自動對失敗的模型調用實施指數退避重試，無需開發者手動包裝 try-catch 邏輯，特別適合處理瞬間 API 限流或網路抖動；其次是 **OpenAI Content Moderation Middleware**，實時檢測代理輸出中的暴力、騷擾、仇恨內容，確保多代理系統的輸出安全合規。此等中間件開箱即用，大幅提升邊界環境（如 Raspberry Pi nRF54L15 監測系統）的穩定性與可信度。
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
 2026 年 4 月，LangGraph 實現了 Python 與 TypeScript 版本的完全功能對等，特別是 @langgraphjs/toolkit 套件提供的 `createReactAgent` 樣板消除了跨語言開發的學習曲線與程式碼差異。開發者現可用 TypeScript 統一構建 Factory Tour 主代理與 nRF54L15 邊界感應器協調層，享受原生型別安全、Deno/Node.js 跨執行環境相容性，以及與 OpenClaw TypeScript 棧的無縫整合。新版 TypeScript 版本支援流式輸出、檢查點、人機迴圈、Model Profiles 能力探測等企業級特性，進一步鞏固 LangGraph 作為跨平臺多代理開發首選框架的地位。
 
 Sources:
