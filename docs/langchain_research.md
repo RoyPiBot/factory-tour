@@ -2871,4 +2871,16 @@ LangGraph 的基礎設施層優化強化了生產環境的可靠性與效能。*
 
 Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+
+---
+
+## 133. Deep Agents v0.5.0 非同步子代理與多模態支援——邊界系統的並行決策與多感知融合（2026 年 4 月）
+
+> **Deep Agents v0.5.0 alpha 版本於 2026 年 4 月發布，新增非同步子代理機制與多模態檔案支援，允許主代理在背景啟動子代理執行長時間任務而無需阻塞主線程；read_file 工具擴展支援 PDF、音訊、影片檔案，使 Roy 的 NanoClaw 邊界系統可同時處理感測器影像、音訊告警與結構化日誌，實現真正的多感知融合決策；Anthropic 提示快取整合進一步降低多模態推理的 token 消耗與決策延遲，Factory Tour 的導覽代理可並行執行多個子任務（景點語音介紹、安全檢查、路線最佳化）而提升訪客體驗**
+
+非同步子代理與多模態支援標誌著多代理系統向真實場景應用的深化。**非同步子代理機制**：NanoClaw 的主決策代理接收邊界威脅時，可非同步委派感測器資料融合代理、風險評估代理、應急回應代理獨立執行，主代理持續響應新事件而無需等待子代理完成；所有子代理的執行進度與結果自動回報至共享狀態，父圖無縫整合所有決策線索。**多模態感知與融合**：NanoClaw 的 read_file 工具可同時讀取攝像頭影像（視覺威脅檢測）、麥克風音訊（異常聲音辨識）、日誌檔案（系統狀態），各子代理獨立分析各模態後的決策結果統一彙總，提升邊界防禦的全面性與準確性。**提示快取與成本控制**：Anthropic 快取機制自動識別重複的多模態上下文（如固定的系統提示或週期性的背景檔案），快取命中時大幅降低 token 消耗與推理延遲，Pi 5 的有限算力資源得以最大化利用。
+
+Sources:
+- [Deep Agents v0.5.0 Alpha Release - LangChain Blog](https://www.langchain.com/blog/deep-agents-alpha)
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
