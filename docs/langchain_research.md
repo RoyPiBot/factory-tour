@@ -2922,4 +2922,18 @@ Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Use Langflow as an MCP server | Langflow Documentation](https://docs.langflow.org/mcp-server)
+
+---
+
+## 137. LangGraph Store 持久化記憶架構——短期狀態檢查點與長期語義記憶的雙層系統（2026 年 4 月）
+
+> **LangGraph 在 2026 年推出完整的持久化記憶架構，將短期記憶（Thread-scoped Checkpoints）與長期記憶（Store-based Namespaces）分離，PostgresStore 與 MongoDB Store 提供生產級的可擴展儲存；Mem0 整合允許代理自動提取對話事實並建立實體圖譜，Hindsight 記憶層透過四層平行檢索策略強化語義回憶，Roy 的 NanoClaw 邊界系統可利用短期檢查點追蹤即時感測器決策軌跡，長期 Store 記錄歷史威脅模式與應急決策案例，實現完整的多時序記憶管理與知識累積**
+
+LangGraph 的雙層記憶系統完整支撐多代理的學習與自適應。**短期記憶與檢查點**：代理狀態透過 Thread-scoped Checkpoints 逐步持久化，對話歷史、工具輸出與中間計算結果自動保存，NanoClaw 的每次邊界決策過程可完整追蹤與復現。**長期記憶與 Store**：PostgresStore（生產環境）或 InMemoryStore（開發環境）儲存跨會話的知識，開發者透過命名空間（Namespaces）組織不同類型的記憶，Factory Tour 的景點安全檢查記錄、遊客反饋與路線優化方案可持續積累。**Mem0 與 MongoDB 整合**：Mem0 自動從對話中提取關鍵事實，建立實體關係圖，MongoDB Store 提供靈活的文件儲存，支援複雜的多代理記憶查詢。**Hindsight 記憶層**：四層平行檢索策略（語義、時序、實體、因果）大幅提升記憶命中率，NanoClaw 面對新威脅時可快速檢索歷史相似案例，加速應急決策。
+
+Sources:
+- [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+- [Building Long-Term Memory in AI Agents with LangGraph and Mem0 | DigitalOcean](https://www.digitalocean.com/community/tutorials/langgraph-mem0-integration-long-term-ai-memory)
+- [Adding Long-Term Memory to LangGraph and LangChain Agents | Hindsight](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
 - [Langflow vs LangGraph: A Detailed Comparison](https://www.zenml.io/blog/langflow-vs-langgraph)
