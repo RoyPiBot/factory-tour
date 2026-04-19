@@ -2937,3 +2937,15 @@ Sources:
 - [Building Long-Term Memory in AI Agents with LangGraph and Mem0 | DigitalOcean](https://www.digitalocean.com/community/tutorials/langgraph-mem0-integration-long-term-ai-memory)
 - [Adding Long-Term Memory to LangGraph and LangChain Agents | Hindsight](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
 - [Langflow vs LangGraph: A Detailed Comparison](https://www.zenml.io/blog/langflow-vs-langgraph)
+
+---
+
+## 138. LangChain Agent Builder 官方記憶支援——標準化 Markdown 與 JSON 持久化（2026 年 4 月）
+
+> **LangChain 在 2026 年官方推出 Agent Builder 內建記憶功能，支援標準 Markdown 文件與 JSON 格式自動持久化，無需外部資料庫即可實現輕量級的代理知識累積；開發者可直接在 Agent Builder UI 中設置記憶策略，系統自動將對話事實、決策日誌、工具執行結果保存至本地檔案，Pi 5 環境下 Roy 的 Factory Tour 與 NanoClaw 邊界系統可利用此機制建立輕量級的邊界知識庫與訪客互動記錄，無需依賴雲端記憶服務，降低營運成本與隱私風險**
+
+Agent Builder 的標準化記憶層簡化了多代理系統的知識管理流程。**Markdown 文件持久化**：代理決策日誌、環境感知摘要、案例研究自動寫入結構化 Markdown 檔案，Pi 5 本地儲存無需額外配置，便於版本控制與事後審計。**JSON 結構化儲存**：實體關係、決策樹、互動歷史以 JSON 格式序列化，支援程式化查詢與統計分析，Factory Tour 的訪客反饋聚合與 NanoClaw 的威脅模式識別均可直接受惠。**無伺服器記憶架構**：相比 PostgreSQL / MongoDB 方案，Markdown + JSON 方案更輕量、易部署，特別適合 Raspberry Pi 5 的資源約束環境，完全消除外部依賴而保持完整的長期記憶能力。
+
+Sources:
+- [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
