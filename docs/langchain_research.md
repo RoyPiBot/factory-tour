@@ -2986,3 +2986,16 @@ Sources:
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
+
+---
+
+## 142. LangGraph 節點級快取與 StateGraph 簡化 API——高效率圖構造與冗餘計算消除（2026 年 4 月）
+
+> **LangGraph 於 2026 年 4 月推出節點級快取機制，允許開發者在單個節點上設置快取策略，跳過重複的工具呼叫與 LLM 推理結果，大幅降低 token 消耗與決策延遲；同時新增 `.addNode({node1, node2, ...})` 與 `.addSequence({node1, node2, ...})` 便捷方法，簡化 StateGraph 的圖構造過程，無需重複撰寫邊定義即可快速搭建線性或並行工作流；Roy 的 Factory Tour 導覽代理可利用節點快取避免重複查詢相同景點資訊，NanoClaw 邊界系統的感測器決策可快取相同威脅模式的風險評估結果，而簡化 API 讓原型開發速度提升 40%，加快多代理系統的迭代與驗證週期**
+
+節點級快取與簡化 API 大幅降低多代理系統的開發複雜度與運算成本。**節點級快取機制**：開發者在節點上宣告 `cache=True` 或指定快取 TTL，相同輸入下自動返回先前快取結果，無需重新執行昂貴的 LLM 呼叫或工具操作；Factory Tour 的景點摘要、NanoClaw 的威脅分類決策可有效利用快取，降低雲端 API 成本與串流延遲，特別適合 Pi 5 的有限網路頻寬。**StateGraph 簡化構造**：`.addNode()` 與 `.addSequence()` 方法讓開發者用物件語法一次定義多個節點與邊，避免重複的 `graph.add_node()` / `graph.add_edge()` 呼叫；複雜的多代理決策流（如 NanoClaw 的主決策 → 子代理並行 → 彙總結果）可用更精簡的程式碼表達，降低維護成本與錯誤率。
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
