@@ -2949,3 +2949,14 @@ Agent Builder 的標準化記憶層簡化了多代理系統的知識管理流程
 Sources:
 - [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 139. LangMem SDK 語義記憶層——自適應系統提示詞與多模式記憶的智能代理進化（2026 年 4 月）
+
+> **LangChain 在 2026 年推出 LangMem SDK，在 LangGraph Store 之上構建語義、情節與過程三層記憶架構，獨特之處在於內建代理自優化機制，代理可透過 Hindsight 記憶層的四層平行回憶策略自動改進自身系統提示詞，無需人工調優；LangMem 與 MongoDBStore 無縫整合實現跨會話知識累積，Roy 的 Factory Tour 導覽與 NanoClaw 邊界系統可利用此機制自動適應訪客行為模式、安全威脅演變與路線效率優化，實現真正具有學習能力的自主代理架構**
+
+Sources:
+- [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)
+- [How to Implement Long-Term Memory for AI Agents (2026)](https://atlan.com/know/how-to-implement-long-term-memory-ai-agents/)
+- [The Architecture of Agent Memory: How LangGraph Really Works - DEV Community](https://dev.to/sreeni5018/the-architecture-of-agent-memory-how-langgraph-really-works-59ne)
