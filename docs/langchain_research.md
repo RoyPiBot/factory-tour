@@ -2960,3 +2960,16 @@ Sources:
 - [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)
 - [How to Implement Long-Term Memory for AI Agents (2026)](https://atlan.com/know/how-to-implement-long-term-memory-ai-agents/)
 - [The Architecture of Agent Memory: How LangGraph Really Works - DEV Community](https://dev.to/sreeni5018/the-architecture-of-agent-memory-how-langgraph-really-works-59ne)
+
+---
+
+## 140. LangGraph StateSchema 類型安全狀態定義——庫無關的標準型別驗證與多框架相容（2026 年 1 月）
+
+> **LangGraph 於 2026 年 1 月推出 StateSchema 機制，提供庫無關的狀態型別定義方式，相容 Zod 4、Valibot、ArkType 等主流驗證庫，開發者無需依賴 pydantic，可自由選擇偏好的驗證框架；StateSchema 自動在圖執行時強制型別檢查，確保狀態轉移的完整性與安全性，Roy 的 NanoClaw 邊界系統與 Factory Tour 導覽代理可透過 StateSchema 實現更靈活的狀態定義，無需綁定特定 ORM 或驗證庫而享受完整的型別推斷支援**
+
+StateSchema 標誌著 LangGraph 向開放標準靠攏的策略轉變，強化了多代理系統的互操作性與開發靈活性。**庫無關的型別驗證**：開發者透過 Standard Schema 規範選用 Zod、Valibot 或 ArkType，無需遷移至 Pydantic 生態，保留既有的驗證邏輯與工具鏈；NanoClaw 的感測器狀態、風險評估結果與應急回應指令可各自採用不同驗證框架，只要符合 Standard Schema 介面即可無縫整合。**執行時型別安全**：LangGraph 在節點轉移時自動驗證狀態更新，捕獲型別不匹配與缺失欄位，防止邊界決策中的狀態污染；Factory Tour 的訪客資訊、景點數據與導覽進度可透過 StateSchema 確保結構一致。**跨框架生態相容**：Standard Schema 的標準化使 LangGraph 狀態可與其他遵循該規範的框架無摩擦互操作，Pi 5 上的多個微服務（感測器代理、路由規劃、知識檢索）各自採用最適框架而共享統一的狀態驗證層。
+
+Sources:
+- [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
