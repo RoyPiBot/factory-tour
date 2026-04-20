@@ -3035,3 +3035,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+
+---
+
+## 146. Deep Agents 非同步子代理與 LangGraph Deploy CLI——任務背景化與一鍵部署企業級代理（2026 年 3-4 月）
+
+> **LangChain 於 2026 年 3 月推出 Deep Agents v1.9.0 Alpha，新增非同步子代理功能，允許代理啟動非阻塞後台任務，用戶可在子代理並發工作時持續交互，實現真正的多工作流編排；同時推出 LangGraph Deploy CLI，透過 `langgraph-cli` 套件提供一鍵部署命令，開發者無需複雜 YAML 配置即可將代理直接發佈至 LangSmith Deployment；Deep Agents 進階版本支援複雜任務規劃、檔案系統存取與多模態決策，Roy 的 NanoClaw 邊界系統可透過非同步子代理並行執行感測器掃描、威脅分析與應急預案，Factory Tour 導覽代理可背景化訪客滿意度調查與景點推薦，Deploy CLI 讓兩個系統快速上線至企業環境**
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
