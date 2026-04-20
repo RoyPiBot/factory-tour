@@ -2999,3 +2999,14 @@ Sources:
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 143. LangGraph v1.0 正式發佈與內建檢查點機制——時光旅行除錯與人工介入工作流（2026 年）
+
+> **LangChain 與 LangGraph 於 2026 年推出 v1.0 正式版，標誌著多代理框架的成熟與穩定承諾；最核心的創新是內建檢查點機制，每次狀態轉移自動持久化，啟用時光旅行除錯（暫停圖執行、檢視任意時間點的狀態、恢復執行）、人工介入核准流（中斷執行等待人工決策、繼續執行）與失敗自動恢復，無需自訂實現；Deep Agents 模組賦予代理規劃能力、子代理調度與檔案系統存取，Klarna、Replit、Elastic 等企業已採用；Roy 的 Factory Tour 導覽與 NanoClaw 邊界系統可透過檢查點機制實現訪客路線的暫停與恢復、安全決策的人工審核與執行，同時 Deep Agents 讓導覽代理能自主規劃複雜訪客行程與應急回應流程**
+
+Sources:
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)

@@ -153,7 +153,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 # 生命週期管理採用 asynccontextmanager 裝飾器，支援非同步 yield 模式實現啟動與清理邏輯
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """應用啟動/關閉時執行 — 初始化 Agent、RAG、資料庫、感測器
+    """生命週期管理：應用啟動時初始化 Agent/RAG/資料庫/感測器，關閉時完整清理資源
 
     FastAPI 生命週期事件管理器，確保所有依賴資源有序初始化與清理。
     此生命週期框架適用於 Raspberry Pi 5 上的多智能體系統運行。
