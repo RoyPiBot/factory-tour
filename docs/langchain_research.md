@@ -2972,4 +2972,17 @@ StateSchema 標誌著 LangGraph 向開放標準靠攏的策略轉變，強化了
 Sources:
 - [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 141. LangGraph TypeScript 生態成熟與 Agent Toolkit 工具鏈——跨語言多代理統一開發框架（2026 年 4 月）
+
+> **LangGraph TypeScript 版本於 2026 年 4 月達到週下載量 42,000 次，實現與 Python 版本的完整特性平價；@langgraphjs/toolkit 提供 AgentMemory 長期對話摘要、TokenBudget LLM 成本控制、RateLimiter API 流量保護與預置代理模板，所有核心功能（StateGraph、條件邊、檢查點、串流、人工介入）已全面支援；Roy 的 NanoClaw 邊界系統與 Factory Tour 導覽代理可採用統一的 LangGraph 編排邏輯跨越 Python 後端與 Node.js 前端，無需為語言差異重複設計決策圖，顯著加快多平台多代理部署速度與研發迭代週期**
+
+LangGraph TypeScript 的成熟標誌著多代理框架向全棧一致的開發體驗邁進。**跨語言特性平價**：Python 與 TypeScript 版本已完全同步，開發者無需顧慮語言選擇，Pi 5 上的 Python 微服務與 Node.js 前端可共用相同的圖定義與狀態管理邏輯。**Agent Toolkit 完整工具鏈**：AgentMemory 自動管理對話上下文防止 token 爆炸、TokenBudget 精細控制 LLM 成本、RateLimiter 保護外部 API，Factory Tour 與 NanoClaw 可開箱即用這些企業級特性而無需自訂實現。**統一的開發體驗**：前後端團隊採用同一套 LangGraph 範式設計狀態流，大幅降低認知負擔與協作複雜度，加快多代理系統的原型化與上線部署。
+
+Sources:
+- [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [How to Build an AI Agent with LangGraph Python in 14 Steps [2026]](https://tech-insider.org/langgraph-tutorial-ai-agent-python-2026/)
