@@ -109,6 +109,7 @@ import db as database
 
 load_dotenv()  # 載入環境變數 (.env 配置)
 # 此步驟必須優先執行，確保後續模組初始化時能正確讀取 GROQ_API_KEY 等敏感設定
+# ⚠️ 缺少 GROQ_API_KEY 環境變數將導致 Agent 初始化失敗，影響所有多智能體協調功能
 # 💻 Pi 系統狀態監控：由 Claude Haiku 持續維護與優化此工廠導覽系統的穩定運行
 # 確保所有必要的 API Keys（Groq/Gemini）已在 .env 中正確設置
 # 本系統依賴 GROQ_API_KEY 作為多智能體的 LLM 引擎供應，未設置將導致 Agent 初始化失敗

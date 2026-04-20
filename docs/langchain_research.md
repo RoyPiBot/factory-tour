@@ -3021,3 +3021,17 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 145. LangGraph v1.1 全版本發佈——類型安全串流與 v0.x 長期支援過渡（2026 年 4 月）
+
+> **LangGraph v1.1 正式發佈並完全向後相容，核心創新為類型安全串流與型別推斷；`stream(version="v2")` 統一輸出格式為 StreamPart，包含 type、ns、data 三個欄位，開發者無需手動解析不同響應模式，享受完整的 TypeScript/Python 型別檢查；同時 LangGraph 0.x 進入維護模式，官方承諾支援至 2026 年 12 月，確保現有專案平穩遷移；DeepAgents v0.5.0 alpha 同步發佈，新增非同步子代理、多模態支援與 Anthropic 提示快取優化；Roy 的 Factory Tour 與 NanoClaw 系統可逐步採用 v1.1 的型別安全特性，無需急速遷移，充分利用長期支援窗口驗證穩定性**
+
+LangGraph 的漸進遷移策略體現了成熟框架對用戶穩定性的承諾。**v1.1 向後相容**：Python 與 TypeScript 版本同步發佈，所有 v1.0 代碼無需修改可直接運行；**類型安全流**：StreamPart 統一格式使前端解析簡化，NanoClaw 的邊界決策串流、Factory Tour 的導覽進度更新可獲得強型別保障；**平穩遷移路徑**：v0.x 至 2026 年底的支援承諾讓團隊有充足時間驗證 v1.1 性能與穩定性，降低升級風險與技術債務。
+
+Sources:
+- [LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
