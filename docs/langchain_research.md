@@ -3009,4 +3009,15 @@ Sources:
 Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
+
+## 144. LangGraph v1.1 類型安全串流與延遲節點機制——完全向後相容的開發者體驗升級（2026 年）
+
+> **LangGraph v1.1 正式發佈，主要創新聚焦於類型安全串流與延遲執行；type-safe streaming 透過 `stream(version="v2")` 提供統一的 StreamPart 輸出格式，每個傳輸單位包含 type、ns 與 data 欄位，開發者無需手動解析不同模式的響應結構，享受完整的類型推斷；Deferred Nodes 機制允許延遲節點執行直至所有上游路徑完成，完美適配 map-reduce、共識與協作代理工作流，無需繁瑣的同步邏輯；Node Caching 與 Pre/Post Model Hooks 進一步降低冗餘計算與上下文污染，Roy 的 Factory Tour 與 NanoClaw 系統可利用 Deferred Nodes 實現並行決策的多級彙總、快取避免重複景點查詢、Hooks 自動插入安全防護與人工審核閘門**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
