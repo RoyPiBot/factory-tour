@@ -3046,3 +3046,15 @@ Sources:
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+
+---
+
+## 147. StateSchema 與 Standard JSON Schema 支援——跨庫狀態驗證與 LangSmith Fleet 企業級代理託管（2026 年 4 月）
+
+> **LangGraph 在 2026 年 4 月推出 StateSchema 機制，採用 Standard JSON Schema 標準，實現跨驗證庫相容性；開發者可使用 Zod 4、Valibot、ArkType 或其他 Schema-compliant 庫定義圖狀態，無需綁定特定驗證框架，降低技術棧耦合；同時 Agent Builder 正式更名為 LangSmith Fleet，新增 agent identity、共享與權限管理，支援企業級代理團隊治理與審計追蹤；Roy 的 Factory Tour 與 NanoClaw 系統可透過 StateSchema 靈活切換驗證庫、實現自訂驗證邏輯（如感測器數據範圍檢查），LangSmith Fleet 提供代理部署監控、版本控制與多團隊協作介面，簡化生產環境管理**
+
+StateSchema 與 LangSmith Fleet 的推出標誌著 LangGraph 向企業級、標準化方向的關鍵升級。**Standard JSON Schema 相容性**：開發者無需依賴 Pydantic，可選用 Zod 4、Valibot 等輕量驗證庫，減少專案依賴複雜度；NanoClaw 的感測器狀態、風險評級各自採用最適驗證框架，整合時只需遵守 Standard Schema 介面；**自訂驗證邏輯**：StateSchema 支援複雜驗證規則（範圍檢查、交叉欄位驗證），Factory Tour 的訪客滿意度評分、景點容納量可直接在狀態層級實現業務規則檢查；**LangSmith Fleet 團隊治理**：多代理系統可在統一的 Fleet 介面中管理身份、共享政策與存取控制，Roy 日後擴展團隊時無需另外建立代理管理系統，內建的版本控制與部署監控完整支撐企業級營運。
+
+Sources:
+- [LangChain - Changelog | StateSchema and Standard JSON Schema Support](https://changelog.langchain.com/announcements/stateschema-and-standard-json-schema-support)
+- [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
