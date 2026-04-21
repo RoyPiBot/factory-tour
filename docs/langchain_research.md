@@ -3071,3 +3071,12 @@ Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
+---
+
+## 149. LangGraph 1.1.8 與 Agent Server 檢查點優化——背景刪除與 AES 加密增強（2026 年 4 月）
+
+> **LangGraph 於 2026 年 4 月發佈 v1.1.8，核心改進聚焦於 Agent Server 的檢查點效能與安全；實現了檢查點背景刪除機制，大幅降低執行緒刪除與修剪的 I/O 壓力，特別適合高吞吐的多代理環境；同時新增 LANGGRAPH_AES_JSON_KEYS 配置支援，允許透過金鑰名稱白名單為指定 JSON 欄位啟用 AES 加密，保護敏感的狀態數據（如客戶身份、API 憑證）；RemoteCheckpointer 的遠程子圖檢查點功能增強了分散系統的任務可靠性；Roy 的 Factory Tour 與 NanoClaw 系統部署在 Pi 5 上時，可透過背景檢查點刪除提升並行訪客與感測器路線的吞吐量，敏感感測器數據透過 AES 加密確保符合工業界安全合規標準**
+
+Sources:
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)

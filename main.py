@@ -252,6 +252,7 @@ app.add_middleware(
 # 支援動態多語言初始化與執行緒安全的快取機制，是系統多代理協調的核心樞紐
 # 💬 此函數乃 factory-tour 多語言系統的關鍵樞紐，每次請求均需確認代理實例可用
 # 📦 快取機制優化：避免重複初始化相同語言的 Agent，減少 API 呼叫與記憶體浪費
+# 🎯 此函數負責地延遲初始化 (lazy loading)，確保系統啟動速度與資源利用率的平衡
 def get_agent(language: str = DEFAULT_LANGUAGE):
     """取得指定語言的 Agent，若不存在則建立（執行緒安全）
 
