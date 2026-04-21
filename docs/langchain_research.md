@@ -2799,6 +2799,18 @@ Sources:
 
 ---
 
+## 127. 持久執行與人工干預機制——智能體韌性與可控性的結合（2026 年）
+
+> **LangGraph 2026 年強化持久執行與人工干預機制；智能體執行過程中自動保存狀態，故障時可從中斷點恢復無需重新開始；開發者與觀測者可在任意時刻檢查與修改智能體狀態，實時調整決策方向；Roy 的 Factory Tour 導覽系統遇網路中斷可自動復原，訪客信息與路線進度不丟失；NanoClaw 邊界系統的高風險操作可在人工監督下暫停、修改參數、驗證後再恢復執行，實現完全可控的多代理編排**
+
+持久執行與人工干預的結合標誌著 LangGraph 從自動化邁向人機協作的進化。**持久執行與自動復原**：Factory Tour 的導覽任務執行期間，每個決策節點、API 呼叫、狀態轉移均被自動保存至 Pi 5 的本地檢查點；若中途網路抖動或服務暫時不可用，智能體自動偵測並從上次成功的節點重新開始，訪客無感知、路線進度完整保留。**細粒度人工干預**：NanoClaw 邊界系統的機械手臂高風險操作（如越權移動、異常速度控制）在執行前自動暫停，人工審核者可在 LangSmith 平臺直觀查看智能體當前狀態、推理過程、待執行指令，可即時修改操作參數（如速度上限、力度閾值）或注入外部資訊（如實時環境感測值），確認無誤後恢復執行；人機閉環降低誤操作風險、提升系統可信度，符合工業級安全要求。
+
+Sources:
+- [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
+- [Is LangChain Still Relevant in 2026? The Honest Answer for AI Agent Developers | BSWEN](https://docs.bswen.com/blog/2026-04-16-langchain-relevant-2026/)
+
+---
+
 ## 127. TypeScript 型別增強與條件邊界型別推導——提升邊界定義的型別安全（2026 年）
 
 > **LangGraph @langchain/langgraph 1.1.0 版本引入高級型別工具與條件邊界型別推導機制，使開發者在定義狀態轉移與邊界條件時獲得完整的型別安全與自動補完支援；Roy 的 Factory Tour 導覽代理與 NanoClaw 邊界系統在 TypeScript 環境下可充分利用型別推導，自動推斷節點輸入輸出型別與邊界條件函式的返回型別，捕捉編譯時型別錯誤而非運行時故障，同時新增 NodeDef<> 與 ConditionalEdge<> 型別工具簡化複雜狀態圖的定義與維護**
