@@ -3114,3 +3114,14 @@ Sources:
 - [Is LangChain Still Relevant in 2026? The Honest Answer for AI Agent Developers](https://docs.bswen.com/blog/2026-04-16-langchain-relevant-2026/)
 - [LangGraph vs LangChain: Which Framework Should You Use for Building Agents in 2026?](https://docs.bswen.com/blog/2026-04-16-langgraph-vs-langchain/)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 152. LangGraph 原生串流架構——六模式實時代理推理與 DeepAgents 子代理進度追蹤（2026 年）
+
+> **LangGraph 於 2026 年進一步強化原生串流架構，提供六種不同的串流模式（values、updates、messages、tasks、checkpoints 與 custom），開發者無需撰寫自訂程式碼即可在節點執行時與步驟邊界自動收集串流輸出；最新更新中，Deep Agents 可串流子代理的實時進度與即時生成的消息，讓使用者透過 token-by-token 輸出直觀觀察代理推理過程與任務執行狀態；Factory Tour 導覽代理可透過 messages 模式串流訪客路線變更理由、實時景點推薦與問題回答，NanoClaw 邊界系統利用 updates 模式串流感測器掃描進度、威脅評估中間態與決策執行動作，完全消弭代理黑盒問題，提升系統透明度與用戶信任感**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
+- [Is LangChain Still Relevant in 2026? The Honest Answer for AI Agent Developers](https://docs.bswen.com/blog/2026-04-16-langchain-relevant-2026/)
