@@ -3103,3 +3103,14 @@ Sources:
 - [LangGraph Changelog - 2026 Q2 Middleware Updates](https://changelog.langchain.com/)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 151. LangGraph v1.0 LTS 穩定版與 Deep Agents——從實驗到生產級代理編排（2025-2026 年）
+
+> **LangGraph 於 2025 年 10 月達成穩定的 v1.0 版本並開啟長期支援（LTS）模式，v0.x 進入維護期直至 2026 年 12 月；核心創新包括 Deep Agents 功能，允許代理進行自主規劃、啟用子代理與操作檔案系統以完成複雜任務；LangGraph 與 LangChain 1.0 深度整合，框架內的代理運行時已全面遷移至 LangGraph 驅動，開發者可透過 LangChain 簡化介面直接獲得 LangGraph 的完整能力；LangGraph 提供持久執行、人工循環、短期工作記憶與長期跨會話持久化記憶，標誌著從實驗性原型框架向生產級代理編排解決方案的成熟演進；Roy 的 Factory Tour 與 NanoClaw 系統已成為 LangGraph 生產部署的典範案例，可充分利用 v1.0 LTS 的穩定性與 Deep Agents 的自主決策能力，實現多月不中斷的邊界 AI 系統運營**
+
+Sources:
+- [Is LangChain Still Relevant in 2026? The Honest Answer for AI Agent Developers](https://docs.bswen.com/blog/2026-04-16-langchain-relevant-2026/)
+- [LangGraph vs LangChain: Which Framework Should You Use for Building Agents in 2026?](https://docs.bswen.com/blog/2026-04-16-langgraph-vs-langchain/)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)

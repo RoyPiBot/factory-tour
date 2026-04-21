@@ -139,7 +139,7 @@ rag_ready = False
 # RAG 引擎初始化狀態旗標，供健康檢查與文件上傳 API 判斷是否可用
 # 若 RAG 模組無法載入（如 chromadb 未安裝），此旗標保持 False
 # 🔌 感測器與 WebSocket 通信層：實現工廠即時感測器數據推送與遠端控制
-sensor_sim: SensorSimulator | None = None
+sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 lifespan 啟動時初始化
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 
 MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
