@@ -3125,3 +3125,13 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
 - [Is LangChain Still Relevant in 2026? The Honest Answer for AI Agent Developers](https://docs.bswen.com/blog/2026-04-16-langchain-relevant-2026/)
+
+---
+
+## 153. ReducedValue、UntrackedValue 與 Node-Level Caching——增強狀態管理與節點性能優化（2026 年 4 月）
+
+> **LangGraph 在 2026 年推出增強的狀態欄位類型，核心為 ReducedValue（支援自訂 reducer 的累積欄位，獨立的輸入與輸出型別檢查）與 UntrackedValue（暫態狀態，執行期存在但無檢查點持久化）；同時引入 Node-Level Caching，允許在圖執行時快取單個節點的結果，避免重複計算；Factory Tour 的訪客滿意度評分可用 ReducedValue 實現增量聚合與類型安全的評分運算，NanoClaw 的感測器快取使用 UntrackedValue 暫存網路連線、資料庫連接等非持久化資源，Node-Level Caching 優化重複的景點檢索與威脅分析節點，大幅降低 Pi 5 的計算負荷**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)

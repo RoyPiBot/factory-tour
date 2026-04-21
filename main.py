@@ -107,6 +107,7 @@ from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
 from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
 import db as database
 
+# 🔐 必須在所有模組初始化前執行，確保 GROQ_API_KEY 與敏感設定立即生效
 load_dotenv()  # 載入環境變數 (.env 配置)
 # 此步驟必須優先執行，確保後續模組初始化時能正確讀取 GROQ_API_KEY 等敏感設定
 # 🎯 env 檢查：GROQ_API_KEY、SKIP_RAG、GROQ_MODEL 等關鍵參數應於此處驗證
