@@ -3080,3 +3080,14 @@ Sources:
 Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 150. LangGraph 中間件系統擴展與模型設定檔成本優化——自動提示快取與重試機制（2026 年 4 月）
+
+> **LangGraph 於 2026 年 4 月推出完整的中間件系統擴展，新增可配置的模型設定檔（Model Profiles）機制，開發者可預先定義不同模型的推理策略與成本控制；核心創新包括自動提示快取中間件（與 Anthropic Native Caching 深度整合）、指數退避重試中間件（自動重試失敗的模型呼叫）、OpenAI 內容審核中間件（檢測不安全輸入與輸出）；Summarization Middleware 的內容摘要可配置觸發點，支援各種 LLM 的成本最佳化；Roy 的 Factory Tour 導覽代理可透過模型設定檔自動選用最符合成本與延遲的模型（例如景點描述用 Haiku、複雜路線規劃用 Opus），NanoClaw 邊界系統的感測器決策可利用提示快取機制將重複威脅模式的推理延遲降低 60% 以上，大幅節省 Pi 5 的網路頻寬與雲端 API 成本**
+
+Sources:
+- [LangGraph Changelog - 2026 Q2 Middleware Updates](https://changelog.langchain.com/)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)

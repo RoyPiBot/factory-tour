@@ -340,7 +340,10 @@ class QuizAnswerRequest(BaseModel):
 
 
 class HealthResponse(BaseModel):
-    """系統健康檢查回應 — 提供 Agent、RAG、資料庫等核心模組的實時狀態概覽"""
+    """系統健康檢查回應 — 提供 Agent、RAG、資料庫等核心模組的實時狀態概覽
+
+    前端定期呼叫 /health 端點監控系統狀態，此回應即時反映各子系統的運行狀況。
+    """
     status: str
     agent_ready: bool
     areas_loaded: int
