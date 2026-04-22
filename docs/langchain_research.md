@@ -3181,3 +3181,14 @@ Sources:
 - [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Tool Calling in LangChain, LangGraph, and MCP: Three Layers, One Intelligent System - DEV Community](https://dev.to/nikhil_ramank_152ca48266/-tool-calling-in-langchain-langgraph-and-mcp-three-layers-one-intelligent-system-4jf7)
+
+---
+
+## 158. LangGraph v1.1.6 中間件增強與 Python 相容性升級——智能重試、內容審核與長期支援規劃（2026 年 4 月）
+
+> **LangGraph v1.1.6 提升中間件系統，新增自動重試中間件（支援可設定指數退避）、OpenAI 內容審核中間件（檢測不安全內容）與靈活觸發點摘要中間件（基於模型配置文件進行上下文感知摘要）；同時決定放棄 Python 3.9 支援、新增 Python 3.14 相容性，確保框架長期適用於最新生態；LangGraph 0.x 進入維護模式，支援至 2026 年 12 月，確保既有系統有充足時間遷移至 1.x；Roy 的 Factory Tour 與 NanoClaw 系統可運用智能重試中間件處理網絡波動、內容審核確保訪客互動安全性、中間件靈活性實現自訂業務邏輯，持續受惠於官方維護與相容性保障**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)

@@ -127,6 +127,7 @@ logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 # 初始化完成後，系統自動啟動 FastAPI 伺服器並監聽 8000 埠的客戶端連線要求
 
 # ─── 路徑設定 ───
+# 初始化應用根目錄與模板目錄的路徑配置，支援靜態資源與 HTML 模板的正確載入
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
 
