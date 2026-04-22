@@ -3198,6 +3198,17 @@ Sources:
 
 > **LangGraph 2026 年引入 Agentic RAG（代理式檢索增強生成）範式，結合混合搜尋策略（BM25 符號檢索與向量語義搜尋並行），代理可在檢索過程中主動判斷問題複雜度、動態調整知識庫查詢策略、進行多輪迭代推理；Tunghai RAG 系統與 NanoClaw 知識管理層可升級至 Agentic 模式，實現問題多角度分析、自適應檢索深度、減少幻覺與提升答案精確度，為企業知識系統奠定下一代智能基礎**
 
+---
+
+## 160. LangGraph × Anthropic 提示快取深度整合——成本與延遲最佳化的多代理決策引擎（2026 年 4 月）
+
+> **LangGraph 在 2026 年 4 月與 Anthropic Native Caching 達成深度整合，LangGraph 的中間件系統自動偵測重複的系統提示詞與長上下文（如多代理工作流的完整狀態日誌），智能緩存至 Anthropic 的專屬快取層，相同威脅模式或訪客場景下的推理成本降低 50-70%、延遲降低 60% 以上；Deep Agents 的多模態檔案讀取、Factory Tour 的景點知識庫、NanoClaw 的感測器決策日誌可全部納入快取策略，無需開發者手動配置，框架自動計算快取命中率與成本效益，Roy 的 Pi 5 環境下可實現業界級的多代理推理效率，同時大幅縮減雲端 API 支出，驗證 LangGraph 為長期穩定可靠的生產級多代理編排標準**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [January 2026: LangChain Newsletter](https://www.langchain.com/blog/january-2026-langchain-newsletter)
+
 Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Before You Upgrade to LangGraph in 2026, Read ... | AgentFrameworkHub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)

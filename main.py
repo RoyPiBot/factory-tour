@@ -1046,6 +1046,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 支援熱重載開發模式，便於快速迭代與除錯工廠導覽系統
 # 🎯 核心入口：初始化完成後等待客戶端連線，提供多語言導覽與即時感測器推送服務
 # ⚡ 生產環境建議設定 reload=False 以避免頻繁重啟，並調整 host/port 到安全配置
+# 💻 啟動前必須驗證 GROQ_API_KEY、RAG 模組與資料庫完全就緒，確保多 Agent 系統穩定運行
 if __name__ == "__main__":
     import uvicorn
 
