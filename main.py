@@ -315,6 +315,7 @@ class TourNextRequest(BaseModel):
 
     包含 session_id 用於識別訪客的導覽進度，供 tour_manager 更新狀態。
     此請求會同步導覽狀態到 SQLite 資料庫，確保訪客進度持久化。
+    支援跨 session 訪客記憶，確保導覽連貫性與進度回復功能。
     """
     session_id: str
 
