@@ -3146,3 +3146,14 @@ Sources:
 - [What is LangGraph? | IBM](https://www.ibm.com/think/topics/langgraph)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
+## 155. LangGraph v1.1 型別安全串流與調用——統一化型別推導與自動 Pydantic 強制轉換（2026 年 4 月）
+
+> **LangGraph 於 2026 年 4 月發佈 v1.1 穩定版本，核心突破聚焦於型別安全的串流與調用 API；type-safe streaming 功能允許開發者傳入 `version="v2"` 參數至 `stream()` 與 `astream()` 方法，統一輸出為 StreamPart TypedDict 結構（包含 type、ns、data 三個鍵），每種串流模式（values、updates、messages、tasks、checkpoints）均可在編譯期進行型別檢查；type-safe invoke 功能使 `invoke()` 與 `ainvoke()` 傳回 GraphOutput 物件，含 `.value` 與 `.interrupts` 屬性，自動強制轉換至宣告的 Pydantic 模型或 dataclass 型別，無需手動解析與型別轉換；Factory Tour 與 NanoClaw 系統可充分利用 v1.1 的型別推導減少執行期錯誤，提升代碼可維護性與 IDE 智能補全體驗，確保長期多代理系統的穩定運營**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
