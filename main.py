@@ -268,6 +268,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     首次查詢無鎖，只在需要建立新 Agent 時才加鎖，大幅降低競爭開銷。
     避免重複初始化相同語言的 Agent 實例，確保系統高效運作。
     此函數是多語言 Agent 快取層的核心存取點，確保並發效能與資源利用率。
+    🎯 當語言不在 agent_apps 中時，加鎖並再次檢查（Double-check），防止競態條件。
     """
     # 此模式避免對已初始化的 Agent 重複加鎖，提升並發效能
     # 快速路徑：檢查 agent 是否已初始化，避免不必要的鎖操作（Double-check Locking 優化）
