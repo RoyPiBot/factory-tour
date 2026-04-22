@@ -3156,4 +3156,15 @@ Sources:
 Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 156. Deep Agents——自主規劃與子代理委派，LangGraph 2026 的智能化突破（2026 年）
+
+> **Deep Agents 是 LangGraph 2026 年的旗艦功能，賦予代理自主規劃、任務分解與子代理委派的能力；代理可根據使用者請求自動制定多步驟計畫、啟用專用子代理執行分工任務、存取檔案系統進行資料處理與知識管理；相比傳統固定工作流圖，Deep Agents 實現了更靈活的動態決策與運行時自適應；市場表現上，LangGraph 在 2026 年月度搜尋量達 27,100 次，領先競爭對手 CrewAI（14,800 次），驗證其在業界的主導地位；Roy 的 Factory Tour 與 NanoClaw 系統可透過 Deep Agents 實現訪客引導的多層次規劃、危機處置的動態子任務分配，無需事先編寫完整狀態機，大幅簡化複雜多代理系統的開發與維護成本**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
 - [LangChain - Changelog](https://changelog.langchain.com/)
