@@ -3191,4 +3191,14 @@ Sources:
 Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 159. 新一代 Agentic RAG 與智能檢索增強——混合符號與向量搜尋與上下文感知推理（2026 年）
+
+> **LangGraph 2026 年引入 Agentic RAG（代理式檢索增強生成）範式，結合混合搜尋策略（BM25 符號檢索與向量語義搜尋並行），代理可在檢索過程中主動判斷問題複雜度、動態調整知識庫查詢策略、進行多輪迭代推理；Tunghai RAG 系統與 NanoClaw 知識管理層可升級至 Agentic 模式，實現問題多角度分析、自適應檢索深度、減少幻覺與提升答案精確度，為企業知識系統奠定下一代智能基礎**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Before You Upgrade to LangGraph in 2026, Read ... | AgentFrameworkHub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangChain - Changelog](https://changelog.langchain.com/)

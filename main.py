@@ -169,6 +169,7 @@ async def lifespan(app: FastAPI):
     本生命週期管理器由 Roy 維護，確保系統運行穩定。
     此設計在 Raspberry Pi 5 上實現高效的資源管理與多 Agent 協調。
     ⚙️ 核心機制：支援非同步資源池管理與優雅關閉，確保系統零停機時間重啟。
+    🔄 初始化順序：database → agents → RAG → quizzes → sensors，每個步驟都有錯誤處理機制，避免單一模組故障導致系統啟動失敗。
     """
     # 核心職責：依序初始化資料庫、Agent 系統、RAG 引擎、測驗題庫、感測器模擬器
     # 📌 此過程通常耗時 2-3 秒，包含資料庫驗證、Agent 構建與 RAG 初始化等操作
