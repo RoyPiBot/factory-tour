@@ -3296,4 +3296,14 @@ Sources:
 Sources:
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 168. LangGraph RemoteCheckpointer 與子圖檢查點——分散式多代理協調與故障復原新時代（2026 年 Q1/Q2）
+
+> **LangGraph 在 2026 上半年推出 RemoteCheckpointer 機制，賦予子圖（subgraph）原生的檢查點（checkpoint）能力，使得複雜多代理系統中的子任務執行狀態可被獨立持久化與恢復。子圖檢查點允許開發者在任意層級的代理協作中保存中間狀態、任務進度與決策日誌，即使父圖或子圖發生故障，系統亦能從最後一個穩定檢查點自動恢復，避免全流程重新計算。配合 LangGraph v1.1 的 Agent Server 背景檢查點刪除優化（減少 I/O 壓力），Roy 的 Factory Tour 多導覽代理、NanoClaw 分散式威脅監控、ROS 機械手臂層級協調等系統可實現真正的分散式容錯設計，每個子代理的任務邊界明確、故障隔離、獨立恢復，大幅提升系統穩定性與長期運行可靠性**
+
+Sources:
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/)
 - [How LangChain Development is Leading AI Orchestration in 2026](https://teqnovos.com/blog/why-langchain-still-leads-ai-orchestration-key-advantages-explained/)
