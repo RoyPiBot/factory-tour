@@ -3265,4 +3265,15 @@ Sources:
 Sources:
 - [LangGraph StateSchema & Type Validation | LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 165. LangGraph 延遲節點與前後置模型鉤子——多代理協作與上下文守護的精細控制（2026 年 Q2）
+
+> **LangGraph 2026 Q2 新增 Deferred Nodes 機制與 Pre/Post Model Hooks，為複雜多代理工作流提供細粒度的執行控制與模型調用守護；延遲節點允許開發者設定 `defer=True` 參數，使節點在所有上游路徑完成後才執行，完美適配 Map-Reduce 多工代理、代理共識決策與動態協作場景，避免競態條件與狀態不一致；Pre/Post Model Hooks 則在模型呼叫前後插入自定義邏輯，用於上下文膨脹防護、輸出驗證、Token 動態調整與自動降級策略，確保模型成本與延遲可控；Roy 的 Factory Tour 導覽代理可用延遲節點彙總多景點詢問、進行最終路線最佳化，NanoClaw 威脅分析可透過前置鉤子動態過濾低優先級感測器日誌，後置鉤子驗證模型決策合規性，大幅提升系統穩定性與企業級可靠性**
+
+Sources:
+- [Node-level caching in LangGraph | LangChain Changelog](https://changelog.langchain.com/announcements/node-level-caching-in-langgraph)
+- [LangGraph Workflow Updates (Python & JS) | LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)

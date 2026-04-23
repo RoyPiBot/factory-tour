@@ -145,8 +145,8 @@ rag_ready = False
 sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 lifespan 啟動時初始化
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 
-MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度
-# 防止過長訊息造成 API 配額超支與回應延遲
+MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度 — 防止過長訊息造成 Groq API 配額超支與系統回應延遲
+# 此限制適用於所有多語言導覽對話，確保系統穩定性與成本控制
 # 區域測驗資料快取 - 啟動時從 quizzes.json 載入，供 /quiz 端點使用
 QUIZ_DATA: dict = {}  # area_id -> questions
 # 區域測驗題目由 quizzes.json 動態載入，支援多語言與難度分級
