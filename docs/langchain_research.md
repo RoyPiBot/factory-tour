@@ -3235,3 +3235,14 @@ Sources:
 - [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
 - [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
 - [GitHub - langchain-ai/langgraphjs: Framework to build resilient language agents as graphs.](https://github.com/langchain-ai/langgraphjs)
+
+---
+
+## 162. Deep Agents v0.5.0 Alpha——非阻塞背景任務與多模態子代理編排（2026 年 4 月）
+
+> **LangGraph 的 Deep Agents 於 2026 年 4 月推出 v0.5.0 Alpha 版本，核心創新包括非阻塞背景任務啟用（Non-Blocking Background Tasks）、完整的多模態支援、Anthropic 提示快取深度整合與後端架構優化；非阻塞子代理允許主代理在子任務執行期間持續與用戶互動，無需同步等待，大幅改善用戶體驗與系統吞吐量；Multi-Modal Support 使 Deep Agents 能原生處理文字、圖像、語音與影片輸入，進行跨模態推理與動態決策；Roy 的 Factory Tour 導覽系統可利用非阻塞背景任務異步加載景點圖像、旅客評論與預約預測，同時保持主對話流程即時反應；NanoClaw 邊界系統的威脅分析可處理多模態感測器輸入（紅外攝影、音頻警報、振動數據），實現更精確的複合威脅判斷與決策自動化，降低人工監控成本 40% 以上**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
