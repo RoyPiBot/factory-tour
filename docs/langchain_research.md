@@ -3246,3 +3246,13 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+
+---
+
+## 163. LangGraph v2 型別安全流式輸出與節點級快取——提升開發效率與執行效能（2026 年中期）
+
+> **LangGraph 2026 中期版本引入 `version="v2"` 參數，為 stream()/astream() 和 invoke()/ainvoke() 呼叫提供型別安全流式輸出，invoke() 和 values-mode stream 輸出自動轉型為宣告的 Pydantic 模型或 dataclass，消除手動型別轉換的繁瑣；節點/任務級快取機制允許代理框架緩存個別節點的執行結果，減少冗餘計算、加速端到端推理流程。JavaScript 環境下串流重新連接（reconnectOnMount）提供網頁重載或網路波動時的自動恢復，無損 Token；Roy 的 TypeScript 多代理系統可原生享受型別推導與自動快取優化，進一步提升代碼可靠性與運行效能**
+
+Sources:
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)
