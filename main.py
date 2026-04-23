@@ -278,6 +278,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
         # Double-check：取得鎖後再次確認，避免重複建立
         if language not in agent_apps:
             try:
+                # 多執行緒環境下首次初始化特定語言 Agent，確保執行緒安全
                 agent_apps[language] = create_factory_tour_app(language=language)
                 logger.info(f"✅ Agent 初始化完成 ({language})")
             except ValueError as e:

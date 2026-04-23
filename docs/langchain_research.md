@@ -3223,4 +3223,15 @@ Sources:
 Sources:
 - [Build AI Agents with LangGraph TypeScript — Guide 2026](https://langgraphjs.guide/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 161. LangGraph + MCP：多代理統一工具標準與動態能力發現——打造無邊界代理編排生態（2026 年 Q2）
+
+> **LangGraph 與 Model Context Protocol（MCP）在 2026 年 Q2 實現緊密整合，LangGraph 的圖式執行引擎原生支援 MCP 伺服器探測與動態工具載入；代理無需預先定義工具集，而是在運行時自動發現 MCP 伺服器的完整能力目錄（工具、資源、提示範本），支援異步工具調用、長連接管理與多版本兼容；Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統可透過標準 MCP 端點暴露自身核心能力（景點查詢、感測器控制、知識檢索），實現跨系統代理協作無需客製適配層，為企業級多代理網絡奠定互操作基礎**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
+- [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
 - [GitHub - langchain-ai/langgraphjs: Framework to build resilient language agents as graphs.](https://github.com/langchain-ai/langgraphjs)
