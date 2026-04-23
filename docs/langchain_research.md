@@ -3277,3 +3277,12 @@ Sources:
 - [LangGraph Workflow Updates (Python & JS) | LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)
+
+---
+
+## 166. LangGraph Deep Agents——自規劃子代理與檔案系統整合的複雜任務自動化（2026 年新增功能）
+
+> **LangGraph 2026 推出 Deep Agents（新！），為代理框架注入更深層的自主規劃與動態子代理生成能力。Deep Agents 支援代理在執行期間規劃複雜任務、動態生成與管理子代理（子代理可層級遞進），以及原生存取檔案系統進行知識蒐集、數據處理與結果彙總；相比傳統工具呼叫機制，Deep Agents 提供更靈活的任務分解與協作模式，特別適用於多輪次推理、跨領域問題求解與自適應工作流。Roy 的 Factory Tour 多代理系統可利用 Deep Agents 動態規劃導覽路線、為不同景點生成專用代理進行詳細介紹，NanoClaw 威脅分析系統可自動分派監控子代理進行分散式傳感器數據分析，ROS 機械手臂控制可藉此實現層級化的運動規劃與任務協調，大幅提升系統的自主性、可擴展性與企業級應用潛力**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
