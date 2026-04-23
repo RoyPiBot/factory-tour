@@ -3255,4 +3255,14 @@ Sources:
 
 Sources:
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+
+---
+
+## 164. LangGraph StateSchema 與標準型別驗證——跨語言狀態管理與開發體驗躍升（2026 年 Q1）
+
+> **LangGraph 於 2026 年初推出 StateSchema，提供與框架無關（library-agnostic）的圖狀態定義方式，原生支援標準 JSON Schema 規範、Zod 4、Valibot、ArkType 等多套驗證庫；新增 ReducedValue 機制允許自訂累積策略，UntrackedValue 則用於暫時狀態無需檢查點備份；.stream() 方法完全型別安全化，消除不安全型別轉換；.addNode() 和 .addSequence() API 簡化工作流構造；Roy 的多代理系統可整合企業級型別驗證、即時狀態追蹤與快速原型開發，確保代理狀態一致性與可靠性**
+
+Sources:
+- [LangGraph StateSchema & Type Validation | LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)
