@@ -3359,3 +3359,15 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [LangGraph overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
+
+---
+
+## 174. LangGraph Store System 與向量搜尋——可配置的多後端長期記憶與語意檢索（2026 年中期）
+
+> **LangGraph 在 2026 年推出 Store System，為多代理系統提供可配置、多後端持久化的長期記憶與語意檢索能力。Store System 基於統一的鍵值儲存介面，支援 PostgreSQL、SQLite、In-Memory 等多種後端實現，允許代理跨執行緒與對話保存與檢索記憶。核心創新是內建向量搜尋（Vector Search），開發者可傳入 embedding 模型，Store System 自動在寫入時嵌入每份記憶，使用向量相似度進行語意檢索而非單純關鍵字匹配。MongoDB Atlas Vector Search、Hindsight 等第三方整合進一步豐富記憶層能力，支援實體圖譜與多策略回憶機制。Roy 的 Factory Tour 導覽代理可跨多訪客學習景點知識、優化導覽推薦；NanoClaw 威脅分析可語意檢索過往威脅樣式進行異常檢測；ROS 機械手臂可保存與重用複雜操作序列，實現真正的長期學習與適應**
+
+Sources:
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+- [Long Term Memory in LangGraph: Building AI That Remembers You | Medium](https://medium.com/@sabita2025/long-term-memory-in-langgraph-building-ai-that-remembers-you-5ab97b85bdf8)
+- [Adding Long-Term Memory to LangGraph and LangChain Agents | Hindsight](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
+- [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)

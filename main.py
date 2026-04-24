@@ -105,7 +105,7 @@ from factory_tour_agent import create_factory_tour_app, KNOWLEDGE
 from tour_flow import TourManager
 from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
 from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
-import db as database
+import db as database  # 資料庫管理模組 — 負責所有 SQLite 操作（session、對話、回饋、測驗答案等）
 
 # 🔐 必須在所有模組初始化前執行，確保 GROQ_API_KEY 與敏感設定立即生效
 load_dotenv()  # 載入環境變數 (.env 配置)
