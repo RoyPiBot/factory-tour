@@ -3382,3 +3382,14 @@ Sources:
 - [Long Term Memory in LangGraph: Building AI That Remembers You | Medium](https://medium.com/@sabita2025/long-term-memory-in-langgraph-building-ai-that-remembers-you-5ab97b85bdf8)
 - [Adding Long-Term Memory to LangGraph and LangChain Agents | Hindsight](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
 - [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)
+
+---
+
+## 175. LangGraph Deep Agents 與節點快取——複雜任務規劃、子代理編排與性能最佳化（2026 年 Q2）
+
+> **LangGraph 在 2026 年中期推出 Deep Agents 新架構，支援代理規劃、子代理調度與檔案系統整合，用於解決涉及多層次推理與複雜決策的任務。同步推出節點/任務層級快取（Node/Task Level Caching），允許快取單個節點的執行結果，避免多輪互動中的冗餘計算，大幅加速工作流執行。April 2026 實現檢查點背景刪除機制，提升線程刪除與清理效能，RemoteCheckpointer 支援子圖檢查點，強化複雜多代理系統的任務執行可靠性。Roy 的 Factory Tour 導覽系統可利用 Deep Agents 實現多層級景點推薦規劃；NanoClaw 安全分析可透過節點快取加速威脅模式匹配；Tunghai RAG 問答系統可受惠於檢查點優化，實現更快更可靠的複雜查詢處理**
+
+Sources:
+- [LangGraph Release Week Recap - LangChain Blog](https://blog.langchain.com/langgraph-release-week-recap/)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)

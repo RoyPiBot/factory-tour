@@ -1065,4 +1065,5 @@ if __name__ == "__main__":
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8000"))
     # 啟動 WebSocket 與 WebAPI 伺服器，接受來自前端的多語言查詢請求與即時感測器推送
+    # ✨ 系統已準備好服務訪客！
     uvicorn.run("main:app", host=host, port=port, reload=True)
