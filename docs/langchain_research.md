@@ -3317,3 +3317,14 @@ Sources:
 Sources:
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [State of AI Engineering | Datadog](https://www.datadoghq.com/state-of-ai-engineering/)
+
+---
+
+## 170. LangGraph v1.1 跨執行緒記憶與語義搜尋——多執行緒代理的長期記憶與上下文檢索（2026 年 Q1/Q2）
+
+> **LangGraph v1.1 於 2026 年 3 月發布，引入跨執行緒記憶支援（Cross-thread Memory），允許多個對話執行緒中的代理共享與檢索長期記憶。結合語義搜尋能力，代理不再受限於精確關鍵字匹配，而是根據語義相似度查找相關記憶，實現更智慧化的上下文感知。此特性對 Roy 的 Factory Tour 多導覽場景尤為關鍵——不同訪客的導覽執行緒可跨執行緒存取共享場景知識，同時保持對話隔離；NanoClaw 分散式威脅監控亦可利用語義記憶檢索過往威脅樣式，實現異常檢測的累積學習；搭配 v1.1 的 Python 3.13 相容性與類型安全流傳輸，構建更穩定、高效的多代理協調系統**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [GitHub - langchain-ai/langgraph Releases](https://github.com/langchain-ai/langgraph/releases)
