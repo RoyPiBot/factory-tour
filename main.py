@@ -133,6 +133,7 @@ BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
 
 # ─── 全域變數 ───
+# 核心系統狀態管理：多語言 Agent 快取、導覽進度追蹤、感測器連線與 RAG 引擎狀態
 agent_apps: dict = {}  # language -> agent_app
 _agent_lock = threading.Lock()  # 保護 agent_apps 的並發初始化，避免多執行緒重複建立相同語言的 Agent，採用 Double-check Locking 優化並發效能
 # 使用 Double-check Locking 模式確保多語言 Agent 的高效率初始化

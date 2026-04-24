@@ -3337,3 +3337,14 @@ Sources:
 
 Sources:
 - [LangGraph Deep Agents - LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-deep-agents)
+
+---
+
+## 172. LangGraph 智能檢查點與時間旅行調試——生產級故障恢復與無損開發體驗（2026 年 Q2）
+
+> **LangGraph 在 2026 年強化檢查點與持久化存儲能力，為生產級多代理系統提供自動狀態保存、時間旅行調試（Time-Travel Debugging）與故障恢復機制。每個圖形節點的執行狀態自動儲存至檢查點（支援 SqliteSaver、PostgreSQL、企業級後端），允許代理在任意節點暫停、恢復或重新執行，無需重新計算整個工作流；時間旅行調試功能使開發者可直接存取任何過往執行點的完整狀態，加速故障定位與算法優化。生產部署時，採用 PostgreSQL 或類似持久化後端替代內存存儲，確保 Worker 故障時狀態不丟失；Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統可基於此機制實現「永不遺忘」的多代理協調，故障自動恢復無需人工介入，同時提供完整的執行審計追蹤，滿足企業級生產可靠性要求**
+
+Sources:
+- [[Deep Dive] LangGraph Checkpointing with Postgres (2026)](https://rapidclaw.dev/blog/deploy-langgraph-production-tutorial-2026)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangGraph overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
