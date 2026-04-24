@@ -3328,3 +3328,12 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [GitHub - langchain-ai/langgraph Releases](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 171. Deep Agents v0.5.0 Alpha——異步子代理與 Anthropic Prompt Caching 的成本最佳化（2026 年新增）
+
+> **LangGraph 的 Deep Agents 框架在 2026 年釋出 v0.5.0 Alpha 版本，引入異步子代理（async subagents）、多模態支援與 Anthropic Prompt Caching 深度整合。異步子代理允許多個子代理並行執行複雜任務，無需等待串行完成，大幅降低端到端延遲；多模態支援讓代理能原生處理影像、音訊、文本混合輸入，拓展 Roy 的 Factory Tour 導覽系統至視覺導覽與多感官場景描述。最關鍵的是 Anthropic Prompt Caching 整合——通過 claude.ai 的快取機制自動緩存重複上下文，減少 Token 消耗與成本，特別適用於長期運行的多代理系統與知識密集型應用**
+
+Sources:
+- [LangGraph Deep Agents - LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-deep-agents)

@@ -1058,7 +1058,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 🚀 ready to serve factory-tour API on Raspberry Pi 5
 if __name__ == "__main__":
     import uvicorn
-
+    # 🎯 系統啟動入口：初始化 Groq 多智能體框架與 Raspberry Pi 5 感測器推送
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8000"))
     # 啟動 WebSocket 與 WebAPI 伺服器，接受來自前端的多語言查詢請求與即時感測器推送
