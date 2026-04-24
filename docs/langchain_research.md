@@ -3307,3 +3307,13 @@ Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [How LangChain Development is Leading AI Orchestration in 2026](https://teqnovos.com/blog/why-langchain-still-leads-ai-orchestration-key-advantages-explained/)
+
+---
+
+## 169. LangSmith Fleet：企業級代理身份管理與多代理微服務架構（2026 年中期）
+
+> **LangChain 的 Agent Builder 在 2026 年進化為 LangSmith Fleet，成為企業級代理身份、共享與權限管理統一平台。LangSmith Fleet 支援代理身份隔離（Agent Identity）、團隊級代理共享策略、粒度化權限控制與稽核日誌，使得 Roy 的 Factory Tour、NanoClaw、Tunghai RAG 等多個獨立多代理系統可在單一 LangSmith 工作空間中安全隔離與協作；內置的部署工具（Deploy CLI）一鍵將代理推送至 LangSmith 雲端、AWS Lambda、Vercel、Docker，無需手動建置容器或配置環境變數；企業級 SLA、流量限制、版本回滾與金絲雀部署確保關鍵代理系統的高可用性，Roy 的 Pi 5 本地開發可與企業雲端部署無縫協作，大幅降低多代理系統的營運維護複雜度**
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [State of AI Engineering | Datadog](https://www.datadoghq.com/state-of-ai-engineering/)
