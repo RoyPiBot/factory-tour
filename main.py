@@ -106,6 +106,7 @@ from tour_flow import TourManager
 from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
 from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
 import db as database  # 資料庫管理模組 — 負責所有 SQLite 操作（session、對話、回饋、測驗答案等）
+# 核心特性：支援跨 session 訪客記憶與導覽進度持久化，是 factory-tour 系統的資料層基礎
 
 # 🔐 必須在所有模組初始化前執行，確保 GROQ_API_KEY 與敏感設定立即生效
 load_dotenv()  # 載入環境變數 (.env 配置)
