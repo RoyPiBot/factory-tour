@@ -3347,4 +3347,15 @@ Sources:
 Sources:
 - [[Deep Dive] LangGraph Checkpointing with Postgres (2026)](https://rapidclaw.dev/blog/deploy-langgraph-production-tutorial-2026)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 173. LangGraph v1.1 型別安全與工作流最佳化——類型安全串流、節點快取與預後端勾點（2026 年 3 月）
+
+> **LangGraph v1.1 於 2026 年 3 月發布，引入六大核心功能升級以簡化多代理工作流開發。型別安全串流（v2 模式）統一傳輸格式，每次串流分塊均包含 type、ns、data 等鍵值對，提升型別推斷精度；型別安全 invoke 提供 GraphOutput 物件，以 .value 與 .interrupts 屬性直觀存取圖形執行結果。Pydantic 和 dataclass 自動強制轉換減少手動序列化，節點快取（Node Caching）跳過冗餘計算加速多輪執行，延遲執行節點（Deferred Nodes）支援 map-reduce 與共識型多代理協作。前後模型勾點（Pre/Post Model Hooks）允許在大型語言模型呼叫前後插入自訂邏輯，用於上下文清理、防護欄插入與人類審核環節。此版本向後完全相容，Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統可無痛升級，直接受惠於型別檢查與執行效率提升**
+
+Sources:
+- [LangGraph v1.1 Release - LangChain Changelog](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [LangGraph overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
