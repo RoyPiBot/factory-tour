@@ -3392,4 +3392,15 @@ Sources:
 Sources:
 - [LangGraph Release Week Recap - LangChain Blog](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 176. LangGraph 中間件生態與模型重試機制——企業級容錯與內容安全（2026 年 Q2）
+
+> **LangGraph 在 2026 年第二季擴展中間件（Middleware）生態，引入總結中間件（Summarization Middleware）與模型重試中間件（Model Retry Middleware），進一步強化多代理系統的可靠性與成本控制。總結中間件支援靈活的觸發點設置，配合模型配置檔進行上下文感知的動態摘要，防止長期對話中的 Token 膨脹；模型重試中間件自動重試失敗的模型呼叫，提供可配置的指數退避策略，無需手動異常處理。新增的 OpenAI 內容審核中間件（Content Moderation Middleware）可在代理互動中即時檢測與處理不安全內容。Roy 的 Factory Tour 導覽代理可透過總結中間件精簡長訪客對話；NanoClaw 威脅監控可利用模型重試機制提升分散式傳感器分析的穩定性；ROS 機械手臂協作系統可透過內容審核中間件確保人機互動的安全合規，全面提升企業級生產部署的成熟度與安全標準**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [LangChain - Changelog](https://changelog.langchain.com/)
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
