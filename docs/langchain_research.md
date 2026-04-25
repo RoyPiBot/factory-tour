@@ -3416,3 +3416,14 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 178. LangGraph v1.1 型別安全流與模型前/後置勾點——企業級型別保護與上下文安全守衛（2026 年 Q2）
+
+> **LangGraph v1.1 於 2026 年中期推出型別安全流(Type-Safe Streaming v2)與型別安全喚用(Type-Safe Invoke)，透過版本參數 version="v2" 達成完全型別保護的生產級流傳輸。型別安全流提供統一的 StreamPart 輸出格式，每次串流分塊均包含 type、ns、data 等鍵值對，配合 Pydantic/dataclass 強制轉型確保輸出型別精準；型別安全喚用返回 GraphOutput 物件含 .value 與 .interrupts 屬性，直觀存取圖形執行結果。同步推出前/後置模型勾點(Pre/Post Model Hooks)允許在大型語言模型呼叫前後插入自訂邏輯，用於上下文膨脹控制、動態安全守衛注入與人類審核環節。Roy 的 Factory Tour 導覽代理可透過型別安全流強化流式回應的可靠性與前端集成；NanoClaw 威脅分析可利用後置勾點動態注入安全檢查與威脅評分；Tunghai RAG 問答系統可透過前置勾點實施上下文長度管理與使用者提示驗證，全面升級多代理系統的型別安全性與防護機制**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
