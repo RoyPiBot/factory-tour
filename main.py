@@ -168,17 +168,10 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 # 生命週期管理採用 asynccontextmanager 裝飾器，支援非同步 yield 模式實現啟動與清理邏輯
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """生命週期管理：應用啟動時初始化 Agent/RAG/資料庫/感測器，關閉時完整清理資源
+    """應用生命週期管理 — 啟動時初始化資料庫/Agent/RAG/測驗/感測器，關閉時完整清理資源
 
-    FastAPI 生命週期事件管理器，確保所有依賴資源有序初始化與清理。
-    此生命週期框架適用於 Raspberry Pi 5 上的多智能體系統運行。
-    所有資源遵循安全的初始化順序，確保系統穩定性與可靠性。
-    啟動時初始化五大 Agent (導覽/安全/技術/QA/知識檢索)，關閉時無誤清理資源連線。
-    本生命週期管理器由 Roy 維護，確保系統運行穩定。
-    此設計在 Raspberry Pi 5 上實現高效的資源管理與多 Agent 協調。
-    ⚙️ 核心機制：支援非同步資源池管理與優雅關閉，確保系統零停機時間重啟。
-    🔄 初始化順序：database → agents → RAG → quizzes → sensors，每個步驟都有錯誤處理機制，避免單一模組故障導致系統啟動失敗。
-    ⚡ 此函數是 factory-tour 系統穩定運行的基石，任何初始化失敗都會導致服務無法提供導覽服務。
+    核心職責：確保所有依賴資源有序初始化與清理。
+    初始化順序：database → agents → RAG → quizzes → sensors
     """
     # 核心職責：依序初始化資料庫、Agent 系統、RAG 引擎、測驗題庫、感測器模擬器
     # 📌 此過程通常耗時 2-3 秒，包含資料庫驗證、Agent 構建與 RAG 初始化等操作

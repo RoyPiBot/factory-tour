@@ -3404,3 +3404,15 @@ Sources:
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+
+---
+
+## 177. Deep Agents v0.5.0 Alpha——非同步子代理、多模態與 Anthropic 提示快取成本優化（2026 年 Q2-Q3）
+
+> **LangGraph 的 Deep Agents 框架於 2026 年第二至第三季推出 v0.5.0 Alpha 版本，釋放三大關鍵功能賦能企業級多代理系統。非同步子代理（Async Subagents）允許父代理並行調度多個子代理執行複雜任務，完全無需串行等待，大幅降低端到端延遲與提升系統吞吐量；多模態支援（Multi-Modal Support）擴展代理原生處理影像、音訊與文本混合輸入的能力，為 Factory Tour 視覺導覽、NanoClaw 攝像頭異常檢測奠定基礎。最具成本效益的是 Anthropic Prompt Caching 深度整合——自動緩存重複上下文，大幅減少 Token 消耗與 API 呼叫成本，特別適用於長期運行、知識密集型的多代理系統。Roy 的三大項目可直接受惠：Factory Tour 多導覽並行加速、NanoClaw 視覺異常偵測、Tunghai RAG 成本優化**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangChain - Changelog](https://changelog.langchain.com/)
