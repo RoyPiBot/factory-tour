@@ -3437,4 +3437,15 @@ Sources:
 Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
+
+---
+
+## 180. LangGraph 邊界 AI 與輕量級編排——Raspberry Pi 環境的生產級多代理部署（2026 年 Q2）
+
+> **LangGraph 於 2026 年針對邊界計算（Edge AI）環境進行深度優化，引入輕量級檢查點存儲、減少記憶體佔用的子圖執行引擎與流式推理模式，使企業級多代理系統可穩定運行於資源受限的邊界設備（Raspberry Pi 5、邊界伺服器、IoT 網關）。LangGraph 的無狀態模型服務層與可選的遠端檢查點儲存允許開發者分離計算與狀態管理，Pi 5 上僅運行圖形邏輯與本地工具調用，關鍵決策檢查點遠端持久化至雲端，同時享受本地快速推理的優勢。Deep Agents 的非同步子代理機制特別適合邊界場景——父代理可在 Pi 5 本地進行實時決策（如 NanoClaw 的威脅評估），同時啟動雲端子代理進行複雜推理（如 Factory Tour 的景點智能推薦），兩層架構消弭延遲與成本的對立。Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 系統可完全運行於 Pi 5，無需雲端主實例，實現真正的自主邊界 AI 生態**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)

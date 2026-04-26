@@ -1021,7 +1021,7 @@ async def get_stats():
 # 🏥 系統健康狀態檢查端點 — 回傳 Agent、RAG、資料庫等模組的狀態概覽
 @app.get("/health", response_model=HealthResponse)
 async def health():
-    """健康檢查"""
+    """健康檢查 — 回傳系統各子模組（Agent/RAG/資料庫）的實時就緒狀態"""
     try:
         # 取得資料庫狀態與 session 計數，供前端判斷系統是否正常運作
         db_stats = database.get_stats()
