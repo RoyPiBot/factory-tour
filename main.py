@@ -183,6 +183,7 @@ async def lifespan(app: FastAPI):
     # 初始化資料庫
     database.init_db()
     logger.info("✅ SQLite 資料庫初始化完成")
+    # 💾 此步驟建立 sessions、messages、feedback、quiz_answers 等核心資料表，是訪客記憶與導覽狀態的持久化基礎
 
     # 初始化預設語言的 Agent
     try:

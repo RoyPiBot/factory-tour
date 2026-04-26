@@ -3427,3 +3427,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+
+---
+
+## 179. LangGraph + MCP 整合——靜態圖形執行引擎與動態工具生態的結合（2026 年 Q2-Q3）
+
+> **LangGraph 與 Anthropic 模型上下文協議（Model Context Protocol, MCP）在 2026 年中期達成完全整合，為多代理系統提供生產級的工具編排與安全控制。LangGraph 的有狀態圖形運行時（Stateful Graph Runtime）結合 MCP 的動態工具發現機制，使代理圖形能即時存取來自本地伺服器或遠端網絡的可版本化工具集。MCP 伺服器作為無狀態工具提供端，LangGraph 節點透過 MCP 客戶端呼叫這些工具，每個工具呼叫均記錄於圖形檢查點，完整可稽核且可重放。此整合特別適用於 Roy 的 NanoClaw 分散式威脅監控——多個感測器可作為 MCP 伺服器提供即時資料流，中央編排代理透過 LangGraph 圖形協調異常檢測、威脅評分與應急回應；Factory Tour 導覽系統可透過 MCP 動態整合來自博物館多個部門系統（展品資料庫、門票系統、訪客分析）的即時工具，實現跨系統協調的導覽體驗；Tunghai RAG 知識系統可整合 MCP-based 文件伺服器與檢索服務，提升檢索精度與上下文新鮮度。LangGraph 與 MCP 的組合達成了「可驗證的多代理編排」與「動態工具生態」的完美平衡，是 2026 年企業級代理部署的標配方案**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
