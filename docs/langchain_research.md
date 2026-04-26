@@ -3449,3 +3449,14 @@ Sources:
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 181. LangGraph 節點級快取與開發者體驗增強——高效計算重用與低代碼圖形構築（2026 年 Q2-Q3）
+
+> **LangGraph 於 2026 年推出節點級快取（Node-Level Caching），允許在單個圖形節點層級設定快取邏輯，自動緩存該節點輸出結果，避免重複計算同一節點，特別適用於代價高昂的推理、外部 API 呼叫或資料檢索操作。搭配 StateGraph 的新型構築 API（.addNode() 與 .addSequence() 方法），開發者無需手動繁瑣的圖形連接程式碼，大幅降低多代理系統的定義複雜度。JavaScript 側並行優化包含 reconnectOnMount，使前端應用在頁面重新載入或網路中斷後自動恢復流式連接，無遺失 Token，顯著提升用戶體驗與系統可靠性。Roy 的 Factory Tour 導覽系統可利用節點級快取優化景點資訊檢索（同一景點多次查詢無需重計算）；NanoClaw 威脅分析系統可快取機器學習模型推理結果，加速異常偵測流程；Tunghai RAG 知識庫可快取高頻提問的向量檢索結果，整體降低推理延遲與運算成本，實現更精敏的邊界部署**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
