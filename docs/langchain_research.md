@@ -3460,3 +3460,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 182. LangGraph StateSchema 與標準化狀態定義——跨框架相容與類型安全（2026 年 Q1-Q2）
+
+> **LangGraph 於 2026 年引入 StateSchema 與 Standard JSON Schema 支援，提供庫無關的狀態定義方式，開發者可使用 Zod、Valibot 或 ArkType 等任意 Standard Schema 相容的驗證庫來定義圖形狀態，實現真正的類型安全與跨框架互通性。新增的狀態欄位類型包括 ReducedValue（支援自訂化累積邏輯，分離輸入與輸出模式）與 UntrackedValue（定義執行期間的瞬態狀態，永不被檢查點保存），允許開發者精細控制狀態生命週期與檢查點策略。同時，LangSmith Fleet（原 Agent Builder）整合代理身份、權限與共享機制，企業級多代理系統可跨團隊安全管理與部署。Roy 的多代理系統（Factory Tour 導覽、NanoClaw 威脅檢測、Tunghai RAG）可利用 StateSchema 實現結構化狀態定義，搭配 ReducedValue 追蹤對話歷史與決策軌跡，UntrackedValue 儲存暫時的推理中間狀態，大幅提升代碼可讀性與系統可維護性，同時享受完全的類型檢查與 IDE 自動完成支援**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain Changelog - Standard JSON Schema Support](https://changelog.langchain.com/)
+- [LangSmith Fleet: Agent Identity and Permissions](https://docs.langchain.com/oss/)

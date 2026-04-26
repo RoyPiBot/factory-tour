@@ -1058,6 +1058,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 💻 啟動前必須驗證 GROQ_API_KEY、RAG 模組與資料庫完全就緒，確保多 Agent 系統穩定運行
 # 🚀 ready to serve factory-tour API on Raspberry Pi 5
 if __name__ == "__main__":
+    # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
     import uvicorn
     # 🎯 系統啟動入口：初始化 Groq 多智能體框架與 Raspberry Pi 5 感測器推送
     host = os.getenv("HOST", "0.0.0.0")
