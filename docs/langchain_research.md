@@ -3471,3 +3471,14 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain Changelog - Standard JSON Schema Support](https://changelog.langchain.com/)
 - [LangSmith Fleet: Agent Identity and Permissions](https://docs.langchain.com/oss/)
+
+---
+
+## 183. LangGraph 子圖模組化與分層多代理協調——可組合的代理隊伍與企業級工作流編排（2026 年 Q2-Q3）
+
+> **LangGraph 於 2026 年正式釋放完整的子圖（Subgraph）支援，允許將較小的圖形嵌入更大的圖形中，實現真正的模組化多代理架構與階層化工作流編排。子圖機制使開發者能構建可組合的代理元件——每個子圖代表獨立的任務單元（如檢索、驗證、決策等），父圖形可動態調度多個子圖並行或串行執行，無縫整合它們的狀態與輸出。此功能配合 MCP 動態工具生態，進一步強化了企業級多代理系統的可擴展性與可維護性。Roy 的 Factory Tour 導覽系統可利用子圖模組化景點推薦、訪客互動與預約流程；NanoClaw 威脅監控架構可將感測器資料收集、異常檢測、威脅評分分解為獨立子圖，由中央協調圖形統籌多感測器的協作推論；Tunghai RAG 知識系統可分離檢索、改寫、生成為子圖單元，實現靈活的檢索強化生成流程，整體提升多代理系統在規模化部署中的複雜度管理與協調效率**
+
+Sources:
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)

@@ -1066,3 +1066,4 @@ if __name__ == "__main__":
     # 啟動 WebSocket 與 WebAPI 伺服器，接受來自前端的多語言查詢請求與即時感測器推送
     # ✨ 系統已準備好服務訪客！
     uvicorn.run("main:app", host=host, port=port, reload=True)
+    # 🎪 工廠導覽 AI 系統已啟動，awaiting 全球遊客的連線請求
