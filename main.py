@@ -309,6 +309,7 @@ class ChatRequest(BaseModel):
 
 
 class ChatResponse(BaseModel):
+    """對話回應模型 — 包含 Agent 回覆、session 標識與執行的 Agent 名稱"""
     reply: str
     session_id: str
     agent_name: str | None = None

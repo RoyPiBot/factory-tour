@@ -3492,4 +3492,15 @@ Sources:
 Sources:
 - [LangGraph Platform is now Generally Available: Deploy & manage long-running, stateful Agents](https://blog.langchain.com/langgraph-platform-ga/)
 - [LangSmith Deployment - Docs by LangChain](https://docs.langchain.com/langsmith/deployment)
+
+---
+
+## 185. LangGraph v0.3+ 類型安全串流、跨平台最佳化與節點級快取能力（2026 年中期更新）
+
+> **LangGraph 於 2026 年持續強化類型系統與效能特性。Type-Safe Streaming（版本 v2）統一串流輸出格式，每個數據塊均具備 type、ns、data 三層結構，完全消除類型轉換的 unsafe cast；Pydantic/dataclass 自動強制轉換讓 invoke() 結果直接映射至聲明型別，降低序列化開銷。JavaScript/TypeScript 端 v0.3 版本實現完全類型安全的 .stream() 方法，並新增 .addNode() 與 .addSequence() 便捷 API 簡化圖構造邏輯。同步引入節點級快取機制，允許工作流中個別節點的計算結果被快取，避免重複運算，顯著提升反覆執行相同查詢時的延遲性能。此更新對 Factory Tour 多個景點導覽共享雲端 embedding 快取、NanoClaw 邊界代理重複執行威脅檢測時的效能最適化皆有直接助益**
+
+Sources:
+- [LangGraph Releases - GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Explained (2026 Edition) - Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
