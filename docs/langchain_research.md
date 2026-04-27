@@ -1099,6 +1099,29 @@ Sources:
 
 ---
 
+## 16. LangGraph Deep Agents 與狀態管理最佳實踐（2026/Q2）
+
+> **代理智能化與可靠性的新里程**
+
+LangGraph 2026 Q2 正式推出 **Deep Agents** 框架，使多代理系統可規劃複雜任務、協調子代理，並進行文件系統操作。LangChain 官方統計指出 2026 年超過 60% 的代理生產事故源自狀態管理問題，因此引入了新的最佳實踐準則。
+
+### 16.1 Pydantic BaseModel 狀態管理推薦方案
+
+官方推薦改用 **Pydantic BaseModel** 作為狀態管理基礎，相比過往直接使用字典的方式，提供：
+- 遞迴驗證與自動類型轉換
+- 與 LangChain 工具生態無縫集成
+- 在複雜工作流中減少狀態不一致的風險
+
+### 16.2 可觀測性與 LangGraph Studio 進展
+
+LangGraph Studio 新增實時調試、工作流可視化與代理測試功能，LangGraph Platform 提供有狀態代理的託管基礎設施，進一步降低 Raspberry Pi 本地運行的運維成本。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
 ## 16. StateSchema 與工作流更新 — 跨庫通用狀態定義（2026/01-04）
 
 > **開發效率與框架彈性革新**

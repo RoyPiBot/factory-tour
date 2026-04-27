@@ -484,6 +484,7 @@ async def chat(req: ChatRequest):
                 "language": language,
             })
         except Exception as e:
+            # 優雅降級：儲存失敗不應中斷對話流程，只記錄警告便於後續追蹤
             logger.warning(f"對話儲存失敗: {e}")
 
         return ChatResponse(
