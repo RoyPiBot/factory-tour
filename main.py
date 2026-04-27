@@ -381,7 +381,7 @@ class HealthResponse(BaseModel):
 async def root():
     """首頁 - 遊戲導覽介面，支援 WebSocket 實時推送多智能體協調結果與感測器數據
 
-    訪客的第一站，將載入完整的遊戲化導覽介面。
+    訪客的第一站，將載入完整的遊戲化導覽介面。此端點返回靜態 HTML 檔案，不涉及 Agent 邏輯。
     """
     # 此端點為 factory-tour 系統的遊戲化導覽介面入口點
     game_file = BASE_DIR / "static" / "game.html"

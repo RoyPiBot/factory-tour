@@ -3566,3 +3566,14 @@ Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 188. LangGraph 類型安全串流 v2 與深層代理整合——完整的多模態代理與人機互動支援（2026 年 Q2 最新）
+
+> **LangGraph 於 2026 年第二季發布完整的類型安全串流機制（Type-Safe Streaming v2）與深層代理整合。Type-Safe Streaming 統一所有串流輸出為 {type, ns, data} 三層結構，徹底消除不安全的類型轉換；Pydantic/dataclass 自動強制轉換讓 invoke() 結果直接映射至聲明型別。Deep Agents v0.5.0 alpha 引入非同步子代理、多模態支援與 Anthropic 提示快取，允許代理計畫、使用子代理並利用檔案系統進行複雜任務。核心平台強化人類在迴路（Human-in-the-Loop）與耐久性執行（Durable Execution）——代理現可無縫整合人類監督，在失敗時自動恢復，支援完整的短期工作記憶與長期持久記憶。Roy 的多代理系統可利用類型安全串流簡化前端與後端的狀態同步，Deep Agents 支援使 NanoClaw 威脅分析更具推理深度，人機互動機制則強化 Factory Tour 與 Tunghai RAG 的互動體驗**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [LangGraph Explained (2026 Edition) - Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
