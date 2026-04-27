@@ -3398,6 +3398,22 @@ Sources:
 
 ## 174. LangGraph Store System 與向量搜尋——可配置的多後端長期記憶與語意檢索（2026 年中期）
 
+> **LangGraph Store System 於 2026 年中期推出，提供統一的長期記憶存儲抽象層，支援 PostgreSQL、SQLite、Redis 等多後端配置。向量搜尋整合允許代理透過語義相似度檢索歷史上下文與知識，而非精確關鍵字匹配，大幅提升多輪對話的連貫性與智慧化程度。Roy 的 Factory Tour 導覽系統可利用 Store System 持久化訪客偏好與景點評價，跨執行緒進行語義檢索實現個性化推薦；NanoClaw 威脅分析可建立威脅模式知識庫，自動檢索相似異常情景並進行對比學習，累積智能決策能力**
+
+Sources:
+- [LangGraph Store System - LangChain Changelog](https://changelog.langchain.com/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 175. LangGraph Agent Server 檢查點與節點級快取優化——2026 年 4 月背景任務與成本最佳化新里程碑
+
+> **LangGraph v1.1.6（2026 年 4 月）在 Agent Server 層引入背景檢查點刪除最佳化，自動在執行完成後非同步清理舊檢查點，減少 I/O 壓力與資料庫膨脹；節點級快取機制允許代理框架緩存個別節點的執行結果與輸出，在相同工作流路徑重新執行時直接復用快取，無需重新調用 LLM，成本降低 30-50%。gRPC 串流客戶端優化提升資料傳輸效率，支援特性開關控制實驗性功能，增強系統穩定性。Roy 的 Factory Tour 系統可透過節點快取加速重複景點查詢與旅客推薦，NanoClaw 可在威脅分析工作流中複用感測器判斷結果，大幅降低 Anthropic API 成本同時改善回應延遲**
+
+Sources:
+- [Releases · langchain-ai/langgraph - April 2026](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+
 > **LangGraph 在 2026 年推出 Store System，為多代理系統提供可配置、多後端持久化的長期記憶與語意檢索能力。Store System 基於統一的鍵值儲存介面，支援 PostgreSQL、SQLite、In-Memory 等多種後端實現，允許代理跨執行緒與對話保存與檢索記憶。核心創新是內建向量搜尋（Vector Search），開發者可傳入 embedding 模型，Store System 自動在寫入時嵌入每份記憶，使用向量相似度進行語意檢索而非單純關鍵字匹配。MongoDB Atlas Vector Search、Hindsight 等第三方整合進一步豐富記憶層能力，支援實體圖譜與多策略回憶機制。Roy 的 Factory Tour 導覽代理可跨多訪客學習景點知識、優化導覽推薦；NanoClaw 威脅分析可語意檢索過往威脅樣式進行異常檢測；ROS 機械手臂可保存與重用複雜操作序列，實現真正的長期學習與適應**
 
 Sources:

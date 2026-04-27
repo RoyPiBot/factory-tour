@@ -239,6 +239,7 @@ async def lifespan(app: FastAPI):
         pass
 
 
+# 核心應用實例 — FastAPI 伺服器初始化，整合生命週期管理與 CORS 中介軟體
 app = FastAPI(
     title="工廠導覽 Multi-Agent API",
     description="基於 LangGraph + Groq 的智慧多語言工廠導覽系統 v3.0",
