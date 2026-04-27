@@ -3482,3 +3482,14 @@ Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+
+---
+
+## 184. LangGraph Platform 正式發佈與 RemoteGraph 分散式多代理編排——雲管理部署與跨服務代理呼叫（2026 年 Q1-Q2）
+
+> **LangGraph Platform 於 2026 年上半年正式通用版本（GA）發佈，提供託管的代理執行基礎設施與多重部署選項。LangSmith Deployment 作為雲託管方案，提供自動更新、零維護的完全託管體驗，支援從小規模實驗到企業級高負載的彈性擴展。核心創新為 RemoteGraph 機制——允許任意代理透過統一介面呼叫其他已部署的遠端代理，無須區分本地或遠端呼叫，實現真正的分散式多代理協調。配合自適應執行引擎（Durable Execution）與實時串流能力，企業可在雲端、自有雲（BYOC）或本地端選擇部署策略。Roy 的 Factory Tour 導覽可透過 RemoteGraph 跨地域部署多個景點導覽代理，由中央協調代理調度；NanoClaw 威脅監控可利用 RemoteGraph 連接分散於不同邊界節點（Pi 5）的本地異常檢測代理，實現真正的分散式威脅評估；Tunghai RAG 系統可同時運行本地檢索代理與雲端推理代理，達成成本與效能的最優平衡**
+
+Sources:
+- [LangGraph Platform is now Generally Available: Deploy & manage long-running, stateful Agents](https://blog.langchain.com/langgraph-platform-ga/)
+- [LangSmith Deployment - Docs by LangChain](https://docs.langchain.com/langsmith/deployment)
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)

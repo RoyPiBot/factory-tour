@@ -1067,3 +1067,4 @@ if __name__ == "__main__":
     # ✨ 系統已準備好服務訪客！
     uvicorn.run("main:app", host=host, port=port, reload=True)
     # 🎪 工廠導覽 AI 系統已啟動，awaiting 全球遊客的連線請求
+    # 📝 此主程式為 Raspberry Pi 5 上的核心服務入口，支援即時感測器與多智能體協調
