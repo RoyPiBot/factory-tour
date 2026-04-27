@@ -3527,3 +3527,15 @@ Sources:
 - [LangGraph Explained (2026 Edition) - Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+
+---
+
+## 186. LangGraph 2026 Q1-Q2 核心效能與開發者體驗迭代——快取、流式強化與中斷處理改進
+
+> **LangGraph 於 2026 年第一至第二季推出系列效能與開發者體驗增強。節點/任務層級快取（Node/Task Level Caching）允許快取工作流中個別節點的執行結果，避免多輪互動中的冗餘計算，大幅加速複雜推理流程；JavaScript 生態強化包括 reconnectOnMount 機制，使頁面重新載入或網路中斷後自動恢復流式連接，無 Token 遺失，顯著改善使用者體驗。StateGraph 新增 .addNode() 與 .addSequence() 便捷方法，開發者無需手寫繁瑣的圖形連接邏輯，大幅降低多代理系統的定義複雜度。中斷（Interrupts）機制進化——中斷現已在 .invoke() 與 "values" 流模式中直接返回，無需額外呼叫 getState()，簡化中斷驅動的人機互動工作流。Roy 的 Factory Tour 導覽系統可利用節點快取優化景點資訊檢索；NanoClaw 邊界威脅分析可透過快取加速機器學習推理；Tunghai RAG 知識庫可快取高頻查詢的向量檢索結果，整體降低推理延遲與 API 成本**
+
+Sources:
+- [LangGraph Release Week Recap - LangChain Blog](https://blog.langchain.com/langgraph-release-week-recap/)
+- [LangChain - Changelog](https://changelog.langchain.com/?categories=cat_ZWTyLBFVqdtSq)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
