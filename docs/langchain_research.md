@@ -3537,5 +3537,16 @@ Sources:
 Sources:
 - [LangGraph Release Week Recap - LangChain Blog](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangChain - Changelog](https://changelog.langchain.com/?categories=cat_ZWTyLBFVqdtSq)
+
+---
+
+## 187. LangGraph v1.1.3 與分散式執行時支援——邊界部署與分散式狀態管理（2026 年 Q1-Q2）
+
+> **LangGraph 於 2026 年 3 月發布 v1.1.3，重點強化分散式執行時（Distributed Runtime）支援與深層代理範本（Deep Agent Templates），為企業級多代理系統在邊界環境的部署提供完整解決方案。分散式執行時透過 CLI 整合，允許開發者一鍵將代理工作流部署至多個邊界節點（如 Raspberry Pi 5），由中央協調器透過 RemoteGraph 統籌節點間的狀態與通訊，無須手動配置容器或網絡編排。深層代理範本提供開箱即用的多層級推理架構——父代理可動態調度多個子代理並行處理異質任務，子代理的執行狀態自動同步至分散式檢查點存儲（支援 PostgreSQL、Redis 等），故障時無縫恢復。此版本特別適配 Roy 的 NanoClaw 分散式威脅監控——多個 Pi 5 邊界節點可作為獨立異常檢測代理執行本地推理，由中央威脅評估代理透過分散式執行時協調跨節點的威脅相關性分析；Factory Tour 導覽系統可在多個展館部署本地導覽代理，實現真正的地理分佈式協調；Tunghai RAG 知識系統可同時運行邊界檢索與雲端推理，透過分散式執行時達成成本與延遲的最優平衡**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph 2.0: The Definitive Guide to Building Production-Grade AI Agents in 2026](https://dev.to/richard_dillon_b9c238186e/langgraph-20-the-definitive-guide-to-building-production-grade-ai-agents-in-2026-4j2b)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
