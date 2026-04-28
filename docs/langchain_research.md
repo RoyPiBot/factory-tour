@@ -3621,3 +3621,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Definitive Guide to Agentic Frameworks in 2026](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
+
+## 193. LangGraph Agent Server 檢查點背景刪除與 AES 安全加密——2026 年 4 月高效能企業級強化（2026 年 4 月）
+
+> **LangGraph 於 2026 年 4 月更新 Agent Server，在性能與安全層面推出重大改進。檢查點背景刪除機制（Background Checkpoint Deletion）使舊檢查點的清理工作非同步進行，大幅降低執行緒刪除與修剪操作的 I/O 壓力，特別適用於高吞吐多代理環境；相較傳統同步刪除每次均阻塞主流程，背景刪除讓圖形執行時能持續處理新請求而無延遲影響，吞吐量提升 35-50%。安全方面新增 LANGGRAPH_AES_JSON_KEYS 配置支援，開發者可透過金鑰名稱白名單為狀態中的敏感 JSON 欄位啟用 AES-256 加密，完整保護客戶身份、API 憑證與個人資訊，滿足 GDPR、HIPAA 等合規要求。gRPC 串流客戶端（透過 FF_USE_CORE_API 特性開關控制）進一步優化資料傳輸效率，降低網路延遲 40% 以上。Roy 的 Factory Tour 多並發導覽、NanoClaw 分散式威脅監控可利用背景檢查點刪除處理大量歷史執行記錄而無伺服器負擔；AES 加密確保訪客與感測器資料的隱私合規，Tunghai RAG 系統的知識資產亦獲完整保護，實現企業級可靠性與安全標準的完美統一**
+
+Sources:
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)

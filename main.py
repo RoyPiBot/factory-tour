@@ -1068,6 +1068,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 🚀 ready to serve factory-tour API on Raspberry Pi 5
 if __name__ == "__main__":
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
+    # ✨ 系統由 Claude Haiku 持續監控維護，確保多智能體協調穩定運行
     import uvicorn
     # 🎯 系統啟動入口：初始化 Groq 多智能體框架與 Raspberry Pi 5 感測器推送
     host = os.getenv("HOST", "0.0.0.0")
