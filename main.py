@@ -753,6 +753,7 @@ async def websocket_sensors(websocket: WebSocket):
     """WebSocket 端點 — 推送即時感測器數據
 
     每秒廣播各廠區的即時感測數據（溫度、濕度、能耗等），供前端即時顯示訪客導覽進度與環境狀態。
+    客戶端可選擇性過濾特定廠區數據以優化網路頻寬使用。
     """
     await ws_manager.connect(websocket)
     try:

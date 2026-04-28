@@ -3610,3 +3610,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 192. LangGraph v1.1.3 分散式執行時與市場領導地位——CLI 內建分散式協調與檢查點持久化新能力（2026 年 3 月）
+
+> **LangGraph v1.1.3 於 2026 年 3 月 30 日正式發布，在 CLI 中新增完整的分散式執行時支援，使多代理工作流可跨多個計算節點協調執行。核心創新包括改進的狀態管理與檢查點機制——每次狀態轉移均被持久化，支援時間旅行調試、人類介入審批（暫停圖表、等待輸入、繼續執行）與中途故障恢復，大幅提升生產環境的韌性與可觀測性。同步推出的特性包括任意圖表節點的令牌串流與子圖組合（將完整圖表嵌入為父圖表的單一節點），實現高效的層級協調。市場地位上，LangGraph 在月度搜尋量中領先 27,100 次搜尋，超越 CrewAI 的 14,800 次；GitHub 儲存庫星數已突破 30,000，成為 2026 年最活躍的代理框架。Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 可透過分散式執行時實現跨節點協調，利用檢查點機制達成可恢復的多代理推理流程**
+
+Sources:
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Definitive Guide to Agentic Frameworks in 2026](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
