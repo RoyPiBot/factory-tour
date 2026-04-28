@@ -402,7 +402,7 @@ async def dashboard():
 
 @app.get("/editor", response_class=HTMLResponse)
 async def editor():
-    """知識庫 Web 編輯器"""
+    """知識庫 Web 編輯器 - 支援即時編輯與 RAG 索引自動同步"""
     editor_file = BASE_DIR / "static" / "editor.html"
     if editor_file.exists():
         return HTMLResponse(editor_file.read_text(encoding="utf-8"))

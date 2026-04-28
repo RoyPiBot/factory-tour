@@ -3597,5 +3597,16 @@ Sources:
 
 Sources:
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+
+---
+
+## 191. DeepAgents v0.5.0 非同步子代理與多模態檔案支援——背景任務編排與完整的文檔理解能力（2026 年 Q2）
+
+> **DeepAgents v0.5.0 alpha 版本於 2026 年第二季推出完整的非同步子代理與多模態檔案處理能力。非同步子代理（Async Subagents）機制允許代理啟動非阻塞的背景任務，使用者可在子代理工作期間繼續與主代理互動，實現真正的並行推理協調——相對於同步子代理的阻塞模式，非同步執行大幅降低使用者感知延遲。多模態檔案支援擴展讀檔工具，現可處理 PDF、音訊與影片檔案，補足先前僅支援影像的限制，使代理能進行端到端的文檔理解。同時強化 Anthropic 提示快取，減少重複呼叫的 API 成本，提升多輪互動的經濟效益。Roy 的多代理系統可利用非同步子代理實現 Factory Tour 景點導覽的並行處理、NanoClaw 威脅檢測的分散式推理協調；多模態支援則使 Tunghai RAG 系統能直接處理研究論文 PDF、講座錄音等豐富的知識源，大幅擴展知識庫的覆蓋廣度與應用深度**
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
