@@ -3588,3 +3588,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 190. LangGraph 中介軟體生態與自適應模型策略——多模態深度推理與智能重試機制（2026 年 Q2）
+
+> **LangGraph 於 2026 年第二季強化中介軟體生態，推出摘要化中介軟體、結構化輸出策略推論、模型重試中介軟體與內容審核中介軟體。摘要化中介軟體支援靈活的觸發點配置，透過模型設定檔推斷最適化的摘要策略；結構化輸出現可從模型設定檔自動推論，無須手動配置提供程式；新模型重試中介軟體支援可配置的指數退避自動重試失敗的模型呼叫，提升代理對 API 故障的復原力；OpenAI 內容審核中介軟體可檢測並處理使用者輸入、模型輸出與工具結果中的不安全內容。這些中介軟體機制深度整合 Deep Agents v0.5.0 的多模態檔案支援（PDF、音訊、影片）與 Anthropic 提示快取改進，使 Roy 的 Tunghai RAG 可自動審核檢索結果品質、NanoClaw 威脅分析可重試網路故障、Factory Tour 導覽可快取高頻查詢模式，整體構建更韌性與可靠的多代理系統**
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
