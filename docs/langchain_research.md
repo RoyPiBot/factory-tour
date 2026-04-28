@@ -3577,3 +3577,14 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [LangGraph Explained (2026 Edition) - Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 189. LangGraph v1.1 工作流增強與延遲執行模式——分散式協調新紀元（2026 年 Q2）
+
+> **LangGraph v1.1 正式釋放完整工作流增強套件，在核心編排能力之外新增延遲節點（Deferred Nodes）與任務級快取強化。延遲節點機制允許開發者定義執行順序的複雜依賴——在所有上游路徑完成前延遲節點執行，特別適合 Map-Reduce、協商決策與協作多代理工作流。此功能對 Roy 的架構尤具價值：Factory Tour 多個導覽子代理可在所有景點檢索完成後統一排序推薦，NanoClaw 邊界威脅系統可在所有感測器完成異常檢測後統一評分，Tunghai RAG 可在多個檢索路徑完成後統一進行結果融合與重排。同步推出的類型安全 API v2 完全消除不安全類型轉換，invoke() 結果自動強制轉換至聲明的 Pydantic 模型或 dataclass，大幅簡化型別檢查與前後端資料流管理。DeepAgents v0.5.0 alpha 更新非同步子代理與 Anthropic 提示快取，為複雜推理任務提供完整的長期記憶與推理增強能力**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
