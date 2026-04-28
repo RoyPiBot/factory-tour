@@ -3643,3 +3643,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 195. LangGraph v1.1 類型安全流式輸出與自動強制轉換——統一的開發體驗與完全向後相容（2026 年 Q2）
+
+> **LangGraph v1.1 版本於 2026 年第二季推出完整的類型安全 API，涵蓋流式輸出、同步調用與自動強制轉換三大核心改進。類型安全流式輸出（Type-Safe Streaming）透過 version="v2" 參數啟用，使所有資料串流均返回統一的 StreamPart 物件，包含 type、ns 與 data 鍵值，消除先前 API 版本間的兼容性問題；類型安全調用（Type-Safe Invoke）則提供 GraphOutput 物件，含有 .value 與 .interrupts 屬性，清晰傳達執行結果與中斷點狀態。自動強制轉換機制搭配 version="v2" 運作，invoke() 與值模式流輸出能自動轉換為開發者聲明的 Pydantic 模型或 dataclass 型別，無須手動解析與驗證，大幅降低樣板程式碼。此外，新增配置式指數退避重試中介軟體與 OpenAI 內容審核中介軟體，自動處理 API 故障與安全合規。Roy 的 Factory Tour、NanoClaw 與 Tunghai RAG 可透過類型安全 API 簡化圖表定義與狀態管理，自動強制轉換確保訪客資料、威脅特徵與檢索結果的嚴格型別驗證，完全向後相容保障現有部署无須升級風險，實現漸進式演進**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
