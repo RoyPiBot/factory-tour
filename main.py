@@ -595,7 +595,7 @@ async def get_tour_routes():
 
 @app.get("/areas")
 async def list_areas():
-    """列出所有廠區"""
+    """列出所有廠區 — 按導覽順序排序，供前端動態渲染廠區選單"""
     return {
         "areas": [
             {

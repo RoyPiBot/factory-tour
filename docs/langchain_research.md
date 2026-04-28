@@ -3631,4 +3631,15 @@ Sources:
 Sources:
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 194. LangGraph Cloud 與 StateSchema 標準化——託管執行環境與通用狀態定義協議（2026 年 Q2 起）
+
+> **LangGraph 於 2026 年第二季推出 LangGraph Cloud 託管執行環境與 StateSchema 通用狀態定義協議。LangGraph Cloud 提供完全託管的圖執行平台，內建監控、自動擴展與多代理協作支援，開發者無須自行部署 LangGraph Agent Server，無縫銜接 LangSmith 追蹤整個代理執行旅程。StateSchema 為業界首個通用狀態定義標準，相容 Zod、Valibot、ArkType 等多個驗證框架，取代 Pydantic 單一依賴，允許開發者以自選的型別系統定義圖狀態而無綁定。同步推出的 ReducedValue 與 UntrackedValue 狀態欄位機制提供精細化狀態控制——ReducedValue 實現自訂累積邏輯，UntrackedValue 定義執行期臨時狀態而不持久化，大幅簡化檢查點與狀態管理複雜度。Roy 的 Tunghai RAG 與 Factory Tour 可利用 LangGraph Cloud 實現企業級託管與監控無擔憂，NanoClaw 威脅系統可透過 ReducedValue 累積多感測器的異常指標並自動融合，三大專案均受益於 StateSchema 的標準化帶來的跨框架互通性與永續演進保障**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
 - [LangChain - Changelog](https://changelog.langchain.com/)
