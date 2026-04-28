@@ -295,6 +295,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
 # 定義 FastAPI 資料驗證模型，確保所有 API 輸入與輸出的類型安全
 # ─── 資料模型 ───
 class ChatRequest(BaseModel):
+    """對話請求模型 — 供 /chat 端點接收訪客的多語言查詢與 session 識別"""
     message: str
     session_id: str = "default"
     language: str = DEFAULT_LANGUAGE

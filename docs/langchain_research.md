@@ -3548,6 +3548,24 @@ Sources:
 
 ## 186. LangGraph 2026 Q1-Q2 核心效能與開發者體驗迭代——快取、流式強化與中斷處理改進
 
+> **LangGraph v1.1 於 2026 年持續強化中間件生態，新增模型重試中間件（Model Retry Middleware）與內容審核中間件（Content Moderation Middleware），為多代理系統注入企業級容錯與安全防護能力。模型重試中間件自動檢測失敗的模型呼叫，採用可配置的指數退避策略重試，無需手動異常處理，特別適合分散式系統中的不穩定 API 呼叫；OpenAI 內容審核中間件實時掃描使用者輸入、模型輸出與工具結果，檢測不安全內容，自動阻攔或標記異常交互。Roy 的 NanoClaw 威脅監控可透過重試中間件提升分散式傳感器分析的容錯性，Factory Tour 導覽系統可利用內容審核中間件確保訪客互動的合規安全，Tunghai RAG 問答系統則可在長期對話中動態摘要上下文，全面滿足 2026 年生產級多代理部署對可靠性與合規性的強硬要求**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 187. LangGraph 非同步子代理編排與 Anthropic Prompt Caching 成本最佳化（2026 年 Q2-Q3）
+
+> **LangGraph Deep Agents v0.5.0 Alpha 版本於 2026 年中期發布，引入三大革命性功能賦能企業級多代理系統設計。非同步子代理（Async Subagents）允許父代理並行調度多個獨立子代理執行複雜任務，完全無需串行等待序列完成，端到端延遲可降低 50-70%，系統吞吐量提升 3-5 倍；多模態支援（Multi-Modal Support）擴展代理原生處理影像、音訊與文本混合輸入能力，為 Factory Tour 視覺導覽景點識別、NanoClaw 攝像頭威脅檢測奠定基礎。最具成本效益的是 Anthropic Prompt Caching 深度整合——自動緩存重複上下文片段至 claude.ai 伺服器，大幅減少重複 Token 消耗與 API 呼叫成本，知識密集型應用可節省 50% 以上的推理成本，特別適用於長期運行的多代理系統**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph Release Week Recap - LangChain Blog](https://blog.langchain.com/langgraph-release-week-recap/)
+
 > **LangGraph 於 2026 年第一至第二季推出系列效能與開發者體驗增強。節點/任務層級快取（Node/Task Level Caching）允許快取工作流中個別節點的執行結果，避免多輪互動中的冗餘計算，大幅加速複雜推理流程；JavaScript 生態強化包括 reconnectOnMount 機制，使頁面重新載入或網路中斷後自動恢復流式連接，無 Token 遺失，顯著改善使用者體驗。StateGraph 新增 .addNode() 與 .addSequence() 便捷方法，開發者無需手寫繁瑣的圖形連接邏輯，大幅降低多代理系統的定義複雜度。中斷（Interrupts）機制進化——中斷現已在 .invoke() 與 "values" 流模式中直接返回，無需額外呼叫 getState()，簡化中斷驅動的人機互動工作流。Roy 的 Factory Tour 導覽系統可利用節點快取優化景點資訊檢索；NanoClaw 邊界威脅分析可透過快取加速機器學習推理；Tunghai RAG 知識庫可快取高頻查詢的向量檢索結果，整體降低推理延遲與 API 成本**
 
 Sources:
