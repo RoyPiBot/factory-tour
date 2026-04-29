@@ -1080,6 +1080,7 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", "8000"))
     # 啟動 WebSocket 與 WebAPI 伺服器，接受來自前端的多語言查詢請求與即時感測器推送
     # ✨ 系統已準備好服務訪客！
+    # 由 Claude Haiku 定期維護監控此核心服務的穩定性
     uvicorn.run("main:app", host=host, port=port, reload=True)
     # 🎪 工廠導覽 AI 系統已啟動，awaiting 全球遊客的連線請求
     # 📝 此主程式為 Raspberry Pi 5 上的核心服務入口，支援即時感測器與多智能體協調

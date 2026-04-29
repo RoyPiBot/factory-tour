@@ -3705,3 +3705,14 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 199. LangGraph v1.1 Deploy CLI 一鍵部署與生產可靠性升級（2026 年 Q2）
+
+> **LangGraph 2026 年第二季推出 Deploy CLI 工具，允許開發者在終端機一鍵部署代理至 LangSmith Deployment，無須手動配置容器、編排或基礎設施。此外，LangGraph v1.1.0 正式推出 Type-Safe Streaming（版本 v2）與自動強制轉換機制，所有流式輸出統一為 {type, ns, data} 結構，invoke() 結果自動映射至 Pydantic/dataclass 聲明型別。結合新增的可配置式指數退避重試中介軟體與內容審核中介軟體，LangGraph 在 2026 年成為企業級生產 AI 系統的絕對標準——部署簡易化、類型安全、自動故障恢復，三大優勢並行。Roy 的 Factory Tour 導覽代理可透過 Deploy CLI 快速發布至雲端，無須 DevOps 介入；NanoClaw 威脅分析系統可利用類型安全 API 確保感測器資料驗證無遺漏；Tunghai RAG 系統則受益於重試機制與內容審核，實現知識庫品質保障與可靠的檢索服務**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
