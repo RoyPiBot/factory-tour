@@ -3694,3 +3694,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Definitive Guide to Agentic Frameworks in 2026](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
+
+## 198. LangGraph Standard Schema 與跨框架互通——業界開放標準規範與驗證系統解耦（2026 年 Q2）
+
+> **LangGraph 2026 年第二季率先採用業界開放標準 Standard JSON Schema，實現狀態定義驗證系統的完全解耦。此舉標誌著 LangGraph 從 Pydantic 依賴單一模式轉變為支援 Zod、Valibot、ArkType 等多個 Schema 驗證庫的通用標準。開發者無須綁定特定驗證框架，可自由選擇團隊熟悉的型別系統撰寫圖狀態，同時獲得統一的 StateSchema API，實現跨框架、跨組織的代理互通標準。此舉尤其利於 Roy 的三大專案——Factory Tour 的多供應商工作流整合、NanoClaw 的異構感測器資料融合、Tunghai RAG 的知識圖譜標準化——皆可受益於業界統一的狀態定義標準，降低系統集成複雜度，提升長期可維護性與生態互通性**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)

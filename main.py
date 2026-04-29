@@ -150,6 +150,7 @@ rag_ready = False
 sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 lifespan 啟動時初始化
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 # 核心職責：確保所有連接的訪客同步接收實時感測數據與導覽狀態更新
+# 此管理器支援高併發多 session 連線，確保感測器數據的即時可靠推送
 
 MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度 — 防止過長訊息造成 Groq API 配額超支與系統回應延遲
 # 此限制適用於所有多語言導覽對話，確保系統穩定性與成本控制
