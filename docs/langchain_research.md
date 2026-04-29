@@ -3672,3 +3672,14 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 196. LangGraph 持久化與多日工作流——生產級代理框架與檢查點恢復機制（2026 年 Q2）
+
+> **LangGraph 1.0 作為持久代理框架領域首個穩定主版本發布，已驅動 Uber、LinkedIn、Klarna 等企業級生產代理系統。核心亮點為內建持久化機制，代理執行自動保存至外部儲存（支援 SQLite、PostgreSQL、其他 SQL 資料庫），允許在任意點恢復執行狀態，實現跨日期的長流程（如多日審核工作流、背景批次任務）無中斷運作。檢查點系統精細到單一節點粒度，開發者可中斷代理於特定決策點，待外部條件滿足後自動恢復，無須重新執行前置節點，顯著降低成本與延遲。此版本標誌著 LangGraph 從實驗性框架進入生產級別，為 Roy 的 Factory Tour 多步驟訪客協調、NanoClaw 持續威脅監測與 Tunghai RAG 長會話上下文保留提供堅實基礎，三大專案可無縫部署至企業環境並享受平臺級可靠性保障**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
