@@ -3749,3 +3749,14 @@ Sources:
 - [LangGraph Releases](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain Changelog](https://changelog.langchain.com/)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 202. LangGraph 節點級快取與效能最佳化——工作流加速與成本控制（2026 年 Q2）
+
+> **LangGraph 2026 年第二季導入節點層級快取機制（Node/Task Level Caching），允許開發者為計算密集的工作流節點獨立設定快取策略。此功能著重於減少冗餘計算、加速重複調用，特別適合多代理系統中涉及重複 LLM 推理或向量化操作的場景。同時，JavaScript 生態進一步強化，新增 `.addNode()` 與 `.addSequence()` 方法予 StateGraph，大幅減少樣板代碼並提升開發效率；Interrupt 機制改進使其可直接通過 `.invoke()` 與「values」流模式返回，便於人類介入工作流的審核與控制。此改進對 Roy 的 Factory Tour 導覽代理尤為重要——可快取冗長供應商查詢與價格計算，加速導覽回應；NanoClaw 威脅分析可快取感測器異常偵測演算法結果，降低即時推理成本；Tunghai RAG 系統則可快取知識庫向量化步驟，提升大規模文件檢索效能**
+
+Sources:
+- [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
