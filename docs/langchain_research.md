@@ -3598,6 +3598,17 @@ Sources:
 
 ---
 
+## 189. LangGraph v1.1.9 與 Type-Safe Streaming v2 正式釋放——統一多模態串流與子圖狀態隔離（2026 年 Q2 即時更新）
+
+> **LangGraph 於 2026 年 4 月 21 日發布 v1.1.9 版本，強化核心串流與狀態管理能力。Type-Safe Streaming v2 統一所有輸出為結構化的 {type, ns, data} 格式，完全消除不安全的型別轉換，原生支援多模態（文本、影像、音訊）串流輸出；Pydantic 與 dataclass 自動強制轉換機制讓 invoke() 結果直接型別映射，大幅簡化序列化邏輯。ReplayState 防止異常傳播至子圖，確保子圖狀態隔離與容錯一致性，對分散式多代理系統的穩定性至關重要。Roy 的 Factory Tour 導覽可利用 v1.1.9 的多模態串流強化景點圖像識別與語音導覽；NanoClaw 威脅監控在子圖層級隔離分散式傳感器異常狀態，無縫恢復；Tunghai RAG 系統則可透過 Type-Safe Streaming 簡化前端與後端狀態同步，提升回應流暢度**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+- [LangGraph 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
 ## 189. LangGraph v1.1 工作流增強與延遲執行模式——分散式協調新紀元（2026 年 Q2）
 
 > **LangGraph v1.1 正式釋放完整工作流增強套件，在核心編排能力之外新增延遲節點（Deferred Nodes）與任務級快取強化。延遲節點機制允許開發者定義執行順序的複雜依賴——在所有上游路徑完成前延遲節點執行，特別適合 Map-Reduce、協商決策與協作多代理工作流。此功能對 Roy 的架構尤具價值：Factory Tour 多個導覽子代理可在所有景點檢索完成後統一排序推薦，NanoClaw 邊界威脅系統可在所有感測器完成異常檢測後統一評分，Tunghai RAG 可在多個檢索路徑完成後統一進行結果融合與重排。同步推出的類型安全 API v2 完全消除不安全類型轉換，invoke() 結果自動強制轉換至聲明的 Pydantic 模型或 dataclass，大幅簡化型別檢查與前後端資料流管理。DeepAgents v0.5.0 alpha 更新非同步子代理與 Anthropic 提示快取，為複雜推理任務提供完整的長期記憶與推理增強能力**

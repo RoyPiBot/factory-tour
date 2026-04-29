@@ -102,6 +102,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, field_validator
 
 from factory_tour_agent import create_factory_tour_app, KNOWLEDGE
+# 🤖 工廠導覽系統的核心 Agent 工廠函數與全球知識庫 — 由 LangGraph 多智能體框架驅動
 from tour_flow import TourManager
 from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
 from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
