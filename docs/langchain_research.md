@@ -3716,3 +3716,14 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 200. LangGraph 雙層記憶體架構與長期記憶整合——持久化會話上下文與跨層次語意檢索（2026 年 Q2-Q3）
+
+> **LangGraph 2026 年推出業界標準雙層記憶體架構：Hot Path 層快速訪問近期訊息與摘要圖狀態，Cold Path 層透過語意相似度檢索外部存儲的歷史記憶。MongoDB LangGraph Store 整合使代理能跨多個會話記憶與延續互動，打破單一 session 限制。Hindsight 記憶層自動從對話中萃取事實、建構實體圖譜，採用四層並行檢索策略。此架構對 Roy 的三大專案特別有益——Factory Tour 導覽代理可記憶訪客歷史；NanoClaw 威脅分析可跨會話累積感測器異常模式；Tunghai RAG 可構建知識檢索的個性化上下文，使長對話品質持續提升**
+
+Sources:
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+- [Adding Long-Term Memory to LangGraph and LangChain Agents](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
+- [Agentic AI series 11: Building Long-Term Agent Memory with Mem0 + LangGraph](https://medium.com/@sahin.samia/building-long-term-agent-memory-with-mem0-langgraph-308ef4970699)
