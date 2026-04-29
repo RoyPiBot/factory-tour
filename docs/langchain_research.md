@@ -3727,3 +3727,14 @@ Sources:
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
 - [Adding Long-Term Memory to LangGraph and LangChain Agents](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
 - [Agentic AI series 11: Building Long-Term Agent Memory with Mem0 + LangGraph](https://medium.com/@sahin.samia/building-long-term-agent-memory-with-mem0-langgraph-308ef4970699)
+
+---
+
+## 201. LangGraph v1.1 狀態架構升級——StateSchema 與類型安全狀態管理（2026 年 Q1-Q2）
+
+> **LangGraph v1.1 推出 StateSchema 特性，提供比傳統 Pydantic 更清晰、庫無關的圖狀態定義方式，完全相容標準 JSON Schema 規範。新增 ReducedValue（為 reducer 輸入/輸出支援分離式類型定義）與 UntrackedValue（定義執行期瞬時狀態，不進入 checkpoint，適合資料庫連接、快取等運行時資源）。這些強化使 Factory Tour 導覽系統的 Supervisor Agent 狀態定義更簡潔；NanoClaw 威脅分析的感測器資料流轉更安全；Tunghai RAG 的文件索引狀態與運行時資源分離，確保高效能長會話互動**
+
+Sources:
+- [LangGraph Releases](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain Changelog](https://changelog.langchain.com/)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
