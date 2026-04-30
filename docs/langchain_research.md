@@ -3760,3 +3760,14 @@ Sources:
 - [LangChain - Changelog | LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+
+---
+
+## 203. LangGraph Durable State 與 Human-in-the-Loop 第一級 API——長期會話持久化與人類審核整合（2026 年 Q2-Q3）
+
+> **LangGraph 2026 年中期推出 Durable State 機制，自動將代理執行狀態持久化至存儲層。當服務器中途重啟或長期工作流遭中斷時，系統可精確恢復至上次檢查點，不喪失任何上下文。此同時引入 Human-in-the-Loop 第一級 API，提供原生支援暫停代理執行、允許人類審核、修改或核准後繼續運行的能力，無須複雜的自定義邏輯。此雙重機制對 Roy 的系統架構特別關鍵——Factory Tour 導覽代理可在複雜供應商談判中請求管理者核准；NanoClaw 威脅分析系統遇高風險異常自動暫停，等待安全專家審視確認；Tunghai RAG 系統可在知識庫更新時請求 Roy 驗證關鍵資訊準確度，確保長期會話品質與可靠性兼備**
+
+Sources:
+- [LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
