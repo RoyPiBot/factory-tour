@@ -1080,7 +1080,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 🎯 核心入口：初始化完成後等待客戶端連線，提供多語言導覽與即時感測器推送服務
 # ⚡ 生產環境建議設定 reload=False 以避免頻繁重啟，並調整 host/port 到安全配置
 # 💻 啟動前必須驗證 GROQ_API_KEY、RAG 模組與資料庫完全就緒，確保多 Agent 系統穩定運行
-# 🚀 ready to serve factory-tour API on Raspberry Pi 5
+# 🚀 已準備好在 Raspberry Pi 5 上提供工廠導覽 API 服務
 if __name__ == "__main__":
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
     # ✨ 系統由 Claude Haiku 持續監控維護，確保多智能體協調穩定運行

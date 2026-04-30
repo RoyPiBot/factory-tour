@@ -3837,4 +3837,14 @@ Sources:
 Sources:
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+
+---
+
+## 209. LangGraph 持久記憶與人工迴圈——長期工作流與人類監督整合（2026 年 Q2）
+
+> **LangGraph 2026 年核心強化：持久記憶機制支援跨會話的短期工作記憶（Working Memory）與長期持久記憶（Persistent Memory Across Sessions），賦予代理真正的學習與記憶能力。同時，人工迴圈（Human-in-the-Loop）能力深度整合至圖執行引擎，開發者可在任意節點設置人類審批檢查點，代理自動暫停等待人類決策，無需手動中斷執行流程。此雙重強化對 Roy 的系統架構至關重要——Tunghai RAG 知識庫可跨多日維持使用者對話脈絡，並在高風險查詢時自動請求 Roy 審批；Factory Tour 導覽代理可記憶訪客偏好與歷史互動，在複雜談判時暫停等候人工決策；NanoClaw 威脅分析系統可在檢測到新異常模式時，自動暫停並請求 Roy 驗證威脅等級。**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangChain - Changelog](https://changelog.langchain.com/)
