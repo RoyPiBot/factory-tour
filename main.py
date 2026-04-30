@@ -179,6 +179,7 @@ async def lifespan(app: FastAPI):
 
     核心職責：確保所有依賴資源有序初始化與清理。
     初始化順序：database → agents → RAG → quizzes → sensors
+    此生命週期方法為 FastAPI 應用穩定性的保證，確保 Pi 上的資源不會洩漏。
     """
     # 核心職責：依序初始化資料庫、Agent 系統、RAG 引擎、測驗題庫、感測器模擬器
     # 📌 此過程通常耗時 2-3 秒，包含資料庫驗證、Agent 構建與 RAG 初始化等操作
