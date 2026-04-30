@@ -3816,3 +3816,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+
+---
+
+## 207. LangGraph Cloud 與 LangSmith 原生整合——託管執行、動態代理生成與全追蹤可觀測性（2026 年 Q2-Q3）
+
+> **LangGraph 2026 年推出企業級 LangGraph Cloud 託管平台，提供內建監控、自動擴展與故障恢復的生產級執行環境。此同時，LangGraph 原生支援動態子代理生成——主代理可在運行時根據任務複雜度自動產生多個子代理執行平行任務，無須預先定義所有代理拓樸。LangSmith 整合深化至每一個圖節點，開發者可追蹤每次 LLM 呼叫、工具執行、狀態轉換的詳細日誌與效能指標，實現完整的代理可觀測性。此三層整合對 Roy 的專案架構帶來革命性改善——Factory Tour 導覽代理可在 LangGraph Cloud 上自動擴展，根據訪客數量動態調整子代理處理承諾；NanoClaw 威脅分析可動態生成診斷子代理分析異常，並通過 LangSmith 全面追蹤每個感測器異常檢測的決策鏈；Tunghai RAG 系統的知識檢索與驗證全程可在 LangSmith 監控，確保知識品質與回應延遲可觀測與可優化。**
+
+Sources:
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
