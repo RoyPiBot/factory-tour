@@ -1047,6 +1047,7 @@ async def health():
         total_sessions = db_stats.get("total_sessions", 0)
     except Exception:
         total_sessions = 0
+        # 資料庫查詢失敗時，回傳預設值 0，確保健康檢查端點仍可服務
 
     return HealthResponse(
         status="ok",

@@ -3771,3 +3771,14 @@ Sources:
 - [LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 204. LangGraph v1.1 型別安全與部署工具——流式傳輸、狀態機制與 CLI 自動化（2026 年 Q2）
+
+> **LangGraph 2026 年第二季發布 v1.1 版本，引入型別安全的流式傳輸（Type-Safe Streaming）與調用機制（Type-Safe Invoke），強化 Pydantic 及 dataclass 型別轉換支援。同時推出 StateSchema 機制，提供庫無關的狀態定義方式，相容 Standard JSON Schema 及 Zod、Valibot、ArkType 等主流驗證庫。LangGraph Deploy CLI 開放使用，開發者可直接從終端一鍵部署代理至 LangSmith Deployment 平台。此外，LangSmith Fleet（原 Agent Builder）新增代理身份、共享與權限管理；企業管理員可通過屬性式存取控制（ABAC）以標籤政策精細控制專案、資料集與提示詞的存取權限；成本統一視圖跨越整個工作流，不僅限 LLM 呼叫。Deep Agents v1.9.0 alpha 支援非同步子代理，使用者可在子代理背景執行時繼續互動。此版本對 Roy 的系統極為關鍵——Factory Tour 可直接部署至生產，NanoClaw 威脅分析通過屬性控制限制敏感資料存取，Tunghai RAG 可監視完整工作流成本並優化向量化成本。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
