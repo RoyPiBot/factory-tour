@@ -3782,3 +3782,13 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+
+---
+
+## 205. LangGraph Deep Agents——自主規劃與子代理編排系統（2026 年 Q2）
+
+> **LangGraph 2026 年正式推出 Deep Agents 框架，使代理能夠執行複雜的多層級任務規劃與自動化工作流。Deep Agents 提供原生的子代理編排能力，允許主代理動態生成、指派和監督子代理執行特定子任務，同時利用檔案系統與外部工具完成企業級規模的自動化工程。此架構特別適合 Roy 的 NanoClaw 威脅分析系統——可動態生成診斷子代理分析異常感測器資訊；Factory Tour 導覽代理亦可透過子代理分工實現複雜的多供應商談判流程；Tunghai RAG 系統可利用專用子代理執行知識校驗與信度評分，從而提升檢索結果的準確性與可靠度**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [10 AI Agent Frameworks You Should Know in 2026](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
