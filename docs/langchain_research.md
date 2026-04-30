@@ -3827,3 +3827,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 208. LangGraph v1.1.9 進階狀態管理與 Standard JSON Schema——庫無關驗證與運行時資源隔離（2026 年 Q2）
+
+> **LangGraph 2026 年 4 月發布 v1.1.9 維護版本，引入 ReducedValue 與 UntrackedValue 兩項關鍵特性。ReducedValue 允許開發者為累積類欄位定義自訂 Reducer，同時支援分離式輸入/輸出型別定義，實現完全的型別安全累積操作；UntrackedValue 定義執行期瞬時狀態（如資料庫連線、快取物件），不進入檢查點存儲，大幅降低持久化成本。同步完善 Standard JSON Schema 驗證庫支援，支援 Zod 4、Valibot、ArkType 等主流框架，開發者無須綁定 Pydantic 單一生態。此更新對 Roy 的三大專案特別關鍵——Factory Tour 導覽系統可透過 ReducedValue 安全累積訪客互動歷史；NanoClaw 威脅分析透過 UntrackedValue 管理感測器連線池與快取層，避免檢查點膨脹；Tunghai RAG 系統可採用 Zod 驗證知識片段，實現跨 TypeScript 與 Python 的一致性驗證架構。**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+- [LangChain - Changelog](https://changelog.langchain.com/)
