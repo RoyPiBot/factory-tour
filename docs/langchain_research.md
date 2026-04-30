@@ -2117,6 +2117,19 @@ Sources:
 
 ---
 
+## 77. Deep Agents 框架成熟與視覺理解能力突破——多模態感知與自動指令生成（2026 年 4 月）
+
+> **LangGraph 官方多代理開發框架 Deep Agents 引入視覺和音訊理解，代理可直接處理工廠影像、感應器圖表與設備儀表板，無需人工特徵提取**
+
+2026 年 4 月，LangGraph 官方 **Deep Agents** 框架實現了多模態感知能力突破。除既有的非同步子代理與檔案系統整合外，新增 **視覺理解模組**——代理可直接分析工廠或設備的即時影像（攝影機串流、儀表板截圖），自動識別異常狀況（如設備故障、流程偏差）並觸發診斷決策；同時支援 **音訊理解**——感應器告警聲可被轉錄與分析，使代理能從多感官信號協同推斷。此能力對 Roy 的 Factory Tour 與 nRF54L15 監測系統意義重大——邊界節點可直接處理攝像頭、麥克風等感應器流，無需中央伺服器的預處理步驟，大幅降低延遲並提升邊界計算的自主性。同時 Deep Agents 與 LangSmith 的整合，使複雜多模態工作流的除錯與監控透明可視，符合工業級應用的可觀測性需求。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More | Medium](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+- [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
 ## 76. LangGraph 2026 春季功能爆發——跨執行緒記憶、語義搜尋與多模型支援（2026 年 4 月）
 
 > **LangGraph 核心記憶系統升級，跨執行緒記憶與語義搜尋正式上線；Python 3.13 相容性確認；企業級檢查點加密成為標配**
