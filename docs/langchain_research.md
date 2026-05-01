@@ -3892,3 +3892,17 @@ Sources:
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 214. LangGraph v1.1 型別安全流與 Deep Agents 整合——2026 年 3 月穩定版本與自主決策進化（2026 年 Q1 最新動態）
+
+> **LangGraph v1.1 於 2026 年 3 月發布，帶來型別安全串流與 Deep Agents 深度整合，實現多層次任務編排與自主決策**
+
+LangGraph v1.1 推出業界首個完全向後相容的型別安全更新。Type-Safe Streaming 機制允許開發者透過 version="v2" 參數啟用統一的 StreamPart 輸出，每個分塊均包含 type、ns、data 鍵值，確保型別編譯器可精確追蹤流事件。Type-Safe Invoke 則提供 GraphOutput 物件，包含 .value 與 .interrupts 屬性，實現非同步工作流中的結構化中斷點管理。Backend 層面新增二進位檔案儲存支援，誤差傳播機制從後端直達工具，StateBackend 與 StoreBackend 現可直接例項化，支援自定義儲存策略。Deep Agents 與 LangGraph 的整合為 Roy 的三大專案開啟新可能——Factory Tour 系統的規劃代理可動態啟動背景子任務以並行處理多供應商談判；NanoClaw 威脅分析可利用 read_file 工具擴展支援 PDF、音訊、視訊，強化感測器異常報告的多模態診斷能力；Tunghai RAG 系統的知識檢索代理可自主決策檢索優先序與驗證策略，進一步提升大規模知識庫查詢的智能化水準。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
