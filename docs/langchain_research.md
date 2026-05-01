@@ -3857,3 +3857,14 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 211. LangGraph TypeScript 型別工具與遠端檢查點——類型安全工具編排與分散式子圖檢點（2026 年 Q1）
+
+> **LangGraph 2026 年初推出專為 TypeScript 生態強化的型別工具集，涵蓋圖節點型別推導與條件邊界的型別安全定義，大幅降低 TypeScript 開發者的型別繁瑣度。同時推出 RemoteCheckpointer 機制，支援遠端子圖檢點儲存，使分散式多代理架構中各子代理的執行狀態獨立持久化。此特性尤為關鍵——當複雜工作流中某個子代理失敗時，系統可精確復原至該子代理的檢點，無須重新執行前置節點；流式處理也得到增強，TeeStream 現支援獨立處理不同事件型別，使代理的實時回饋流更清晰高效。此雙層改進對 Roy 的三大專案極為重要——Factory Tour 導覽系統的多供應商子代理可獨立檢點，提升容錯能力；NanoClaw 威脅分析的分散式感測器診斷子代理實現無損失恢復；Tunghai RAG 的知識檢索子圖可彈性擴展，各檢索單位獨立持久化，確保大規模知識庫查詢的穩定性與可靠度**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
