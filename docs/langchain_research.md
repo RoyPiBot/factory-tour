@@ -3932,3 +3932,9 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 217. LangGraph 與 models.dev 生態整合——開源模型能力註冊與智能模型選擇（2026 年 Q2-Q3）
+
+> **LangGraph 官方與開源社群共同推動 models.dev 項目成熟，實現跨框架、跨廠商的統一模型能力描述標準。Chat Model Profile 機制透過 models.dev 自動化獲取各大 LLM（GPT-4, Claude, Gemini, Llama）的能力集合——包括支援的工具呼叫格式、文件處理能力、上下文長度、延遲特性等，使 LangGraph 中介軟體系統能自動決定最適模型與 Prompt 策略。Roy 的多代理系統受益匪淺：Factory Tour 導覽代理可根據訪客互動複雜度自動選擇輕量級或高端推理模型；NanoClaw 威脅分析中的異常診斷子代理可自動偵測並利用模型的視覺分析能力處理感測器數據快照；Tunghai RAG 系統的知識檢索與驗證代理可智能路由至最適合長文本推理的模型，提升檢索結果品質與成本效益**

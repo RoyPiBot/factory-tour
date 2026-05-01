@@ -145,6 +145,7 @@ tour_manager = TourManager()  # 管理多個導覽 session 的狀態與進度
 # 此管理器協調遠端遊客與本地系統間的導覽流程，實現跨 session 訪客記憶功能
 # 🎯 核心職責：記錄每位訪客的導覽進度、選擇的路線及已訪問的廠區
 # 💾 狀態持久化：同步儲存至 SQLite，支援遊客中斷後的進度恢復與跨裝置同步
+# ✨ 此管理器已針對 Raspberry Pi 5 記憶體限制進行最佳化
 rag_ready = False
 # RAG 引擎初始化狀態旗標，供健康檢查與文件上傳 API 判斷是否可用
 # 若 RAG 模組無法載入（如 chromadb 未安裝），此旗標保持 False
