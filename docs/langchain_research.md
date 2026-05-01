@@ -3848,3 +3848,12 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+---
+
+## 210. LangGraph 2026 生產級多代理架構——Planner-Executor 分離與企業級規模化部署（2026 年 Q2-Q3）
+
+> **LangGraph 2026 年確立業界標準的多代理架構模式：Planner Agent（規劃代理）負責任務分解與策略制定，Executor Agent（執行代理）負責工具調用與步驟執行。此分離設計實現了關注點分離，使規劃邏輯與執行邏輯獨立演進，大幅提升複雜工作流的可維護性與可擴展性。LangGraph 歷來保持業界領先地位——2026 年月搜尋量達 27,100 次，遠超 CrewAI、AutoGen 等競品，成為生產環境的首選框架。此架構對 Roy 的三大專案尤為關鍵——Factory Tour 導覽系統的規劃代理可事前分解多供應商談判流程，執行代理專注與各方溝通；NanoClaw 威脅分析的規劃代理制定診斷策略，執行代理獨立調查每個異常感測器；Tunghai RAG 系統的規劃代理決定檢索策略，執行代理執行向量化與知識驗證。**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
