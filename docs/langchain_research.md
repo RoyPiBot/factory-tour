@@ -3906,3 +3906,16 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+
+---
+
+## 215. LangGraph 2026 檢查點與生產韌性——內建狀態持久化與時光旅行除錯機制（2026 年 Q2 核心特性）
+
+> **LangGraph 2026 年確立業界領先的檢查點架構，每一步狀態轉移自動持久化，實現時光旅行除錯、人類干預與故障恢復能力**
+
+LangGraph 的內建檢查點機制為多代理系統提供了企業級的可靠性保障——每個狀態轉移均自動儲存，開發者可於任意時刻檢視與修改代理執行狀態，實現時光旅行除錯能力。Subgraph 子圖架構使多代理團隊可模組化協作，獨立分支安全平行運行且自動合併，interrupt_before 機制提供一級人類干預支援。Deep Agents 新功能賦予代理動態規劃、生成子代理、決策工具調用優先序的自主能力，強化複雜多層次任務編排。此檢查點與恢復機制對 Roy 的三大專案具關鍵意義——Factory Tour 的多供應商談判子代理可獨立檢點與復原；NanoClaw 威脅分析的分散式感測器診斷無須重新執行前置節點；Tunghai RAG 的知識檢索與驗證流程實現精確容錯與無損恢復，確保大規模知識庫系統的穩定性與可靠度。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)

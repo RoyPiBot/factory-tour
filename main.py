@@ -311,6 +311,7 @@ class ChatRequest(BaseModel):
     """對話請求模型 — 供 /chat 端點接收訪客的多語言查詢與 session 識別
 
     訊息內容會自動驗證長度與空值，確保不超過 MAX_MESSAGE_LENGTH 限制。
+    支援多語言查詢，自動路由至相應語言的 Agent 實例進行處理。
     """
     message: str
     session_id: str = "default"
