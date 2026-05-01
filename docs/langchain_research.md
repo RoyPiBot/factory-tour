@@ -3919,3 +3919,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+
+---
+
+## 216. LangGraph v1.1.11+ 模型能力偵測與動態中介軟體框架——智能重試、內容安全監測與快取優化（2026 年 Q2）
+
+> **LangGraph 2026 年中期持續強化企業級中介軟體體系，推出模型能力檢測、自動重試機制與動態內容監測，完全整合 models.dev 開源生態與 OpenAI 內容節制 API**
+
+LangGraph v1.1.11+ 新增 Chat Model Profile 機制，聊天模型透過 .profile 屬性暴露自身支援的功能與能力，驅動動態中介軟體決策。新增三大企業級中介軟體：（1）Model Retry 自動重試中介軟體支援指數退避與智能容錯，確保不穩定外部 API 呼叫的復原能力；（2）Summarization 中介軟體根據模型 profile 動態決定摘要觸發點，控制上下文膨脹；（3）OpenAI Content Moderation 中介軟體內建內容安全檢測，適合金融、醫療等高合規場景。二進位檔案存儲支援（Binary Blob）擴展 State 與 Store 後端，滿足 Roy 的 NanoClaw 威脅分析與 Tunghai RAG 多模態文件管理。StateBackend 與 StoreBackend 可直接例項化，支援完全自定義儲存策略，強化 Factory Tour 導覽系統的彈性持久化架構。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/)
