@@ -651,7 +651,7 @@ async def get_area_detail(area_name: str):
 
 @app.get("/routes")
 async def list_routes():
-    """列出導覽路線"""
+    """列出所有可用的導覽路線 — 從知識庫動態載入每條路線的名稱與廠區順序"""
     return {"routes": KNOWLEDGE.get("routes", [])}
 
 
