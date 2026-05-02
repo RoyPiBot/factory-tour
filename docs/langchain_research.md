@@ -3935,6 +3935,19 @@ Sources:
 
 ---
 
+## 218. LangGraph v1.2+ 型別安全串流與二進位檔案存儲——2026 年 Q2-Q3 生產環境強化版本（2026 年 5 月最新動態）
+
+> **LangGraph 2026 年中期推出 v1.2+ 系列更新，帶來完全的型別安全串流體驗與企業級多模態檔案存儲，進一步鞏固業界領導地位**
+
+LangGraph v1.2 引入 Type-Safe Streaming 與 Type-Safe Invoke 機制，開發者可透過 `version="v2"` 參數啟用統一的 StreamPart 輸出格式，每個串流分塊均包含 type、ns、data 鍵值，確保型別編譯器精確追蹤事件。Type-Safe Invoke 返回 GraphOutput 物件（包含 .value 與 .interrupts 屬性），實現非同步工作流中的結構化中斷管理。二進位檔案存儲支援擴展至 State 與 Store 後端，誤差傳播機制直達工具層，StateBackend 與 StoreBackend 可獨立例項化。對 Roy 的三大專案而言——Factory Tour 導覽系統可透過 Type-Safe Streaming 精確追蹤訪客互動事件流，確保談判狀態的型別安全；NanoClaw 威脅分析利用二進位檔案存儲直接保存感測器多模態數據（影像、音訊），無需轉檔開銷；Tunghai RAG 系統的知識檢索可透過 Pydantic 自動強制轉型，確保 TypeScript 與 Python 跨域驗證的一致性，提升大規模知識庫的系統穩定度與數據完整性。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
 ## 217. LangGraph 與 models.dev 生態整合——開源模型能力註冊與智能模型選擇（2026 年 Q2-Q3）
 
 > **LangGraph 官方與開源社群共同推動 models.dev 項目成熟，實現跨框架、跨廠商的統一模型能力描述標準。Chat Model Profile 機制透過 models.dev 自動化獲取各大 LLM（GPT-4, Claude, Gemini, Llama）的能力集合——包括支援的工具呼叫格式、文件處理能力、上下文長度、延遲特性等，使 LangGraph 中介軟體系統能自動決定最適模型與 Prompt 策略。Roy 的多代理系統受益匪淺：Factory Tour 導覽代理可根據訪客互動複雜度自動選擇輕量級或高端推理模型；NanoClaw 威脅分析中的異常診斷子代理可自動偵測並利用模型的視覺分析能力處理感測器數據快照；Tunghai RAG 系統的知識檢索與驗證代理可智能路由至最適合長文本推理的模型，提升檢索結果品質與成本效益**
