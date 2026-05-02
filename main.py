@@ -549,7 +549,7 @@ async def chat(req: ChatRequest):
 # 🎬 導覽開始端點 - 初始化訪客 session 與導覽路線進度追蹤
 @app.post("/tour/start")
 async def start_tour(req: TourStartRequest):
-    """開始互動式導覽"""
+    """開始互動式導覽 — 初始化訪客 session 與導覽路線進度追蹤"""
     language = (
         req.language if req.language in SUPPORTED_LANGUAGES else DEFAULT_LANGUAGE
     )
