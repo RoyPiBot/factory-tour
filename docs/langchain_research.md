@@ -4006,3 +4006,16 @@ Sources:
 > **2026 年 Agentic RAG 正式成為知識密集應用的業界標準，LangGraph 與 RAG 工作流的完全融合實現了智能檢索、多步驟驗證與動態知識融合。Roy 的 Tunghai RAG 系統可直接採用此模式，將靜態檢索升級為自主決策的智能助手**
 
 Agentic RAG（代理式檢索增強生成）在 2026 年的核心突破在於將 RAG 從被動的關鍵字匹配升級為主動的多步驟推理系統。代理可在執行時動態決定檢索策略——判斷使用者查詢的複雜度、決定檢索次數與優化檢索詞彙、驗證檢索結果的相關性、甚至在檢索失敗時自動調整知識庫索引參數。LangGraph 的 State 管理機制與 Deep Agents 子代理功能為此提供了完美的編排基礎——知識檢索代理可獨立執行向量搜尋與語義驗證，多步驟驗證代理可平行檢查檢索文檔與使用者提示的一致性，生成代理則基於驗證結果決定最終回應策略。對 Tunghai RAG 而言，此融合意味著系統可自動學習不同查詢類型的最適檢索參數，進而提升大規模學術知識庫的檢索準確度與使用者滿意度。
+
+---
+
+## 222. LangGraph 多代理協作與結構化輸出——2026 年 5 月專門化代理分工模式（2026 年最新最佳實踐）
+
+> **LangGraph 在 2026 年確立了多代理協作的業界標準範式：專門化代理之間透過結構化輸出與人類審批門檻進行協作，全棧工作流可在 20 行 Python 內完成定義，Checkpointing 機制提供暫停/檢視/恢復能力**
+
+2026 年 LangGraph 最佳實踐核心在於圖形編排模式——將複雜任務拆解為若干專門化代理（如研究代理、程式碼代理、決策監督代理），各代理透過圖的節點與邊進行結構化協作。此模式的優勢在於：（1）開發者體驗極致——一個完整的多代理系統僅需 20 行 Python 定義，包括代理初始化、狀態定義、邊界條件；（2）企業級控制——人類審批（Human-in-the-Loop）門檻可插入任意邊界，確保財務、法務、醫療等高風險決策的人類監督；（3）可觀測性與容錯——每次狀態轉移自動檢查點儲存，開發者可在任意執行點暫停、檢視中間狀態、修改並恢復，使故障診斷與除錯成為一級公民。對 Roy 的三大專案而言——Factory Tour 可搭建訪客分析代理、供應商談判代理、決策監督代理的三層網格，各層透過結構化數據流交互；NanoClaw nRF54L15 威脅分析可將感測器診斷、異常判定、報告生成分離為獨立代理，支援多模態感測器融合與人類驗證環節；Tunghai RAG 系統的知識檢索與驗證工作流可完全圖形化，實現檢索代理→驗證代理→生成代理→人類審核的四層級流水線。此模式已被 Uber、JP Morgan、BlackRock 等頭部企業驗證，成為 2026 年多代理部署的決定性標準。
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [Multi-Agent Orchestration: The Agency Workflow Playbook](https://www.digitalapplied.com/blog/multi-agent-orchestration-playbook-agency-workflows)
