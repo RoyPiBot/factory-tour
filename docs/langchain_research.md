@@ -3986,3 +3986,11 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+
+---
+
+## 221. Agentic RAG 與 LangGraph 深度融合——2026 年檢索增強生成的智能演進（2026 年最新實踐）
+
+> **2026 年 Agentic RAG 正式成為知識密集應用的業界標準，LangGraph 與 RAG 工作流的完全融合實現了智能檢索、多步驟驗證與動態知識融合。Roy 的 Tunghai RAG 系統可直接採用此模式，將靜態檢索升級為自主決策的智能助手**
+
+Agentic RAG（代理式檢索增強生成）在 2026 年的核心突破在於將 RAG 從被動的關鍵字匹配升級為主動的多步驟推理系統。代理可在執行時動態決定檢索策略——判斷使用者查詢的複雜度、決定檢索次數與優化檢索詞彙、驗證檢索結果的相關性、甚至在檢索失敗時自動調整知識庫索引參數。LangGraph 的 State 管理機制與 Deep Agents 子代理功能為此提供了完美的編排基礎——知識檢索代理可獨立執行向量搜尋與語義驗證，多步驟驗證代理可平行檢查檢索文檔與使用者提示的一致性，生成代理則基於驗證結果決定最終回應策略。對 Tunghai RAG 而言，此融合意味著系統可自動學習不同查詢類型的最適檢索參數，進而提升大規模學術知識庫的檢索準確度與使用者滿意度。
