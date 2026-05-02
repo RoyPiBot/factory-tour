@@ -3798,6 +3798,17 @@ Sources:
 
 ---
 
+## 205. Deep Agents 與後台檢查點優化——子代理非同步執行與執行緒刪除效能升級（2026 年 Q2）
+
+> **LangGraph 2026 年中期推出 Deep Agents v1.9.0 alpha 版本，首度引入真正的子代理非同步執行能力。開發者可在背景執行長期運行的子代理任務，同時父代理與使用者互動不受阻擋，使多層次代理架構在實務應用中真正達成並行計算。同時，LangGraph 於 2026 年 4 月 10 日發布後台檢查點刪除機制（Background Deletion of Checkpoints），自動非同步清理歷史檢查點，大幅降低執行緒刪除與修剪操作的 I/O 壓力，提升儲存層效能與系統整體吞吐量。此雙重改進使 Roy 的三大專案受益匪淺——Factory Tour 多層訪客協調可在背景執行複雜供應商查詢，主代理快速回應訪客；NanoClaw 威脅分析可後台執行耗時的模式萃取與異常學習，即時感測器告警保持低延遲；Tunghai RAG 知識檢索與文件索引更新可非同步進行，長期會話中的檢查點儲存不再成為瓶頸，確保大規模知識庫場景下的穩定效能。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangGraph Explained (2026 Edition) | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
 ## 205. LangGraph Deep Agents——自主規劃與子代理編排系統（2026 年 Q2）
 
 > **LangGraph 2026 年正式推出 Deep Agents 框架，使代理能夠執行複雜的多層級任務規劃與自動化工作流。Deep Agents 提供原生的子代理編排能力，允許主代理動態生成、指派和監督子代理執行特定子任務，同時利用檔案系統與外部工具完成企業級規模的自動化工程。此架構特別適合 Roy 的 NanoClaw 威脅分析系統——可動態生成診斷子代理分析異常感測器資訊；Factory Tour 導覽代理亦可透過子代理分工實現複雜的多供應商談判流程；Tunghai RAG 系統可利用專用子代理執行知識校驗與信度評分，從而提升檢索結果的準確性與可靠度**
