@@ -1099,6 +1099,18 @@ Sources:
 
 ---
 
+## 16. LangGraph 深度代理與生產級狀態管理（2026/03）
+
+> **多代理智能決策與複雜工作流**
+
+LangGraph v1.1（2026年3月）推出**深度代理（Deep Agents）**機制，使代理能夠規劃、調度子代理與檔案系統操作，進一步提升多代理系統的智能決策能力。同時後端基礎設施升級，State 與 Store 後端現可直接實例化，支援二進位檔案存儲，強化了狀態管理的靈活性與生產就緒度。此機制特別適合工廠導覽場景中涉及複雜計畫與多層級代理協調的任務，例如設備巡檢時動態決策下一步檢測流程、生成檢測報告等需長期記憶的操作。
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
 ## 16. LangGraph Deep Agents 與狀態管理最佳實踐（2026/Q2）
 
 > **代理智能化與可靠性的新里程**
