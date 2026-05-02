@@ -636,7 +636,10 @@ async def list_areas():
 
 @app.get("/areas/{area_name}")
 async def get_area_detail(area_name: str):
-    """取得特定區域詳情（支援 name 或 id）"""
+    """取得特定區域詳情（支援 name 或 id）
+
+    查詢廠區名稱或識別符，回傳該區域的完整詳細資訊供導覽使用。
+    """
     for area in KNOWLEDGE.get("areas", []):
         if area["name"] == area_name or area["id"] == area_name:
             return area

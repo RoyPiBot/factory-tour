@@ -3973,3 +3973,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [GitHub - langgraph4j/langgraph4j: 🚀 LangGraph for Java](https://github.com/langgraph4j/langgraph4j)
+
+---
+
+## 220. Deep Agents v0.5.0 Alpha——非同步子代理與多模態感測能力強化（2026 年 4 月最新釋出）
+
+> **Deep Agents v0.5.0 Alpha 帶來業界首個完全非同步的子代理架構與多模態檔案感測擴展，Roy 的 NanoClaw 威脅分析系統與 Factory Tour 供應商談判將獲得平行化處理與多感測融合的重大突破**
+
+深代理框架在 4 月推出的 v0.5.0 Alpha 版本完全重新設計了子代理執行引擎，支援非同步啟動背景任務而無需阻斷主流程——允許代理在執行中持續與使用者互動同時平行處理複雜的子任務。工具層面，read_file 工具擴展支援 PDF、音訊、視訊等多模態檔案，突破過往僅限影像的限制。此外，Anthropic 提示快取（Prompt Caching）與 Deep Agents 的深度整合，使長上下文知識檢索與複雜推理成本大幅下降。對 Roy 的三大專案的即時衝擊——NanoClaw nRF54L15 威脅分析可非同步啟動多感測器診斷子代理，同步上傳音訊、視訊異常報告而無需等待；Factory Tour 的供應商談判子代理可獨立運行複雜協商邏輯，主代理保持即時回應訪客需求；Tunghai RAG 的知識檢索工作流可動態呼叫多模態驗證子代理檢查 PDF 文檔與音視訊資源的一致性，奠定多模態知識庫的堅實基礎。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
