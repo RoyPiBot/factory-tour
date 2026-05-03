@@ -4107,3 +4107,16 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 229. LangGraph 後端升級與二進制檔案支援——2026 年企業級存儲與多模態工具整合（2026 年最新）
+
+> **LangGraph 在 2026 年強化了後端存儲架構，支援二進制檔案、改進錯誤傳播與直接後端實例化。StateBackend() 與 StoreBackend() 的生產級增強使 Roy 的三大專案能安全儲存多模態數據、精確診斷後端故障、與 Deep Agents 的檔案系統操作無縫整合，實現完整的企業級數據持久化與容錯機制。**
+
+LangGraph 在 v1.1 系列對後端存儲層的改進聚焦三大方向——（1）二進制檔案支援：狀態存儲格式升級，直接支援 PDF、音訊、視訊等多模態檔案，消除 Deep Agents 與工具層的轉換開銷；（2）錯誤傳播優化：後端異常完整傳播至工具層與代理邏輯，使故障診斷更準確；（3）後端直接實例化：StateBackend() 與 StoreBackend() 可直接初始化，開發者獲得細粒度存儲控制。對 Roy 的應用而言——NanoClaw nRF54L15 威脅分析可將多感測器原始數據直接持久化，無需中間轉換；Factory Tour 導覽系統可精確追蹤訪客互動故障點；Tunghai RAG 系統則能安全儲存 PDF 論文與多媒體補充資源，奠定多模態知識庫基礎。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)

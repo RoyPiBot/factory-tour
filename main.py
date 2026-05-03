@@ -154,6 +154,7 @@ rag_ready = False
 # 💾 此旗標在 lifespan 啟動時動態更新，確保系統正確反映 RAG 模組的就緒狀態
 # ✅ 動態狀態追蹤：確保 /health 與 /documents 端點可正確判斷 RAG 可用性
 # 🔌 感測器與 WebSocket 通信層：實現工廠即時感測器數據推送與遠端控制
+# 🎯 核心責任：模擬各廠區實時環境數據並透過 WebSocket 推送給連接的訪客
 sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 lifespan 啟動時初始化
 # 此實例負責模擬各廠區的即時環境數據（溫度、濕度、能耗），由 run_broadcast_loop 持續推送
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
