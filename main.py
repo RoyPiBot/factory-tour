@@ -605,7 +605,7 @@ async def next_stop(req: TourNextRequest):
 
 @app.get("/tour/status/{session_id}")
 async def tour_status(session_id: str):
-    """查詢導覽進度"""
+    """查詢導覽進度 — 從記憶體或資料庫回傳當前導覽狀態與訪客位置"""
     state = tour_manager.get_status(session_id)
     if state:
         return state

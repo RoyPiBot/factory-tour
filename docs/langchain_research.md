@@ -4120,3 +4120,16 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 230. LangGraph 2026 年安全更新與 CVE-2025-67644 修補——SQLite 檢查點 SQL 注入漏洞的完全修復與防禦加固（2026 年最新安全公告）
+
+> **LangGraph SQLite 檢查點實現曾存在 SQL 注入漏洞 (CVE-2025-67644)，攻擊者可透過元數據過濾器鍵操縱 SQL 查詢；LangGraph 在 2026 年已完整修補此漏洞，並強化了整個持久化層的安全驗證機制。Roy 的三大專案若使用 LangGraph Durable Execution，應立即升級至最新穩定版本以確保檢查點存儲的安全性與審計完整性。**
+
+LangGraph 在 2026 年對持久化檢查點層的安全加固包括兩大方向——（1）SQL 注入修補：元數據過濾器鍵現已完全驗證與參數化，消除直接 SQL 拼接；（2）輸入驗證強化：所有進入 StateBackend 與 StoreBackend 的狀態物件均進行類型檢查與序列化驗證，防止惡意檢查點恢復。此修補對 Roy 的應用而言格外重要——Tunghai RAG 系統儲存的學術知識檢查點與多輪對話記錄，Factory Tour 訪客互動狀態追蹤，NanoClaw nRF54L15 診斷工作流的中斷恢復，均依賴於檢查點的完整性與隔離性。建議立即升級至 v1.1.10+，並定期審計持久化存儲的訪問日誌。
+
+Sources:
+- [LangChain, LangGraph Flaws Expose Files, Secrets, Databases in Widely Used AI Frameworks](https://thehackernews.com/2026/03/langchain-langgraph-flaws-expose-files.html)
+- [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
+- [GitHub - langchain-ai/langgraph: Releases](https://github.com/langchain-ai/langgraph/releases)
