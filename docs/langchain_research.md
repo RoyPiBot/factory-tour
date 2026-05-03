@@ -4030,3 +4030,16 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
 - [Multi-Agent Orchestration: The Agency Workflow Playbook](https://www.digitalapplied.com/blog/multi-agent-orchestration-playbook-agency-workflows)
+
+---
+
+## 224. LangGraph StateSchema 與 LangGraph Studio——2026 年開發體驗的視覺化與無縛定義方式（2026 年 1-3 月最新）
+
+> **LangGraph 在 2026 年初推出 StateSchema——一套庫無關的狀態定義方式，支援標準 JSON Schema 規範與 Zod、ArkType 等驗證庫無縛整合；同時發佈 LangGraph Studio 視覺化介面，使複雜多代理工作流無需程式碼即可構建與調試。對 Roy 的三大專案而言，StateSchema 簡化了 Factory Tour、NanoClaw、Tunghai RAG 系統的狀態機設計；Studio 則提供了即時視覺化除錯與工作流推演能力，大幅降低多代理系統的學習曲線與故障診斷成本**
+
+StateSchema 的核心創新在於廢除 LangGraph 對特定驗證庫的依賴，支援任何標準 JSON Schema 相容的方案。Roy 可在 NanoClaw nRF54L15 感測器診斷系統中直接用 Zod 定義型安全的狀態轉移，無需額外的型別適配層；Factory Tour 導覽代理的訪客互動狀態亦可用 ArkType 型別系統輕鬆定義與驗證。LangGraph Studio 則是業界首個視覺化多代理設計工具——開發者可在圖形介面拖拽節點、連接邊界、即時預覽執行路徑，對執行中的代理進行逐步調試與狀態檢視，無需編寫 Python 迴圈與條件判斷。此雙層升級消除了多代理系統的開發門檻，使研究者與工程師得以快速迭代複雜工作流。
+
+Sources:
+- [GitHub - langchain-ai/langgraph: Releases](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangGraph: Agent Orchestration Framework](https://www.langchain.com/langgraph)

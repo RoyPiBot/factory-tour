@@ -486,6 +486,7 @@ async def chat(req: ChatRequest):
     """對話端點 — 支援多語言、自動重試 tool_use_failed 錯誤、持久化對話歷史與事件
 
     此端點集成 LangGraph 多智能體框架與 SQLite 事件追蹤，確保每次對話都被記錄。
+    每次對話均自動初始化與訪客相關的 WebSocket 感測器推播。
     """
     # 使用 thread_id 與 session 綁定，確保多回合對話的上下文連貫性
     language = (
