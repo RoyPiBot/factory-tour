@@ -4056,3 +4056,15 @@ Sources:
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 226. LangGraph v1.1.0 Alpha 發佈與 Interrupt 2026 大會——2026 年 5 月流式事件 v3 與 Deep Agents Deploy 公測（2026 年最新）
+
+> **LangGraph 於 2026 年 5 月 1 日發佈 v1.1.0a1 及 v1.1.0a2，引入 stream_events(version='v3') 流式事件升級、StreamChannel 到達順序交錯優化，以及新生流式轉換基礎設施。同時 LangChain 團隊於 5 月 13-14 日舉辦 Interrupt 2026 大會，正式推出 Deep Agents Deploy 公測版——企業級模型無關的開源代理執行環境。此雙層升級對 Roy 的三大專案帶來即時流事件追蹤、高效並行代理調度與零停機部署能力。**
+
+LangGraph v1.1.0 Alpha 的核心突破在於流事件處理的完全重構——stream_events(version='v3') 統一了事件序列化格式，支援對 Pregel 圖執行流程的精細粒度追蹤；StreamChannel 投影的到達順序交錯機制確保多路並行數據流不會引入非預期的事件排序偏差，特別適合 Factory Tour 導覽代理同時處理多訪客事件的場景。Deep Agents Deploy 公測版則首次提供了託管執行環境，支援模型無關的代理部署——無論使用 Claude、GPT 或開源模型，都可透過同一套可靠執行框架實現故障恢復、持久化檢查點、零停機更新，完全符合企業級 SLA 要求。
+
+Sources:
+- [Previewing Interrupt 2026: Agents at Enterprise Scale](https://blog.langchain.com/previewing-interrupt-2026-agents-at-enterprise-scale/)
+- [LangGraph Releases](https://github.com/langchain-ai/langgraph/releases)
