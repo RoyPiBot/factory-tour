@@ -4081,3 +4081,16 @@ Sources:
 - [LangGraph Documentation v1 - LangChain](https://docs.langchain.com/oss/python/releases/langgraph-v1)
 - [Install LangGraph 1.1: Setup Guide for Production Agents](https://www.qwe.edu.pl/ai-tools/install-langgraph-deployment-guide/)
 - [LangGraph Releases](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 228. LangGraph Durable Execution 與持久化檢查點——2026 年 5 月企業級容錯與記憶體管理的完整方案（2026 年最新）
+
+> **LangGraph 在 2026 年成熟的 Durable Execution 架構透過全面的持久化檢查點機制、內建記憶體管理（短期工作記憶 + 長期會話記憶）與 Deep Agents 子代理框架，確保代理執行的完全韌性與時間旅行除錯能力。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可直接利用此機制實現自動故障恢復、人類審核插介點與長時間任務的持久狀態追蹤，達成企業級 SLA 標準。**
+
+LangGraph v1.1.10 的 Durable Execution 優勢在於四層完整體系——（1）持久化檢查點：每次狀態轉移自動持久化，支援任意中斷點恢復與時間旅行除錯；（2）記憶體分層：短期工作記憶用於當前推理上下文，長期持久記憶跨越會話與任務邊界，無需外部向量資料庫；（3）人類審核整合：開發者可在圖的任意邊界插入暫停點，等待人類決策後自動繼續執行；（4）Deep Agents 子代理框架與記憶體無縫集成，支援多層級代理協作與完整的故障追蹤。此方案對 Roy 的應用帶來革命性改善——Factory Tour 導覽系統可在中斷後精確恢復訪客互動狀態；NanoClaw 威脅分析可透過多輪持久檢查點實現複雜診斷工作流；Tunghai RAG 系統的知識檢索工作流可支援數天級別的長期任務執行與完整的審計日誌。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
