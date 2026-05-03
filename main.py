@@ -295,6 +295,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     🎯 當語言不在 agent_apps 中時，加鎖並再次檢查（Double-check），防止競態條件。
     💡 此機制已優化用於 Raspberry Pi 5 的多語言 Agent 快速初始化與並發查詢場景。
     """
+    # ✨ 核心優化：使用 Double-check Locking 模式確保高效並發存取
     # 此模式避免對已初始化的 Agent 重複加鎖，提升並發效能
     # 快速路徑：檢查 agent 是否已初始化，避免不必要的鎖操作（Double-check Locking 優化）
     if language in agent_apps:

@@ -4043,3 +4043,16 @@ Sources:
 - [GitHub - langchain-ai/langgraph: Releases](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [LangGraph: Agent Orchestration Framework](https://www.langchain.com/langgraph)
+
+---
+
+## 225. LangGraph v1.1 March 2026 發佈——類型安全、Deep Agents 與節點級快取的生產級飛躍（2026 年 3 月最新）
+
+> **LangGraph v1.1 (March 2026) 推出完全類型安全的 API 與 Deep Agents 子代理框架，同時引入節點級快取機制以優化計算效率。Roy 的三大專案將受惠於類型安全流式輸出、動態子代理規劃與任務層級快取，大幅降低執行成本與開發複雜度**
+
+LangGraph v1.1 核心升級包括三層技術創新——（1）類型安全 API：type-safe streaming 與 type-safe invoke 機制透過 version="v2" 統一串流分塊格式（包含 type、ns、data 三個鍵），version="v2" 返回結構化的 GraphOutput 物件包含 .value 與 .interrupts 屬性，確保跨語言一致性；（2）Deep Agents 子代理框架：代理可動態規劃、生成子代理、利用檔案系統完成複雜企業任務，Pydantic 與 dataclass 自動強制轉型實現無縫的多模態數據流；（3）節點級快取：在工作流中個別節點的結果可被快取，消除冗餘計算並加速多輪執行。對 Roy 的應用而言——Factory Tour 導覽系統透過類型安全串流精確追蹤訪客事件並即時響應；NanoClaw nRF54L15 威脅分析可用 Deep Agents 動態規劃多感測器診斷策略，同時節點快取加速重複診斷流程；Tunghai RAG 系統的知識檢索工作流可利用節點快取避免重複的語義搜尋計算，大幅降低向量數據庫的查詢成本。此版本保持完全向後相容，為 Roy 的整個技術棧提供穩定的升級路徑。
+
+Sources:
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
