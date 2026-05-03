@@ -310,6 +310,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
                 logger.info(f"✅ Agent 初始化完成 ({language})")
             except ValueError as e:
                 raise HTTPException(503, f"Agent 初始化失敗：{e}")
+    # 返回快取中的 Agent 實例供對話端點使用
     return agent_apps[language]
 
 
