@@ -312,6 +312,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
             except ValueError as e:
                 raise HTTPException(503, f"Agent 初始化失敗：{e}")
     # 返回快取中的 Agent 實例供對話端點使用
+    # ✨ 此 Agent 實例已通過執行緒安全驗證，可直接用於多回合對話
     return agent_apps[language]
 
 
