@@ -4171,3 +4171,16 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) - Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 234. LangGraph v1.1 Type-Safe Streaming 與 Type-Safe Invoke——2026 年 3 月穩定版本的型別安全强化與Pydantic整合（2026 年最新）
+
+> **LangGraph v1.1 在 2026 年 3 月重大更新中引入完整的型別安全機制。Type-safe streaming（version="v2"）統一輸出格式為 StreamPart，每個塊包含 type、ns、data 三個欄位；Type-safe invoke（version="v2"）傳回 GraphOutput 物件，清晰區分 .value 與 .interrupts。Pydantic 和 dataclass 的自動型別轉換使 Roy 的 Factory Tour、NanoClaw nRF54L15 威脅分析與 Tunghai RAG 系統能透過強型別檢驗確保狀態流轉的完整性，消除型別不匹配導致的隱藏 bug。**
+
+LangGraph v1.1 的型別安全強化帶來三層優勢——（1）統一串流輸出格式：Type-safe streaming 透過版本選項 version="v2"，每個事件塊自動包含 type 字段（如 "on_stream_chunk"、"on_tool_start" 等），ns 命名空間與 data 載荷，消除既往不同工具層回傳格式不一致的問題；（2）結構化返回值：Type-safe invoke 傳回型別化的 GraphOutput 物件，直接存取 .value（最終狀態）與 .interrupts（暫停點列表），避免字典存取時的型別丟失；（3）自動型別轉換：Pydantic 模型與 Python dataclass 在 invoke() 與 values-mode stream 時自動轉換，開發者無需手工序列化/反序列化，型別檢查器（mypy）可提前發現狀態形狀不符。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
