@@ -4158,3 +4158,16 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows | CallSphere Blog](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 233. LangGraph Deep Agents 非同步子代理與中間件增強——2026 年中期完全異步化與可觀測性加強（2026 年最新）
+
+> **LangGraph 在 2026 年 4 月升級了 Deep Agents 框架，新增非同步子代理（async subagents）能力，用戶可在後台非阻斷執行子任務，同時繼續與主代理互動。同時強化了中間件層——摘要中間件支援靈活觸發點、模型重試中間件提供自動指數退避重試、OpenAI 內容審核中間件檢測不安全內容。Roy 的三大專案可利用非同步子代理實現多代理團隊的後台協作，同時透過新中間件確保系統的穩定性與安全性。**
+
+LangGraph Deep Agents 的非同步化與中間件增強聚焦兩大方向——（1）非同步子代理：子任務在後台並行執行，無需阻斷用戶交互，特別適合 NanoClaw nRF54L15 威脅分析需要長期背景掃描的場景；（2）增強的中間件生態：摘要中間件透過模型配置文件支援動態觸發、模型重試中間件自動處理瞬時故障、內容審核中間件防止有害輸出，使代理系統更加可靠與安全。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) - Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
