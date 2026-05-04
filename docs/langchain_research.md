@@ -4223,3 +4223,9 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 238. Agentic Engineering——LangGraph 與 LangSmith 的協調多代理工程實踐與生產驗證（2026 年 4 月實戰案例）
+
+> **Cisco 工程師團隊在 2026 年 4 月發表 Agentic Engineering 案例，展示如何透過 LangGraph 與 LangSmith 構建一個協調的多代理工程系統——將多個專門代理視為一支協作工程團隊，各自負責診斷、驗證與修復任務。生產驗證結果顯示：根本原因定位時間縮減 93%，單月節省超過 200 工程小時。此模式直接適用 Roy 的 Factory Tour（多角色導覽與即時決策）、NanoClaw nRF54L15 威脅分析（感測器診斷 × 資安檢查 × 修復驗證層級代理）與 Tunghai RAG（檢索 × 重排 × 生成的協調三層代理）。**

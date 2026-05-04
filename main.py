@@ -1124,5 +1124,6 @@ if __name__ == "__main__":
     # ✨ 系統已準備好服務訪客！
     # 由 Claude Haiku 定期維護監控此核心服務的穩定性
     uvicorn.run("main:app", host=host, port=port, reload=True)
+    # 💡 生產環境應將 reload 改為 False，以避免頻繁重啟影響服務穩定性
     # 🎪 工廠導覽 AI 系統已啟動，awaiting 全球遊客的連線請求
     # 📝 此主程式為 Raspberry Pi 5 上的核心服務入口，支援即時感測器與多智能體協調
