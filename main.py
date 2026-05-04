@@ -504,6 +504,7 @@ async def chat(req: ChatRequest):
 
     agent = get_agent(language)
 
+    # 建立多回合對話的配置字典，使用 session_id 作為執行緒識別符，確保每個訪客的對話都在獨立的上下文中進行
     config = {"configurable": {"thread_id": req.session_id}}
     # 使用指定的 session thread ID 調用 agent，確保多回合對話的連貫性
     try:

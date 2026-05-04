@@ -4184,3 +4184,16 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 235. LangGraph 條件邊路由與工作流視覺化——2026 年圖式路由決策與 LangGraph Studio 無程式開發（2026 年最新）
+
+> **LangGraph 在 2026 年透過 add_conditional_edges() 與 LangGraph Studio 視覺化工具強化了複雜工作流的構建能力。開發者可根據狀態條件動態路由至不同節點（例如：金額 < 100 元自動核准，否則轉入人類審核），無需手寫複雜的條件邏輯。LangGraph Studio 提供完全無程式的視覺化介面，允許 Roy 的 Factory Tour、NanoClaw nRF54L15 威脅分析、Tunghai RAG 系統的複雜工作流透過拖拽界面設計與視覺化除錯，大幅降低開發迭代成本與維護複雜度。**
+
+LangGraph 的條件邊與視覺化工作流設計帶來三層實踐優勢——（1）條件路由簡化：add_conditional_edges() 支援基於狀態欄位的動態節點轉移，開發者可在邊定義中直接指定路由條件函數，無需在節點內部埋入分支邏輯，提昇圖的可讀性與可測試性；（2）工作流工具鏈完善：LangGraph Studio 提供完全圖編輯、實時狀態追蹤與單步除錯，使非程式背景的業務分析師能參與工作流設計與驗證；（3）模式庫成熟：2026 年已積累的工作流模式包括工具迴圈（Tool Loop）、分層代理（Hierarchical Agents）、路由迴圈（Routing Loop）等，Roy 的三大應用可直接套用經驗證的模式。
+
+Sources:
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows | CallSphere Blog](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
