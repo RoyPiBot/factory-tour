@@ -4197,3 +4197,16 @@ Sources:
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows | CallSphere Blog](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 236. LangGraph Deep Agents 多模態檔案處理與非同步子代理協作——2026 年 5 月 PDF/音訊/視訊整合與後台工作流管理（2026 年最新）
+
+> **LangGraph 在 2026 年 5 月進一步成熟了 Deep Agents 框架，新增完整的多模態檔案支援——read_file 工具現已原生支援 PDF、音訊與視訊檔案，無需額外轉換層。配合非同步子代理（async subagents）機制，Roy 的三大專案可在後台並行處理複雜多媒體任務，同時保持主代理與使用者的實時互動——Factory Tour 導覽系統可邊向訪客講解邊背景分析 PDF 論文資料；NanoClaw nRF54L15 威脅分析可同時掃描多個感測器日誌檔；Tunghai RAG 系統可即時索引新上傳的研究論文與補充資源。**
+
+多模態檔案支援與非同步子代理的協同優勢——（1）原生多媒體處理：read_file 統一介面直接解析 PDF（提取文字與結構）、音訊（轉錄與情感分析）與視訊（幀提取與物體偵測），消除格式轉換開銷；（2）非阻斷後台任務：異步子代理在邊緣執行或雲端執行而不阻斷主代理，使用者得到低延遲響應，複雜分析工作並行進行；（3）完整審計追蹤：所有子代理執行透過中央狀態檢查點記錄，長期任務中斷後可從精確位置恢復。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangChain - Changelog](https://changelog.langchain.com/)
