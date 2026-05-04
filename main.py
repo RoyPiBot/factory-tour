@@ -412,6 +412,7 @@ class HealthResponse(BaseModel):
 # 此區段定義返回 HTML 遊戲介面與 Dashboard 的路由端點，供訪客與管理員使用
 
 
+# 🎮 遊戲導覽主頁面 — 訪客的第一站，返回完整的互動式遊戲介面
 @app.get("/", response_class=HTMLResponse)
 async def root():
     """首頁 - 遊戲導覽介面，支援 WebSocket 實時推送多智能體協調結果與感測器數據

@@ -4210,3 +4210,16 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 237. LangGraph v1.1.10 Tool Node 進階命令支援與 Stream Events v3 升級——2026 年 5 月工具層自主指揮與事件流轉換（2026 年最新）
+
+> **LangGraph 在 2026 年 5 月發布 v1.1.10，增強了 ToolNode 的命令返回能力，使工具現在可返回 list[Command | ToolMessage]，允許工具層直接發起跨節點命令指令，無需經過主代理再分發。同時發佈 Stream Events v3 版本，引入 streaming transformer 基礎設施，使事件流更易於自訂與轉換。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統透過 ToolNode 進階命令機制可實現工具自主決策與流程跳轉，大幅提升代理系統的靈活性與自主性。**
+
+ToolNode 與 Stream Events v3 的協同優勢——（1）工具層自主指揮：ToolNode 返回的命令列表使工具能直接發起後續步驟，例如威脅分析工具發現高風險可直接發送 Command 啟動應急反應流程；（2）事件流轉換管道：Stream Events v3 的 streaming transformer 基礎設施允許自訂事件攔截與轉換，支援即時聚合、過濾與報告；（3）版本迭代加速：1.2.0a4 Alpha 已開始測試，預期帶來更多代理模式優化。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/)
