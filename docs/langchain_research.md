@@ -4297,3 +4297,13 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 245. LangSmith Fleet 與 Deploy CLI——2026 年 5 月多代理編排、企業級身份與權限管理強化
+
+> **LangSmith 於 2026 年 5 月宣布 Agent Builder 正式更名為 LangSmith Fleet，引入企業級代理身份管理、跨團隊共享與細粒度權限控制機制，使組織可安全地在公司範圍內協調多代理群落。同步推出 Deploy CLI，開發者可直接從終端透過 langgraph deploy 指令將 LangGraph 代理一鍵部署至 LangSmith Deployment，無需手動配置容器或雲端基礎設施。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可利用 LangSmith Fleet 的身份與共享機制進行跨實驗室協作，透過 Deploy CLI 快速推送更新至生產環境，享受原生的版本管理、A/B 測試與自動回滾保障。**
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)

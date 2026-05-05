@@ -138,6 +138,7 @@ TEMPLATES_DIR = BASE_DIR / "templates"
 
 # ─── 全域變數 ───
 # 核心系統狀態管理：多語言 Agent 快取、導覽進度追蹤、感測器連線與 RAG 引擎狀態
+# 🎯 此區段存儲所有運行時的可變狀態，由 lifespan 與各 API 端點協調讀寫，確保訪客體驗連貫一致
 agent_apps: dict = {}  # language -> agent_app。使用懶加載策略，首次請求特定語言時才初始化，節省 Pi 記憶體
 # 💡 此設計確保應用啟動時無需初始化所有語言版本，大幅減少 Raspberry Pi 5 的記憶體與時間開銷
 _agent_lock = threading.Lock()  # 保護 agent_apps 的並發初始化，避免多執行緒重複建立相同語言的 Agent，採用 Double-check Locking 優化並發效能
