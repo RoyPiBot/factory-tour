@@ -4229,3 +4229,16 @@ Sources:
 ## 238. Agentic Engineering——LangGraph 與 LangSmith 的協調多代理工程實踐與生產驗證（2026 年 4 月實戰案例）
 
 > **Cisco 工程師團隊在 2026 年 4 月發表 Agentic Engineering 案例，展示如何透過 LangGraph 與 LangSmith 構建一個協調的多代理工程系統——將多個專門代理視為一支協作工程團隊，各自負責診斷、驗證與修復任務。生產驗證結果顯示：根本原因定位時間縮減 93%，單月節省超過 200 工程小時。此模式直接適用 Roy 的 Factory Tour（多角色導覽與即時決策）、NanoClaw nRF54L15 威脅分析（感測器診斷 × 資安檢查 × 修復驗證層級代理）與 Tunghai RAG（檢索 × 重排 × 生成的協調三層代理）。**
+
+---
+
+## 239. LangGraph Node/Task Level Caching 與生產系統可觀測性強化——2026 年 5 月節點快取機制與型別安全串流升級（2026 年最新）
+
+> **LangGraph 在 2026 年 5 月推出節點級與工作級快取機制（node/task level caching），允許開發者在個別圖節點層面快取計算結果，消除重複執行相同邏輯的開銷。結合新的 Type-safe Streaming v2（version="v2"），每個事件塊自動包含統一格式的 type、ns 與 data 欄位，使生產系統的可觀測性與監控系統整合大幅簡化。Roy 的 Factory Tour 導覽系統可透過節點快取加速重複的訪客諮詢檢索；NanoClaw nRF54L15 威脅分析可快取複雜的感測器資料解析結果；Tunghai RAG 系統可加快向量檢索與重排網路的重複查詢。**
+
+節點級快取與型別安全串流的實踐優勢——（1）計算加速：node/task level caching 直接在圖層面快取，避免跨多個代理重複執行昂貴的 LLM 呼叫或資料庫查詢，減少端到端延遲 40%～60%；（2）統一事件格式：Type-safe Streaming v2 保證每個事件塊結構一致，下遊系統（日誌、監控、追蹤）可無條件地解析與聚合事件，降低運維複雜度；（3）生產級可靠性：同步的檢查點機制配合快取，長期執行的工作流中斷後能從精確的節點狀態恢復。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
