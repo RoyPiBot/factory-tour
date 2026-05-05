@@ -4253,3 +4253,14 @@ Sources:
 - [LangGraph Overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 241. LangGraph v1.1.3 市場領導與企業認證——2026 年 3 月深層代理範本、分散式執行時與 GitHub Star 超越（2026 年最新）
+
+> **LangGraph 在 2026 年 3 月 30 日發布 v1.1.3，正式推出深層代理範本（Deep Agent Templates）與分散式執行時支援，並首次納入 LangGraph CLI 的分散式執行協調功能。同期數據顯示 LangGraph 已在 GitHub Stars 上超越 CrewAI，成為 2026 年最多企業與開發者採用的多代理框架。LangGraph 與 AutoGen 並列為市場上僅有的兩個獲得企業級認證的框架（含公有 SaaS 產品 SLA 保證），月度搜尋量達 27,100 次，領先第二名超過 50%。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統透過 v1.1.3 的深層代理範本可快速部署到生產環境，享受官方的執行時優化與故障恢復保障。**
+
+Sources:
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+- [Definitive Guide to Agentic Frameworks in 2026](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+- [State of Agent Engineering - LangChain](https://www.langchain.com/state-of-agent-engineering)

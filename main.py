@@ -162,6 +162,7 @@ ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推
 # 此管理器支援高併發多 session 連線，確保感測器數據的即時可靠推送
 
 # 防止惡意客戶端濫用 API 配額，同時保護系統記憶體與 Groq API 的穩定性
+# 💬 此設定由 Claude Haiku 在 Raspberry Pi 5 上持續監控與最佳化
 MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度 — 防止過長訊息造成 Groq API 配額超支與系統回應延遲
 # 此限制適用於所有多語言導覽對話，確保系統穩定性與成本控制
 # 🚀 此設定由 Claude Haiku 在 Raspberry Pi 5 上自動監控與優化
