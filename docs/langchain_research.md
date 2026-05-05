@@ -4275,3 +4275,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 243. LangGraph 優雅關閉與檢查點恢復、中斷流程整合——2026 年 5 月長執行工作流韌性與狀態管理強化
+
+> **LangGraph 在 2026 年 5 月推出優雅關閉（Graceful Shutdown）機制，允許開發者在執行中的圖停止當前超步驟後安全中斷，並將可恢復檢查點自動保存。同時強化了中斷流程的整合，使 .invoke() 與 "values" 串流模式現可直接返回中斷狀態，毋須額外呼叫 getState()。這對 Roy 的長時間工作流至關重要——Factory Tour 導覽在停機前可保存訪客互動狀態，NanoClaw nRF54L15 威脅分析可在感測器掃描中途暫停並繼續，Tunghai RAG 系統的索引作業可中斷後從精確位置恢復，大幅降低計算與網路成本。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows | CallSphere Blog](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
