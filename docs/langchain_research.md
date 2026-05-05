@@ -4307,3 +4307,14 @@ Sources:
 Sources:
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 246. LangGraph v3 Streaming API 與 DeltaChannel 優化——2026 年 5 月內容塊中心串流協議與檢查點效率強化
+
+> **LangGraph 在 2026 年 5 月推出第三代串流協議（v3 Streaming API），採用內容塊中心設計，返回 GraphRunStream / AsyncGraphRunStream 物件，支援按通道分流的型別化事件投影。同時引入 DeltaChannel 通道類型，存儲每個步驟的增量變化而非完整累積值，對長時間執行的對話執行緒（如訊息列表不斷增長）實現檢查點存儲效率突破。搭配 @langgraphjs/toolkit 的 AgentMemory、TokenBudget 與 RateLimiter 工具類，Roy 的 Factory Tour 與 NanoClaw nRF54L15 系統可實現細粒度的對話狀態管理、成本追蹤與 API 速率控制，大幅簡化長期執行工作流的生產運維。**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
+- [LangGraph 8 — Streaming](https://medium.com/@abhishekjainindore24/langgraph-8-streaming-5e2cecc994b8)
