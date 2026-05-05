@@ -4286,3 +4286,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows | CallSphere Blog](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
+
+---
+
+## 244. Type-Safe Streaming v2/v3 與 JavaScript 改進——2026 年 5 月 API 穩定性與跨語言支援強化
+
+> **LangGraph 在 2026 年 5 月推出 Type-Safe Streaming v2/v3 雙版本協議。v2 保證每個串流事件包含統一的 type、ns、data 鍵結構，開發者可匯入 langgraph.types 中的 TypedDict 進行靜態型別檢查；v3 則採用新的內容塊中心串流協議，返回 GraphRunStream / AsyncGraphRunStream 對象，支援按通道分流的型別化事件。同步引入 Type-safe invoke() / ainvoke()，返回含 .value 與 .interrupts 屬性的 GraphOutput 對象。JavaScript v0.3 中 .stream() 方法現已完全型別安全，依據 streamMode 返回狀態更新與值。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統的下遊監控、日誌聚合與事件追蹤系統可無條件地解析與處理 Type-safe 事件，大幅簡化運維複雜度與系統集成工作。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)

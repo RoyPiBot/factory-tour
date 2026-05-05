@@ -306,6 +306,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     # ✨ 核心優化：使用 Double-check Locking 模式確保高效並發存取
     # 此模式避免對已初始化的 Agent 重複加鎖，提升並發效能
     # 快速路徑：檢查 agent 是否已初始化，避免不必要的鎖操作（Double-check Locking 優化）
+    # 💡 首先嘗試無鎖快速查詢，大幅減少上鎖開銷與競態條件
     if language in agent_apps:
         return agent_apps[language]
     with _agent_lock:
