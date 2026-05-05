@@ -350,6 +350,7 @@ class ChatResponse(BaseModel):
 
     此模型是 /chat 端點的標準回應格式，確保前端能正確解析多智能體的回應與執行狀態。
     欄位：reply (AI 生成回覆)、session_id (訪客會話識別符)、agent_name (執行 Agent 名稱，可為 None)。
+    🤖 前端可根據 agent_name 判斷回覆來自哪個 Agent，用於統計與多 Agent 協調追蹤。
     """
     reply: str
     session_id: str

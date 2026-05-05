@@ -4264,3 +4264,14 @@ Sources:
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [Definitive Guide to Agentic Frameworks in 2026](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
 - [State of Agent Engineering - LangChain](https://www.langchain.com/state-of-agent-engineering)
+
+---
+
+## 242. LangGraph 進階超時與錯誤處理、模型配置文件與中介軟體強化——2026 年 5 月生產穩定性升級與模型能力框架
+
+> **LangGraph 在 2026 年 5 月推出進階超時與錯誤處理機制，開發者可在 add_node() 時傳入 timeout 參數設定單一節點的執行上限，支援硬性時牆（run_timeout）與閒置限制（idle_timeout）雙重策略，超時時自動拋出 NodeTimeoutError 並清除該次嘗試的寫入，交由重試政策處理。同時引入模型配置文件（model profiles）機制，Chat Models 現可暴露支援的功能與能力，配合新增的自動重試中介軟體（含指數退避策略）與 OpenAI 內容審核中介軟體，使 Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統能自動因應模型故障與內容安全風險，大幅提昇生產環境的韌性與可靠性。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
