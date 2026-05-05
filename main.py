@@ -133,7 +133,7 @@ logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 # 初始化應用根目錄與模板目錄的路徑配置，支援靜態資源與 HTML 模板的正確載入
 # 此設定確保 main.py 運行時能正確定位專案內的所有資源檔案
 # 🎯 此機制防止 Pi 上的路徑錯誤，確保 templates/ 與 static/ 目錄可被正確存取
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent  # 🌳 專案根目錄 — 所有相對路徑的基準點
 TEMPLATES_DIR = BASE_DIR / "templates"
 
 # ─── 全域變數 ───

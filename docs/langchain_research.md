@@ -4242,3 +4242,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 240. Deep Agents 與 MCP 整合——LangGraph 2026 次代多層代理架構與模型上下文協議標準化（2026 年 5 月最新）
+
+> **LangGraph 在 2026 年推出 Deep Agents 功能，允許代理層級的嵌套與規劃，使開發者能建構計畫→子代理→檔案系統協調的多層次系統。同時正式推薦 MCP（Model Context Protocol）作為 2026 年代理系統的標準整合通道，與 LangSmith 搭配提供端到端的跨節點執行追蹤與生產除錯。Roy 的 Factory Tour 導覽與 NanoClaw nRF54L15 威脅分析可透過 Deep Agents 實現嵌套的子任務規劃與動態工作流。**
+
+Sources:
+- [LangGraph Overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
