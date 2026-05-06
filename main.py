@@ -259,6 +259,7 @@ async def lifespan(app: FastAPI):
 
     yield
 
+    # 應用關閉時清理資源 — 關閉感測器任務與 WebSocket 連線，釋放系統記憶體
     # 清理
     sensor_task.cancel()
     try:

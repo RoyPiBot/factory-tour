@@ -2066,6 +2066,17 @@ Sources:
 
 ---
 
+## 250. LangGraph 型別安全串流 v3 與非同步子代理——2026 年 5 月內容塊中心協議、節點超時與並發後台任務
+
+> **LangGraph 在 2026 年 5 月推出 v3 內容塊中心串流協議，使用型別化事件取代舊式字典結構，返回 GraphRunStream / AsyncGraphRunStream 物件實現細粒度的按通道串流投影。新增 timeout 參數支援節點級執行時上限（包括 run_timeout 牆鐘限制與 idle_timeout 閒置偵測），超時自動觸發重試機制。同時強化非同步子代理架構，支援啟動非阻斷背景工作讓代理繼續互動；錯誤處理器接收 NodeError 型別化例外，可返回 Command 路由至補償節點。搭配 v2 的型別安全 invoke 與 .value / .interrupts 屬性，Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可實現可靠、可追蹤的長期執行多代理編排，降低生產環境故障風險。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 74. 開放代理平臺與本地 Studio——無代碼建造與實時除錯（2026 年）
 
 > **LangChain 推出 Open Agent Platform 與本地 LangGraph Studio v2，降低代理開發門檻，提升企業級可視化除錯能力**
@@ -2098,6 +2109,17 @@ Sources:
 2026 年，LangGraph v1.1 推出 **Pre/Post Model Hooks** 機制，開發者可在模型呼叫的前後階段註冊自訂函式，實現靈活的干預與增強邏輯。**Pre-Model Hook** 在模型接收輸入前執行，用途包括：自動檢測上下文是否過度膨脹並精簡、追蹤模型入參的 token 消耗、插入合規性檢查與提示詞強化；**Post-Model Hook** 在模型輸出後執行，用途包括：自動評估生成內容的品質與相關性、插入人機審批暫停點、動態調整後續推理路徑。與 LangSmith 集成後，所有 Hook 的執行記錄均被持久化，開發者可在監控儀表板觀察模型調用的完整生命週期，精準定位成本超支或品質下降的節點。對 Roy 的 Factory Tour 與 nRF54L15 邊界系統而言，此特性意味著可在感應器數據驅動的決策迴圈中自動控制 LLM 的過度思考，同時透過 Post-Hook 動態調整警告級別，實現經濟高效且可信賴的邊界智能化。
 
 Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 250. LangGraph 型別安全串流 v3 與非同步子代理——2026 年 5 月內容塊中心協議、節點超時與並發後台任務
+
+> **LangGraph 在 2026 年 5 月推出 v3 內容塊中心串流協議，使用型別化事件取代舊式字典結構，返回 GraphRunStream / AsyncGraphRunStream 物件實現細粒度的按通道串流投影。新增 timeout 參數支援節點級執行時上限（包括 run_timeout 牆鐘限制與 idle_timeout 閒置偵測），超時自動觸發重試機制。同時強化非同步子代理架構，支援啟動非阻斷背景工作讓代理繼續互動；錯誤處理器接收 NodeError 型別化例外，可返回 Command 路由至補償節點。搭配 v2 的型別安全 invoke 與 .value / .interrupts 屬性，Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可實現可靠、可追蹤的長期執行多代理編排，降低生產環境故障風險。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 
@@ -2236,6 +2258,17 @@ Sources:
 2026 年 4 月，LangGraph 官方發布週期正式穩定化為三週迴圈制，第二週發布補丁版本，確保 Roy 的 Raspberry Pi 5 環境持續獲得安全更新與效能改善。同時 Python 3.14 完全相容驗證確認，邊界監測系統可長期部署於最新 Python 運行時，享受 JIT 編譯優化與更佳的非同步 I/O 性能。Official Changelog 記錄每週增量更新，包括新增 MCP (Model Context Protocol) 整合、增強型錯誤診斷工具，確保 Factory Tour 與 nRF54L15 邊界架構可精確追蹤代理決策路徑與成本分配。
 
 Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 250. LangGraph 型別安全串流 v3 與非同步子代理——2026 年 5 月內容塊中心協議、節點超時與並發後台任務
+
+> **LangGraph 在 2026 年 5 月推出 v3 內容塊中心串流協議，使用型別化事件取代舊式字典結構，返回 GraphRunStream / AsyncGraphRunStream 物件實現細粒度的按通道串流投影。新增 timeout 參數支援節點級執行時上限（包括 run_timeout 牆鐘限制與 idle_timeout 閒置偵測），超時自動觸發重試機制。同時強化非同步子代理架構，支援啟動非阻斷背景工作讓代理繼續互動；錯誤處理器接收 NodeError 型別化例外，可返回 Command 路由至補償節點。搭配 v2 的型別安全 invoke 與 .value / .interrupts 屬性，Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可實現可靠、可追蹤的長期執行多代理編排，降低生產環境故障風險。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 
@@ -4347,5 +4380,16 @@ Sources:
 > **LangGraph v1.2+ 引入企業級錯誤處理框架，支援節點級重試政策（max_attempts）與自定義錯誤處理器，在連線失敗、暫時性故障時自動恢復而無需中止整個工作流。錯誤處理器接收型別化 NodeError（含節點名稱與例外），可返回 Command 更新狀態並路由至不同節點，實現 Saga/補償模式進行優雅故障恢復。v1.2 起 TypeScript 已完全支援所有特性，包括型別安全的串流、重試策略與補償流程。Roy 的 NanoClaw nRF54L15 監控、Factory Tour 編排與 Tunghai RAG 系統可利用此機制實現長期執行的自動故障恢復，大幅提升系統可靠性。**
 
 Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 250. LangGraph 型別安全串流 v3 與非同步子代理——2026 年 5 月內容塊中心協議、節點超時與並發後台任務
+
+> **LangGraph 在 2026 年 5 月推出 v3 內容塊中心串流協議，使用型別化事件取代舊式字典結構，返回 GraphRunStream / AsyncGraphRunStream 物件實現細粒度的按通道串流投影。新增 timeout 參數支援節點級執行時上限（包括 run_timeout 牆鐘限制與 idle_timeout 閒置偵測），超時自動觸發重試機制。同時強化非同步子代理架構，支援啟動非阻斷背景工作讓代理繼續互動；錯誤處理器接收 NodeError 型別化例外，可返回 Command 路由至補償節點。搭配 v2 的型別安全 invoke 與 .value / .interrupts 屬性，Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可實現可靠、可追蹤的長期執行多代理編排，降低生產環境故障風險。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
