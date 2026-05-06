@@ -4414,3 +4414,14 @@ Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 252. LangGraph 節點級快取與中斷整合強化——2026 年 5 月計算加速與工作流控制優化
+
+> **LangGraph 在 2026 年 5 月推出節點級快取機制（Node-Level Caching），開發者可將個別節點的運算結果快取起來，消除重複執行的冗余計算，顯著加速包含迴圈或重複任務的長期工作流執行速度。同步強化了中斷流程整合，JavaScript v0.3 中 .invoke() 與 "values" 串流模式現已直接返回中斷狀態（interrupts），毋須額外呼叫 getState()，簡化了客戶端邏輯。Roy 的 Factory Tour 導覽系統可利用節點快取避免重複查詢訪客歷史與位置資訊，NanoClaw nRF54L15 與 Tunghai RAG 系統的重複查詢（如熱門文件檢索）可直接命中快取，大幅提升回應速度與降低 API 成本。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
