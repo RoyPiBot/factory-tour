@@ -4328,3 +4328,14 @@ Sources:
 Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 248. LangGraph 1.0 生產穩定版——協調運行排水與人類在循環中第一類 API 支持
+
+> **LangGraph 於 2026 年 5 月達成首個穩定主版本 1.0，已在 Uber、LinkedIn 與 Klarna 等企業級規模運作，標誌著代理框架進入生產級可靠性時代。LangGraph 1.0 引入協調運行排水（Cooperative run draining）機制，允許在當前超步驟完成後優雅停止飛行中的代理任務並保存可恢復檢查點，無需粗暴終止；同步提升人類在循環中（Human-in-the-loop）模式為第一類 API 支持，原生提供代理執行暫停、人工審核修改與批准流程的端對端協調能力。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可直接利用這些生產級特性實現細粒度的長期執行工作流容錯、人類介入審核等關鍵需求，顯著降低運維成本與出錯風險。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)

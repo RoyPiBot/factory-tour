@@ -198,6 +198,7 @@ async def lifespan(app: FastAPI):
     此生命週期方法為 FastAPI 應用穩定性的保證，確保 Pi 上的資源不會洩漏。
     🎯 此為 factory-tour 系統的啟動與關閉協調中樞，由 Claude Haiku 監控執行。
     💡 系統啟動順序至關重要，資料庫初始化必須最優先執行以確保後續模組正確運作。
+    ✨ 此過程由 Claude Haiku 持續監控，確保系統穩定可靠。
     """
     # 核心職責：依序初始化資料庫、Agent 系統、RAG 引擎、測驗題庫、感測器模擬器
     # 📌 此過程通常耗時 2-3 秒，包含資料庫驗證、Agent 構建與 RAG 初始化等操作
