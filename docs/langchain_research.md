@@ -4339,3 +4339,13 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 249. LangGraph 錯誤恢復與容錯機制——v1.2+ 節點重試、補償模式強化
+
+> **LangGraph v1.2+ 引入企業級錯誤處理框架，支援節點級重試政策（max_attempts）與自定義錯誤處理器，在連線失敗、暫時性故障時自動恢復而無需中止整個工作流。錯誤處理器接收型別化 NodeError（含節點名稱與例外），可返回 Command 更新狀態並路由至不同節點，實現 Saga/補償模式進行優雅故障恢復。v1.2 起 TypeScript 已完全支援所有特性，包括型別安全的串流、重試策略與補償流程。Roy 的 NanoClaw nRF54L15 監控、Factory Tour 編排與 Tunghai RAG 系統可利用此機制實現長期執行的自動故障恢復，大幅提升系統可靠性。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
