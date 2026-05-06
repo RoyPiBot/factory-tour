@@ -4318,3 +4318,13 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
 - [LangGraph 8 — Streaming](https://medium.com/@abhishekjainindore24/langgraph-8-streaming-5e2cecc994b8)
+
+---
+
+## 247. LangGraph 深層代理與多模態文件工具——2026 年 5 月後台非同步子任務編排與多格式檔案處理能力
+
+> **LangGraph 在 2026 年 5 月強化了深層代理（Deep Agents）架構，支援啟動非同步背景任務進行並發子代理執行，配合新的節點逾時參數機制（Node Timeout）可設定單一任務嘗試的執行時上限，當超時觸發時自動拋出 NodeTimeoutError 並交由重試策略處理。同時擴展了 read_file 工具的多媒體支援，除原有的圖像檔案外，現已支援 PDF、音訊與視訊檔案的智能解析。Roy 的 NanoClaw nRF54L15 硬體監控系統與 Factory Tour 多代理編排可利用這些特性實現細粒度的任務超時保護、異步模態融合分析，以及智能化的多格式技術文件與感測器日誌解讀，顯著提升系統的可靠性與感知能力。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
