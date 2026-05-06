@@ -257,6 +257,7 @@ async def lifespan(app: FastAPI):
     sensor_task = asyncio.create_task(run_broadcast_loop(sensor_sim, ws_manager))
     logger.info("✅ 感測器模擬器已啟動")
 
+    # ✨ 系統初始化完成，所有資源就緒，準備接受訪客連線請求
     yield
 
     # 應用關閉時清理資源 — 關閉感測器任務與 WebSocket 連線，釋放系統記憶體

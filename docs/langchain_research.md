@@ -4098,6 +4098,18 @@ Sources:
 
 LangGraph v1.1 核心升級包括三層技術創新——（1）類型安全 API：type-safe streaming 與 type-safe invoke 機制透過 version="v2" 統一串流分塊格式（包含 type、ns、data 三個鍵），version="v2" 返回結構化的 GraphOutput 物件包含 .value 與 .interrupts 屬性，確保跨語言一致性；（2）Deep Agents 子代理框架：代理可動態規劃、生成子代理、利用檔案系統完成複雜企業任務，Pydantic 與 dataclass 自動強制轉型實現無縫的多模態數據流；（3）節點級快取：在工作流中個別節點的結果可被快取，消除冗餘計算並加速多輪執行。對 Roy 的應用而言——Factory Tour 導覽系統透過類型安全串流精確追蹤訪客事件並即時響應；NanoClaw nRF54L15 威脅分析可用 Deep Agents 動態規劃多感測器診斷策略，同時節點快取加速重複診斷流程；Tunghai RAG 系統的知識檢索工作流可利用節點快取避免重複的語義搜尋計算，大幅降低向量數據庫的查詢成本。此版本保持完全向後相容，為 Roy 的整個技術棧提供穩定的升級路徑。
 
+---
+
+## 226. LangGraph 節點超時與錯誤恢復機制——2026 年可靠性工程的關鍵基礎（2026 年最新功能）
+
+> **LangGraph 2026 年強化了節點級的超時控制與錯誤恢復機制，支援牆鐘時限與閒置時限的雙層超時管理，故障節點自動清除寫入狀態並觸發重試策略。此機制對 Roy 的多代理系統至關重要——確保 Factory Tour 導覽、NanoClaw 威脅分析、Tunghai RAG 檢索等長期執行任務在面臨網路波動或模型遲延時的自動恢復能力，從而保障 Pi 設備上的多代理應用的 7×24 穩定運行。**
+
+LangGraph 的超時與錯誤恢復機制支援兩種時限類型——硬牆鐘限制（確保節點不超過絕對時間）與閒置限制（偵測無進度的情況），當超時觸發時拋出 NodeTimeoutError、清除該嘗試的所有寫入狀態，並自動將控制權交予重試策略。此設計確保故障節點不會污染全局狀態，下一次重試可在乾淨的狀態基礎上進行。對 Roy 的應用而言，此機制解決了 Pi 設備上長期多代理任務的穩定性問題——Factory Tour 的訪客談判代理若因網路抖動延遲超時，系統自動恢復而不會留下孤立狀態；NanoClaw 的感測器診斷代理若模型推理卡頓，超時機制立即介入並重新排隊，避免資源洩漏；Tunghai RAG 的知識檢索在面臨向量數據庫延遲時亦能自動降級與恢復，確保用戶查詢的最終完成率。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
 Sources:
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
