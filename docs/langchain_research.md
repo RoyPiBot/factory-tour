@@ -4405,3 +4405,12 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+## 251. LangGraph 與 MCP 整合——2026 年多代理統一工具協議與動態能力發現
+
+> **LangGraph 的狀態圖執行引擎與 Anthropic 的模型上下文協議（MCP）實現深度整合，使圖中的每個代理節點可動態連接到 web 式 MCP 伺服器，取得版本化、即時網路可存取的工具集。LangGraph 提供確定性的圖形編排、檢查點與人工干預支援，MCP 伺服器提供統一的工具界面與動態能力發現，兩者結合形成生產級多代理系統的完整基礎設施。Roy 的 Factory Tour 導覽系統、NanoClaw nRF54L15 威脅分析與 Tunghai RAG 問答系統可利用此整合在圖形節點間無縫共享動態工具，實現真正的異構代理協作與跨域能力組合，大幅簡化多代理系統的架構設計與工具維護成本。**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
