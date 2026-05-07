@@ -4469,3 +4469,14 @@ Sources:
 - [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+
+---
+
+## 256. LangGraph 型別化錯誤處理與彈性復原框架——2026 年 5 月企業級異常管理與合作式運行控制
+
+> **LangGraph 在 2026 年 5 月完整推出企業級錯誤處理層，開發者可定義型別化錯誤處理器（Typed Error Handlers），接收包含失敗節點名稱與例外物件的 NodeError，從而通過補償模式（Compensation Patterns）實現自動恢復而非中止整個工作流。同時引入合作式運行控制（Cooperative Run Control），允許使用者在圖執行中途以檢查點形式暫停，保存可恢復的狀態快照，日後無縫從中斷點重啟圖執行，徹底消除長期多代理任務的單點失敗風險。新增 Pydantic 自動強制轉換支援，invoke() 輸出可直接映射到使用者定義的模型，簡化序列化邏輯。Roy 的 Factory Tour 遭逢資料源失敗時可自動轉向備用資源；NanoClaw nRF54L15 通訊中斷可自動重試；Tunghai RAG 檢索逾時可降級至輕量級回應，三大系統整體可靠性與延續性大幅提升。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)

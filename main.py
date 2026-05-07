@@ -339,6 +339,7 @@ class ChatRequest(BaseModel):
     訊息內容會自動驗證長度與空值，確保不超過 MAX_MESSAGE_LENGTH 限制。
     支援多語言查詢，自動路由至相應語言的 Agent 實例進行處理。
     🔧 驗證邏輯由 message_not_empty_or_too_long 負責，確保所有輸入符合安全規範。
+    💡 此模型已整合 Pydantic 欄位驗證機制，保護系統免於惡意輸入。
     """
     message: str
     session_id: str = "default"
