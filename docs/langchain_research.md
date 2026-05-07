@@ -4491,3 +4491,14 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [10 AI Agent Frameworks You Should Know in 2026](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+
+---
+
+## 258. LangGraph 2026 年 5 月中介軟體與錯誤管理強化——模型重試、內容審核與運行控制優化
+
+> **LangGraph 在 2026 年 5 月正式發布完整的企業級中介軟體生態，包含模型重試中介軟體（Model Retry Middleware）與 OpenAI 內容審核中介軟體（Content Moderation Middleware）。模型重試中介軟體自動檢測失敗的 LLM 呼叫，採用可配置的指數退避策略透明重試，毋須手動異常捕捉，大幅提升分散式代理系統對網絡不穩定性的容錯能力；OpenAI 內容審核中介軟體實時掃描使用者輸入、模型輸出與工具結果，自動檢測違規內容並阻攔或標記異常交互，確保多代理系統的安全合規。同步推出 RunControl 機制允許在圖執行中途協作式暫停並保存可恢復檢查點，用於人機互動工作流與故障恢復。Roy 的 Factory Tour 訪客互動可透過內容審核防止不適宜交互，NanoClaw nRF54L15 監控的異常判定可透過重試中間件提升分散式傳感器通訊的容錯性，Tunghai RAG 系統可在高風險查詢時自動中斷等候人工審批，整體打造生產級的安全可靠多代理生態。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
