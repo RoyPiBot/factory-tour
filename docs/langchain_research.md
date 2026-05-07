@@ -4436,3 +4436,14 @@ Sources:
 - [April 2026: LangChain Newsletter](https://www.langchain.com/blog/april-2026-langchain-newsletter)
 - [Agentic RAG: The 2026 Production Guide](https://www.marsdevs.com/guides/agentic-rag-2026-guide)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 254. LangGraph v1.1 類型安全強化與檔案狀態管理優化——2026 年 3-4 月完全向後相容的 API 穩定版
+
+> **LangGraph v1.1 在 2026 年 3 月 10 日發布，全面強化類型安全機制，開發者可在 stream() / astream() 時傳入 version="v2" 參數，獲得統一的 StreamPart 輸出結構（每個資料塊都包含 type、ns、data 三個鍵），搭配從 langgraph.types 匯入的 TypedDict 進行靜態型別檢查。invoke() / ainvoke() 也支援 version="v2"，返回包含 .value 與 .interrupts 屬性的 GraphOutput 物件。同時新增自動 Pydantic 與 dataclass 強制轉換，invoke() 與值流模式輸出可自動強制轉換到宣告的 Pydantic 模型或 dataclass 類型，無需手動序列化。4 月深化 Deep Agents 架構，支援啟動非阻斷背景工作流讓主代理繼續互動，read_file 工具擴展至 PDF、音訊、視訊檔案解析。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統可透過 v1.1 的完全向後相容 API 升級，享受零遷移成本的類型安全、檔案格式支援與後台任務編排能力。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
