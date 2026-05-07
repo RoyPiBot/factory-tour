@@ -816,6 +816,7 @@ async def websocket_sensors(websocket: WebSocket):
 
     每秒廣播各廠區的即時感測數據（溫度、濕度、能耗等），供前端即時顯示訪客導覽進度與環境狀態。
     客戶端可選擇性過濾特定廠區數據以優化網路頻寬使用。
+    支援多個客戶端同時連接，由 ConnectionManager 統一管理所有 WebSocket 連線狀態與廣播流程。
     """
     await ws_manager.connect(websocket)
     try:
