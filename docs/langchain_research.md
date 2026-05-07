@@ -4458,3 +4458,14 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 255. LangGraph 2026 Streaming Protocol 新生代與 TypedDict 類型投影——內容塊中心架構實現亞毫秒級代理通信
+
+> **LangGraph 在 2026 年推出劃時代的內容塊中心流式協議（Content-Block-Centric Streaming），徹底棄用舊式字典事件結構，取而代之以 GraphRunStream 與 AsyncGraphRunStream 物件承載型別化事件流。開發者可透過 version="v3" 參數進行顆粒度通道投影（Per-Channel Projections），每個輸出片段都包含 type、ns、data 三個元件，搭配 langgraph.types 的 TypedDict 定義進行靜態型別檢查。新增 Pydantic 自動強制轉換機制，invoke() 輸出可無縫映射到使用者定義的資料模型，消除序列化冗余。Roy 的 Factory Tour、NanoClaw nRF54L15 與 Tunghai RAG 系統透過此協議升級可實現極低延遲的實時代理通信，在多代理編排場景中確保每一條訊息都保持完整的型別安全與可追蹤性。**
+
+Sources:
+- [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
