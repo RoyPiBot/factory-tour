@@ -4100,6 +4100,17 @@ LangGraph v1.1 核心升級包括三層技術創新——（1）類型安全 API
 
 ---
 
+## 226. LangGraph v1.1.10 與節點級錯誤恢復——2026 年 5 月生產級容錯與超時管理（2026 年最新）
+
+> **LangGraph 2026 年 5 月推出 v1.1.10 系列強化節點容錯與超時管理機制。NodeError handlers 與 Commands 機制實現了 Saga/Compensation Pattern，允許工作流在節點失敗時優雅恢復而非直接中止。node timeout 功能提供硬牆時限（run_timeout）與動態空閒超時（idle_timeout），確保長期執行代理的穩定性。此升級對 Roy 的三大專案帶來關鍵的容錯能力——Factory Tour 導覽系統的多層級協商可在供應商談判逾時時自動降級至備選方案；NanoClaw nRF54L15 威脅分析的感測器診斷子代理可在通訊故障時執行補償邏輯重試；Tunghai RAG 系統的知識檢索工作流可設定per-node超時，避免向量搜尋卡頓拖累整體回應時間，實現企業級 SLA 保障。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph: Agent Orchestration Framework](https://www.langchain.com/langgraph)
+
+---
+
 ## 226. LangGraph 節點超時與錯誤恢復機制——2026 年可靠性工程的關鍵基礎（2026 年最新功能）
 
 > **LangGraph 2026 年強化了節點級的超時控制與錯誤恢復機制，支援牆鐘時限與閒置時限的雙層超時管理，故障節點自動清除寫入狀態並觸發重試策略。此機制對 Roy 的多代理系統至關重要——確保 Factory Tour 導覽、NanoClaw 威脅分析、Tunghai RAG 檢索等長期執行任務在面臨網路波動或模型遲延時的自動恢復能力，從而保障 Pi 設備上的多代理應用的 7×24 穩定運行。**

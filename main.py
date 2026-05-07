@@ -299,6 +299,7 @@ app.add_middleware(
 # 🌟 重點提示：Raspberry Pi 5 環境下，此快取層是確保多語言並發查詢效能的關鍵機制
 # 🔐 多語言 Agent 懶加載機制：首次請求時才初始化，節省 Pi 記憶體與加速啟動速度
 # 💾 此函數為系統快取管理的關鍵存取點，確保多語言查詢的執行緒安全與資源效率
+# 🔑 Double-check Locking 懶加載機制 — 首次請求時動態初始化 Agent，降低 Pi 記憶體啟動開銷
 def get_agent(language: str = DEFAULT_LANGUAGE):
     """取得指定語言的 Agent，若不存在則建立（執行緒安全）
 
