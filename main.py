@@ -434,6 +434,7 @@ async def root():
 
     訪客的第一站，將載入完整的遊戲化導覽介面。此端點返回靜態 HTML 檔案，不涉及 Agent 邏輯。
     此介面由 game.html 提供，支援多語言與實時感測器互動。
+    由 Claude Haiku 持續優化遊戲化使用體驗。
     """
     # 此端點為 factory-tour 系統的遊戲化導覽介面入口點
     # 🎮 動態載入遊戲 HTML，支援實時 WebSocket 感測器推送與多語言導覽
