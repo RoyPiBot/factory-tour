@@ -4572,3 +4572,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 
+---
+
+## 264. LangGraph 2026 Q2 節點級快取、型別安全流與漸進式關閉——多代理生產環境的穩定性升級
+
+> **LangGraph 在 2026 年第二季發佈多項效能與穩定性增強，深化生產級多代理工作流的支援。節點級快取（Node/Task Level Caching）機制允許開發者對工作流中個別節點結果進行緩存，顯著減少冗餘計算並加速執行週期，特別適用於多輪對話代理與 RAG 檢索管道。Type-Safe Streaming v2 版本統一了 StreamPart 輸出格式，每個資料塊均包含 type、ns、data 鍵值，並提供可匯入的 TypedDict 定義以強化開發者體驗。Type-Safe Invoke v2 返回 GraphOutput 物件，包含 .value 與 .interrupts 屬性，徹底消除型別推斷的不確定性。漸進式關閉（Graceful Shutdown）功能允許在流程完成當前超步（superstep）後協作式停止執行中的運行並保存可恢復檢查點，確保長期運作的多代理系統能夠優雅降級而不遺失狀態。JavaScript 端全面提升 .stream() 類型安全性，新增 .addNode() 與 .addSequence() 方法簡化 StateGraph 構造。**
+
+Sources:
+- [LangGraph Releases](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain Changelog](https://changelog.langchain.com/)
+- [LangChain - LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+
