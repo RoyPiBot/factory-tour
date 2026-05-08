@@ -4583,3 +4583,15 @@ Sources:
 - [LangChain Changelog](https://changelog.langchain.com/)
 - [LangChain - LangGraph Workflow Updates (Python & JS)](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
 
+---
+
+## 265. LangGraph 2026 Q3 聲明式圖定義、非同步背景代理與多模態檔案處理——生產級多代理協調的最新標準
+
+> **LangGraph 在 2026 年 Q3 推出聲明式圖定義語言（Declarative Graph DSL），開發者無需編寫命令式 Python 代碼，直接透過結構化設定檔定義狀態轉移、節點邏輯與條件路由，大幅降低多代理工作流的複雜度與維運負擔。深層代理（Deep Agents）架構迎來非同步背景任務編排能力，允許代理啟動非阻斷的背景子代理完成長期運作任務（如檔案解析、資料同步），同時主代理持續與使用者互動，實現高效能的多任務協調。read_file 工具生態進一步擴展，已支援 PDF、音訊、視訊、圖像等多種格式的自動解析與內容提取，消除代理對第三方檔案轉換服務的依賴。Roy 的 Factory Tour 遊客導覽可非同步背景分析現場影像；NanoClaw nRF54L15 傳感資料可自動解析多模式日誌；Tunghai RAG 系統可直接吞嚥 PDF 研究論文與多媒體資源，三大系統藉由最新 LangGraph 標準化更新邁向真正的無縫協調時代。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
