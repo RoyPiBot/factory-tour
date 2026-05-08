@@ -161,6 +161,7 @@ sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 life
 # 此實例負責模擬各廠區的即時環境數據（溫度、濕度、能耗），由 run_broadcast_loop 持續推送
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 # 核心職責：確保所有連接的訪客同步接收實時感測數據與導覽狀態更新
+# 📡 支援自動重連與廣播機制，提升訪客連線穩定性與實時推送可靠度
 # 此管理器支援高併發多 session 連線，確保感測器數據的即時可靠推送
 
 # 防止惡意客戶端濫用 API 配額，同時保護系統記憶體與 Groq API 的穩定性

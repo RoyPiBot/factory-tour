@@ -4537,3 +4537,14 @@ Sources:
 - [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)
 - [Mastering LangGraph Streaming: Advanced Techniques ...](https://sparkco.ai/blog/mastering-langgraph-streaming-advanced-techniques-and-best-practices)
 
+---
+
+## 262. LangGraph v1.1.10 企業級節點錯誤處理與逾時管理——2026 年 5 月運行控制新高度
+
+> **LangGraph 在 2026 年 5 月釋出 v1.1.10 版本，大幅加強節點級錯誤處理與執行逾時管理能力。開發者可為每個節點定義型別化錯誤處理器，接收 NodeError 物件包含失敗節點名稱與異常，直接返回 Command 物件更新狀態並路由至不同節點，實現 Saga/Compensation 補償模式以應對分散式節點失敗。同時新增 add_node 逾時支援，支援硬牆鐘限制與空閒逾時雙重機制，確保單一節點執行不會導致整個圖被阻塞。此外，DeltaChannel 增強狀態管理，支援可配置批量化簡器（Batch Reducers）以優化記憶體使用與序列化開銷。Klarna、Replit、Elastic 等財富 500 強企業信任 LangGraph 作為低階編排層，在 2026 年發揮越來越重要的角色。Roy 的三大系統——Factory Tour、NanoClaw nRF54L15、Tunghai RAG——透過 v1.1.10 的節點隔離、自動恢復與逾時防護，可在高負載環境下維持穩定、可預測的多代理協調。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [How LangChain Development is Leading AI Orchestration in 2026](https://teqnovos.com/blog/why-langchain-still-leads-ai-orchestration-key-advantages-explained/)
+
