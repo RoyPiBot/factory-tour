@@ -4523,3 +4523,17 @@ Sources:
 Sources:
 - [A Groq-Powered Agentic Research Assistant with LangGraph, Tool Calling, Sub-Agents, and Agentic Memory](https://www.marktechpost.com/2026/05/06/a-groq-powered-agentic-research-assistant-with-langgraph-tool-calling-sub-agents-and-agentic-memory-lets-built-it/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 261. LangGraph 串流 + 記憶體管理複合架構——2026 年生產級狀態持久化與即時推理
+
+> **LangGraph 在 2026 年於串流工作流中實現零開銷的記憶體管理，核心機制是狀態化圖執行（state-based execution），將代理的每一步推理、工具輸出、決策都記錄於執行狀態中。短期記憶（Short-Term Memory）透過執行緒級檢查點在單一對話內容保存，保留完整對話歷史與上下文；長期記憶（Long-Term Memory）則跨越執行緒與重啟週期，存儲事實、偏好與摘要。生產環境應捨棄 InMemoryStore 開發專用方案，改採 PostgreSQL 或 Redis 作為後端存儲，實現跨對話的記憶體持久化。Redis 整合尤為高效——提供毫秒級延遲的執行緒級檢查點與跨執行緒記憶體查詢，使代理能在多輪互動中累積經驗、優化決策品質。Roy 的 Factory Tour 訪客互動紀錄可跨會話累積學習、NanoClaw nRF54L15 的歷史效能資料可長期保存以優化控制策略、Tunghai RAG 系統的使用者查詢偏好可演化為個人化檢索器，三大系統透過 LangGraph + Redis 記憶體架構實現真正的有狀態、智能多代理協調。**
+
+Sources:
+- [The Architecture of Agent Memory: How LangGraph Really Works - DEV Community](https://dev.to/sreeni5018/the-architecture-of-agent-memory-how-langgraph-really-works-59ne)
+- [Building Long-Term Memory in AI Agents with LangGraph and Mem0 | DigitalOcean](https://www.digitalocean.com/community/tutorials/langgraph-mem0-integration-long-term-ai-memory)
+- [LangGraph & Redis: Build smarter AI agents with memory & persistence | Redis](https://redis.io/blog/langgraph-redis-build-smarter-ai-agents-with-memory-persistence/)
+- [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/memory)
+- [Mastering LangGraph Streaming: Advanced Techniques ...](https://sparkco.ai/blog/mastering-langgraph-streaming-advanced-techniques-and-best-practices)
+
