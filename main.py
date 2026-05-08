@@ -259,6 +259,7 @@ async def lifespan(app: FastAPI):
     sensor_sim = SensorSimulator()
     sensor_task = asyncio.create_task(run_broadcast_loop(sensor_sim, ws_manager))
     logger.info("✅ 感測器模擬器已啟動")
+    # 感測器模擬器透過 WebSocket 連線持續廣播各廠區的環境數據（溫度、濕度、能耗）給所有連接的訪客
 
     # ✨ 系統初始化完成，所有資源就緒，準備接受訪客連線請求
     yield
