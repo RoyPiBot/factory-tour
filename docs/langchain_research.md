@@ -4595,3 +4595,14 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 
+---
+
+## 266. LangGraph 模型配置檔 (Model Profiles) 與中介軟體 2026 年標準化——聊天模型能力自省與自動故障恢復生態
+
+> **LangGraph 在 2026 年推出模型配置檔（Model Profiles）機制，聊天模型透過 .profile 屬性動態暴露支援的功能與能力特徵，該資訊源自開放式協作專案 models.dev 維護的模型能力資料庫，消除代理對模型相容性的硬編碼假設。搭配全新中介軟體生態，LangGraph 整合自動重試中介軟體（使用可配置指數退避策略）與 OpenAI 內容審核中介軟體（實時偵測不安全內容），構成完整的故障恢復與安全合規防護層。代理無需手寫異常捕捉邏輯，中介軟體層級透明地處理失敗模型呼叫、網路抖動、內容合規檢查，大幅簡化生產級多代理系統的穩定性與可靠性。Roy 的 Factory Tour 可自動適配多種 LLM 後端（OpenAI / Gemini / 開源模型）無需修改代理碼，NanoClaw nRF54L15 的分散式控制可透過重試中介軟體應對傳感器通訊失敗，Tunghai RAG 系統可在使用者查詢內容敏感時自動觸發審核流程，三大系統藉由模型配置檔與中介軟體標準化邁向真正的跨模型、跨平台的生產級多代理協調。**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+
