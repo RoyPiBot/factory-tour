@@ -4100,6 +4100,19 @@ LangGraph v1.1 核心升級包括三層技術創新——（1）類型安全 API
 
 ---
 
+## 226. LangGraph v1.1+ 進階容錯與節點超時控制——Saga 補償模式與容錯恢復（2026 年 5 月最新）
+
+> **LangGraph 2026 年 5 月完善進階容錯機制，引入 Saga/補償模式與節點級超時控制。error_handler 機制允許代理在節點失敗時動態恢復與路由，NodeTimeoutError 支援 wall-clock limit 與 idle timeout 雙策略。Roy 的三大專案可透過此機制構建高可靠性的多代理工作流，自動應對部分故障與資源耗盡場景**
+
+LangGraph 的進階容錯升級包括兩大核心——（1）Saga/補償模式：error_handler 接收 typed NodeError（包含失敗節點名與例外），可返回 Command 動態更新狀態與路由至備用節點，無需中止整個圖，適用於需要優雅降級的場景；（2）多層級超時控制：add_node 支援 timeout= 參數，同時設定 run_timeout（總時間上限）與 idle_timeout（進度停滯檢測），超時觸發 NodeTimeoutError 時自動清除該嘗試的寫入並交由重試策略處理。對 Roy 的應用——NanoClaw nRF54L15 威脅分析若某個感測器診斷子代理失敗，error_handler 可自動切換至備用診斷策略或請求人類介入；Factory Tour 導覽系統在訪客流量尖峰時若供應商談判超時，可自動回退至簡化談判模式；Tunghai RAG 系統知識檢索若向量數據庫無應答，error_handler 可自動切換至本地向量模型並更新狀態，確保系統韌性與用戶體驗。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
 ## 226. LangGraph v1.1.10 與節點級錯誤恢復——2026 年 5 月生產級容錯與超時管理（2026 年最新）
 
 > **LangGraph 2026 年 5 月推出 v1.1.10 系列強化節點容錯與超時管理機制。NodeError handlers 與 Commands 機制實現了 Saga/Compensation Pattern，允許工作流在節點失敗時優雅恢復而非直接中止。node timeout 功能提供硬牆時限（run_timeout）與動態空閒超時（idle_timeout），確保長期執行代理的穩定性。此升級對 Roy 的三大專案帶來關鍵的容錯能力——Factory Tour 導覽系統的多層級協商可在供應商談判逾時時自動降級至備選方案；NanoClaw nRF54L15 威脅分析的感測器診斷子代理可在通訊故障時執行補償邏輯重試；Tunghai RAG 系統的知識檢索工作流可設定per-node超時，避免向量搜尋卡頓拖累整體回應時間，實現企業級 SLA 保障。**

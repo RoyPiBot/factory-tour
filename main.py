@@ -305,6 +305,7 @@ app.add_middleware(
 # 🔑 Double-check Locking 懶加載機制 — 首次請求時動態初始化 Agent，降低 Pi 記憶體啟動開銷
 def get_agent(language: str = DEFAULT_LANGUAGE):
     # 核心職責：傳回指定語言的多智能體實例，支援動態延遲初始化與執行緒安全快取
+    # 🔐 保護機制：雙重檢查鎖定模式避免多執行緒競態條件
     """取得指定語言的 Agent，若不存在則建立（執行緒安全）
 
     使用 Double-check Locking 確保多執行緒環境下的效率和安全性。
