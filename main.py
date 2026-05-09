@@ -459,6 +459,7 @@ async def root():
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard():
     """舊版 Dashboard 介面 - 動態載入 index.html 範本，供管理員監控系統狀態與訪客互動紀錄"""
+    # 此端點已由 /editor 知識庫編輯器取代，但保留用於向下相容
     html_file = TEMPLATES_DIR / "index.html"
     if html_file.exists():
         return HTMLResponse(html_file.read_text(encoding="utf-8"))

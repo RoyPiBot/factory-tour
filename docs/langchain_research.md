@@ -4684,3 +4684,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 
+---
+
+## 274. LangGraph 2026 上半年穩定化——統一 StreamPart 協議、二進位檔案支援與跨棧中介軟體一致性
+
+> **LangGraph 在 2026 年上半年（3-4 月）完成了流式處理與狀態管理的深度穩定化。stream() / astream() 方法透過 version="v2" 參數返回統一的 StreamPart 輸出格式，每個資料塊都攜帶 type、ns 與 data 欄位，開發者可直接從 langgraph.types 導入對應的 TypedDict 進行類型檢驗，根本消除流式協議的版本分歧。StateBackend() 與 StoreBackend() 支援直接實例化，檔案格式更新涵蓋二進位檔案儲存，使 LangGraph 圖層能無損保存多媒體狀態（影像、音訊、序列化物件）。中介軟體層進一步加強：模型重試中介軟體（Model Retry Middleware）跨 Python/TypeScript 統一實作，自動處理模型呼叫失敗與指數退避；OpenAI 內容審核中介軟體原生整合，實時偵測不安全內容並觸發合規流程。此次更新強化了 LangGraph 的工業級可靠性基礎，Roy 的 Factory Tour 多媒體遊客資訊可安全序列化、NanoClaw nRF54L15 的二進位傳感資料流可直接持久化、Tunghai RAG 的檔案上傳與內容審核管線可無縫協調，三大系統藉由統一的型別與中介軟體標準邁向真正的跨平台生產級協調。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
