@@ -4617,3 +4617,15 @@ Sources:
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 
+---
+
+## 268. LangGraph 觀測與評估生態 2026——可觀測性優先、人工迴圈督導與線上評估的統一運營平台
+
+> **LangGraph 在 2026 年進一步深化觀測與評估能力，與 LangSmith 緊密整合形成端到端的代理開發、部署與監控生態。產業調查顯示 89% 的組織已為代理部署觀測層，領先評估採用率（52%），反映代理可靠性與生產穩定性已成為核心關切。離線評估（Offline Evals）在測試集上運行，採用率超過 50%；線上評估（Online Evals）針對實時代理行為進行監控，採用率達 37.3% 且持續成長。LangGraph 原生支援人工迴圈（Human-in-the-Loop）機制，允許人類審核與批准關鍵代理動作，並整合調節（Moderation）與品質控制工具防止代理偏離目標。LangSmith 無縫整合 LangGraph 執行時，自動追蹤 LLM 呼叫與工具執行細節，開發者可直觀比較、除錯、強化代理行為。Roy 的 Factory Tour 可在重要決策點插入人工審核；NanoClaw nRF54L15 可透過線上評估監控傳感器資料品質；Tunghai RAG 系統可在查詢回應上線前執行自動與人工二層評估，三大系統藉由統一的觀測與評估基礎設施達成高可靠的生產級協調。**
+
+Sources:
+- [What Is LangSmith? A Practical 2026 Guide to Tracing, Evals, and Agent Deployment](https://nerova.ai/guides/what-is-langsmith-practical-guide-2026)
+- [State of AI Agents](https://www.langchain.com/state-of-agent-engineering)
+- [LangSmith - LLM & AI Agent Evals Platform](https://www.langchain.com/langsmith/evaluation)
+- [Example - Trace and Evaluate LangGraph Agents](https://langfuse.com/guides/cookbook/example_langgraph_agents)
+

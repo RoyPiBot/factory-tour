@@ -306,6 +306,7 @@ app.add_middleware(
 # 💾 此函數為系統快取管理的關鍵存取點，確保多語言查詢的執行緒安全與資源效率
 # 🔑 Double-check Locking 懶加載機制 — 首次請求時動態初始化 Agent，降低 Pi 記憶體啟動開銷
 # 🎯 此為 factory-tour 多語言對話系統的效能瓶頸，所有對話請求都依賴此函數傳回相應語言的 Agent 實例
+# 此函數乃工廠導覽系統中確保多執行緒安全的 Agent 快取中樞
 def get_agent(language: str = DEFAULT_LANGUAGE):
     # 核心職責：傳回指定語言的多智能體實例，支援動態延遲初始化與執行緒安全快取
     # 🔐 保護機制：雙重檢查鎖定模式避免多執行緒競態條件
