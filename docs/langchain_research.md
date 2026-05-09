@@ -4695,3 +4695,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
+---
+
+## 275. LangGraph v1.1.3 分散式執行時與自主決策 Agentic RAG——從模板到深度代理的生產級飛躍
+
+> **LangGraph 在 2026 年推出 v1.1.3 版本，新增深度代理模板（Deep Agent Templates）與分散式執行時支援（Distributed Runtime），標誌著從單機圖編排到分散式多代理協調的轉變。Agentic RAG 系統不再是固定的檢索-生成序列，而是具備自主決策能力的代理，能夠規劃（Plan）、檢索（Retrieve）、推理（Reason）、批判（Critique）、重寫（Rewrite）、反思（Reflect），在迴圈中反覆直到對答案有信心或耗盡預算。LangGraph 作為有狀態、迴圈的圖編排框架，將整個系統建模為有向迴圈圖、條件分支、永久檢查點與可中斷的人工迴圈點。生產實踐中，57.3% 的企業已部署代理在生產環境，LangGraph 在 2026 年初超越 CrewAI 成為市場領導者，其圖架構精確對映生產需求如審計軌跡、回滾點、跨組織工具整合。Roy 的三大系統透過 v1.1.3 的分散式執行時可跨節點負載均衡：Factory Tour 遊客多輪對話可分散至多臺伺服器；NanoClaw nRF54L15 可在邊緣節點並行處理傳感推論；Tunghai RAG 可在分散式檢索集群上動態擴展，真正達成雲邊協同的自主決策多代理協調。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+
