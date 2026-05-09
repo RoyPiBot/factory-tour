@@ -4673,3 +4673,14 @@ Sources:
 - [LangGraph Reliability Features: Node-Level Error Handlers and Retry Policies](https://docs.langchain.com/langgraph/reliability)
 - [LangGraph Node Caching in Production 2026](https://blog.langchain.com/langgraph-node-caching-2026)
 
+---
+
+## 273. LangGraph 2026 年優雅關閉與檢查點恢復——協作式停止、中斷恢復與伺服器重啟不丟失上下文
+
+> **LangGraph 在 2026 年進一步強化了伺服器故障與意外中斷場景的恢復能力。新增 stop() 方法支援協作式停止（Graceful Shutdown），在當前超步驟（superstep）完成後協作終止 in-flight run，並保存可恢復的檢查點狀態，確保長時間運行的多代理工作流因網路抖動或伺服器重啟時能無縫接續。搭配穩定主版本（v1.x+）的自動狀態持久化機制，Agent 執行狀態內建備份，伺服器重啟後應用程式可自動偵測並復原最後一個已完成的檢查點，接續未完成的節點或子圖，完全不喪失對話上下文與決策歷史。此機制對於 Factory Tour 長流程遊客互動、NanoClaw nRF54L15 多步驟硬體控制序列、Tunghai RAG 跨會話的持久化記憶尤為關鍵，實現了「once-and-only-once」執行語意與滑動視窗式的有狀態長期記憶，使 Roy 的三大系統成為真正可信賴的生產級多代理協調平台。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
