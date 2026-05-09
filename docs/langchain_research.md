@@ -4629,3 +4629,15 @@ Sources:
 - [LangSmith - LLM & AI Agent Evals Platform](https://www.langchain.com/langsmith/evaluation)
 - [Example - Trace and Evaluate LangGraph Agents](https://langfuse.com/guides/cookbook/example_langgraph_agents)
 
+---
+
+## 269. LangGraph 2026 年春季流式處理與類型安全深化——version="v3" 內容塊中心協議與 GraphRunStream 原生型別支援
+
+> **LangGraph 在 2026 年春季（3-4 月）推出重大流式處理升級，引入 version="v3" 的內容塊中心協議（content-block-centric streaming protocol），以 typed 且按通道分離的串流取代舊式字典事件，每次呼叫都返回 GraphRunStream（同步）或 AsyncGraphRunStream（非同步）物件，讓調用端透過型別投影（typed projections）自主驅動結果迭代，根本消除流式 API 的回呼地獄與型別推斷困境。invoke() 方法亦同步迎來 version="v2" 的強型別改造，返回具 .value 與 .interrupts 屬性的 GraphOutput 物件，實現端到端的型別安全從編譯期貫穿執行期。搭配 StateBackend() 與 StoreBackend() 直接實例化能力與二進位檔案支援，LangGraph 流式與狀態管理基礎設施達成工業級可靠性。Roy 的 Factory Tour 可精確追蹤遊客互動的多時序結果；NanoClaw nRF54L15 傳感資料流可透過型別系統自動驗證；Tunghai RAG 的查詢結果串流可安全協調多代理應答，三大系統藉由類型安全流式協議邁向防錯優先的多代理生態。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+

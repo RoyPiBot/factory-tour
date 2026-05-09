@@ -479,6 +479,7 @@ async def editor():
 # 智慧回覆篩選：從多層次訊息鏈中自動提煉最佳回答
 # 過濾掉轉移訊息和低價值的系統訊息，優先返回實質性的 Agent 回覆
 # 此過程對提升使用者體驗至關重要，確保對話介面的回覆品質
+# 💡 此函數透過智能優先順序排序確保使用者只看到最有價值的 AI 回答，而非中間過程的轉移日誌
 def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）
 
