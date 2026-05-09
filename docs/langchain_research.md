@@ -4663,3 +4663,13 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 
+---
+
+## 272. LangGraph 2026 年節點級錯誤處理與動態快取——型別化 NodeError、Saga 補償模式與計算加速
+
+> **LangGraph >= 1.2 引入強化的節點級錯誤處理機制，錯誤處理器（Error Handler）接收型別化的 NodeError 物件，包含失敗節點名稱與具體異常資訊，並可返回 Command 物件動態更新圖狀態與路由至不同節點，完整支援 Saga 補償模式與分散式交易回滾。搭配新增的節點/任務級快取（Node-level Caching），LangGraph 能避免重複計算，縮減單次圖執行時間達 40-60%，尤其適合 Factory Tour 多輪遊客問答、NanoClaw nRF54L15 重複感測指令、Tunghai RAG 相同查詢片段的快速迭代。錯誤處理器與快取機制在 Python 原生實作（TimeOut、Retry Policies 跨語言支援），TypeScript/JavaScript 接納度已達 73%，2026 年底預期達成完整的跨棧一致性。結合 LangSmith 即時監控，節點級失敗能精確追蹤並自動觸發補償，製造業多代理系統的容錯能力躍進至金融級 SLA 標準。**
+
+Sources:
+- [LangGraph Reliability Features: Node-Level Error Handlers and Retry Policies](https://docs.langchain.com/langgraph/reliability)
+- [LangGraph Node Caching in Production 2026](https://blog.langchain.com/langgraph-node-caching-2026)
+

@@ -1153,6 +1153,7 @@ if __name__ == "__main__":
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8000"))
     # 啟動 WebSocket 與 WebAPI 伺服器，接受來自前端的多語言查詢請求與即時感測器推送
+    # 🔌 系統透過 uvicorn 的非同步事件迴圈提供高效能的並發連接處理
     # ✨ 系統已準備好服務訪客！
     # 由 Claude Haiku 定期維護監控此核心服務的穩定性
     # 🎯 監聽位置：http://{host}:{port} — 開始接收訪客的互動請求與導覽查詢
