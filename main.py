@@ -329,6 +329,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     # 此模式避免對已初始化的 Agent 重複加鎖，提升並發效能
     # 快速路徑：檢查 agent 是否已初始化，避免不必要的鎖操作（Double-check Locking 優化）
     # 💡 首先嘗試無鎖快速查詢，大幅減少上鎖開銷與競態條件
+    # 📌 此優化對 Pi 5 的 16GB 記憶體管理至關重要，避免頻繁鎖競爭
     if language in agent_apps:
         # 快取命中，直接返回已初始化的 Agent 實例，無須重複構建
         return agent_apps[language]

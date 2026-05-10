@@ -4774,7 +4774,18 @@ Sources:
 > **LangGraph 在 2026 年已躍升為多代理框架市場的事實領導者，GitHub 星數超過 30,000，完全超越同類框架如 CrewAI。其圖形式架構因能清晰映射至審計軌跡、檢查點與回滾點，成為企業採用的首選。LangChain 官方發佈的 2026 年 Agent 工程狀態報告指出超過 60% 的生產事故與狀態管理有關，推薦統一採用 Pydantic BaseModel 作為標準做法。同時 Agent 式 RAG 已取代傳統固定管道，系統可自主進行計劃、檢索、推理、批評、重寫與反思循環，實現更聰慧的知識利用。Roy 的三大系統應優先採納 Pydantic 狀態管理規範：Tunghai RAG 的檢索邏輯可運用自主決策循環優化答案品質；Factory Tour 遊客對話可透過檢查點實現中斷恢復；NanoClaw nRF54L15 的感測器協調可依循 Agent 式推理決策。**
 
 Sources:
-- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-quietly-became-the-default-f1609af5d658)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+
+---
+
+## 283. LangGraph 節點快取與錯誤處理—計算效率與故障補償模式
+
+> **LangGraph v1.2+ 新增節點級快取機制，允許開發者緩存個別節點的執行結果以減少冗餘計算，特別適合在多代理工作流中重複調用相同邏輯的場景。同時錯誤處理器（Error Handler）從 NodeError 接收具型別化的失敗節點名稱與例外資訊，並可返回 Command 物件更新狀態與路由至不同節點，原生支援 Saga/補償模式以實現分散式交易機制。此機制對 Roy 的系統特別有益：Factory Tour 遊客查詢可快取常見景點資料以提升回應速度，Tunghai RAG 的檢索快取可避免重複查詢相同知識庫，NanoClaw nRF54L15 的硬體命令失敗時可透過補償模式自動重試或降級至備用策略。**
+
+Sources:
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
 
