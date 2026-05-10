@@ -214,6 +214,7 @@ async def lifespan(app: FastAPI):
     # 此設計確保 Raspberry Pi 5 上的多 Agent 系統穩定運行，避免資源洩漏
     # 此生命週期管理器確保依賴資源有序初始化，避免資源洩漏及衝突
     global rag_ready, sensor_sim, QUIZ_DATA
+    # 宣告全域狀態變數，確保生命週期中資源初始化與清理的一致性
 
     # 初始化資料庫
     database.init_db()

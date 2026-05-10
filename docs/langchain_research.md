@@ -4757,3 +4757,13 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 
+---
+
+## 281. LangGraph 1.0 穩定版發布——生產級多代理框架的里程碑
+
+> **LangGraph 於 2026 年 3 月推出 1.0 穩定版本，成為持久代理框架領域首個企業級穩定版，已被 Uber、LinkedIn、Klarna 等科技巨頭用於生產環境。v2 流式傳輸引入 StreamPart 統一格式，每個資料塊包含 type、ns、data 三個鍵，確保串流協議的一致性；Invoke 操作返回帶有 .value 與 .interrupts 屬性的 GraphOutput，精確掌握執行結果與人工中斷狀態。Pydantic/Dataclass 自動型別強制轉換消除序列化風險，錯誤處理器可返回 Command 實現補償模式，後端儲存改進支援二進制檔案並強化錯誤傳播，使 Roy 的 RAG/多代理系統達到生產級可靠性。**
+
+Sources:
+- [LangChain - Changelog: LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
