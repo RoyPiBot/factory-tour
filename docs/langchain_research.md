@@ -4747,3 +4747,13 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 
+---
+
+## 280. LangGraph v3 內容區塊流協議與節點超時機制——即時串流透視與可靠執行界線
+
+> **LangGraph 在 2026 年中推出第三代流式傳輸協議（Streaming Protocol v3），以內容區塊為中心替代傳統字典事件，透過 version="v3" 返回 GraphRunStream（同步）或 AsyncGraphRunStream（非同步）物件，允許呼叫方按型別化通道迭代已完全結構化的串流資料。此協議強化了代理推理過程的即時透視，特別適合需要逐步追蹤多代理決策邏輯的互動系統。同時 LangGraph 新增節點級超時機制，開發者可透過 add_node() 的 timeout= 參數設定硬時間上限（run_timeout）、空閒超時（idle_timeout，於有進度時重置），當超時觸發時自動拋出 NodeTimeoutError 並依預設策略回復，有效防止長期懸掛節點或無窮迴圈。此機制對 Roy 的系統至關重要：Factory Tour 遊客多輪對話可透過 v3 協議實時視覺化每個 Agent 的查詢進展、NanoClaw nRF54L15 的感測指令可設定嚴格超時避免硬體卡頓、Tunghai RAG 的檢索節點可防止高延遲查詢阻斷整體流程。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
