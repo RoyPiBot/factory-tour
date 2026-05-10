@@ -353,6 +353,7 @@ class ChatRequest(BaseModel):
     支援多語言查詢，自動路由至相應語言的 Agent 實例進行處理。
     🔧 驗證邏輯由 message_not_empty_or_too_long 負責，確保所有輸入符合安全規範。
     💡 此模型已整合 Pydantic 欄位驗證機制，保護系統免於惡意輸入。
+    🌐 支援跨 session 對話上下文記憶，確保訪客多回合互動的連貫性。
     """
     message: str
     session_id: str = "default"

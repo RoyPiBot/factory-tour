@@ -4737,3 +4737,13 @@ Sources:
 Sources:
 - [LangGraph 2026 Release Updates](https://github.com/langchain-ai/langgraph/releases)
 
+---
+
+## 279. LangGraph 檢查點與人類在迴圈——生產級多代理系統的可控性基石
+
+> **LangGraph 在 2026 年憑藉內建檢查點（Checkpointing）與人類在迴圈（Human-in-the-Loop）機制成為生產級多代理協調的事實標準。每個狀態轉移都被永久保存，開發者可實現時間旅行調試（Time-Travel Debugging），在執行失敗時精確恢復至任意檢查點而無需重新開始；此特性在長期對話、複雜推理或多步決策流程中價值無可估量。人類在迴圈支援允許圖在指定節點暫停，等待人工審批、修正或提供新資訊後再繼續執行——Planner Agent 規劃任務、Executor Agent 執行工具、Human Agent 批准關鍵決策，三者協奏形成可審計且可控的自主決策系統。這種架構正是金融、醫療、法律等高風險領域所需的安全保障，Roy 的 Factory Tour 遊客諮詢可在關鍵步驟請求人工干預、Tunghai RAG 檢索結果可由研究員批准後再呈現、NanoClaw nRF54L15 的感測器異常可觸發工程師確認再執行補償操作，從而將自主決策代理的靈活性與人工監督的可靠性完美融合。**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
