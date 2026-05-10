@@ -1133,7 +1133,7 @@ async def health():
 
 @app.get("/i18n/{language}")
 async def get_i18n(language: str):
-    """取得前端多語言字串"""
+    """取得前端多語言字串，支援自動語言回退至預設語言（zh-TW）"""
     strings = UI_STRINGS.get(language, UI_STRINGS[DEFAULT_LANGUAGE])
     return {"language": language, "strings": strings}
 
