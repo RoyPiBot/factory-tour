@@ -4789,3 +4789,14 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
 
+---
+
+## 284. LangGraph v2 型別安全串流與調用介面——2026 年 3 月穩定發布
+
+> **LangGraph 於 2026 年 3 月發佈 v2 型別安全擴展，透過 version="v2" 參數統一 stream()、astream() 與 invoke() 的輸出規範。串流模式下每個資料塊均遵循 StreamPart 型別（包含 type、ns、data 三個鍵），並可從 langgraph.types 匯入對應的 TypedDict 以確保編譯時型別檢查；invoke/ainvoke 操作傳回 GraphOutput 物件，包含 .value 與 .interrupts 屬性，精確反映圖執行結果與人工中斷狀態。同時 Pydantic BaseModel 與 dataclass 自動強制轉換消除序列化風險，宣告之狀態模型將在執行時自動驗證與轉換，從而在大規模多代理系統中提升可靠性。Roy 的三大專案應優先升級至 v2：Factory Tour 可通過型別化串流實時監控每個遊客對話節點的進展，Tunghai RAG 的檢索與推理階段可確保狀態在各節點間準確流轉，NanoClaw nRF54L15 的感測器指令可透過型別強制轉換驗證硬體命令參數合法性。**
+
+Sources:
+- [LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [LangGraph + RAG + UCP: The Production Trinity Powering Agentic AI in 2026](https://medium.com/aimonks/langgraph-rag-ucp-the-production-trinity-powering-agentic-ai-in-2026-025195c0e021)
+
