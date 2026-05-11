@@ -4810,3 +4810,13 @@ Sources:
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
+---
+
+## 286. LangGraph 深度代理異步子代理與多模式檔案支援——背景任務非阻斷式執行與跨媒體知識萃取
+
+> **LangGraph 於 2026 年 4 月推出深度代理（Deep Agents）進階功能，新增異步子代理（Async Subagents）機制與多模式檔案讀取工具（Multi-Modal read_file），標誌著從文字驅動代理邁向真正多感官智能的轉變。異步子代理允許父代理在主執行流不被阻斷的情況下發起後臺任務，特別適合長期執行或 I/O 密集的工作流；工作完成後自動回調主圖更新狀態，實現高效的並行決策協調。多模式 read_file 工具突破文字限制，原生支援 PDF、音訊、影片等多種媒體格式的智能解析，結合 LangGraph 的圖架構，使代理能在單一工作流中混合文本、視覺與音訊推理。此更新對 Roy 的系統具有深遠意義：Factory Tour 遊客查詢可透過異步子代理在背景預加載景點多媒體資訊而不中斷對話流；Tunghai RAG 可利用多模式檔案支援擴展至學位論文的 PDF 語義解析、講座影片的自動字幕提取；NanoClaw nRF54L15 可同時處理感測資料（傳統格式）與設備製造文件（PDF）中的規格參數，實現真正的跨域代理決策。**
+
+Sources:
+- [LangGraph Releases · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
