@@ -4820,3 +4820,13 @@ Sources:
 - [LangGraph Releases · GitHub](https://github.com/langchain-ai/langgraph/releases)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
+---
+
+## 287. LangGraph v3 Streaming Protocol 與 Saga 補償模式——通道級類型驅動的高級恢復機制
+
+> **LangGraph 於 2026 年 5 月發布第三代 Streaming Protocol (v3)，徹底改變了圖執行結果的傳遞方式。v3 拋棄了傳統的字典形態事件，改採內容塊中心的架構，每個通道維護獨立的型別化串流（typed projections），調用端可驅動式地逐一迭代各通道結果，實現比 v2 更精細的事件級別控制。同時 Error Handler 機制升級，每個錯誤捕捉器現在接收 NodeError 物件（含失敗節點名與異常），並可返回 Command 指令動態更新狀態並路由至不同節點，這為 Saga 補償模式與優雅故障轉移奠定基礎。Roy 的系統可立即應用：Factory Tour 多步驟預約流程若某環節超時，透過 Saga 補償自動回滾先前的資源預訂而非粗暴中止；NanoClaw nRF54L15 感測器故障時，v3 通道驅動能並行收集多個降級資訊源並加權決策，比同步阻斷式重試更高效。**
+
+Sources:
+- [LangGraph Releases · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
