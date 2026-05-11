@@ -4841,3 +4841,14 @@ Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book)
 
+---
+
+## 289. LangGraph 雙層記憶架構與 LangMem SDK 整合——短期會話狀態與長期跨域知識的融合
+
+> **LangGraph 於 2026 年推出官方的雙層記憶系統架構，分別對應短期與長期記憶需求。短期記憶透過內建 Checkpointer（MemorySaver）機制自動捕捉每個狀態轉移，支援 SQLite、PostgreSQL、MongoDB 等多種後端存儲，使代理能在會話暫停後精確恢復至任意檢查點；長期記憶則透過新推出的 LangMem SDK 與 Store Manager 跨會話、跨線程地積累事實、用戶偏好與決策歷史，並整合向量存儲實現語義相似度檢索。此架構對 Roy 的系統具有轉變意義：Factory Tour 遊客互動可透過短期檢查點實現中斷恢復，長期記憶積累每位遊客的偏好景點供未來推薦；Tunghai RAG 的檢索結果可在長期存儲中演進，通過用戶反饋持續優化答案品質；NanoClaw nRF54L15 的操作日誌可作為長期知識庫，幫助工程師識別感測器老化模式與故障前兆。**
+
+Sources:
+- [Building Long-Term Memory in AI Agents with LangGraph and Mem0 | DigitalOcean](https://www.digitalocean.com/community/tutorials/langgraph-mem0-integration-long-term-ai-memory)
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+- [Long-Term Memory LangChain Agents: LangGraph and LangMem Guide](https://atlan.com/know/long-term-memory-langchain-agents/)
+
