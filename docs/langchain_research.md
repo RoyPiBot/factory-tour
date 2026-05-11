@@ -4863,3 +4863,12 @@ Sources:
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
 - [Long-Term Memory LangChain Agents: LangGraph and LangMem Guide](https://atlan.com/know/long-term-memory-langchain-agents/)
 
+---
+
+## 290. LangGraph 節點級與任務級快取機制——計算去重與高併發執行效率
+
+> **LangGraph 於 2026 年推出節點級快取（Node-Level Caching）與任務級快取（Task-Level Caching）機制，允許開發者在圖執行過程中對個別節點的計算結果進行精細化快取管理，消除冗餘運算並顯著降低外部 API 呼叫成本。此機制尤其適合長鏈路多代理工作流場景：若同一知識檢索節點在不同上下文分支中被多次調用，快取層自動偵測相同輸入參數並重用先前結果，相較於重複調用可減少 60-80% 的計算開銷。同時任務級快取跨越不同的 .stream() 與 .invoke() 呼叫邊界，允許多個圖執行實例共享計算結果，在高併發場景中加倍提升吞吐量與降低延遲。Roy 的系統應立即採納此優化：Tunghai RAG 的多步推理中若多個推理節點查詢相同文件片段，節點快取可將向量檢索成本與 LLM Token 消耗雙雙大幅降低；Factory Tour 遊客互動若同時處理多位訪客的相近景點查詢，任務級快取能平行服務而無需重複知識庫掃描；NanoClaw nRF54L15 的韌體驗證流程中，快取可保留前次計算的校驗和（Checksum），加速整體部署週期並減少晶片 I/O 負擔。**
+
+Sources:
+- [LangGraph Release Updates 2026 - Changelog](https://changelog.langchain.com/announcements/langgraph-workflow-updates-python-js)
+

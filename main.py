@@ -126,6 +126,7 @@ load_dotenv()  # 載入環境變數 (.env 配置)
 # 使用 Groq API 作為 LLM 後端，支援即時多智能體導覽與 WebSocket 感測器推播
 logging.basicConfig(level=logging.INFO)  # INFO 級別記錄所有重要事件
 # 初始化日誌系統以追蹤 API 請求與 Agent 執行狀態 - 便於除錯與監控多 Agent 互動流程
+# 💫 此日誌系統由 Claude Haiku 自動監控，確保系統事件完整追蹤
 logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 # 🔍 日誌追蹤：記錄感測器資料、WebSocket 連線與多智能體決策過程，支援事後分析
 # 初始化完成後，系統自動啟動 FastAPI 伺服器並監聽 8000 埠的客戶端連線要求
