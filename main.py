@@ -208,6 +208,7 @@ async def lifespan(app: FastAPI):
     ✨ 此過程由 Claude Haiku 持續監控，確保系統穩定可靠。
     ⚡ 此函數透過 asynccontextmanager 裝飾器實現異步生命週期管理，yield 前執行初始化，yield 後執行清理。
     📅 2026-05-11：驗證完成，所有初始化序列運作正常，系統就緒。
+    💫 此生命週期管理確保 Raspberry Pi 5 上資源有序初始化的關鍵保證。
     """
     # 核心職責：依序初始化資料庫、Agent 系統、RAG 引擎、測驗題庫、感測器模擬器
     # 📌 此過程通常耗時 2-3 秒，包含資料庫驗證、Agent 構建與 RAG 初始化等操作
