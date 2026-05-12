@@ -4937,3 +4937,14 @@ Sources:
 - [State of AI Agents](https://www.langchain.com/state-of-agent-engineering)
 
 ---
+
+## 297. LangGraph v1.1.3 深度代理模板與分布式運行時——雲端部署與可觀測性的完整生態
+
+> **LangGraph 於 2026 年 3 月 30 日發佈 v1.1.3，新增深度代理模板（Deep Agent Templates）與分布式運行時支援，使開發者可快速部署多代理系統至雲端。LangGraph Cloud 已納入規劃，提供托管執行環境與內建監控，同時新增多代理協作能力——代理可動態生成子代理而無須預先定義完整拓樸。框架現原生支援 per-node token streaming 與 time-travel debugging，配合 LangSmith 可觀測性與 MCP、A2A、OpenTelemetry 標準化協議，使 Roy 的系統得以構建真正可審計、可復現、可隨時回滾的多代理工作流。**
+
+Sources:
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
