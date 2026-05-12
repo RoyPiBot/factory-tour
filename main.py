@@ -220,6 +220,7 @@ async def lifespan(app: FastAPI):
     global rag_ready, sensor_sim, QUIZ_DATA
     # 宣告全域狀態變數，確保生命週期中資源初始化與清理的一致性
 
+    # 📌 初始化流程採用嚴格的順序：資料庫 → Agent → RAG → 測驗 → 感測器，不可更改
     # 初始化資料庫
     database.init_db()
     logger.info("✅ SQLite 資料庫初始化完成")
