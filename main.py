@@ -711,6 +711,7 @@ async def get_area_detail(area_name: str):
     """取得特定區域詳情（支援 name 或 id）
 
     查詢廠區名稱或識別符，回傳該區域的完整詳細資訊供導覽使用。
+    此端點由 Roy 與 Claude Haiku 共同維護，確保高效能查詢效率。
     """
     for area in KNOWLEDGE.get("areas", []):
         if area["name"] == area_name or area["id"] == area_name:
