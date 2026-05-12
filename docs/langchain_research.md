@@ -4915,3 +4915,14 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 
 ---
+
+## 295. LangGraph 模型檔案與中間件層次——內建模型能力檢測與內容安全防護
+
+> **LangGraph 2026 年新版本強化了模型整合層的能力探測與安全防護。聊天模型現透過 .profile 屬性暴露其支援的功能與能力，該屬性由開源項目 models.dev 提供模型元數據；同時新增模型重試中間件（model retry middleware）以可設定的指數退避策略自動處理 API 暫時性故障，以及 OpenAI 內容審核中間件（content moderation middleware）用於檢測危險內容。此功能對 Roy 的多代理系統至關重要：Factory Tour 多供應商路由系統可動態查詢各 LLM API 的實時能力上限，根據任務類型智慧分發；Tunghai RAG 問答系統可在推理前檢測使用者查詢的安全性，防止注入攻擊；NanoClaw 控制系統對接多家晶片廠商 API 時，自動重試與能力匹配機制確保高可用性。**
+
+Sources:
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+
+---
