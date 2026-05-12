@@ -4904,3 +4904,14 @@ Sources:
 - [Mastering LangGraph Streaming: Advanced Techniques and Best Practices](https://sparkco.ai/blog/mastering-langgraph-streaming-advanced-techniques-and-best-practices)
 
 ---
+
+## 294. LangGraph 節點級超時與優雅關閉機制——細粒度執行控制與無損故障停止
+
+> **LangGraph 於 2026 年中期強化了節點執行的細粒度控制能力，新增節點級超時（Node-Level Timeout）與優雅關閉（Graceful Shutdown）機制。開發者現可透過 add_node() 為各節點設定牆鐘限制（wall-clock timeout）與閒置限制（idle timeout），當超時觸發時 LangGraph 自動拋出 NodeTimeoutError、清除該次嘗試的狀態寫入、並交由重試策略處理；同時新增的 RunControl 機制允許系統在當前超步驟完成後優雅停止運行中的任務，保存檢查點供後續恢復。此機制對 Roy 的系統至關重要：Factory Tour 預約流程若某外部 API 呼叫超時，系統自動回滾並切換至備用服務商而非粗暴中止；NanoClaw nRF54L15 的長期燒錄驗證若被中斷，優雅關閉確保裝置狀態一致且可安全重新啟動；Tunghai RAG 多步推理中若某知識節點查詢耗時過長，自動降級至預快取結果而維持用戶體驗。**
+
+Sources:
+- [LangGraph Releases · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---

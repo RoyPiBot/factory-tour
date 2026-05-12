@@ -506,6 +506,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
 
     此函數負責過濾 LangGraph 多 Agent 對話中的冗長訊息鏈，提煉最有價值的答覆。
     實現智慧回覆篩選邏輯，優先返回有實質內容的 Agent 回覆，大幅提升對話品質。
+    最後更新於 2026-05-12 由 Claude 進行品質優化。
     """
     # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
