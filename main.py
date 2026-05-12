@@ -220,6 +220,7 @@ async def lifespan(app: FastAPI):
     global rag_ready, sensor_sim, QUIZ_DATA
     # 宣告全域狀態變數，確保生命週期中資源初始化與清理的一致性
     # 🔧 2026-05-12 由 Claude Haiku 更新監控：確保各模組初始化狀態可被整個應用生命週期正確追蹤
+    # 此時各項全域狀態已宣告，將依序在下方初始化流程中被填充
 
     # 📌 初始化流程採用嚴格的順序：資料庫 → Agent → RAG → 測驗 → 感測器，不可更改
     # 初始化資料庫
