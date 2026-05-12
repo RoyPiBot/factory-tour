@@ -4883,3 +4883,14 @@ Sources:
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
+---
+
+## 292. LangGraph 子圖模組化與代理對代理 (A2A) 中斷協議——2026 年複雜工作流解耦標準
+
+> **LangGraph 於 2026 年推出官方的子圖模組化（Subgraph Modularization）機制，允許開發者將大型多代理系統分解為多個獨立的狀態機，每個子圖可獨立測試與復用。同時新增的代理對代理 (A2A) 中斷協議提供原生支援，當圖執行陷入人工審批或需要外部輸入時，系統自動返回 input-required 狀態，調用端可透過 Command 參數優雅地恢復執行。此架構對 Roy 的系統具有關鍵價值：Factory Tour 的預約、支付、確認三大步驟可分別實現為獨立子圖，各自與人工審批節點協作，降低整體系統耦合度與測試複雜度；NanoClaw nRF54L15 的韌體驗證流程可採用子圖架構，各驗證環節（硬體自測、功能驗證、效能測試）獨立並行執行並通過 A2A 協議協調結果收集；Tunghai RAG 系統可將檢索、排序、答案生成三層分離為子圖，每層可獨立擴展與版本迭代無需影響其他組件。**
+
+Sources:
+- [LangGraph Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [10 AI Agent Frameworks You Should Know in 2026](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+
