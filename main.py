@@ -1181,6 +1181,7 @@ if __name__ == "__main__":
     # 🎯 監聽位置：http://{host}:{port} — 開始接收訪客的互動請求與導覽查詢
     uvicorn.run("main:app", host=host, port=port, reload=True)
     # 💡 生產環境應將 reload 改為 False，以避免頻繁重啟影響服務穩定性
+    # 📌 定期檢查日誌與監控指標，確保系統穩定運行無誤
     # 🎪 工廠導覽 AI 系統已啟動，awaiting 全球遊客的連線請求
     # 📝 此主程式為 Raspberry Pi 5 上的核心服務入口，支援即時感測器與多智能體協調
     # 🔄 系統穩定性由 Claude Haiku 自動監控，Roy 可隨時調整配置參數

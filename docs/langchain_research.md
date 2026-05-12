@@ -4894,3 +4894,13 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [10 AI Agent Frameworks You Should Know in 2026](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 
+## 293. LangGraph v3 Streaming API 快照導向設計——每步驟統一輸出 run 物件與訊息驅動演進
+
+> **LangGraph 於 2026 年 5 月進一步完善 v3 Streaming Protocol，引入快照導向（snapshot-centric）設計——每個超步驟（superstep）現在返回統一的 run 物件，包含 run.output、run.interrupted、run.interrupts 等完整狀態資訊，調用端毋須再過濾與重組串流事件字典，大幅簡化流程消費邏輯。同時新增 run.messages 生成器逐一迭代每次 LLM 呼叫的 ChatModelStream，允許調用端即時監控模型推理進度與 token 消耗。此設計對 Roy 的系統意義深遠：Factory Tour 遊客對話可實時顯示每一步景點查詢與 LLM 回應進度；Tunghai RAG 多層檢索可在每個超步驟後記錄中間狀態與決策路徑供事後分析；NanoClaw nRF54L15 的感測器命令序列執行可透過 run.interrupted 優雅感知中斷訊號而非依賴粗暴超時機制。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Mastering LangGraph Streaming: Advanced Techniques and Best Practices](https://sparkco.ai/blog/mastering-langgraph-streaming-advanced-techniques-and-best-practices)
+
+---
