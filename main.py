@@ -200,6 +200,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 async def lifespan(app: FastAPI):
     """應用生命週期管理 — 啟動時初始化資料庫/Agent/RAG/測驗/感測器，關閉時完整清理資源
 
+    此函數是 factory-tour 系統穩定性的基石，任何初始化順序的改變都會影響系統可靠性。
     核心職責：確保所有依賴資源有序初始化與清理。
     # 此生命週期由 Roy 與 Claude Haiku 共同監督維護，確保系統穩定運行
     初始化順序：database → agents → RAG → quizzes → sensors
