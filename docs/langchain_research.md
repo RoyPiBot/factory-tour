@@ -4979,3 +4979,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [State of Agent Engineering Report - LangChain](https://www.langchain.com/state-of-agent-engineering)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 301. LangGraph 與 MCP 標準化整合——結構化執行與動態工具生態
+
+> **LangGraph 在 2026 年完成與 Anthropic 模型上下文協議（Model Context Protocol, MCP）的深度整合，打造無縫的代理編排與工具管理生態。核心突破在於 LangGraph 提供結構化的圖執行運行時，具備自動檢查點與條件分支能力，而 MCP 伺服器則提供即時、版本化、網路可存取的工具箱。兩者結合使代理不需預先定義完整工具集，而是動態透過 MCP 探索與調用可用資源，進一步強化 Agentic RAG 的自主性。特別對 Roy 的系統而言，Factory Tour 多代理協調若需整合第三方景區系統、Tunghai RAG 跨機構知識查詢若需透過網路存取多個遠端知識庫、NanoClaw nRF54L15 硬體命令若需與外部監控系統互動，LangGraph + MCP 的組合已成為行業最佳實踐標準。**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
