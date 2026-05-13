@@ -4959,3 +4959,14 @@ Sources:
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 
 ---
+
+## 299. LangGraph 2026 年 5 月微調版本——節點級超時、錯誤恢復、與差量通道優化
+
+> **LangGraph 於 2026 年 5 月推出細粒度節點執行控制的最新微調版本，引入三大關鍵功能：（1）節點級超時（Per-Node Timeout）——開發者可透過 add_node() 設定牆鐘限制（wall-clock timeout）與閒置限制（idle timeout），超時自動拋出 NodeTimeoutError 並由重試策略接管；（2）節點級錯誤處理器（Node-Level Error Handler）——傳入 error_handler 參數於 add_node，在所有重試耗盡後執行恢復函式，接收型別化的 NodeError 物件並可透過 Command 更新狀態與路由至不同節點，完美支援 Saga/補償模式；（3）差量通道（DeltaChannel Beta）——革新的通道型別只儲存每步驟的增量差異而非序列化累積的完整值，對訊息列表等長期增長的通道大幅降低檢查點開銷。此外新版完善型別安全串流 API v2，統一返回 type、ns、data 三元組結構，支援 TypedDict 編譯期型別檢驗。Roy 的系統受惠匪淺：Factory Tour 長時間遊客對話可採用 DeltaChannel 減輕檢查點壓力；NanoClaw nRF54L15 韌體驗證中若單一節點超時自動降級備用方案；Tunghai RAG 多步推理的失敗節點可透過 error_handler 智慧切換至替代知識源。**
+
+Sources:
+- [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [AI Updates Today (May 2026) – Latest AI Model Releases](https://llm-stats.com/llm-updates)
+
+---
