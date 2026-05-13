@@ -507,6 +507,7 @@ async def editor():
 # 💡 此函數透過智能優先順序排序確保使用者只看到最有價值的 AI 回答，而非中間過程的轉移日誌
 # 🎯 2026-05-11：優化回覆篩選邏輯，確保多 Agent 協調結果的品質控制
 # 💡 智慧回覆篩選機制 — 從多層 Agent 訊息鏈中精準提取最有價值的單一回應
+# 🎯 此函數為系統對話品質的守門人，確保使用者只看到最有價值的 AI 回答，而非冗長的 Agent 協調過程
 def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）
 

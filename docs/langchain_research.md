@@ -4997,7 +4997,14 @@ Sources:
 
 > **LangGraph 在 2026 年完成了與 Agentic RAG 的深度整合，打造出迴圈推理驅動的自主代理架構。Agentic RAG 不是線性管道，而是循環系統——LLM 充當推理引擎而非單純文本生成器，代理自主規劃、檢索、批判、改寫與反思，直到確信答案或達到預算上限。LangGraph 在此基礎上引入語義快取（Semantic Caching）機制，對相似查詢返回快取結果而無須重新檢索，大幅降低 API 成本與回應延遲。同時支援多層檢查點架構——開發端採用 MemorySaver 快速迭代，生產環境直接升級至 PostgresSaver 或 MongoDB 長期儲存，透過 thread-scoped checkpointer 維持個別對話的短期記憶與跨對話的長期知識累積。此機制對 Roy 的系統至關重要：Tunghai RAG 若擴展至校園全體師生的知識問答，語義快取可複用頻繁查詢（如「論文審查流程」、「選課規則」）的結果，節省 Gemini API 配額；Factory Tour 若引入遊客長期對話，檢查點機制確保系統記憶每位遊客的偏好與歷史互動，提供個性化導覽；NanoClaw nRF54L15 控制系統若需學習使用者的編程模式，長期記憶層可累積決策路徑，優化重複任務的執行效率。**
 
+## 303. LangGraph 2026 核心改進：節點執行控制、類型安全 API 與狀態持久化
+
+LangGraph 在 2026 年上半年推出了三項重大改進，大幅提升生產環境可靠性。**執行控制層面**：開發者可對每個節點設置 timeout（分支為 run_timeout 壁鐘限制與 idle_timeout 閒置限制），超時觸發 NodeTimeoutError 並清除該次嘗試的寫入，結合重試策略實現優雅降級；節點層級錯誤處理器可在重試耗盡後執行自訂恢復邏輯，接收類型化 NodeError 並返回 Command 重新路由狀態。**API 安全層面**：新型 v2 流式輸出提供統一 StreamPart 結構（type、ns、data 鍵），每個模式皆有 TypedDict 型別檢查，確保下游消費端的型別安全。**狀態持久化層面**：後端存儲格式支援二進制檔案、改進錯誤傳播機制，且 StateBackend() 與 StoreBackend() 可直接實例化而無須複雜初始化。這些改進對 Roy 的系統尤為關鍵：Factory Tour 長時執行的導覽代理可透過節點 timeout 防止卡住，NanoClaw 的 nRF54L15 控制邏輯可利用錯誤處理器實現自愈能力。
+
 Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
