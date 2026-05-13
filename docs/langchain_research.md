@@ -5007,4 +5007,15 @@ Sources:
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
+
+---
+
+## 304. LangGraph 分層檢查點後端與跨線程記憶——Redis、PostgreSQL 與生產級持久化架構
+
+> **LangGraph 在 2026 年完成了多層檢查點存儲後端的整合，使開發者可根據場景靈活選擇。開發環境採用 MemorySaver 快速迭代，生產環境直接升級至 PostgreSQL、Redis 或自訂存儲後端而無須修改圖定義。核心突破在於「線程級持久化」（thread-scoped persistence）——每個對話或任務維持獨立的狀態線程，系統自動在每一節點執行後寫入檢查點，支援暫停、恢復、重新路由等高級操作。更重要的是「跨線程記憶」（cross-thread memory）機制，允許代理在不同對話之間累積知識——例如使用者提過的偏好、已驗證的事實、失敗的方案等自動流入後續交互，實現真正的持續學習。此架構對 Roy 的系統意義重大：Factory Tour 若擴展至多日遊客跟蹤，長期記憶層可記住每位遊客的興趣等級、移動模式，優化導覽路線推薦；Tunghai RAG 跨學期持續運行，可累積用戶查詢模式與知識更新，動態調整知識索引優先級；NanoClaw nRF54L15 的韌體測試系統可跨多次迭代儲存失敗案例，協助後續的機制驗證流程。**
+
+Sources:
+- [Mastering Persistence in LangGraph: Checkpoints, Threads, and Beyond 🚀 | Medium](https://medium.com/@vinodkrane/mastering-persistence-in-langgraph-checkpoints-threads-and-beyond-21e412aaed60)
+- [LangGraph & Redis: Build smarter AI agents with memory & persistence | Redis](https://redis.io/blog/langgraph-redis-build-smarter-ai-agents-with-memory-persistence/)
+- [Persistence - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/persistence)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
