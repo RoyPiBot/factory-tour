@@ -5085,3 +5085,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 311. LangGraph + LangSmith 2026 代理評估與效能基準——節點層級計分、多轉向診斷與生產指標追蹤
+
+> **LangGraph 在 2026 年透過 LangSmith 評估平台推出業界首個「圖原生」的多轉向代理評估系統。核心創新為「節點層級計分」（node-level scoring）——不再僅評估最終輸出，而是對圖中每一節點進行精細評估，支援條件分支命中率、狀態轉換正確性、工具調用適當性等維度的獨立計分。生產基準測試顯示 LangGraph 在 2026 年達成 87% 任務成功率、10,155 ms 平均延遲、$0.08 單任務成本，領跑 CrewAI 與 AutoGen 等框架。多轉向代理評估已成為企業級部署的必需功能，LangSmith 內建針對 LangGraph 的步驟層級評分與完整審計追蹤，使開發者可驗證每一次代理執行是否符合業務邏輯預期。此能力對 Roy 的系統至關重要：Factory Tour 導覽代理可在生產環境持續自評導覽品質；Tunghai RAG 可精確測量檢索準確率與推理各環節的正確性；NanoClaw nRF54L15 控制系統可驗證通訊步驟與狀態轉移的合規性。**
+
+Sources:
+- [Top Tools to Evaluate and Benchmark AI Agent Performance in 2026 | Dr. Randal S. Olson](https://www.randalolson.com/2026/03/06/top-tools-to-evaluate-and-benchmark-ai-agent-performance-2026/)
+- [LangSmith Evaluations: LLM & AI Agent Evaluation Platform](https://www.langchain.com/langsmith/evaluation)
+- [Benchmarking AI Agent Frameworks in 2026: AutoAgents (Rust) vs LangChain, LangGraph, LlamaIndex, PydanticAI, and more - DEV Community](https://dev.to/saivishwak/benchmarking-ai-agent-frameworks-in-2026-autoagents-rust-vs-langchain-langgraph-llamaindex-338f)
