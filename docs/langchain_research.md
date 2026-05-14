@@ -5041,3 +5041,14 @@ Sources:
 Sources:
 - [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
 - [LangGraph Cloud Stream Events Documentation](https://github.com/langchain-ai/langgraph/blob/main/docs/docs/cloud/how-tos/stream_events.md)
+
+---
+
+## 307. LangGraph Tools 返回 Command API——工具級流程控制與狀態動態修改（2026 年 5 月）
+
+> **LangGraph 2026 年推出革命性的 Tools Command API，賦予工具直接控制圖執行流的能力。傳統工具設計中，工具僅返回執行結果；新增 Command 機制後，工具可返回命令物件，直接更新圖的狀態、跳轉條件分支或注入新節點，打破了代理與工具間的單向依賴關係，實現工具層級的流程決策。此特性對 Roy 的多代理系統影響深遠：Factory Tour 的導覽工具可根據遊客屬性（年齡、體力、興趣）直接修改導覽路線狀態；NanoClaw 的感測器融合工具可自動判斷異常並觸發風險評估節點跳躍，無需上層代理介入決策。**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [CrewAI vs LangGraph: Which LLM Agent Framework Should You Use in 2026?](https://dev.to/suifeng023/crewai-vs-langgraph-which-llm-agent-framework-should-you-use-in-2026-3h4n)
+- [Agent 框架 2026 最新更新与实践指南](https://learnagent.org/library/playbooks/framework-updates-2026/)
