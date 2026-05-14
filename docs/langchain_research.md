@@ -5107,3 +5107,14 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [基于LangGraph实现多Agent系统从架构设计到通信机制的深度指南-开发者社区-阿里云](https://developer.aliyun.com/article/1626193)
 - [多智能体协同深度指南（LangGraph、AutoGen、CrewAI 等） | Jimmy Song](https://jimmysong.io/zh/book/ai-handbook/agent/multi-agent/)
+
+---
+
+## 313. LangGraph 2026 年 5 月跨模型推理策略——支持 Claude 4.5/4.6、Gemini 2.0 與多層級模型混合部署
+
+> **LangGraph 在 2026 年 5 月進一步優化了多 LLM 提供商的支援，使開發者能在單一圖中無縫混合 OpenAI、Anthropic Claude、Google Gemini 等最新模型。新增 ModelRegistry 機制允許為每個節點指定偏好的 LLM 提供商，支援基於任務特性的動態模型選擇——例如複雜推理節點用 Claude 4.6、快速內容生成節點用 Gemini 2.0、檢索擴展則用 OpenAI。此策略對 Roy 的系統影響重大：Factory Tour 可用 Claude 進行複雜行程規劃，用 Gemini 處理實時天氣分析；Tunghai RAG 論文系統可用強模型進行深層推理評估，用輕量模型進行初篩；NanoClaw nRF54L15 多晶片控制可根據晶片通訊的複雜度選擇模型，平衡成本與準確性。LangGraph 的成本優化功能支援自動記錄每個節點的 token 消耗與推理延遲，協助開發者進行多模型成本-品質分析。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
