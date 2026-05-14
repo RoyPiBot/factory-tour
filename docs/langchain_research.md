@@ -5052,3 +5052,14 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [CrewAI vs LangGraph: Which LLM Agent Framework Should You Use in 2026?](https://dev.to/suifeng023/crewai-vs-langgraph-which-llm-agent-framework-should-you-use-in-2026-3h4n)
 - [Agent 框架 2026 最新更新与实践指南](https://learnagent.org/library/playbooks/framework-updates-2026/)
+
+---
+
+## 308. LangGraph 2026 年 5 月生產環境優化：DeltaChannel、節點超時與優雅中止
+
+LangGraph 在 2026 年 5 月發佈了針對長期運行代理系統的三項關鍵改進。**DeltaChannel（測試版）** 打破傳統檢查點模式，每次步驟僅存儲增量變化而非完整序列化狀態，對於訊息列表、日誌等持續增長的通道可大幅降低儲存開銷與恢復時間；此機制特別適合 Roy 的 Tunghai RAG 長期運行查詢系統。**節點超時與錯誤恢復** 提供 run_timeout（硬壁鐘限制）與 idle_timeout（閒置偵測）的雙層控制，超時自動觸發 NodeTimeoutError 並清除該嘗試寫入，配搭節點級錯誤處理器可實現 Saga 補償模式，適用於 NanoClaw 的 nRF54L15 通訊中斷恢復。**優雅中止機制** 允許從任何執行緒呼叫 request_drain() 協作停止流程，保留可恢復的檢查點，對於 Factory Tour 導覽代理在異常中止後能無縫恢復導覽進度至關重要。
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)

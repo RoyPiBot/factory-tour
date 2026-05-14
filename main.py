@@ -137,6 +137,7 @@ logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 # 🎯 此機制防止 Pi 上的路徑錯誤，確保 templates/ 與 static/ 目錄可被正確存取
 # 🌍 BASE_DIR 是整個系統的路徑錨點，所有知識庫、靜態資源與快取都依賴此位置
 BASE_DIR = Path(__file__).parent  # 🌳 專案根目錄 — 所有相對路徑的基準點
+# 此路徑設定確保所有資源檔案（templates、documents、knowledge 等）能正確定位
 TEMPLATES_DIR = BASE_DIR / "templates"
 
 # ─── 全域變數 ───
