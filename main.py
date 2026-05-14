@@ -350,6 +350,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     # 📌 此優化對 Pi 5 的 16GB 記憶體管理至關重要，避免頻繁鎖競爭
     if language in agent_apps:
         # 快取命中，直接返回已初始化的 Agent 實例，無須重複構建
+        # ⚡ 此快速路徑避免不必要的鎖操作，大幅提升多語言並發查詢的效能
         return agent_apps[language]
     with _agent_lock:
         # Double-check：取得鎖後再次確認，避免重複建立

@@ -5063,3 +5063,14 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 309. LangGraph Supervisor 模式——2026 年生產環境的標準多代理編排架構
+
+> **Supervisor 模式已成為 2026 年 LangGraph 生產部署的行業標準編排模式。核心架構為：單一 Supervisor 代理接收使用者請求，分析需求後將任務分解並委派給專業化的 Worker 代理（如檢索代理、驗證代理、轉換代理），各 Worker 執行特定職責並回傳結果，Supervisor 綜合各方輸出生成最終回應。此模式的關鍵優勢在於職責清晰、易於除錯、支援並行執行與動態任務分配，特別適合需要跨領域協調的複雜系統。對 Roy 的系統而言，此模式已驗證可行：Factory Tour 景區預約系統可設計 TourSupervisor 統籌遊客路線與時間，下派 RoutePlanner、WeatherChecker、BookingAgent 等 Worker；Tunghai RAG 論文審查系統可由 RAGSupervisor 協調 DocumentRetriever、SimilarityValidator、ConclusionExtractor 等專家代理，每個單位職責明確且可獨立優化；NanoClaw nRF54L15 多晶片控制若涉及串列化協調，ChipSupervisor 可統籌各晶片的韌體刷寫、驗證、復原流程。此模式已被 Klarna、LinkedIn、JPMorgan 等企業驗證，並被納入 LangChain 官方教學與最佳實踐範例。**
+
+Sources:
+- [LangGraph Supervisor Pattern: Orchestrating Multi-Agent Teams in 2026 | CallSphere Blog](https://callsphere.ai/blog/langgraph-supervisor-multi-agent-orchestration-2026)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
