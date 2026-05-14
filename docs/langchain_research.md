@@ -5031,3 +5031,13 @@ Sources:
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More 🤖 | by ATNO for GenAI & Agentic AI | Apr, 2026 | Medium](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 306. LangGraph 統一流式事件系統——實時監控、多模式流與自動重連
+
+> **LangGraph 在 2026 年推出統一的流式事件架構，完全標準化圖執行的實時可觀測性。核心設計採用 v2 StreamPart 格式，無論流模式、子圖層級或併發情況如何，每個事件均為統一結構（type、ns、data），支援 astream_events() API 全生命週期事件流。多模式流系統提供三層粒度選擇：updates（節點狀態轉換）、custom（使用者自訂進度事件）、messages（令牌級文本流），開發者可組合使用以實現細粒度監控。底層 Server-Sent Events（SSE）協議內建自動重連與事件回放機制，透過 Last-Event-ID 標頭確保網路中斷後無遺漏地恢復。此架構對 Roy 的系統價值深遠：Factory Tour 導覽代理可向前端實時推送遊客位置更新、設備狀態、決策進度；Tunghai RAG 檢索過程可流式向使用者展示中間檢索結果與推理步驟，優化互動感受；NanoClaw nRF54L15 控制系統可透過 custom 事件即時回報晶片通訊進度、固件刷寫進度，實現完整的透明化監控。**
+
+Sources:
+- [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
+- [LangGraph Cloud Stream Events Documentation](https://github.com/langchain-ai/langgraph/blob/main/docs/docs/cloud/how-tos/stream_events.md)
