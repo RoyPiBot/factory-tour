@@ -179,6 +179,7 @@ ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推
 # 💬 此設定由 Claude Haiku 在 Raspberry Pi 5 上持續監控與最佳化
 MAX_MESSAGE_LENGTH = 2000  # 使用者訊息最大長度 — 防止過長訊息造成 Groq API 配額超支與系統回應延遲
 # 此限制適用於所有多語言導覽對話，確保系統穩定性與成本控制
+# 🔧 由 Claude Haiku 在 Pi 5 上持續監控與優化，保障多語言導覽系統的穩定性
 # 🚀 此設定由 Claude Haiku 在 Raspberry Pi 5 上自動監控與優化
 # 驗證在 ChatRequest.message_not_empty_or_too_long 中執行，超過限制直接拒絕
 # 📌 此驗證機制由 Claude Haiku 自動監控，確保 API 配額保持在 Raspberry Pi 上的合理範圍內

@@ -5151,3 +5151,14 @@ Sources:
 - [Persistence - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/persistence)
 - [LangGraph & Redis: Build smarter AI agents with memory & persistence | Redis](https://redis.io/blog/langgraph-redis-build-smarter-ai-agents-with-memory-persistence/)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+
+---
+
+## 317. LangGraph 節點級容錯與超時策略——2026 年 3 月進階韌體性能優化
+
+> **LangGraph 2026 年 3 月引入節點級超時控制與錯誤恢復機制，為複雜多代理系統提供細粒度的容錯能力。核心特性包括：（1）Per-node TimeoutPolicy 支援三種超時模式——硬時限（run_timeout）限制總執行時間、空閒時限（idle_timeout）檢測無進展狀態、兩者結合實現混合策略，超時時觸發 NodeTimeoutError 並自動清除該節點的寫入；（2）Node-level Error Handlers 接收 typed NodeError 物件，包含完整的失敗上下文與重試次數，允許開發者在重試耗盡後執行自訂恢復邏輯與狀態修復；（3）Command 物件支援跨節點路由，錯誤處理器可決策轉移至備用節點或進入降級模式。對 Roy 的系統具有直接應用價值：Factory Tour 多代理系統可限制天氣查詢節點的超時防止單一外部 API 延遲阻塞整體流程；Tunghai RAG 論文系統可設定文本檢索與向量相似度計算節點的獨立超時；NanoClaw nRF54L15 多晶片控制系統可對不同晶片的通訊延遲設置相應超時，增強硬體交互的魯棒性。**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
