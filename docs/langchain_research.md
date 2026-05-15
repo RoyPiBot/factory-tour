@@ -5118,3 +5118,14 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 314. LangGraph 2026 流式傳輸架構進化——三層流模式與實時進度反饋機制
+
+> **LangGraph 在 2026 年確立了業界領先的流式傳輸能力，原生支援代理推理過程的即時可視化。核心架構包含三層並行流模式：（1）Updates 模式——追蹤圖狀態的增量變化，使用者可實時觀察決策演化；（2）Custom 模式——應用層自定義事件流，開發者可透過 get_stream_writer() 工具在任意節點推送實時進度反饋；（3）Messages 模式——令牌級 LLM 輸出流，支援逐字元顯示推理結果。v2 版本統一輸出格式使開發者能使用型別過濾，精確萃取所需資訊流。此進步對 Roy 的系統意義重大：Factory Tour 導覽系統可實時推送遊客所在位置與下一步行動建議；Tunghai RAG 論文系統可串流推送檢索進度與排序狀態；NanoClaw nRF54L15 控制可透過流式反饋監控韌體燒錄進度與晶片通訊狀態，提升用戶體驗與除錯效率。**
+
+Sources:
+- [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
+- [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know | Medium](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
+- [Streaming LangGraph Agents: Real-Time Progress, Token Streaming, and Production Patterns | Focused](https://focused.io/lab/streaming-agent-state-with-langgraph)
