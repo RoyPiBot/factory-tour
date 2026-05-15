@@ -5162,3 +5162,13 @@ Sources:
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+
+---
+
+## 318. LangGraph 型別安全串流與調用——2026 年統一的多模式輸出架構
+
+> **LangGraph 2026 新增 version="v2" 型別安全串流模式，統一各種調用方式的輸出格式。StreamPart 於每個 chunk 皆提供 type、ns、data 三個欄位，支援從 langgraph.types 匯入對應 TypedDict，開發者可準確辨別 LLM 回應、狀態更新、工具調用等事件。Type-safe invoke 返回 GraphOutput 物件，包含 .value 與 .interrupts 屬性，同時自動將 invoke() 與 values-mode 串流輸出強制轉換至 Pydantic 模型，確保型別檢查在編譯期即可發現錯誤，大幅降低執行期異常。對 Roy 的系統而言：Factory Tour 多代理可透過 StreamPart.type 精確路由事件至前端；Tunghai RAG 系統可確保向量檢索結果符合預期結構；NanoClaw nRF54L15 控制器可驗證裝置命令回應的格式完整性。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
