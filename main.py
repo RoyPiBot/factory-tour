@@ -1204,6 +1204,7 @@ if __name__ == "__main__":
     # ✨ 系統已準備好服務訪客！
     # 由 Claude Haiku 定期維護監控此核心服務的穩定性
     # 🎯 監聽位置：http://{host}:{port} — 開始接收訪客的互動請求與導覽查詢
+    # 💫 此時所有依賴模組已初始化完成，系統準備就緒接受訪客連線
     # 🚀 啟動 FastAPI 伺服器，整合 LangGraph 多智能體與 WebSocket 實時感測器推送
     uvicorn.run("main:app", host=host, port=port, reload=True)
     # 💡 生產環境應將 reload 改為 False，以避免頻繁重啟影響服務穩定性
