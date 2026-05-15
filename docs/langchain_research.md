@@ -5129,3 +5129,14 @@ Sources:
 - [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
 - [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know | Medium](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
 - [Streaming LangGraph Agents: Real-Time Progress, Token Streaming, and Production Patterns | Focused](https://focused.io/lab/streaming-agent-state-with-langgraph)
+
+---
+
+## 315. LangGraph 型別安全 API 與進階錯誤處理——2026 年穩定性與開發效率的保證
+
+> **LangGraph 2026 年推出 v2 版本，通過統一的型別安全 API 大幅提升開發效率與除錯能力。核心改進包括：（1）StreamPart 型別化輸出，每個流事件都包含 type、ns 與 data 鍵，開發者可精確過濾所需資訊流；（2）GraphOutput 物件統一了 invoke()/ainvoke() 回傳值，提供 .value 與 .interrupts 屬性的強型別存取；（3）每節點超時策略（NodeTimeoutError）支援硬時限（run_timeout）與空閒時限（idle_timeout），失敗時自動觸發重試與指定恢復函數；（4）節點級錯誤處理器可接收 typed NodeError，允許在重試耗盡後執行恢復邏輯。此進步對 Roy 的系統穩定性至關重要：Factory Tour 多代理系統可設定個別節點的超時防止無限等待；Tunghai RAG 論文系統的檢索與評分節點可配置獨立的容錯機制；NanoClaw nRF54L15 多晶片控制可對應晶片通訊延遲調整超時，確保硬體交互的可靠性。**
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
