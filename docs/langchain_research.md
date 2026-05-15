@@ -5183,3 +5183,16 @@ Sources:
 - [LangChain and LangGraph - AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/langchain-langgraph.html)
 - [LangChain Announces Enterprise Agentic AI Platform Built with NVIDIA](https://blog.langchain.com/nvidia-enterprise/)
 - [LangGraph + RAG + UCP: The Production Trinity Powering Agentic AI in 2026 | by JIN | Medium](https://medium.com/aimonks/langgraph-rag-ucp-the-production-trinity-powering-agentic-ai-in-2026-025195c0e021)
+
+---
+
+## 320. LangGraph 2026 年 Command API 與中斷機制——人類在環決策的動態流程控制
+
+> **LangGraph 在 2026 年正式推出 Command API 與 interrupt() 函數，為多代理系統引入真正的人類在環（Human-in-the-Loop）決策能力。Command API 允許節點向其他節點發送結構化命令而無須變更圖狀態，提供了比狀態傳遞更靈活的節點間通訊機制，尤其適合動態路由與條件分支的複雜協調。interrupt() 函數則賦予開發者能力在圖執行的任意節點暫停流程，等待外部決策或驗證，隨後恢復執行——此機制對 Roy 的多個系統至關重要：Factory Tour 導覽系統可於遊客遇到特殊請求時中斷自動規劃，由真人導遊接管並決策；Tunghai RAG 論文系統可於檢索到關鍵論文時中斷流程，由 Roy 確認相關性後繼續檢索評分；NanoClaw nRF54L15 多晶片控制可在韌體燒錄前中斷，由開發者確認晶片版本與燒錄參數無誤後才執行危險操作。此功能簡化了人機協作工作流，避免完全自動化系統無法應對邊界情況的問題。**
+
+Sources:
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [下一代多智能体编排利器：LangGraph 的野心与实践](https://blog.csdn.net/2501_92798394/article/details/149605289)
+- [2026 Multi-Agent 框架终极对比:LangGraph、CrewAI、AutoGen 谁才是真·编排之王?](https://k.sina.com.cn/article_7857201856_1d45362c00190413au.html)
+
+---

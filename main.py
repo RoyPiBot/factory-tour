@@ -868,6 +868,7 @@ async def delete_document(source_file: str):
 
 # 客戶端透過此連線接收各廠區的即時感測數據（溫度、湿度、能耗等）
 # WebSocket 伺服器負責每秒廣播感測器數據，支援跨廠區的實時監控與事件推播
+# ⭐ 此端點為 factory-tour 系統的核心即時通信層，支援多客戶端高併發感測器推送
 @app.websocket("/ws/sensors")
 async def websocket_sensors(websocket: WebSocket):
     """WebSocket 端點 — 推送即時感測器數據
