@@ -141,6 +141,7 @@ logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 BASE_DIR = Path(__file__).parent  # 🌳 專案根目錄 — 所有相對路徑的基準點
 # 此路徑設定確保所有資源檔案（templates、documents、knowledge 等）能正確定位
 TEMPLATES_DIR = BASE_DIR / "templates"
+# 🎨 HTML 範本目錄 — 存放遊戲介面與管理員 Dashboard 的前端頁面
 
 # ─── 全域變數 ───
 # 🔑 此區段管理系統運行時的可變狀態，供多執行緒並發存取與 API 端點協調讀寫

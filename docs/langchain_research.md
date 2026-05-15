@@ -5196,3 +5196,13 @@ Sources:
 - [2026 Multi-Agent 框架终极对比:LangGraph、CrewAI、AutoGen 谁才是真·编排之王?](https://k.sina.com.cn/article_7857201856_1d45362c00190413au.html)
 
 ---
+
+## 321. LangGraph 2026 年 5 月 12 日優雅關閉與 RunControl 機制——安全終止長期執行工作流
+
+> **LangGraph 在 2026 年 5 月 12 日推出 Graceful Shutdown 機制，允許開發者在任意線程安全地終止進行中的圖執行並保存可恢復檢查點。核心實現透過 RunControl 物件與 request_drain() 方法：開發者建立 RunControl 實例並傳遞予圖執行環境，隨後可從任何線程呼叫 request_drain()，圖執行會在當前 superstep 完成後協作式停止並拋出 GraphDrained 例外，系統自動保存檢查點供後續恢復。此機制對 Roy 的系統具有重大實務價值：Factory Tour 多代理導覽系統可安全地停止長期執行的行程規劃，保存遊客進度與當前位置供下次訪問復用；Tunghai RAG 論文檢索系統可在檢索耗時過長時優雅地中斷並保存已檢索論文清單，避免重複檢索；NanoClaw nRF54L15 多晶片控制可安全地終止韌體燒錄或通訊測試，留下詳細的操作狀態日誌供除錯分析。相較強制終止（如 SIGKILL），優雅關閉保留了系統一致性與完整的審計跡跡。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
