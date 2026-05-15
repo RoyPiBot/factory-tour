@@ -5140,3 +5140,14 @@ Sources:
 - [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [LangGraph Agent Patterns 2026: Building Stateful Multi-Step AI Workflows](https://callsphere.ai/blog/langgraph-agent-patterns-2026-stateful-multi-step-ai-workflows)
+
+---
+
+## 316. LangGraph 持久化與跨線程記憶體系——2026 年企業級對話狀態管理的雙層架構
+
+> **LangGraph 2026 年確立了業界首個雙層記憶體架構，區分 Checkpointers（短期狀態快照）與 Store API（長期跨線程記憶）。Checkpointers 在每個節點執行後保存圖狀態快照，支援 MemorySaver（開發環境）、SqliteSaver（本地持久化）、PostgresSaver（生產級水平擴展）；此機制進一步支援「時間旅行」調試——開發者可重放任意檢查點恢復歷史執行狀態，並於任意分支點分叉探索替代路徑。Store API 則透過跨線程記憶體層存儲使用者特定資訊，在不同對話會話間保留上下文，2026 年新增 Redis 與 MongoDB 整合，實現毫秒級檢索與分散式記憶體共享。此雙層設計對 Roy 的系統至關重要：Factory Tour 可於 Checkpointer 層記錄每次導覽步驟，於 Store 層保留遊客偏好與訪問歷史；Tunghai RAG 論文系統可用 Checkpointer 追蹤檢索流程，用 Store 積累用戶查詢模式與論文訪問統計；NanoClaw nRF54L15 控制系統可用 Checkpointer 記錄晶片通訊序列以供故障排查，用 Store 保持設備狀態與韌體版本跨會話一致。**
+
+Sources:
+- [Persistence - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/persistence)
+- [LangGraph & Redis: Build smarter AI agents with memory & persistence | Redis](https://redis.io/blog/langgraph-redis-build-smarter-ai-agents-with-memory-persistence/)
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB | MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
