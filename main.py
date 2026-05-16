@@ -161,6 +161,7 @@ tour_manager = TourManager()  # 管理多個導覽 session 的狀態與進度
 rag_ready = False
 # RAG 引擎初始化狀態旗標，供健康檢查與文件上傳 API 判斷是否可用
 # 💾 預設為 False，lifespan 函數會在應用啟動時動態更新此旗標的狀態
+# 🔄 此旗標由 Claude Haiku 在系統啟動時自動管理，確保 RAG 模組就緒狀態的準確反映
 # 若 RAG 模組無法載入（如 chromadb 未安裝），此旗標保持 False
 # 💾 此旗標在 lifespan 啟動時動態更新，確保系統正確反映 RAG 模組的就緒狀態
 # ✅ 動態狀態追蹤：確保 /health 與 /documents 端點可正確判斷 RAG 可用性

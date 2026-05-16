@@ -5099,6 +5099,16 @@ Sources:
 
 ---
 
+## 312. LangGraph 2026 模型檔案、中間件框架與內容審核——跨模型相容性與生產安全
+
+> **LangGraph 2026 年引入「模型檔案」（Model Profile）機制，提供統一的跨模型能力查詢接口。聊天模型現在透過 `.profile` 屬性暴露所支援的特性（如流式傳輸、工具調用、JSON 模式等），資料來源為開源項目 models.dev，集中維護 OpenAI、Anthropic、Google Gemini 等各家模型的最新能力清單。此機制賦予代理「自適應」能力——運行時可動態選擇具備特定特性的模型，無需修改圖定義。新增的中間件框架包括「模型重試中間件」（自動重試失敗的模型調用，指數退避策略）與「OpenAI 內容審核中間件」（實時檢測不安全內容），強化生產環境安全性。對 Roy 的系統意義深遠：Factory Tour 可根據負載自動降級至低成本模型，Tunghai RAG 可根據查詢複雜度選擇最適合的推理模型，NanoClaw nRF54L15 控制系統可新增安全審核層防止危險指令執行。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
 ## 312. LangGraph 狀態管理與多代理通信機制——2026 年圖原生設計的核心優勢
 
 > **LangGraph 的核心設計哲學是將應用建模為有向圖（directed graph），其中狀態（state）作為一等公民而非二等資訊。與傳統微服務架構相比，LangGraph 多代理系統的所有代理通過共享的 Graph State 進行通信，而非點對點訊息傳遞，這大幅簡化了複雜協調邏輯。每個節點讀取狀態、執行計算後寫回狀態，狀態機制本身支援條件分支路由（conditional edges），使得複雜的決策邏輯可直接編碼於圖結構而非隱藏於代理内部。此設計對 Roy 的多個系統具有實務價值：Factory Tour 預約系統中各個 Worker 代理（路線規劃、天氣查詢、訂位）可直接讀寫統一的行程狀態，避免資訊同步延遲；Tunghai RAG 系統中 DocumentRetriever、SimilarityValidator、ConclusionExtractor 透過狀態共享檢索上下文與評分結果，確保各步驟邏輯連貫。LangGraph 2026 的狀態機制更進一步支援複雜型別（如嵌套字典、列表）與增量更新，提高了系統的可擴展性與除錯效率。**
