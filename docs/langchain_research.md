@@ -5237,3 +5237,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 
 ---
+
+## 323. LangGraph 2026 年節點超時與錯誤恢復機制——保護長期執行系統免於災難性掛起
+
+> **LangGraph 在 2026 年推出節點級超時限制（Per-Node Timeouts）與節點級錯誤處理器（Node-level Error Handlers），專為長期運行的多代理系統提供容錯能力。Per-Node Timeouts 允許開發者為每個節點設定獨立的牆鐘時限或閒置時限，超出限制時自動拋出 NodeTimeoutError，防止單一故障節點（如 API 呼叫延遲、LLM 推論緩慢）凍結整個圖執行。Node-level Error Handlers 則在重試耗盡後自動觸發恢復函數，並能發送 Commands 更新狀態或改變執行路徑。此機制對 Roy 的系統至關重要：Factory Tour 導覽系統可對文字轉語音或地圖檢索設定嚴格超時，超過時限自動採用備用方案；Tunghai RAG 論文系統可限制向量檢索耗時，避免單篇龐大論文的嵌入運算阻塞檢索流程；NanoClaw nRF54L15 控制可在晶片通訊超時時自動重連或降級至備用通訊協議。此雙層機制大幅提升了 2026 年 LangGraph 在關鍵生產環境的可靠性與自癒能力。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
