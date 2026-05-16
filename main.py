@@ -356,6 +356,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
     if language in agent_apps:
         # 快取命中，直接返回已初始化的 Agent 實例，無須重複構建
         # ⚡ 此快速路徑避免不必要的鎖操作，大幅提升多語言並發查詢的效能
+        # 🎯 此設計確保 Raspberry Pi 5 即使在資源緊張下也能快速服務多語言查詢
         return agent_apps[language]
     with _agent_lock:
         # Double-check：取得鎖後再次確認，避免重複建立

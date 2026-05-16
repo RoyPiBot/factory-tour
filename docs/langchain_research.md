@@ -5197,6 +5197,16 @@ Sources:
 
 ---
 
+## 321. LangGraph 2026 年 5 月優雅關閉與 DeltaChannel——長期運行線程的高效狀態管理
+
+> **LangGraph 在 2026 年 5 月最新版本推出 DeltaChannel（測試版）與優雅關閉機制，專門針對長期運行代理系統進行優化。DeltaChannel 為新型 channel 實現，不同於傳統方案每步驟重新序列化完整累積值，DeltaChannel 僅存儲增量變化，大幅降低檢查點開銷，特別適用於不斷成長的消息列表或對話歷史。優雅關閉（Graceful Shutdown）通過 RunControl 的 request_drain() 函數實現：在任意線程中請求暫停流程，LangGraph 等待當前超級步驟完成後保存可恢復的檢查點，拋出 GraphDrained 異常並允許稍後以相同 config 恢復執行。此機制對 Roy 的系統具有重要實務價值：Factory Tour 導覽系統可在伺服器維護時優雅暫停多個進行中的導覽，保存遊客位置與行程進度；Tunghai RAG 論文系統可於檢索耗時過長時安全中斷，避免資源洩漏；NanoClaw nRF54L15 控制系統可在固件升級前協調關閉所有在線晶片通訊，確保數據一致性。DeltaChannel 與優雅關閉機制共同提升了 2026 年 LangGraph 在企業級持續服務場景的可靠性。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
 ## 321. LangGraph 2026 年 5 月 12 日優雅關閉與 RunControl 機制——安全終止長期執行工作流
 
 > **LangGraph 在 2026 年 5 月 12 日推出 Graceful Shutdown 機制，允許開發者在任意線程安全地終止進行中的圖執行並保存可恢復檢查點。核心實現透過 RunControl 物件與 request_drain() 方法：開發者建立 RunControl 實例並傳遞予圖執行環境，隨後可從任何線程呼叫 request_drain()，圖執行會在當前 superstep 完成後協作式停止並拋出 GraphDrained 例外，系統自動保存檢查點供後續恢復。此機制對 Roy 的系統具有重大實務價值：Factory Tour 多代理導覽系統可安全地停止長期執行的行程規劃，保存遊客進度與當前位置供下次訪問復用；Tunghai RAG 論文檢索系統可在檢索耗時過長時優雅地中斷並保存已檢索論文清單，避免重複檢索；NanoClaw nRF54L15 多晶片控制可安全地終止韌體燒錄或通訊測試，留下詳細的操作狀態日誌供除錯分析。相較強制終止（如 SIGKILL），優雅關閉保留了系統一致性與完整的審計跡跡。**
