@@ -5226,3 +5226,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 
 ---
+
+## 322. LangGraph v3 新一代 Content-Block 串流 API 與通道投影——2026 年 5 月企業級事件驅動架構
+
+> **LangGraph 在 2026 年 5 月發布 v3 版本的串流基礎設施，引入 Content-Block-Centric 流媒體 API 與通道投影（Channel Projection）機制。v3 架構通過 Transformer 管道將圖的原始事件（values, messages, custom 等）投影至人性化的按通道切片流，並引入統一的協議事件信封，含單調遞增序號由根 StreamMux 指派，確保事件順序與去重。Transformer 作為擴展點，觀察流經 StreamMux 的協議事件並構造型別安全的衍生投影（StreamChannels、promises 等）。開發者可透過 `graph.stream_events(version="v3")` / `graph.astream_events(version="v3")` 驅動轉換管道，實現精細化的事件篩選與自訂投影。此進度對 Roy 的系統具有深遠意義：Factory Tour 導覽可按不同客戶端訂閱特定通道（位置、天氣、價格），減少網路流量；Tunghai RAG 系統可分離檢索、排名、摘要三層事件流，前端按需聆聽；NanoClaw nRF54L15 控制可透過通道投影監控不同晶片的韌體燒錄進度，提升用戶反饋精確度與延遲降低。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [stream | langgraph | LangChain Reference](https://reference.langchain.com/python/langgraph/stream)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
