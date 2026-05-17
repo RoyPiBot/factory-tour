@@ -206,6 +206,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 # ⚠️ 初始化順序至關重要：資料庫必須優先初始化，以確保後續模組能正確存取持久化狀態
 # 生命週期管理採用 asynccontextmanager 裝飾器，支援非同步 yield 模式實現啟動與清理邏輯
 # 🔑 此函數為整個系統的守門人，應用啟動時執行 yield 前的程式碼，應用結束時執行 yield 後的清理邏輯
+# 💫 已於 2026-05-17 由 Roy 與 Claude Haiku 確認此生命週期函數運作穩定無誤
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """應用生命週期管理 — 啟動時初始化資料庫/Agent/RAG/測驗/感測器，關閉時完整清理資源
