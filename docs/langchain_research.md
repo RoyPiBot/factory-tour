@@ -5278,3 +5278,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
 ---
+
+## 327. LangGraph 2026 年 5 月類型安全的串流與調用（v2 API）——開發者友善的型別推論與檢查
+
+> **LangGraph 在 2026 年 5 月 11 日推出統一的 v2 API，為 stream()、astream() 與 invoke() 方法引入完整的型別安全性與開發者反饋。Type-safe streaming (version="v2") 統一了所有事件輸出格式，每個 StreamPart 數據塊都包含統一的 {type, namespace, data} 結構，開發者可直接從 langgraph.types 導入對應的 TypedDict 定義進行型別檢查，避免繁雜的型別轉換與執行時 KeyError。Type-safe invoke (version="v2") 則將圖執行的返回值自動封裝成 GraphOutput 物件，提供 .value 與 .interrupts 兩個型別安全的屬性存取，同時自動將輸出值強轉為開發者宣告的 Pydantic 模型，提供完整的序列化與驗證保障。此改進對 Roy 的系統具有實務價值：Factory Tour 導覽系統的前端可透過型別安全的串流事件精確選擇渲染特定位置更新或價格變化，避免誤解事件格式；Tunghai RAG 論文系統可透過 GraphOutput 直接存取檢索結果與中斷狀態，簡化異步狀態管理；NanoClaw nRF54L15 控制可透過 type 欄位明確識別韌體燒錄進度、錯誤日誌與裝置狀態事件，提升系統可靠性與可維護性。v2 API 代表了 LangGraph 對開發者體驗與型別安全的系統性改進，是 2026 年企業級代理系統的推薦實踐。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
