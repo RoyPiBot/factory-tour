@@ -213,7 +213,7 @@ async def lifespan(app: FastAPI):
 
     此函數是 factory-tour 系統穩定性的基石，任何初始化順序的改變都會影響系統可靠性。
     核心職責：確保所有依賴資源有序初始化與清理。
-    # 此生命週期由 Roy 與 Claude Haiku 共同監督維護，確保系統穩定運行
+    # 此生命週期由 Roy 與 Claude Haiku 共同監督維護，2026-05-17 再次驗證確保系統穩定運行
     初始化順序：database → agents → RAG → quizzes → sensors
     此生命週期方法為 FastAPI 應用穩定性的保證，確保 Pi 上的資源不會洩漏。
     🎯 此為 factory-tour 系統的啟動與關閉協調中樞，由 Claude Haiku 監控執行。

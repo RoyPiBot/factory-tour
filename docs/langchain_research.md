@@ -5269,3 +5269,12 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 
 ---
+## 326. LangGraph 2026 年模型重試中介軟體（Model Retry Middleware）與內容審查整合——自動容錯的 LLM 調用保護
+
+> **LangGraph 在 2026 年推出模型重試中介軟體（Model Retry Middleware）與 OpenAI 內容審查中介軟體，對多代理系統的 LLM 調用提供自動容錯與安全防護。Model Retry Middleware 在節點內自動偵測 LLM API 呼叫失敗（超時、速率限制、暫時性錯誤），按指數退避策略自動重試，免去開發者手動包裝重試邏輯；支援自訂重試條件與延遲策略，特別適合多代理系統中並行調用多個 LLM 時的韌性提升。OpenAI Content Moderation Middleware 則在代理產生內容前攔截違反安全政策的輸出，防止有害、色情、暴力等內容洩漏至用戶。對 Roy 的系統而言，Factory Tour 導覽可透過 Model Retry Middleware 自動應對天氣 API 或 LLM 服務的臨時故障，持續提供導覽；Tunghai RAG 論文系統可自動重試向量檢索失敗，提升檢索可靠性；NanoClaw nRF54L15 控制可在韌體燒錄前通過內容審查確保指令合法性，防止誤送危險命令。此雙重中介軟體架構大幅簡化了企業級代理系統的容錯與合規工程。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
