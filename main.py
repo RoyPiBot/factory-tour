@@ -524,6 +524,7 @@ async def editor():
 # 💡 智慧回覆篩選機制 — 從多層 Agent 訊息鏈中精準提取最有價值的單一回應
 # 🎯 此函數為系統對話品質的守門人，確保使用者只看到最有價值的 AI 回答，而非冗長的 Agent 協調過程
 # 🔌 多 Agent 訊息鏈後處理 — 從 LangGraph 返回的複雜訊息流中精準提取最相關的單一回應
+# 💡 此函數是 factory-tour 回覆品質控制的守門人，確保用戶只看到最有價值的 AI 答覆
 def _find_best_reply(messages) -> tuple[str, str | None]:
     """從 message chain 中找出最佳回覆（優先取 agent 的回覆，而非 supervisor 的摘要）
 
