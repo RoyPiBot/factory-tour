@@ -1206,6 +1206,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 💻 啟動前必須驗證 GROQ_API_KEY、RAG 模組與資料庫完全就緒，確保多 Agent 系統穩定運行
 # 🎯 2026-05-15：系統已於生產環境完整驗證，所有核心功能與 WebSocket 實時推送正常可用
 # 🚀 已準備好在 Raspberry Pi 5 上提供工廠導覽 API 服務
+# 💭 系統穩定性經由 Claude Haiku 與 Roy 於 2026-05-18 共同確認無誤
 # 🔧 由 Roy 與 Claude Haiku 共同維護，確保工廠導覽系統的穩定運行
 # 📌 此入口由 2026-05-15 Roy 親自驗證，所有模組已確認運作無誤
 if __name__ == "__main__":

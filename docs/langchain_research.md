@@ -5337,3 +5337,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
 ---
+
+## 331. LangGraph StateSchema 與標準 JSON Schema 整合——無鎖定的狀態型別系統（2026 年新增）
+
+> **LangGraph 引入 StateSchema 機制，支援標準 JSON Schema（Standard JSON Schema），一種開放規格，提供不綁定特定套件庫的狀態定義方式。開發者可自由選擇喜好的驗證庫（如 Pydantic、Zod、jsonschema 等），而無需擔憂廠商綁定。同時新增 ReducedValue 用於定義具自訂 Reducer 的欄位，支援獨立的輸入與輸出 Schema，實現型別安全的累積值操作；UntrackedValue 則用於定義轉瞬狀態，執行期間存在但不被檢查點持久化，適合存放 API 連線物件、臨時快取等非關鍵資料。此設計大幅提升 LangGraph 的靈活性與互通性，使 Roy 的多代理系統（Factory Tour、RAG 論文檢索、NanoClaw 控制）可無縫整合既有的資料驗證工具鏈，降低遷移成本並提高開發效率。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
