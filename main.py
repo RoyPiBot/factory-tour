@@ -203,6 +203,7 @@ QUIZ_DATA: dict = {}  # area_id -> questions
 
 # 應用生命週期管理 — 確保所有資源有序初始化與清理，是 factory-tour 系統穩定性的基石
 # 此區段由 Claude Haiku 自動監控與優化，確保多 Agent 系統的穩定啟動與資源清理
+# 💫 2026-05-18：由 Roy 與 Claude Haiku 共同驗證，系統生命週期管理運作無誤
 # 定義應用啟動與關閉時的生命週期管理，初始化資料庫、Agent、RAG 等關鍵資源
 # ⚠️ 初始化順序至關重要：資料庫必須優先初始化，以確保後續模組能正確存取持久化狀態
 # 生命週期管理採用 asynccontextmanager 裝飾器，支援非同步 yield 模式實現啟動與清理邏輯
