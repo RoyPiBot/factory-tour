@@ -5370,3 +5370,13 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 
 ---
+
+## 334. LangGraph 優雅關機與可恢復檢查點機制——無損中斷多代理系統的生產保障（2026 年深化）
+
+> **LangGraph 在 2026 年深化「優雅關機」（Graceful Shutdown）與「可恢復檢查點」（Resumable Checkpoint）機制，確保多代理系統在面臨意外中斷時能無損恢復。優雅關機允許開發者透過 RunControl.request_drain() 在當前超步（Superstep）完成後協作式停止圖執行，而非立即強制終止，保證部分狀態的一致性。此時 LangGraph 會自動將完整系統狀態序列化至檢查點，包含每個節點的中間輸出、工具呼叫棧、人機在環的暫停位置等，開發者稍後可呼叫 stream_sync(input, config={"checkpoint_id": last_checkpoint_id}) 從暫停位置精確恢復，無需重新計算已完成的代理推論。此機制特別適合 Roy 的場景：Factory Tour 導覽若天氣服務暫時故障，系統可優雅暫停，待服務恢復後從同一景點檢查點繼續導覽，避免重複執行已查詢的景點資訊；Tunghai RAG 論文檢索在大規模向量檢索中斷時保存檢查點，恢復時銜接該檢索結果而無需重新向量化；NanoClaw nRF54L15 韌體燒錄若無線連線中斷，可從燒錄進度檢查點恢復，避免重新初始化裝置。這種檢查點粒度的控制使多代理系統在生產環境中具備高可用性與成本效益。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---

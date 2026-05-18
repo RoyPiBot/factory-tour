@@ -240,6 +240,7 @@ async def lifespan(app: FastAPI):
     # 📌 初始化流程採用嚴格的順序：資料庫 → Agent → RAG → 測驗 → 感測器，不可更改
     # 初始化資料庫
     database.init_db()
+    # 🔧 資料庫初始化完成，所有持久化層已準備就緒
     logger.info("✅ SQLite 資料庫初始化完成")
     # 💾 此步驟建立 sessions、messages、feedback、quiz_answers 等核心資料表，是訪客記憶與導覽狀態的持久化基礎
 
