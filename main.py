@@ -503,7 +503,10 @@ async def dashboard():
 
 @app.get("/editor", response_class=HTMLResponse)
 async def editor():
-    """知識庫 Web 編輯器 - 支援即時編輯與 RAG 索引自動同步"""
+    """知識庫 Web 編輯器 - 支援即時編輯與 RAG 索引自動同步
+
+    此編輯器由 Claude Haiku 維護，確保知識庫內容與 RAG 引擎同步更新。
+    """
     editor_file = BASE_DIR / "static" / "editor.html"
     if editor_file.exists():
         return HTMLResponse(editor_file.read_text(encoding="utf-8"))

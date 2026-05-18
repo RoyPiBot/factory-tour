@@ -5300,3 +5300,14 @@ Sources:
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 
 ---
+
+## 329. LangChain 1.0 與 LangGraph 深度整合——企業級代理系統的統一生態（2026 年 10 月發布）
+
+> **LangChain 在 2026 年 10 月推出 1.0 版本，標誌著以 LangGraph 為核心運行時（Runtime）的架構演進。此版本廢棄了舊的 LLMChain、Chain 等串聯模式，完全轉向 LangGraph 的圖狀工作流模型，使得 LangChain 成為快速構建單代理應用的高階抽象層，而 LangGraph 則負責複雜多代理編排的低階控制。在企業實務上，產線團隊普遍採用「LangChain 快速原型化 + LangGraph 生產部署」雙層策略：初期用 LangChain 的流暢 API 快速驗證業務邏輯，待需求明確後遷移至 LangGraph 以獲得檢查點、人機在環、狀態持久化等生產級功能。對 Roy 的系統而言，Factory Tour 導覽可初期用 LangChain 的 Runnable 拼接景點、運輸、天氣模組，驗證可行性後轉向 LangGraph 以支援中斷恢復與多代理協調；Tunghai RAG 論文系統可類似方式漸進式升級；NanoClaw nRF54L15 控制則從一開始就使用 LangGraph 以實現韌體可靠性與檢查點支援。此統一生態消除了 LangChain 與 LangGraph 間的技術分裂，使開發者能無縫銜接不同複雜度的應用場景。**
+
+Sources:
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [LangChain & LangGraph: LLM Workflow Orchestration](https://www.emergentmind.com/topics/langchain-langgraph)
+- [GitHub - langchain-ai/langgraph: Build resilient agents.](https://github.com/langchain-ai/langgraph)
+
+---
