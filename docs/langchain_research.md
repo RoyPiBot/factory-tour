@@ -5326,3 +5326,14 @@ Sources:
 - [GitHub - langchain-ai/langgraph: Build resilient agents.](https://github.com/langchain-ai/langgraph)
 
 ---
+
+## 330. LangGraph 1.2 版本發布（2026 年 5 月）——生產級代理系統的成熟里程碑
+
+> **LangGraph 於 2026 年 5 月 11 日發布 1.2 版本，聚焦於耐久型、生產級代理執行能力。核心更新包括：（1）型別安全串流（Type-Safe Streaming）和呼叫方式，統一輸出格式為包含 type、ns、data 的 StreamPart，每種模式提供獨立的 TypedDict 型別檢查；（2）節點級超時機制（Per-Node Timeouts），支援硬時間上限（run_timeout）、空閒超時（idle_timeout）、或兩者並用的 TimeoutPolicy，超時時拋出 NodeTimeoutError；（3）節點級錯誤處理，在所有重試耗盡後執行恢復函數，接收型別化 NodeError 物件以更新狀態並路由至不同節點；（4）AI 模型能力檢測，透過 .profile 屬性暴露模型支援的功能，並新增模型重試中介軟體與 OpenAI 內容稽核中介軟體；（5）優雅關機機制，允許在當前超步完成後合作式停止執行並保存可恢復檢查點。LangGraph 已被 Klarna、LinkedIn、Uber、Replit 等企業採納，2026 年 4 月月搜尋量突破 33,100，確立其作為多代理系統生產標準的地位。對 Roy 的 Factory Tour、Tunghai RAG、NanoClaw 系統而言，這些增強特性提供了更細緻的故障恢復、資源限制與模型管理能力。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
