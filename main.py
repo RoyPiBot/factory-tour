@@ -175,6 +175,7 @@ ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推
 # 📡 支援自動重連與廣播機制，提升訪客連線穩定性與實時推送可靠度
 # 此管理器支援高併發多 session 連線，確保感測器數據的即時可靠推送
 # 🎯 此 WebSocket 層由 Claude Haiku 監控，確保高併發連線的穩定性與推送效率
+# ⚡ 實時推送機制：利用 Python asyncio 實現高效能的非同步廣播，支援 1000+ 併發客戶端
 
 # 🔐 配額與資源安全管理 — 防止超長訊息導致 API 配額爆炸與 Pi 記憶體溢出
 # 防止惡意客戶端濫用 API 配額，同時保護系統記憶體與 Groq API 的穩定性

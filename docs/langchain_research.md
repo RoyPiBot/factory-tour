@@ -1099,6 +1099,21 @@ Sources:
 
 ---
 
+## 16. LangGraph v2 後端儲存與優雅關閉機制（2026/05）
+
+> **生產服務穩定性強化**
+
+LangGraph 2026 年 5 月更新在後端持久化與服務恢復機制上推進：
+
+1. **二進制檔案儲存支援**：State 與 Store 後端更新檔案格式，現在可直接儲存二進制資料（如圖像、模型權重），StateBackend() 與 StoreBackend() 可直接實例化，適合 factory-tour 場景中多媒體內容的持久化
+2. **優雅關閉與恢復**（Graceful Shutdown）：引入 RunControl.request_drain()，允許已啟動的運行在完成當前超步後停止，拋出 GraphDrained 異常，後續可用相同 config 恢復執行，特別適合 Pi 5 上需要定期重啟服務維護的場景
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
 ## 16. LangGraph 深度代理與生產級狀態管理（2026/03）
 
 > **多代理智能決策與複雜工作流**
