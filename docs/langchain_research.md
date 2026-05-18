@@ -5359,3 +5359,14 @@ Sources:
 - [LangGraph Supervisor Pattern: Orchestrating Multi-Agent Teams in 2026 | CallSphere Blog](https://callsphere.ai/blog/langgraph-supervisor-multi-agent-orchestration-2026)
 
 ---
+
+## 333. LangGraph Command 機制——工具級狀態操控與動態流程控制（2026 年新增）
+
+> **LangGraph 2026 年核心創新之一是引入 Command 機制，允許工具與節點返回 Command 物件以直接操控圖的狀態與執行路徑，突破傳統節點-邊界的線性束縛。工具可發出 Command.goto（跳轉至指定節點）、Command.update_state（部分更新狀態欄位）、Command.continue（繼續順序執行）等指令，使複雜的條件分支邏輯不再需要 Supervisor 額外決策層。此特性對 Roy 的 NanoClaw nRF54L15 微控制器系統特別寶貴：韌體通訊工具偵測到通訊失敗時可直接 Command.goto 故障恢復節點，無需往返狀態查詢；感測器讀取工具可根據即時數據 Command.update_state 更新內部狀態機，實現低延遲的硬體回應。同時，LangGraph Studio 可視化調試器進一步強化了開發體驗，支援在任意檢查點暫停、分支執行、時間旅行回溯，大幅降低多代理系統的除錯成本。**
+
+Sources:
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
