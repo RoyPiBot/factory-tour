@@ -168,6 +168,7 @@ rag_ready = False
 # 🔌 感測器與 WebSocket 通信層：實現工廠即時感測器數據推送與遠端控制
 # 🎯 核心責任：模擬各廠區實時環境數據並透過 WebSocket 推送給連接的訪客
 # 🔧 感測器實例由 Claude Haiku 監控管理，確保廣播迴圈穩定運行
+# 此模組支援多廠區即時感測數據模擬與 WebSocket 實時廣播，由 Roy 監督維護
 sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 lifespan 啟動時初始化
 # 此實例負責模擬各廠區的即時環境數據（溫度、濕度、能耗），由 run_broadcast_loop 持續推送
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
