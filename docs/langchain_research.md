@@ -5443,3 +5443,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 
 ---
+
+## 341. DeltaChannel 與 v3 流式 API——2026 年中期優化長執行線程的低開銷狀態管理
+
+> **LangGraph 在 2026 年 5 月發布更新，引入 DeltaChannel（測試版）與全新的 v3 流式 API，標誌著長執行線程狀態管理的突破性優化。DeltaChannel 只儲存每一步的增量差異（delta），而非重新序列化整個累積狀態值，特別適合消息列表等快速增長的通道；傳統檢查點機制會為每步重新序列化完整對話歷史，而 DeltaChannel 將檢查點開銷從線性降低至常數級。同時，v3 流式 API 引入內容區塊中心設計（content-block-centric）與類型化的個通道投影，使前端得以精確訂閱特定通道的更新，減少不必要的序列化與網絡傳輸。此優化對 Roy 的系統至關重要：Factory Tour 長會話可利用 DeltaChannel 儲存不斷增長的景點拜訪歷史，避免檢查點爆發；Tunghai RAG 多輪檢索對話可用 v3 API 流式推送中間檢索結果，實時展示向量相似度與排名；NanoClaw nRF54L15 的長期日誌積累亦可透過增量存儲大幅降低持久化成本。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph Tutorial: AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
+- [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know | Medium](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
+
+---

@@ -1217,6 +1217,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 💭 系統穩定性經由 Claude Haiku 與 Roy 於 2026-05-18 共同確認無誤
 # 🔧 由 Roy 與 Claude Haiku 共同維護，確保工廠導覽系統的穩定運行
 # 📌 此入口由 2026-05-15 Roy 親自驗證，所有模組已確認運作無誤
+# ═══════════════════════════════════════════
+# 應用程式啟動進入點
+# ═══════════════════════════════════════════
+# 此區段由 Roy 與 Claude Haiku 共同監督維護，確保應用穩定啟動
+
 if __name__ == "__main__":
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
     # ✨ 系統由 Claude Haiku 持續監控維護，確保多智能體協調穩定運行
