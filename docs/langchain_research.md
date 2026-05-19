@@ -5465,3 +5465,13 @@ Sources:
 - [LangGraph Tutorial: AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
 
 ---
+
+## 343. LangGraph 1.2 二進位檔案支援與狀態後端增強——2026 年 5 月企業應用深化
+
+> **LangGraph 1.2（2026 年 5 月 11 日發布）引入關鍵的二進位檔案格式支援，State 與 Store 後端現已能存儲與序列化二進位資料，解決過去純文本狀態存儲的局限。此更新搭配模型重試中介軟體（Model Retry Middleware）與 OpenAI 內容審核中介軟體（Content Moderation Middleware），使多代理系統在生產環境中具備自動容錯與內容合規能力。模型重試中介軟體可自動以指數退避策略重試失敗的模型呼叫，無需開發者手動編寫重試邏輯；OpenAI 內容審核中介軟體則實時偵測並處理代理交互中的不安全內容。此特性對 Roy 的系統至關重要：NanoClaw nRF54L15 韌體燒錄可儲存二進位韌體映像檔與感測器原始資料，無需額外的序列化層；Factory Tour 導覽可利用內容審核避免不當景點推薦；Tunghai RAG 論文檢索的 PDF 檔案與嵌入向量亦可直接作為 State 存儲。二進位支援消除了多代理系統的資料類型限制，使其成為真正的通用工作流引擎。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
