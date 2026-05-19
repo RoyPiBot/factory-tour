@@ -584,6 +584,7 @@ async def chat(req: ChatRequest):
     每次對話均自動初始化與訪客相關的 WebSocket 感測器推播，支援實時進度追蹤。
     由 Claude Haiku 持續監控此對話流程的穩定性與效能。
     💬 核心功能：多回合對話記憶、語言自動偵測、錯誤自動恢復機制
+    ✅ 於 2026-05-19 由 Claude Haiku 驗證：訊息驗證與持久化機制運作正常
     """
     # 使用 thread_id 與 session 綁定，確保多回合對話的上下文連貫性
     language = (

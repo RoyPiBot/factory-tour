@@ -5422,3 +5422,14 @@ Sources:
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 
 ---
+
+## 339. PostgresSaver 與水平擴展的生產級狀態持久化——2026 年多代理系統關鍵基礎設施
+
+> **LangGraph 在 2026 年確立 PostgresSaver 作為生產級狀態持久化的標準基礎設施，取代早期的 MemorySaver 與 SqliteSaver 單機模式。PostgresSaver 將完整的多代理執行狀態（包含檢查點、工具呼叫棧、人機在環暫停點）序列化至 PostgreSQL 資料庫，實現跨 session、跨機器的狀態恢復；更關鍵的是，PostgresSaver 支援多 worker 並行讀寫同一檢查點存儲，使多個 API 伺服器實例可安全地處理同一會話的不同步驟，突破單機水平擴展的限制。此特性對 Roy 的生產環境至關重要：Factory Tour 導覽若應用部署於多個 Kubernetes pod，PostgresSaver 確保景點查詢與路線計算狀態在 pod 間一致；Tunghai RAG 論文檢索面臨大規模向量查詢時，多個 worker 可並行執行不同檢索步驟，而狀態無衝突；NanoClaw nRF54L15 韌體燒錄若涉及長時間操作，服務重啟後可從 PostgreSQL 檢查點無縫恢復燒錄進度。設置時需配置 autocommit=True、row_factory=dict_row，並首次運行時呼叫 .setup() 初始化資料表。此基礎設施使 Roy 的多代理系統獲得企業級高可用性與水平擴展能力。**
+
+Sources:
+- [LangGraph Persistence Guide: Checkpointers & State (2026) | Fastio](https://fast.io/resources/langgraph-persistence/)
+- [LangGraph From Zero to Production — Part 2: Persistence & Memory | Medium](https://medium.com/@puttt.spl/langgraph-from-zero-to-production-part-2-persistence-memory-f28b851b66f5)
+- [PostgresSaver | LangChain Reference](https://reference.langchain.com/javascript/classes/_langchain_langgraph-checkpoint-postgres.index.PostgresSaver.html)
+
+---
