@@ -1002,6 +1002,7 @@ async def submit_quiz_answer(req: QuizAnswerRequest):
 @app.get("/quiz/score/{session_id}")
 async def quiz_score(session_id: str):
     """取得測驗成績"""
+    # 此端點查詢該訪客在各區域測驗的成績與答題統計
     return database.get_quiz_score(session_id)
 
 

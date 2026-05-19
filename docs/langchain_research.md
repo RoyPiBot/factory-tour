@@ -5433,3 +5433,13 @@ Sources:
 - [PostgresSaver | LangChain Reference](https://reference.langchain.com/javascript/classes/_langchain_langgraph-checkpoint-postgres.index.PostgresSaver.html)
 
 ---
+
+## 340. LangGraph 0.3+ 型別安全 API 與流式互動型別檢查——2026 年型別驅動開發新標準
+
+> **LangGraph 在 2026 年導入版本="v2" 的型別安全流式 API，將過去鬆散的 StreamPart 輸出升級為統一的結構化格式：每個流塊均包含 type、ns、data 三大鍵值，搭配可從 langgraph.types 直接匯入的 TypedDict 定義，使 IDE 可完整識別每個流塊的型別與內容，消除 JSON 序列化後遺失的型別資訊。同步亦引入型別安全呼叫（version="v2"），傳回 GraphOutput 物件並明確暴露 .value 與 .interrupts 屬性，開發者無需反序列化或型別轉換即可直接存取結果狀態。此升級特別適合 Roy 的多代理系統：Factory Tour 導覽的流式 API 可在 TypeScript 中完整推斷景點資訊、路線步驟的型別，減少執行期錯誤；Tunghai RAG 向量檢索流可即時推斷每個檢索步驟的中間結果型別，便於前端實時展示進度；NanoClaw nRF54L15 控制指令的互動式中斷點檢視可確保狀態一致性。型別驅動的開發範式大幅提升代碼可靠性與可維護性。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
