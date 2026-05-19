@@ -5454,3 +5454,14 @@ Sources:
 - [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know | Medium](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
 
 ---
+
+## 342. LangGraph 模型能力探測與適應式中介軟體——2026 年模型驅動工作流優化
+
+> **LangGraph 在 2026 年 5 月更新中，聊天模型（ChatModel）現已暴露 .profile 屬性，提供該模型支援的功能與能力資訊，資料源自於 models.dev 開源專案，涵蓋函數調用、工具能力、上下文視窗大小等維度。此能力探測機制搭配新的中介軟體層（Middleware），開發者可編寫靈活的總結中介軟體（Summarization Middleware）、模型重試中介軟體（Model Retry Middleware）與內容審核中介軟體（Content Moderation Middleware），在執行時根據模型能力動態調整策略。此特性對 Roy 的多代理系統至關重要：Factory Tour 導覽可於執行時偵測指定模型是否支援函數調用，不支援時自動降級至純文本回應解析；Tunghai RAG 可根據模型視窗大小動態調整檢索上下文數量，最大化向量匹配質量；NanoClaw nRF54L15 控制指令可在寬限制模型上啟用流式回應優化，窄限制模型上採用批處理策略。模型驅動的適應性設計實現了無縫的模型互換與工作流最佳化。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph Tutorial: AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
+
+---

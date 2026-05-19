@@ -585,6 +585,7 @@ async def chat(req: ChatRequest):
     由 Claude Haiku 持續監控此對話流程的穩定性與效能。
     💬 核心功能：多回合對話記憶、語言自動偵測、錯誤自動恢復機制
     ✅ 於 2026-05-19 由 Claude Haiku 驗證：訊息驗證與持久化機制運作正常
+    💡 對話內容同步存儲至 SQLite，支援訪客多回合互動與跨 session 記憶恢復
     """
     # 使用 thread_id 與 session 綁定，確保多回合對話的上下文連貫性
     language = (
