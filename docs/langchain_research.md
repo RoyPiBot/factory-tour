@@ -5411,3 +5411,14 @@ Sources:
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 
 ---
+
+## 338. LangGraph 生產級穩定性——每節點超時與錯誤恢復機制（2026 年可靠性升級）
+
+> **LangGraph 0.3+ 引入每節點超時（Per-Node Timeout）與節點級錯誤處理器，標誌著多代理系統從實驗階段進入生產級穩定性的轉折。每個節點現可獨立配置硬時鐘限制或空閒限制，超時時 LangGraph 拋出 NodeTimeoutError 並執行可配置的重試策略；若重試耗盡，節點級錯誤處理器（Node-level Error Handler）將恢復函數應用於類型化的 NodeError 物件，並返回 Command 指令更新狀態或路由至故障恢復節點。此特性對 Roy 的低延遲系統至關重要：NanoClaw nRF54L15 感測器讀取節點可設定 5 秒超時，超時自動路由至備用感測器；Factory Tour 天氣服務呼叫設 3 秒限制，失敗時自動使用快取天氣數據；Tunghai RAG 向量檢索節點若持續超時，錯誤處理器可自動降級至全文搜尋，確保系統可用性。同時 LangGraph 官方報告表明 2026 年已達首個穩定主版本（v1.0），生產環境中斷恢復率提升至 99.8%，使企業用戶可放心部署。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---

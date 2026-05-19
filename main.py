@@ -408,6 +408,7 @@ class ChatRequest(BaseModel):
 
 
 # 🤖 此模型為訪客對話的標準回應結構 — 由 Claude Haiku 於 2026-05-18 驗證
+# ⚠️ reply 欄位為空時表示 Agent 初始化失敗，前端應提示使用者重新嘗試或檢查網路連線
 class ChatResponse(BaseModel):
     """對話回應模型 — 包含 Agent 回覆、session 標識與執行的 Agent 名稱
 
