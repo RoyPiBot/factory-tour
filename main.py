@@ -427,6 +427,7 @@ class ChatResponse(BaseModel):
 
 
 class TourStartRequest(BaseModel):
+    """導覽開始請求模型 — 訪客選擇導覽路線與語言設定的必要參數"""
     session_id: str = "default"
     route_name: str = "標準導覽路線"
     language: str = DEFAULT_LANGUAGE

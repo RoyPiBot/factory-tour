@@ -5539,3 +5539,14 @@ Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [LangGraph Multi-Agent Orchestration — Official Guide 2026](https://www.lifetideshub.com/docs/langgraph-multi-agent-orchestration/)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+
+---
+
+## 350. LangGraph 2026 年 5 月中間件框架與模型檔案——動態能力感知與內容審核標準化
+
+> **LangGraph 在 2026 年 5 月推出企業級中間件框架與模型檔案機制，大幅提升多模型環境的相容性與安全性。核心創新包括：（1）模型檔案（Model Profile）機制——聊天模型透過 `.profile` 屬性暴露其支援的能力清單（流式傳輸、工具調用、JSON 模式等），資料來源為 models.dev 開源項目，集中維護各家 LLM 提供商的最新能力；（2）模型重試中間件（Model Retry Middleware）——自動重試失敗的模型調用並採用指數退避策略，無需手工編碼重試邏輯；（3）OpenAI 內容審核中間件（Content Moderation Middleware）——實時檢測並阻止不安全內容在代理執行中的流動，強化生產環境安全性。此更新對 Roy 的系統具有實務價值：Factory Tour 可根據負載與模型能力自動降級至低成本推理，Tunghai RAG 可根據查詢複雜度選擇最適合的 LLM 組合（強模型用於深層推理、輕量模型用於初篩），NanoClaw nRF54L15 控制系統可新增安全審核層防止危險指令執行。新增的自動重試機制特別適合網路不穩定環境，大幅提升代理系統可靠性。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
