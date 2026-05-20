@@ -5550,3 +5550,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 351. Agentic RAG 與自適應檢索迴圈——2026 年向量檢索系統的智能化突破
+
+> **2026 年上半年，LangGraph 社群將傳統 RAG（檢索增強生成）進化為 Agentic RAG，將固定的「檢索→排名→生成」序列升級為自主決策的代理迴圈。Agentic RAG 不僅執行檢索，更具備規劃、批判、改寫與反思的完整能力：代理首先進行查詢規劃（Query Planning），分析用戶問題的語義結構與多跳推理需求；執行多源檢索（Multi-Source Retrieval），並行查詢向量資料庫、知識圖譜、稀疏索引；動態評分（Dynamic Scoring），根據相關性、新鮮度、權威性等多維度重排檢索結果；迭代改寫（Iterative Refinement），若回應品質不達預期則自動調整檢索策略或查詢詞；反思評估（Reflection），最終生成前檢查推理邏輯的完整性與來源的可信度。此範式對 Roy 的 Tunghai RAG 系統至關重要：論文檢索代理可自動判斷查詢複雜度，簡單查詞自動用向量搜尋，複雜多跳問題則啟動圖遍歷；代理可動態調整檢索超時與結果上限，在網路不穩定時自動降級至快取層；代理可實時推理出引用來源的信度等級，為用戶提供透明的證據鏈。Agentic RAG 標誌著 RAG 系統從靜態管道進化為自適應智能體，完全契合 Roy 多代理研究的演進方向。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [LangGraph完整教程（2026版）构建智能Agent工作流 | 黑客Zion-AtomGit](https://gitcode.csdn.net/69ba3c8b0a2f6a37c5984d03.html)
