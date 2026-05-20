@@ -5517,3 +5517,14 @@ Sources:
 - [Type-Safe Streaming and Invoke for LangGraph · Issue #7008 · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/issues/7008)
 - [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
 - [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
+
+---
+
+## 348. LangGraph 節點級錯誤恢復與內容感知流式——2026 年 5 月企業級容錯架構
+
+> **LangGraph 1.2.0（2026 年 5 月 11 日發布）引入節點級錯誤恢復機制（Node-Level Error Handlers），開發者可為 `add_node()` 傳遞自訂的恢復函數，在所有重試皆失敗後自動執行。此機制搭配新增的內容區塊感知流式（Content-Block-Aware Streaming），使模型回應（含 LLM 文字與工具調用）以原子區塊流出，消除過去的部分工具調用流式問題。同時，LangGraph 擴展 Python 3.10–3.14 版本支援範圍，確保與最新 Python 生態相容。此升級對 Roy 的多代理系統至關重要：Factory Tour 導覽可為景點查詢節點設定自動降級策略；Tunghai RAG 的向量檢索節點可在超時時自動切換至稀疏檢索；NanoClaw nRF54L15 控制節點可實現故障後的自動重啟邏輯，同時內容感知流式確保硬體控制指令的完整性與一致性。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
