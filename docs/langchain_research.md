@@ -5506,3 +5506,14 @@ Sources:
 - [LangGraph 完整教程（2026版）构建智能Agent工作流](https://gitcode.csdn.net/69ba3c8b0a2f6a37c5984d03.html)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 347. 型別安全流式 API 與統一 GraphOutput——2026 年 LangGraph 開發體驗躍進
+
+> **LangGraph 1.2 引入革命性的型別安全流式 API（Type-Safe Streaming with stream_version="v2"），透過 StreamPartV2 型別字典實現完整的型別檢查與自動完成體驗。開發者可使用型別縮減（Type Narrowing）模式檢查 `part["type"] == "values"` 以獲得完整的型別資訊，當狀態基於 Pydantic 或 dataclass 定義時，流式部分直接返回型別化物件而非純字典，啟用嵌套屬性的自動完成。同時，`.invoke()` 方法搭配 stream_version="v2" 返回 GraphOutput[OutputT] 資料類別，取代純字典回傳，暴露 `.value` 與 `.interrupts` 屬性，同時透過 `__getitem__` 與 `__contains__` 向後相容。此統一格式無論串流選項為何，始終保持「type」、「ns」與「data」欄位結構。此升級對 Roy 的多代理系統至關重要：Factory Tour 導覽與 Tunghai RAG 可直接在 TypeScript 與 Python 中享受完整的型別推導，NanoClaw nRF54L15 串流控制指令回應可實現安全的型別化事件分發，IDE 自動完成能力大幅降低開發錯誤率。**
+
+Sources:
+- [Type-Safe Streaming and Invoke for LangGraph · Issue #7008 · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/issues/7008)
+- [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
+- [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)

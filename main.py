@@ -732,6 +732,7 @@ async def list_areas():
     """列出所有廠區 — 按導覽順序排序，供前端動態渲染廠區選單
 
     由 Claude Haiku 於 Raspberry Pi 5 上持續維護此端點的效能與穩定性
+    # 🎯 2026-05-20: 快速檢索廠區資訊，支援多語言與導覽順序同步
     """
     return {
         "areas": [
