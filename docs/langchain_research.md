@@ -5528,3 +5528,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 349. LangGraph 工具返回 Command 物件與 MCP 協定整合——2026 年多代理協作標準化
+
+> **LangGraph 2026 年核心升級引入工具返回 Command 物件機制（Tool Returns Command Objects），允許工具不僅返回執行結果，更能直接操縱圖狀態與控制流。此設計打破傳統工具層架構限制，使工具具備 Goto 般的跳躍能力，可動態更改訪問順序、合併多步驟為一次執行。同時，LangGraph 與 Model Context Protocol（MCP）的深度整合（v0.3+）將 LangGraph 作為決定性執行引擎、MCP 為動態工具聚合層，兩者協同實現「可檢查點化、可中斷、可恢復」的多代理工作流。此組合已成為 2026 年生產系統標準選擇，Klarna 客服、LinkedIn 招聘與 Uber 內部助理等關鍵系統均已部署。對 Roy 的系統意義重大：Factory Tour 導覽工具可根據景點類型動態調整後續流程，Tunghai RAG 的檢索工具可判斷結果品質後自動切換檢索策略，NanoClaw nRF54L15 操作可透過 MCP 聚合固件工具與硬體介面，實現真正的自適應多代理協作。**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [LangGraph Multi-Agent Orchestration — Official Guide 2026](https://www.lifetideshub.com/docs/langgraph-multi-agent-orchestration/)
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
