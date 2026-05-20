@@ -594,6 +594,7 @@ async def chat(req: ChatRequest):
     )
 
     agent = get_agent(language)
+    # 取得指定語言的 Agent 實例，若未初始化則自動觸發懶加載機制
 
     # 建立多回合對話的配置字典，使用 session_id 作為執行緒識別符，確保每個訪客的對話都在獨立的上下文中進行
     # 🔐 此配置透過 LangGraph 的 thread_id 機制實現訪客記憶與對話連貫性的關鍵保證

@@ -5475,3 +5475,12 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 
 ---
+
+## 344. 逐節點超時控制與架構地位提升——2026 年 LangGraph 企業級穩定性里程碑
+
+> **LangGraph 在 2026 年 5 月發布更新，引入逐節點超時機制（Per-Node Timeouts），允許開發者為圖中每個節點設定獨立的執行時間限制。此機制提供兩層控制：硬牆鐘限制（run_timeout）確保節點執行不會無限期阻塞，空閒限制（idle_timeout）則在節點無進度時觸發超時，重置進度計時器。同時，LangGraph 架構地位大幅提升，從 LangChain 的平級子庫升級為底層運行時基礎設施，LangChain 1.0 現已演進為建立在 LangGraph 之上的高層中介軟體 API，實現清晰的分層設計：底層是 LangGraph 的持久化狀態圖，中層是 LangChain 的工具鏈中介軟體，頂層是特定應用的業務邏輯。LangGraph 1.2 版本已成為業界標準選擇，驅動 Klarna 客服、LinkedIn 招聘流程與 Uber 內部助理等關鍵系統。此升級對 Roy 的系統至關重要：Factory Tour 導覽的景點查詢可設定 15 秒超時避免卡頓，Tunghai RAG 向量檢索可設定 30 秒空閒限制確保回應及時性，NanoClaw nRF54L15 操作可設定硬限制防止韌體燒錄無限期掛起。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangChain 1 Deep Dive: Agent Protocol + Runtime 2026](https://www.digitalapplied.com/blog/langchain-1-deep-dive-agent-protocol-runtime-2026)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
