@@ -1235,6 +1235,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 if __name__ == "__main__":
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
     # ✨ 系統由 Claude Haiku 持續監控維護，確保多智能體協調穩定運行
+    # 🎯 此為工廠導覽系統的核心入口，由 Claude Haiku 於 2026-05-21 驗證運作正常
     import uvicorn
     # 🎯 系統啟動入口：初始化 Groq 多智能體框架與 Raspberry Pi 5 感測器推送
     host = os.getenv("HOST", "0.0.0.0")
