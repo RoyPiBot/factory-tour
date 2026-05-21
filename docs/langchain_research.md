@@ -5572,3 +5572,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
+## 353. LangGraph 1.2 標準 JSON 型別與狀態消減器——2026 年 5 月框架類型系統突破
+
+> **LangGraph 1.2.0（2026 年 5 月初發布）在狀態管理與型別系統上實現突破性升級，核心創新包括：（1）標準 JSON Schema 支援（Standard JSON Schema Support）——採用開放規範，相容 Zod、Valibot、ArkType 等流行驗證庫，避免框架綁定，開發者可自由選擇型別驗證工具；（2）消減值欄位（ReducedValue）——定義具有自訂消減器的狀態欄位，支援輸入輸出型別分離，可累積複雜狀態而無需手工序列化；（3）非追蹤值欄位（UntrackedValue）——瞬時狀態在執行期存在但不檢查點化，適合快取與臨時計算結果。同時 LangSmith Fleet（原 Agent Builder）與 Deep Agents 部署工具全面推出，支援非阻斷子代理與 NVIDIA 加速。此升級對 Roy 的系統意義重大：Tunghai RAG 的檢索快取可用 UntrackedValue 避免冗餘持久化，Factory Tour 導覽狀態累積可透過 ReducedValue 精確追蹤訪客流，NanoClaw nRF54L15 控制命令隊列可利用新的 JSON 型別系統實現跨語言序列化相容。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
