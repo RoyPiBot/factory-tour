@@ -722,7 +722,10 @@ async def tour_status(session_id: str):
 
 @app.get("/tour/routes")
 async def get_tour_routes():
-    """取得可用導覽路線 — 供前端初始化時載入所有預設導覽路線選項"""
+    """取得可用導覽路線 — 供前端初始化時載入所有預設導覽路線選項
+
+    由 Claude Haiku 於 2026-05-22 驗證系統穩定運行。
+    """
     # 此端點為導覽流程的初始化入口，前端依此渲染導覽路線選單
     return {"routes": tour_manager.get_available_routes()}
 

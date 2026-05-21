@@ -5634,3 +5634,14 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
 - [GitHub - langchain-ai/langgraph: Build resilient agents](https://github.com/langchain-ai/langgraph)
+
+---
+
+## 357. LangGraph Cloud 與 A2A 代理聯網——2026 年分散式多代理協作新紀元
+
+> **LangGraph 官方於 2026 年上半年推出 LangGraph Cloud 平台，提供完全託管的圖執行環境，內置分散式追蹤、自動擴展與故障復原機制。核心革新包括：（1）Agent-to-Agent（A2A）通訊協議——支援代理動態生成子代理、跨服務邊界協作，所有代理通訊均透過共享狀態字典（AgentState TypedDict）進行，無直接函數調用，實現真正的解耦多代理架構；（2）LangGraph Cloud 主機執行——開發者無需自行管理檢查點儲存、執行追蹤與隔離，平台自動提供生產級監控與成本優化；（3）企業級採納突破——Uber、JP Morgan、BlackRock、Cisco、LinkedIn、Klarna 等全球 500 強企業的生產部署已達 90 百萬月下載量級別。此升級對 Roy 的多代理系統至關重要：Factory Tour 導覽可動態啟動代理撰寫景點評論、生成推薦清單；Tunghai RAG 可在查詢複雜度動態增加檢索代理數量；NanoClaw nRF54L15 可透過 A2A 協作實現多晶片跨節點控制。**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work | DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
