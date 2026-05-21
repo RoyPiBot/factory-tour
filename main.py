@@ -1240,6 +1240,7 @@ if __name__ == "__main__":
     # 🎯 此為工廠導覽系統的核心入口，由 Claude Haiku 於 2026-05-21 驗證運作正常
     import uvicorn
     # 🎯 系統啟動入口：初始化 Groq 多智能體框架與 Raspberry Pi 5 感測器推送
+    # 🔧 從環境變數讀取伺服器配置，預設監聽所有網卡的 8000 埠
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8000"))
     # 啟動 WebSocket 與 WebAPI 伺服器，接受來自前端的多語言查詢請求與即時感測器推送

@@ -1099,6 +1099,24 @@ Sources:
 
 ---
 
+## 16. LangGraph 生產評估與品質控制框架（2026 上半年）
+
+> **大規模部署的關鍵評估策略**
+
+根據 2026 年上半年的生產數據統計，57% 的組織已將 AI Agent 部署到生產環境，LangGraph 作為核心框架已成為 Uber、JP Morgan、BlackRock、Cisco 等企業的標準選擇（月下載量達 9,000 萬次）。在品質保障方面，業界形成了兩層評估策略：
+
+- **離線評估（Offline Evals）**：52.4% 的組織在部署前進行測試集評估以捕捉回歸問題；使用 LLM-as-judge（53.3%）與人工審查（59.8%）的混合方法驗證事實準確性與指引遵循度
+- **線上評估（Online Evals）**：37.3% 的組織監控生產數據以檢測實時問題，這是識別模型漂移與使用者體驗下滑的關鍵
+
+在 Pi 5 部署 factory-tour 多代理系統時，建議設置類似的評估管道：對每個新 Agent 版本進行離線單元測試，並在生產環境記錄代理決策與使用者反饋，逐步建立本地評估數據集。
+
+Sources:
+- [State of Agent Engineering - LangChain](https://www.langchain.com/state-of-agent-engineering)
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
 ## 16. LangGraph v2 後端儲存與優雅關閉機制（2026/05）
 
 > **生產服務穩定性強化**
