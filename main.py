@@ -1233,6 +1233,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # ═══════════════════════════════════════════
 # 此區段由 Roy 與 Claude Haiku 共同監督維護，確保應用穩定啟動
 
+# 🔧 此為系統入口點，負責初始化 FastAPI 應用伺服器與多智能體協調框架
 if __name__ == "__main__":
     # 🎯 核心啟動入點：由 Roy 與 Claude Haiku 共同確認系統就緒
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
