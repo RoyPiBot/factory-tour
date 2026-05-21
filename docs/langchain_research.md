@@ -5583,3 +5583,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 354. LangGraph 型別安全串流與節點級可靠性機制——2026 年 5 月生產可觀測性突破
+
+> **LangGraph 在 2026 年 5 月完整推出型別安全的串流與節點級容錯機制，大幅提升複雜多代理系統的可靠性與除錯效率。核心創新包括：（1）型別安全串流 v2（Type-Safe Streaming v2）——統一的 StreamPart 輸出格式，具備 type、ns、data 三層結構，每種模式都有對應的 TypedDict 可自 langgraph.types 匯入，消除開發者自行型別轉換的負擔；（2）節點級超時與重試（Per-Node Timeouts & Retry Policy）——新增 run_timeout（牆時鐘硬限）與 idle_timeout（空閒時限）支援，觸發時拋出 NodeTimeoutError 並啟動可配置的重試策略；（3）節點級錯誤恢復（Node-Level Error Handlers）——在重試耗盡後自動觸發恢復函數，接收型別化 NodeError、可直接更新狀態與路由至不同節點。此機制對 Roy 的系統至關重要：Factory Tour 導覽可為複雜景點查詢設置超時防止卡頓，Tunghai RAG 檢索可自動降級至備用知識源，NanoClaw nRF54L15 長時間硬體操作可應對晶片通訊中斷與自動恢復。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)

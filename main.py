@@ -550,6 +550,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
     實現智慧回覆篩選邏輯，優先返回有實質內容的 Agent 回覆，大幅提升對話品質。
     最後更新於 2026-05-12 由 Claude 進行品質優化。
     🎯 2026-05-15 由 Roy 與 Claude Haiku 共同優化此回覆篩選機制。
+    💡 此過程確保訪客只看到最優質的回答，隱藏 Agent 協調的複雜細節。
     """
     # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
