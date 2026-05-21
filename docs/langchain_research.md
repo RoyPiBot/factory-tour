@@ -5622,4 +5622,15 @@ Sources:
 Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI and more | GuruSup](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work | DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 356. LangGraph 中間件體系與優雅關閉機制——2026 年生產韌性工具鏈完善
+
+> **LangGraph 在 2026 年 5 月進一步強化中間件生態與故障恢復機制，核心創新包括：（1）模型重試中間件（Model Retry Middleware）——自動捕捉 LLM 失敗調用並啟動指數退避重試，無需手工實裝重試邏輯；（2）內容審核中間件（Content Moderation Middleware）——即時檢測不安全內容，在多代理系統中防止錯誤資訊傳播；（3）模型能力剖析（Model Profile）——每個聊天模型透過 .profile 屬性暴露支援功能與能力，開發者可根據模型特性動態調整工作流；（4）優雅關閉與檢查點恢復（Graceful Shutdown & Checkpointing）——透過 RunControl.request_drain() 在當前迴合完成後協作式停止執行，同時自動保存可恢復的檢查點。此機制對 Roy 的系統至關重要：Factory Tour 導覽可於使用者請求中止時安全退出複雜查詢，Tunghai RAG 檢索鏈可靠地重試網路不穩定期間的檢索，NanoClaw nRF54L15 硬體控制可在中斷後從檢查點無損恢復。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
 - [GitHub - langchain-ai/langgraph: Build resilient agents](https://github.com/langchain-ai/langgraph)
