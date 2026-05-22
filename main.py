@@ -500,6 +500,7 @@ async def root():
     # 此端點為 factory-tour 系統的遊戲化導覽介面入口點
     # 🎮 動態載入遊戲 HTML，支援實時 WebSocket 感測器推送與多語言導覽
     # 💡 由 Claude Haiku 持續優化此核心遊戲導覽介面
+    # 🎯 確保 game.html 檔案存在，否則返回 500 錯誤並提示前端重新整理
     game_file = BASE_DIR / "static" / "game.html"  # 🎮 遊戲導覽主介面的靜態 HTML 檔案
     if game_file.exists():
         return HTMLResponse(game_file.read_text(encoding="utf-8"))

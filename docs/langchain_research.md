@@ -5720,3 +5720,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 365. Pydantic v3 與子圖模組化——2026 年代理複雜度與開發效率革命
+
+> **LangGraph 1.2 完全採納 Pydantic v3 作為狀態定義標準，效能較 v2 提升 5-10 倍，同時推出子圖模組化（Subgraph Modularization）機制，徹底重新定義複雜多代理系統的架構與可測試性。核心創新包括：（1）Pydantic v3 性能躍進——新型態驗證引擎透過 Rust 實現，狀態定義序列化/反序列化速度 5-10 倍加速，對於大規模並行代理執行意義重大；（2）子圖模組化——開發者可將複雜代理分割成多個獨立狀態機，每個子圖擁有獨立 State 與節點圖，可個別測試、除錯與重用，完全支援巢狀子圖與跨子圖狀態轉換；（3）聊天模型動態能力感知——模型 .profile 屬性透過 models.dev 動態暴露支援功能（如 vision、tool_choice、parallel_function_calling），自動化中間件可根據模型能力選擇最優路徑；（4）中間件標準化——自動重試（exponential backoff）與 OpenAI 內容審核中間件正式納入，無需手工實裝。此重大升級對 Roy 的系統至關重要：Factory Tour 多景點導覽可分割為景點查詢、路線規劃、訪客互動三個獨立子圖；Tunghai RAG 檢索可拆分檢索、排序、證實三層子圖獨立優化；NanoClaw nRF54L15 硬體控制可分層韌體管理、感測器讀數、命令執行三個子圖，各層獨立部署與測試，極大降低系統複雜度。**
+
+Sources:
+- [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
