@@ -5666,3 +5666,14 @@ Sources:
 Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 360. LangGraph 優雅關閉與檢查點恢復——2026 年 5 月服務可靠性標準化
+
+> **LangGraph 1.2 在 2026 年 5 月推出企業級優雅關閉（Graceful Shutdown）機制，透過 RunControl.request_drain() 協作式停止執行，完全消除強制中止導致的狀態遺失問題。核心特性包括：（1）檢查點恢復——LangGraph 在當前執行迴合（superstep）完成後才協作關閉，任何中斷點的狀態自動持久化至檢查點；（2）可恢復執行——服務重啟或臨時掉線後，代理可從上次檢查點無損繼續執行，無需重新計算前置步驟；（3）與 RunControl 整合——開發者可為長時間執行的工作流（如批量 RAG 檢索、持久化機械手臂控制）設置超時與優雅降級規則，平衡響應速度與可靠性。此機制對 Roy 的系統至關重要：Factory Tour 多代理導覽可在服務升級時安全暫停，重啟後從上次訪問景點位置恢復；Tunghai RAG 海量論文檢索可利用檢查點分批進行，每批失敗後從檢查點重試而非重新開始；NanoClaw nRF54L15 韌體燒錄等長流程操作可透過優雅關閉防止晶片狀態破損。此功能標誌著 LangGraph 已完全滿足銀行、醫療等超高可用性產業的生產需求。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)

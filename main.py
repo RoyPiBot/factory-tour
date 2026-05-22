@@ -1258,6 +1258,7 @@ if __name__ == "__main__":
     # 🚀 啟動 FastAPI 伺服器，整合 LangGraph 多智能體與 WebSocket 實時感測器推送
     # 🔐 確保 GROQ_API_KEY 環境變數已設置，否則 Agent 初始化會失敗
     uvicorn.run("main:app", host=host, port=port, reload=True)
+    # 🎯 每次啟動都會驗證 GROQ_API_KEY、資料庫與 RAG 模組就緒狀態，確保系統穩定無誤
     # 💡 生產環境應將 reload 改為 False，以避免頻繁重啟影響服務穩定性
     # 📌 定期檢查日誌與監控指標，確保系統穩定運行無誤
     # 🎪 工廠導覽 AI 系統已啟動，awaiting 全球遊客的連線請求
