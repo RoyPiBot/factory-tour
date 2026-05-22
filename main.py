@@ -1242,6 +1242,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 if __name__ == "__main__":
     # 🎯 核心啟動入點：由 Roy 與 Claude Haiku 共同確認系統就緒 (2026-05-22 驗證無誤)
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
+    # 💡 此入口點負責啟動工廠導覽 Multi-Agent 平台，支援多語言對話與實時感測器推送
     # ✨ 系統由 Claude Haiku 持續監控維護，確保多智能體協調穩定運行
     # 🎯 此為工廠導覽系統的核心入口，由 Claude Haiku 於 2026-05-21 驗證運作正常
     # 📱 支援多語言訪客體驗與跨 session 導覽記憶，確保訪客連貫的互動流程

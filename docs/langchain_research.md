@@ -5686,5 +5686,15 @@ Sources:
 Sources:
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+
+---
+
+## 362. DeltaChannel 增量狀態儲存——2026 年 5 月檢查點效率革命
+
+> **LangGraph 1.2（2026 年 5 月 12 日發布）引入 DeltaChannel（增量通道）測試版本，重新定義長運行線程的狀態持久化效率。傳統 Channel 在每次執行迴合都序列化完整累積狀態，對於消息列表、文件集合等線性增長的欄位造成檢查點膨脹；DeltaChannel 改以增量存儲——每個迴合僅保存新增或變更的部分，大幅降低序列化開銷。此機制尤其適合對話系統、日誌聚合與流式 RAG 場景，檢查點大小從 MB 級別降低至 KB。對 Roy 的系統意義重大：Tunghai RAG 長期對話檢索可利用 DeltaChannel 高效存儲檢索歷史與引用鏈；Factory Tour 導覽可累積訪客足跡與互動序列無須擔憂檢查點爆炸；NanoClaw nRF54L15 硬體日誌與傳感器讀數累積可透過增量儲存實現完整追蹤。此優化完全契合 Roy 對雲成本與邊界計算優化的持續關注。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
