@@ -5656,3 +5656,13 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI and more | GuruSup](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More 🤖 | by ATNO for GenAI & Agentic AI | Apr, 2026 | Medium](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+
+---
+
+## 359. LangGraph 1.2 型別安全與節點隔離——2026 年生產級可靠性突破
+
+> **LangGraph 1.2（2026 年 5 月 11 日發佈）引入型別安全流式傳輸與節點級故障恢復，進一步強化生產環境穩定性。核心機制包括：（1）型別安全 API——StreamPart version="v2" 統一格式，每筆訊息包含 type、ns、data 三鍵，客戶端可安全型別檢查；GraphOutput 物件公開 .value 與 .interrupts 屬性，消除序列化不確定性；（2）Per-node timeout 隔離——硬牆時鐘限制（run_timeout）與閒置限制（idle_timeout）獨立作用於各節點，超時自動拋出 NodeTimeoutError 並觸發節點級錯誤處理器，支援 Saga 補償模式自動回滾；（3）模型能力動態感知——模型 .profile 屬性透過 models.dev 動態暴露支援功能，OpenAI 內容審核中間件與自動重試中間件免手工實裝；（4）二進位持久化——State/Store 後端支援二進位檔案格式。此升級對 Roy 的系統至關重要：Factory Tour 多代理可用型別安全提升穩定性，Tunghai RAG 可用節點超時防止檢索阻塞，NanoClaw nRF54L15 硬體控制可用故障恢復確保命令最終一致性。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
