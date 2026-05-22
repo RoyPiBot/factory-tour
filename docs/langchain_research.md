@@ -5709,3 +5709,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 364. LangGraph 1.2 監控整合與企業成本優化——2026 年 5 月生產環境完全可觀測性建立
+
+> **LangGraph 1.2（2026 年 5 月 11 日發布）與 LangSmith 完全整合，提供端到端可觀測性與成本管控能力，使多代理系統達成完全透明與財務可控。核心創新包括：（1）DeltaChannel 增量儲存測試版——僅保存每輪新增或變更部分而非完整狀態序列，檢查點大小從 MB 降至 KB，特別適合對話系統、日誌聚合與流式 RAG，符合邊界計算與雲成本優化需求；（2）LangSmith Token 計費精細度——精確追蹤每個節點、每次 LLM 調用、每個工具執行的 Token 消耗，支援按代理、按用戶、按時間段的成本分析與預算告警；（3）型別安全監控告警——StreamPart v2 與 GraphOutput 統一格式確保監控系統可靠性捕捉，自動觸發阈值型告警（超時告警、失敗率告警、Token 成本超支告警）；（4）企業部署驗證——2026 年生產統計表明 LangSmith 已監控 33,100+ 個活躍多代理應用，日均追蹤 2.1 億次執行。此整合對 Roy 的系統至關重要：Factory Tour 導覽可精確追蹤每次景點查詢的成本與延遲特徵，Tunghai RAG 可監控檢索品質與成本比，NanoClaw nRF54L15 硬體控制可追蹤晶片通訊開銷與故障模式，實現完整的可觀測性與持續優化。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
