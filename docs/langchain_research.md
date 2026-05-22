@@ -5731,3 +5731,14 @@ Sources:
 - [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 366. 優雅關閉與檢查點恢復——2026 年 5 月生產級長運行代理穩定性突破
+
+> **LangGraph 1.2 引入 Graceful Shutdown 機制與節點級錯誤恢復中間件，完全解決長運行多代理工作流的中斷與恢復問題。核心特性包括：（1）協作型中止——RunControl.request_drain() 允許應用於當前超步（superstep）完成後請求優雅停止，而非強行中斷，確保進行中的節點執行完成並自動存儲可恢復檢查點；（2）節點級錯誤處理器——add_node() 支援 error_handler= 參數，在所有重試耗盡後執行恢復函數，實現 Saga 補償與交易式回滾，特別適合支付結算、數據提交等關鍵操作；（3）檢查點恢復語義優化——恢復流程現支援部分狀態復原，允許選擇性恢復特定欄位而非全部重放，極大加快長對話與流式 RAG 的恢復速度。此升級對 Roy 的系統至關重要：Factory Tour 導覽可在電源不穩定時優雅中止與恢復，Tunghai RAG 長期對話可透過部分狀態復原快速恢復檢索上下文，NanoClaw nRF54L15 硬體命令可利用節點級錯誤恢復確保晶片狀態最終一致性，防止部分寫入造成的不一致。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
