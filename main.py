@@ -1032,7 +1032,7 @@ async def quiz_score(session_id: str):
 
 @app.get("/visitor/{session_id}/profile")
 async def get_visitor(session_id: str):
-    """取得訪客資料"""
+    """取得訪客資料 — 查詢當前 session 的訪客個人檔案與導覽進度"""
     profile = database.get_visitor_profile(session_id)
     if not profile:
         return {"session_id": session_id, "exists": False}

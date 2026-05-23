@@ -5806,3 +5806,14 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 373. 遞迴任務分解與成本最佳化——2026 年自適應代理的成本-效率突破
+
+> **LangGraph 在 2026 年下半年引入遞迴任務分解（Recursive Task Decomposition）機制，配合 DeltaChannel 與節點級快取，實現自適應代理系統的端到端成本優化。核心創新包括：（1）遞迴任務分解——複雜任務自動分割成多層子任務樹，每層由專門的 Worker 代理執行，同層並行、跨層串聯，支援動態終止條件判定與回溯；（2）成本-品質權衡——實測數據表明，將單一龐大代理拆分為專門化多代理架構可降低 LLM token 成本 70%，同時透過 Prompt Caching 提升回應速度 5 倍，適合 Tunghai RAG 的多層檢索與 Factory Tour 的複雜導覽規劃；（3）遞迴終止判定——子圖模組化完全支援嵌套子圖，每層終止條件可自定義（複雜度、token 預算、時間預算），確保無限遞迴防護；（4）狀態追蹤——DeltaChannel 與 Per-Node Caching 的組合，使遞迴分解過程中的中間狀態與快取完全可審計。此機制對 Roy 的系統至關重要：NanoClaw nRF54L15 控制可用遞迴分解自適應晶片複雜指令，Tunghai RAG 檢索可按查詢複雜度遞迴分層，Factory Tour 導覽可自動分解複雜訪問計畫為原子操作序列。**
+
+Sources:
+- [How I Reduced the cost of an AI Agent by 70% by Breaking a Monolithic LangGraph Agent into Specialized Agents, Prompt Caching and Task Decomposition | by Musaib Altaf | Medium](https://musaaib.medium.com/how-i-reduced-the-cost-of-an-ai-agent-by-70-by-breaking-a-monolithic-langgraph-agent-into-c1be2f530598)
+- [Agentic Design Patterns: The 2026 Guide to Building Autonomous Systems](https://www.sitepoint.com/the-definitive-guide-to-agentic-design-patterns-in-2026/)
+- [Breaking the Context Ceiling: Implementing Recursive Language Models with LangGraph and TypeScript](https://gitnation.com/contents/breaking-the-context-ceiling-implementing-recursive-language-models-with-langgraph-and-typescript)
