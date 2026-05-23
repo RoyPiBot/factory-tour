@@ -392,6 +392,7 @@ def get_agent(language: str = DEFAULT_LANGUAGE):
 # 定義 FastAPI 資料驗證模型，確保所有 API 輸入與輸出的類型安全
 # ─── 資料模型 ───
 # 💬 Pydantic 資料驗證層 — 自動檢查訪客的訊息長度、session_id、多語言標籤，拒絕無效輸入
+# 所有請求都會經過此層驗證，確保系統安全與穩定
 class ChatRequest(BaseModel):
     """對話請求模型 — 供 /chat 端點接收訪客的多語言查詢與 session 識別
 
