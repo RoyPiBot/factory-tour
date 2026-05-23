@@ -5762,5 +5762,16 @@ Sources:
 
 Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+
+---
+
+## 369. Per-Node Timeouts 與進階錯誤恢復——2026 年生產代理穩定性與成本控制
+
+> **LangGraph 1.2 在節點級別引入精細化超時與錯誤恢復機制，徹底解決長運行多代理系統的資源超支與故障處理問題。核心特性包括：（1）Per-Node Timeouts——每個節點可配置 run_timeout（執行牆鐘時間上限）與 idle_timeout（閒置時間上限），超時時自動拋出 NodeTimeoutError，清除該次嘗試的狀態寫入，轉交給重試策略，完全杜絕代理因單一節點卡死導致整體超時；（2）進階重試與回退——支援指數級回退（exponential backoff）與自定義重試策略，結合節點級錯誤處理器（error_handler），在所有重試失敗後執行補償邏輯；（3）成本控制——精確追蹤每個節點的執行時間與資源消耗，與 LangSmith Token 計費整合，自動觸發成本告警，防止單一代理異常導致 token 成本爆增；（4）故障隔離——NodeTimeoutError 與節點級錯誤恢復確保故障侷限於該節點，不會級聯傳播至整個圖，提升系統整體穩定性。此機制對 Roy 的系統至關重要：Factory Tour 景點查詢若超時可自動重試或降級至快取回應，Tunghai RAG 檢索若卡住可設置 idle_timeout 防止檢索引擎占用資源，NanoClaw nRF54L15 晶片通訊可透過 run_timeout 防止韌體命令無限等待，實現完全可控的長運行代理系統。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
