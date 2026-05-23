@@ -5796,3 +5796,13 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 372. LangGraph DeltaChannel 與節點級快取——2026 年 5 月長執行緒效能與成本優化
+
+> **LangGraph 1.2 新引入 DeltaChannel 類型與節點級快取機制，專門解決長執行緒系統的檢查點膨脹與重複計算問題。核心改進包括：（1）DeltaChannel 類型——相比傳統 Channel 每次存儲完整狀態值，DeltaChannel 僅存儲增量變化（delta），特別適用於訊息列表、事件日誌等持續增長的結構，將長執行緒的檢查點大小從數 MB 降低至 KB 級，大幅降低 Pi 5 的儲存與網路傳輸壓力；（2）Per-Node Caching——開發者在 add_node 時設置 cache=True 或指定 TTL，相同輸入的節點輸出自動快取，重複呼叫時直接返回快取結果，避免重新執行昂貴的 LLM 推理或工具呼叫，節省 token 成本與執行時間；（3）時間旅行除錯支援——檢查點精簡後仍保持完整的狀態追蹤與時間旅行除錯能力，開發者可檢視任意時刻的增量變化與快取命中情況，快速定位效能瓶頸與成本異常。此機制對 Roy 的系統至關重要：Factory Tour 導覽代理的訪客互動訊息列表可使用 DeltaChannel 避免檢查點爆炸，重複景點查詢的結果可透過節點快取加速回應，Tunghai RAG 的檢索歷史與排序結果可利用增量快照節省儲存，NanoClaw nRF54L15 的長期感測器日誌可完全透過 DeltaChannel 實現高效持久化。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
