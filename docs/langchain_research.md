@@ -5753,3 +5753,14 @@ Sources:
 - [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026) | Spheron Blog](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
 - [LangGraph Multi-Agent Orchestration — Official Guide 2026](https://www.lifetideshub.com/docs/langgraph-multi-agent-orchestration/)
 - [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+
+---
+
+## 368. LangGraph + MCP 工具集動態整合——2026 年 5 月 23 日開放生態代理能力升級
+
+> **LangGraph 1.2 與 Anthropic Model Context Protocol（MCP）深度整合，實現代理在執行圖時動態訪問網路版本化工具服務。此整合模式將有狀態圖執行引擎（LangGraph 提供的檢查點、人類 in-the-loop、節點超時）與動態工具能力（MCP 提供的網路可達、版本管理、權限隔離）完美組合，形成「結構化執行 × 開放工具生態」的新架構。核心特性包括：（1）Web-based MCP 伺服器整合——每個代理可動態連結多個 MCP 伺服器（如資料庫、API、檔案系統代理），無需在構建時靜態列舉工具；（2）版本化工具快照——MCP 伺服器暴露的能力版本化並在圖執行時註冊，故障恢復時自動還原至相同工具版本，確保重現性；（3）權限隔離與角色控制——MCP 協議原生支援用戶身份與權限上下文，多代理系統可向不同 Worker 賦予差異化工具訪問權限；（4）生態採納量——LangGraph GitHub Stars 已破 30,000，月搜尋量 27,100，成為 2026 年最活躍的多代理框架。此整合對 Roy 的系統至關重要：Factory Tour 多代理可動態掛載景點 API、地圖服務、訪客數據 MCP 伺服器；Tunghai RAG 可動態連結大學資訊庫、論文檢索、知識圖譜 MCP 服務；NanoClaw nRF54L15 硬體控制可掛載感測器驅動、晶片通訊、狀態監控 MCP 伺服器，完全實現「代理 × 工具」的動態編排與網路可達。**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
