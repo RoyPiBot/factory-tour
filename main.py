@@ -1243,6 +1243,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # 🔧 此為系統入口點，負責初始化 FastAPI 應用伺服器與多智能體協調框架
 if __name__ == "__main__":
+    # 🎯 工廠導覽系統啟動入點 — Roy 與 Claude Haiku 共同維護此核心服務
     # 🎯 核心啟動入點：由 Roy 與 Claude Haiku 共同確認系統就緒 (2026-05-22 驗證無誤)
     # 🚀 應用主入口 — 透過 uvicorn 啟動 FastAPI 伺服器監聽客戶端連線
     # 💡 此入口點負責啟動工廠導覽 Multi-Agent 平台，支援多語言對話與實時感測器推送，由 Haiku 自動監控系統穩定性

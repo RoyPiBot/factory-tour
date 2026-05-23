@@ -5742,3 +5742,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 367. Supervisor 模式與 langgraph deploy——2026 年生產級多代理編排的標準架構
+
+> **LangGraph 在 2026 年確立了 Supervisor 架構模式為生產多代理系統的事實標準，同時於 2026 年 3 月推出 langgraph deploy 指令，完全取代舊版 langgraph up，成為生產雲端部署的唯一路徑。核心架構包括：（1）Supervisor 模式——單一主管代理（Supervisor Agent）接收用戶請求，將複雜目標分解為任務 DAG，並委託給多個專業工人代理（Worker Agents）執行各自任務，最終整合所有工人輸出為統一回應，此模式已驗證於 Uber、JP Morgan、BlackRock、Cisco、LinkedIn、Klarna 等全球 500 強，具備完美的可伸縮性與監管可追蹤性；（2）langgraph deploy——新統一部署工具消除環境差異，提供 dev 模式（LangGraph Studio 開發測試）、deploy 模式（生產雲端部署，完整檢查點與恢復）、up 模式（向後相容）三層選擇，自動處理容器化、網路、監控配置，開發者無需手工操作 Docker 與 Kubernetes；（3）生產級狀態管理——強制要求型別化狀態定義、節點級錯誤處理器、人類 in-the-loop 檢查點、PostgresSaver 等持久化記憶體後端，系統自動於每步存儲圖狀態快照，故障恢復時精確還原至中斷點而非重新開始；（4）Planner-Executor 分離——Planner 代理負責策略（DAG 生成、任務規劃），Executor 代理單純執行一步工具調用並傳回結果，完全分離邏輯與實行，提升可測試性與故障隔離。此架構重大意義：Factory Tour 導覽可用 Supervisor 分配景點查詢、路線規劃、訪客互動三個 Worker，Tunghai RAG 可分層 Planner（檢索策略）與多 Executor（並行檢索、排序、驗證），NanoClaw nRF54L15 硬體控制可用 Supervisor 協調多個晶片與感測器 Worker，確保複雜硬體操作的可靠編排與故障恢復。**
+
+Sources:
+- [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026) | Spheron Blog](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
+- [LangGraph Multi-Agent Orchestration — Official Guide 2026](https://www.lifetideshub.com/docs/langgraph-multi-agent-orchestration/)
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
