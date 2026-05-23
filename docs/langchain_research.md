@@ -5785,4 +5785,14 @@ Sources:
 - [2026 AI 智能体革命：LangGraph 如何让你一个人活成一支队伍？ - 蓝戒博客](https://www.webzsky.com/archives/2012)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 371. Type-Safe Streaming 與 Invoke v2 API——2026 年 5 月生產代理的類型安全與開發體驗升級
+
+> **LangGraph 1.2.0（2026 年 5 月 11 日發布）在串流與呼叫 API 層引入完整的 TypedDict 型別支援，徹底解決多代理系統中的型別安全與型別檢查問題。核心改進包括：（1）Type-Safe Streaming（version="v2"）——每個串流區塊統一包含 type、ns、data 三個欄位，每種模式皆有對應的 TypedDict 定義可從 langgraph.types 直接匯入，IDE 自動補全支援，完全消除字典存取型別錯誤；（2）Type-Safe Invoke（version="v2"）——傳回 GraphOutput 物件而非裸露字典，提供 .value（圖輸出）與 .interrupts（中斷點列表）屬性，型別檢查器可完全驗證存取路徑，防止執行時 KeyError；（3）Python 3.10-3.14 完整支援——消除版本特定的型別註解怪異行為，開發者可在全版本使用 `list[str]` 而無需 `from typing import List`；（4）開發體驗——配合 Pydantic V2 與 Python 原生 TypedDict，VSCode/PyCharm 的型別提示與檢查精度大幅提升，單元測試中可透過 mypy --strict 驗證整個代理圖的型別一致性。此升級對 Roy 的多代理系統至關重要：Factory Tour 導覽流可透過 TypedDict 驗證每個節點的狀態形狀，Tunghai RAG 的檢索-排序-回應流程可確保中間輸出型別一致，NanoClaw nRF54L15 硬體命令的多代理協調可完全避免晶片狀態型別錯配導致的韌體異常。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
