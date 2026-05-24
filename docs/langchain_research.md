@@ -5902,3 +5902,14 @@ Sources:
 Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 381. LangGraph + MCP 深度整合與 30K Stars 里程碑——2026 年多代理標準化的完全確立
+
+> **LangGraph 在 2026 年上半年完成與 Anthropic Model Context Protocol（MCP）的無縫整合，確立開源多代理開發的事實標準。核心進展包括：（1）MCP 原生支援（v0.3+）——LangGraph 圖執行引擎完全相容 MCP 工具定義，開發者可直接將 MCP 伺服器註冊為圖節點，無需適配層，標準化多代理工具整合方式；（2）GitHub Stars 超越 30K——LangGraph 倉庫星數突破 30,000，超越 CrewAI、AutoGen 等競品，驗證架構設計獲得全球開發者共識，月均搜尋量達 27,100，成為最廣泛採納的多代理框架；（3）無縫檢查點與人機協作——MCP 工具呼叫完全支援時間旅行調試、暫停恢復、人工審查中斷，LangSmith 提供端對端審計軌跡；（4）模型無關性——LangGraph 無縫支援 Claude、GPT、Gemini 等多家 LLM，單一系統中可混用不同模型於不同節點。此整合對 Roy 的系統賦予新層次：Factory Tour 可藉由 MCP 標準化集成景點資料、預約、導覽計畫系統，NanoClaw nRF54L15 控制透過 MCP 直接對接晶片通訊協議，Tunghai RAG 檢索-排序-驗證三層完全由 MCP 工具標準化，確保系統的長期維護性與可擴展性。**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)

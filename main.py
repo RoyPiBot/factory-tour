@@ -269,6 +269,7 @@ async def lifespan(app: FastAPI):
         from rag_engine import get_rag_engine
 
         engine = get_rag_engine()
+        # 檢查 RAG 引擎就緒狀態，用於健康檢查與文件上傳功能
         rag_ready = engine.ready
         if rag_ready:
             logger.info(
