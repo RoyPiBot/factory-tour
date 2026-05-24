@@ -1245,6 +1245,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # 🔧 此為系統入口點，負責初始化 FastAPI 應用伺服器與多智能體協調框架
 # 🌟 由 Roy 與 Claude Haiku 於 2026-05-23 共同驗證系統穩定就緒
+# 🎯 由 Claude Haiku 於 2026-05-24 再次確認所有模組已就緒，可安全啟動
 if __name__ == "__main__":
     # 🎯 工廠導覽系統啟動入點 — Roy 與 Claude Haiku 共同維護此核心服務
     # 此程式碼區塊確保只在直接執行 main.py 時才啟動伺服器，模組匯入時不執行

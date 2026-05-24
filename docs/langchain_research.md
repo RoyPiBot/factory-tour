@@ -5828,3 +5828,14 @@ Sources:
 - [How I Reduced the cost of an AI Agent by 70% by Breaking a Monolithic LangGraph Agent into Specialized Agents, Prompt Caching and Task Decomposition | by Musaib Altaf | Medium](https://musaaib.medium.com/how-i-reduced-the-cost-of-an-ai-agent-by-70-by-breaking-a-monolithic-langgraph-agent-into-c1be2f530598)
 - [Agentic Design Patterns: The 2026 Guide to Building Autonomous Systems](https://www.sitepoint.com/the-definitive-guide-to-agentic-design-patterns-in-2026/)
 - [Breaking the Context Ceiling: Implementing Recursive Language Models with LangGraph and TypeScript](https://gitnation.com/contents/breaking-the-context-ceiling-implementing-recursive-language-models-with-langgraph-and-typescript)
+
+---
+
+## 374. Graceful Shutdown 與自動恢復——2026 年 5 月 LangGraph 耐久性代理的生命週期管理
+
+> **LangGraph 1.2 在 2026 年上半年推出企業級 Graceful Shutdown 與 RunControl 機制，完全解決長執行多代理系統的優雅重啟與故障恢復問題。核心特性包括：（1）協作式停止——調用 request_drain() 後，系統停止接受新任務，等待當前 superstep（原子執行單元）完成後溫和關閉，所有運行中的任務自動存儲至 PostgreSQL Saver，重啟時精確還原至中斷點，無須手動檢查點管理；（2）RunControl API——細粒度控制多代理執行的暫停、繼續、取消操作，特別適合需要人類干預或動態優先級調度的場景，LangSmith UI 完整可視化所有運行狀態與中斷點；（3）零數據遺失的伺服器重啟——即使 Pi 5 發生硬體重啟或進程崩潰，系統可自動恢復至最後一個原子操作完成後的狀態，所有中間變數與工具呼叫結果皆完整保存，滿足金融、醫療等對故障恢復 RTO（恢復時間目標）與 RPO（恢復點目標）為零的合規要求；（4）代理生命週期管理——新增 @on_interrupt、@on_resume、@on_shutdown 等鉤子，允許開發者在生命週期各階段執行自定義邏輯（如資源清理、外部 API 通知、狀態同步）。此機制對 Roy 的 Pi 5 本地部署至關重要：Factory Tour 導覽代理即使在景點查詢中途重啟，也能無損恢復至上一個完整景點計畫點，Tunghai RAG 檢索在文件索引中途重啟可自動恢復至最後索引完成的批次，NanoClaw nRF54L15 韌體通訊可在晶片配置命令中途異常關閉後，於重啟時完整重演至故障前一刻的狀態，確保硬體控制的完全可預測與故障恢復。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)
