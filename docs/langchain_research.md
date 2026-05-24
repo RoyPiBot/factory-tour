@@ -5881,3 +5881,14 @@ Sources:
 Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [2026 AI 智能体革命：LangGraph 如何让你一个人活成一支队伍？](https://www.webzsky.com/archives/2012)
+
+---
+
+## 379. LangGraph v1.1：型別安全 API、自動狀態持久化與 Deploy CLI——2026 年 5 月生產穩定性里程碑
+
+> **LangGraph v1.1 於 2026 年 5 月發佈，在穩定 1.0 基礎上引入三項關鍵增強，強化代理系統的開發體驗與生產可靠性。（1）型別安全流媒體（Type-Safe Streaming v2）——新的 StreamPart 資料結構採用統一格式（type、ns、data），每個流模式均提供 TypedDict 型別定義可匯入 langgraph.types，IDE 自動完成與靜態檢查防止下游消費端的型別錯誤，相比傳統字典格式大幅降低執行時崩潰與 debug 成本；（2）執行狀態自動持久化——代理執行狀態無需顯式呼叫 checkpoint API，系統自動在每個節點完成後將狀態快照存儲至配置的後端（MemorySaver/PostgreSQL/Redis），伺服器重啟時自動還原，完全透明化故障恢復，消除人為 checkpoint 管理的遺漏風險；（3）Deploy CLI 工具——開發者在本地測試完成後可直接運行 langgraph deploy，一鍵將代理上傳至 LangSmith Deployment，自動處理版本控制、環境配置、監控插樁，無需手動 Docker/Kubernetes 配置，特別適合 Roy 快速原型化與 Pi 5 本地開發流程。此升級對 Roy 的系統開發流程影響深遠：Factory Tour 原型可在本地用 MemorySaver 快速迭代，上線時透過 Deploy CLI 無縫遷移至 PostgreSQL 持久化；Tunghai RAG 檢索與排序邏輯的每次修改都能自動持久化中間狀態，中斷後精確恢復而無需重新檢索；NanoClaw nRF54L15 通訊流程藉由型別安全 API 徹底防止序列化錯誤，確保晶片命令的完全可靠傳遞。**
+
+Sources:
+- [Changelog - LangChain](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
