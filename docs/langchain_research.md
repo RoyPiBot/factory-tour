@@ -5839,3 +5839,13 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)
+
+---
+
+## 375. 節點級超時控制與錯誤復原——2026 年 5 月 LangGraph 代理可靠性強化
+
+> **LangGraph 1.2 在 2026 年上半年新增節點級超時控制與分層錯誤復原機制，專門解決多代理系統中單一故障節點拖累整體流程的問題。核心改進包括：（1）Per-Node Timeout——開發者在 add_node 時傳遞 timeout 參數，支援硬牆時鐘限制（run_timeout）與閒置限制（idle_timeout），超時時自動觸發預定義的恢復邏輯，防止卡滯節點阻斷整個工作流；（2）Per-Node Error Handler——透過 error_handler 參數在每個節點掛載恢復函數，接收型別化的 NodeError 物件並返回 Command 以更新狀態與路由至替代節點，相比全局捕獲更精細、更可控；（3）多層降級策略——結合節點級快取與備用節點路由，系統可實現梯級降級：LLM 超時時轉用快取或輕量級模型，工具呼叫超時時轉用預設答案或人工審查隊列；（4）故障持久化與可觀測性——所有超時與錯誤復原事件完整記錄至 DeltaChannel，LangSmith 提供視覺化分析，快速定位系統瓶頸。此機制對 Roy 的系統至關重要：Factory Tour 導覽若景點資料庫查詢超時，可自動轉用緩存景點列表；Tunghai RAG 檢索層若向量資料庫超時，可降級至全文檢索或內容摘要快取；NanoClaw nRF54L15 若晶片通訊超時可觸發熱啟動或備用配置方案，確保系統韌性與可用性。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)

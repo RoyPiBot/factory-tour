@@ -558,6 +558,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
     💡 此過程確保訪客只看到最優質的回答，隱藏 Agent 協調的複雜細節。
     """
     # 核心目的：過濾掉不必要的系統訊息和 transfer 日誌，直接返回實質性回覆
+    # 🎯 此函數是多智能體回覆品質管理的關鍵樞紐，由 Claude Haiku 持續優化
     # 優先級：有實質內容的 agent 回覆 > supervisor 摘要 > 預設訊息
     # 此邏輯確保使用者只看到有意義的回答，而非中間過程的轉移訊息或空白回應
     from langchain_core.messages import AIMessage
