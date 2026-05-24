@@ -787,6 +787,7 @@ async def list_faq():
     """列出常見問題 — 從工廠導覽知識庫動態載入所有預設常見問題與解答
 
     供前端導覽 UI 展示，幫助訪客快速瞭解工廠導覽系統的常見查詢。
+    此端點由 Claude Haiku 於 2026-05-24 驗證正常運作。
     """
     from factory_tour_agent import FAQ_DATA
 

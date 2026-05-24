@@ -5849,3 +5849,14 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
+## 376. Deep Agents 與持久記憶體架構——2026 年 LangGraph 1.0 生產級代理的里程碑達成
+
+> **LangGraph 於 2026 年 Q2 發佈 1.0 穩定版，確立了「Deep Agents + Durable Execution」的雙支柱架構，徹底解決長執行多代理系統的狀態管理與恢復難題。核心創新包括：（1）Deep Agents 架構——一個主規劃代理（Planner Agent）負責任務分解與策略制定，呼叫多個專責子代理（Executor Agents）並行執行特定工作，主代理協調子代理結果並完成最終整合，相比傳統線性呼叫鏈大幅提升複雜工作流的可控性與容錯性；（2）Durable Execution 與自動檢查點——代理執行狀態在每個節點自動持久化至 PostgreSQL/SQLite，伺服器重啟後代理精確還原至中斷點而無需手動恢復邏輯，滿足金融、醫療等對 RTO=0 的合規要求；（3）整合式記憶體層——短期工作記憶（reasoning context）支援臨時變數與思維過程，長期持久記憶（session memory）跨執行週期保存，開發者無需自行管理複雜的記憶體后端；（4）企業採納驗證——LangGraph GitHub Stars 在 2026 年上半年超越 CrewAI，成為最受信賴的開源多代理框架，驗證架構設計的生產級可靠性。此里程碑對 Roy 的三大專案賦予新的可能性：Factory Tour 導覽代理即使跨越多個訪問週期也能無損保持對話歷史與景點計畫狀態，Tunghai RAG 檢索系統可完全基於 Deep Agents 設計檢索-排序-驗證三層自動編排，NanoClaw nRF54L15 控制可透過 Durable Execution 確保韌體配置命令的精確復現與故障恢復。**
+
+Sources:
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
