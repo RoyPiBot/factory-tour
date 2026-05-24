@@ -5859,4 +5859,15 @@ Sources:
 Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 377. Content-Block Streaming v3 與原生測試框架——2026 年 5 月多代理流媒體與品質保障架構
+
+> **LangGraph 於 2026 年 5 月發佈 Streaming API v3，引入 content-block-centric 架構，完全重新設計了代理執行的實時流媒體模式。核心改進包括：（1）Content-Block Streaming v3——相比 v2 的統一型 StreamPart，v3 按內容區塊型別（text、tool_call、tool_result、message 等）細分流出，每個區塊附帶原始節點命名空間（namespace），開發者可精細控制前端呈現邏輯，實現文字逐 token 輸出、工具呼叫實時反饋、執行結果漸進式更新的完整使用者體驗；（2）按通道投影（Per-Channel Projection）——流 API 支援 stream(..., select=["output", "details"]) 篩選，只輸出關注的通道內容，大幅降低串流頻寬與前端負擔，特別適合 Pi 5 有限的網路環保境；（3）原生測試框架呼聲——LangChain 與 LangGraph 社群已明確提出需求（Issue #34810），要求新增 JUnit/PyTest 風格的統一測試套件，支援確定性 LLM Mock、圖級斷言、快照測試、工作流驗證，目前代理測試仍依賴手工 PyTest 與自定義 Mock，導致品質保證成本高昂；（4）可觀測性與串流分析——DeltaChannel 與 Streaming v3 結合，LangSmith UI 可實時展示每個節點的流媒體進度、區塊型別分佈、延遲分析，快速診斷串流卡頓與成本異常。此升級對 Roy 的系統至關重要：Factory Tour 導覽可逐區塊串流景點詳情與導覽計畫，提升使用者實時感受；Tunghai RAG 檢索-排序-回應三層可逐區塊完全透明化輸出中間結果，展示 AI 推理過程；NanoClaw nRF54L15 可用原生測試框架驗證晶片命令與回應的型別一致性，確保韌體通訊的完全可靠。**
+
+Sources:
+- [LangGraph Streaming Fix: Real-Time Token-by-Token AI Responses](https://www.weblineglobal.com/blog/langgraph-token-streaming-fix-real-time-ai/)
+- [Add a First-Class Testing Framework for LangChain + LangGraph (Similar to JUnit/PyTest/LangTest) · Issue #34810 · langchain-ai/langchain](https://github.com/langchain-ai/langchain/issues/34810)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI and More](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)

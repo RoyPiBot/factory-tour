@@ -307,6 +307,7 @@ async def lifespan(app: FastAPI):
     try:
         await sensor_task
     except asyncio.CancelledError:
+        # 感測器任務已安全取消，應用關閉流程順利完成
         pass
 
 
