@@ -5892,3 +5892,13 @@ Sources:
 - [Changelog - LangChain](https://changelog.langchain.com/)
 - [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 380. LangGraph 生態融合與跨框架互操作——2026 年代理開發標準化里程碑
+
+> **LangGraph 與 LangChain 於 2026 年上半年完成深度生態融合，確立多代理開發的統一標準平台。核心成果包括：（1）LCEL + Graph 無縫互操作——LangChain Expression Language 管道與 LangGraph 狀態機完全相容，開發者可混用聲明式 LCEL 與圖狀態定義，同一系統中管道邏輯與工作流控制無縫整合；（2）LangSmith 深度可觀測性——所有代理執行自動上傳，支援視覺化流程追蹤、成本逐節點分析、A/B 測試，Roy 可快速診斷 Factory Tour、Tunghai RAG、NanoClaw 系統的效能瓶頸；（3）官方跨框架橋接——提供 CrewAI 與 AutoGen 的任務定義互轉適配器，新代理可重用既有工具定義；（4）社群驅動擴展——100+ 官方認可的工具模板與最佳實踐共享庫，加速復雜多代理系統的開發迭代。此融合確立 LangGraph 作為 2026 年多代理開發事實標準。**
+
+Sources:
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
