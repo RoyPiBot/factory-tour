@@ -5871,3 +5871,13 @@ Sources:
 - [Add a First-Class Testing Framework for LangChain + LangGraph (Similar to JUnit/PyTest/LangTest) · Issue #34810 · langchain-ai/langchain](https://github.com/langchain-ai/langchain/issues/34810)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI and More](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
+
+---
+
+## 378. Command API 與 interrupt() 機制——2026 年 LangGraph 工具返回值與流程控制的革新
+
+> **LangGraph 1.0.8（2026 年 2 月）推出 Command API 與 interrupt() 函數，徹底改變了代理工具整合與流程控制的範式。核心創新包括：（1）Command API——工具回傳值不再侷限於純數據，而是可返回 Command 物件，直接指令圖的狀態更新、條件路由、優先級調整，例如文件解析工具可返回 Command.update_state({context}) + Command.goto_node("validation")，整合處理與流程控制於單一返回值，大幅簡化代理邏輯；（2）interrupt() 函數——取代傳統的 break/return，允許任何節點或工具中斷執行並等待外部輸入（如人工審查、使用者確認、外部事件），完全支援非同步恢復與狀態保留，完美實現人機協作的暫停-檢查-恢復循環；（3）型別安全與可審計——Command 物件強型別化，IDE 自動完成與靜態檢查防止路由錯誤，所有 Command 執行完整記錄至 DeltaChannel，LangSmith 提供視覺化審計軌跡；（4）成本與相應時間最佳化——避免深層嵌套條件邏輯，直接路由至目標節點，減少不必要的 LLM 推理步驟。此機制對 Roy 的系統尤為關鍵：Factory Tour 導覽工具若發現異常景點資料可立即 interrupt() 等待人工覆核，Tunghai RAG 檢索工具若信心分數低於閾值可返回 Command 進行多階段驗證，NanoClaw nRF54L15 控制工具返回 Command 實現條件化的晶片配置與回滾。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [2026 AI 智能体革命：LangGraph 如何让你一个人活成一支队伍？](https://www.webzsky.com/archives/2012)
