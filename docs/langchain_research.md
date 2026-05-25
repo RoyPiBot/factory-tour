@@ -5988,3 +5988,13 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [GitHub - langgraph4j/langgraph4j: LangGraph for Java](https://github.com/langgraph4j/langgraph4j)
+
+---
+
+## 388. Type-Safe Streaming v2、Deploy CLI 與端點推送——2026 年 LangGraph 生產部署與實時可觀測性完整方案
+
+> **LangGraph v1.1 於 2026 年引入 Type-Safe Streaming v2 與官方 Deploy CLI，實現從開發、除錯到雲部署的完整閉環，大幅簡化複雜多代理系統的交付流程。核心進展包括：（1）Type-Safe Streaming v2——統一的 StreamPart 輸出格式，每個串流塊包含 type、ns 與 data 三個字段，前端可精確解析各節點的中間結果與工具呼叫，相比 v1 降低解析邏輯複雜度，Factory Tour 導覽可實時顯示各景點規劃進度、Tunghai RAG 可逐層呈現檢索→排序→驗證的三段漸進結果；（2）Type-Safe Invoke——新增 GraphOutput 物件，包含 .value（最終結果）與 .interrupts（中斷點陣列），消除調用者需自行解析結果的額外負擔，確保型別安全與完整的中斷軌跡；（3）LangGraph Deploy CLI——langgraph-cli 新增一鍵部署命令，直接將本地代理部署至 LangSmith Deployment 無需手動容器化，大幅加速 Roy 的 Factory Tour、Tunghai RAG、NanoClaw 等系統的上線迭代；（4）節點級可觀測性——Deploy 後自動向 LangSmith 推送每個節點的執行時間、Token 消耗、錯誤堆疊，使長流程系統的瓶頸與故障原因可視化，支援 Pi 5 資源受限環境的效能診斷與最佳化。**
+
+Sources:
+- [LangChain Changelog - LangGraph v1.1 Release](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
