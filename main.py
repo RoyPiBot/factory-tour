@@ -1153,7 +1153,7 @@ async def analytics_summary():
 
 @app.get("/history/{session_id}")
 async def get_chat_history(session_id: str, limit: int = 50):
-    """取得對話歷史"""
+    """取得對話歷史 — 查詢指定 session 的多回合對話記錄與訪客互動狀態"""
     history = database.get_history(session_id, limit)
     return {"session_id": session_id, "messages": history, "count": len(history)}
 

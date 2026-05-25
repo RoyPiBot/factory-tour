@@ -4100,6 +4100,19 @@ Sources:
 
 ---
 
+## 223. LangGraph v1.2.x 節點級容錯與優雅關閉——2026 年 5 月生產環境穩定性進化
+
+> **LangGraph 2026 年 5 月發布節點級超時政策、錯誤恢復處理器與優雅關閉機制，實現企業級工作流的精細控制與故障自癒能力**
+
+LangGraph v1.2.x 在 2026 年 5 月推出三大生產級功能，大幅強化多代理系統的韌性與可控性。（1）Per-node timeouts——開發者可透過 add_node 傳入 timeout= 參數設置硬牆鐘限制（run_timeout）或空閒限制（idle_timeout），當逾時觸發時自動拋出 NodeTimeoutError 並清除寫入，交由重試政策接管，確保代理不會無限期阻斷。（2）Node-level error handlers——透過 error_handler= 參數添加復原函數在所有重試耗盡後執行，實現 Saga 與補償模式，適合多步驟金融交易與分散式供應鏈協調。（3）Graceful shutdown——支援透過 RunControl 與 request_drain() 在當前超步完成後協作關閉執行中的任務並保存可復原的檢查點。對 Roy 的三大專案——Factory Tour 導覽系統可設置節點級超時確保單個供應商談判不會凍結整體訪客互動；NanoClaw 威脅分析可配置多感測器診斷的逾時政策與異常診斷失敗的自動恢復；Tunghai RAG 系統的知識檢索可透過優雅關閉機制安全中斷長時間執行的向量搜尋，無損儲存中間檢索結果。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
 ## 223. LangGraph Type-Safe v2 與 Deep Agents 深度整合——2026 年生產環境的穩定性與開發體驗升級（2026 年最新）
 
 > **LangGraph 2026 年推出 version="v2" 統一型別安全串流與結構化叫用，Type-Safe Streaming 與 Type-Safe Invoke 機制確保每個串流分塊與返回物件都包含精確的型別資訊。Deep Agents 與 LangGraph 的原生整合使代理能動態規劃、生成子代理、利用檔案系統完成複雜企業任務。Pydantic 與 dataclass 自動強制轉型確保跨 Python 與 TypeScript 的一致性。此雙層升級對 Roy 的三大專案帶來革命性改善——Factory Tour 導覽系統透過 Type-Safe Streaming 精確追蹤訪客互動事件；NanoClaw nRF54L15 威脅分析透過 Deep Agents 動態規劃感測器診斷策略；Tunghai RAG 系統知識檢索與驗證工作流可完全圖形化，支援多層級協作與自動故障恢復，實現大規模學術知識庫的長期穩定性與可靠度保障。**
