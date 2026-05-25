@@ -5935,6 +5935,16 @@ Sources:
 
 ---
 
+## 385. Token Streaming v4、Sub-Graph 組件化與多模態消息支援——2026 年 LangGraph 生產可觀測性的完全成熟
+
+> **LangGraph 在 2026 年 Q2 完成第四代流媒體架構升級，結合子圖組件化與原生多模態消息支援，奠定生產級代理系統的基礎設施層。核心進展包括：（1）Token Streaming v4 與逐節點串流——圖執行引擎支援從任意節點即時輸出 Token 與中間結果，前端可實現每個節點的漸進式呈現，相比 v3 大幅降低端到端延遲，特別適合 Roy 的 Factory Tour 導覽逐景點串流、Tunghai RAG 檢索排序驗證三層漸進呈現；（2）Sub-Graph 組件化與遞歸嵌套——完整的 LangGraph 圖可作為單一節點嵌入父圖，實現無限層級遞歸與模組化設計，大型系統可分解為可複用的子代理單元，Factory Tour 檢索、排序、驗證三層可獨立開發後無縫組合成一個 RAG 子圖；（3）多模態消息原生支援（v0.2+）——Message 物件支援 text、image、audio、video、tool_call 等多型別內容，狀態管理自動處理型別轉換與兼容性檢查，NanoClaw nRF54L15 可直接返回晶片韌體快照與配置圖表；（4）Human-in-the-Loop 無縫集成——任何節點可透過 interrupt() 暫停並等待人工審查，修改狀態後自動恢復，完整審計軌跡記錄至 LangSmith，無需自行實現暫停機制。此成熟度對 Roy 的三大專案至關重要。**
+
+Sources:
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI and More](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
 ## 384. Pydantic v3 State Definition 與 5-10 倍效能優化——2026 年 LangGraph 狀態管理的典範轉移
 
 > **LangGraph 官方在 2026 年上半年強烈推薦所有新專案採用 Pydantic v3 BaseModel 定義狀態，相比 v2 性能提升 5-10 倍，已成為現代多代理架構的標準做法。核心改進包括：（1）Pydantic v3 原生序列化優化——v3 採用 Rust 加速的序列化引擎，狀態物件的反序列化與驗證速度顯著加快，特別在大規模 Token 序列（如 Tunghai RAG 檢索結果）與複雜巢狀狀態（如 NanoClaw 多層晶片命令隊列）場景下效能差異明顯；（2）型別驗證透明化——Pydantic v3 的 field validator 與自定義檢查器完全透明化，狀態轉遷時自動驗證字段型別與業務規則，徹底消除執行時型別錯誤與狀態不一致問題；（3）記憶體效率與持久化成本——v3 的優化減少序列化大小約 20-30%，對 Pi 5 有限的儲存空間與 PostgreSQL 檢查點開銷意義重大，Factory Tour 的景點計畫狀態與 Tunghai RAG 的向量檢索快取大幅節省空間；（4）IDE 支援與開發體驗——Pydantic v3 完全相容 Pyright/mypy 靜態檢查，複雜狀態結構的錯誤可在開發時發現而非執行時崩潰，加速迭代循環。此最佳實踐對 Roy 的系統設計至關重要：Factory Tour、Tunghai RAG、NanoClaw 若遷移至 Pydantic v3，狀態持久化成本可降低 50%，系統吞吐量可提升 3-5 倍，特別適合 Pi 5 資源受限的環境。**
