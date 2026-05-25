@@ -5954,3 +5954,13 @@ Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [下一代多智能体编排利器：LangGraph 的野心與實踐](https://blog.csdn.net/2501_92798394/article/details/149605289)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI and More](https://gurusup.com/blog/best-multi-agent-frameworks-2026/)
+
+---
+
+## 386. Per-Node Timeouts、Error Handlers 與故障恢復——2026 年 LangGraph 可靠性工程的完全體
+
+> **LangGraph 在 2026 年發佈 v0.3+ 版本，新增 Per-Node 超時管理、節點級 Error Handlers、Graceful Shutdown 與二進位狀態持久化，確立生產環境故障恢復與長流程可靠性執行的關鍵基礎。核心進展包括：（1）Per-Node Timeouts——`add_node(timeout=)` 支援 `run_timeout`（硬牆鐘限制）與 `idle_timeout`（空閒限制），超時觸發時自動拋出 `NodeTimeoutError` 並清除該節點的寫入，特別適合 NanoClaw nRF54L15 晶片通訊的超時保護與異常退出；（2）節點級 Error Handlers——在 `add_node` 中註冊恢復函數，所有重試耗盡後自動執行，實現 Saga 補償模式與分層降級，Factory Tour 遠端 API 失效時可自動轉向本地快取，Tunghai RAG 檢索超時時可降級為關鍵詞搜尋；（3）Graceful Shutdown 與 Checkpoint 恢復——`RunControl.request_drain()` 支援協作關閉，當前 superstep 完成後暫停，自動建立可恢復的檢查點，使長流程（多小時導覽、複雜 RAG 分析）可安全中斷與繼續；（4）二進位檔案狀態持久化——state 與 store 後端原生支援二進位檔案（晶片韌體、影像快照），狀態管理自動處理序列化，降低 Pi 5 儲存壓力。此套新機制對 Roy 的系統架構至關重要，確保 NanoClaw、Factory Tour、Tunghai RAG 在長期運作、網路波動、硬體故障下仍可穩定恢復。**
+
+Sources:
+- [LangGraph v0.3+ Release Notes - Timeouts and Error Handlers](https://docs.langchain.com/oss/python/releases/changelog)
+- [Building Fault-Tolerant AI Agents with LangGraph in 2026](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
