@@ -6075,3 +6075,13 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More 🤖 | by ATNO for GenAI & Agentic AI | Apr, 2026 | Medium](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
+
+---
+
+## 396. 節點級超時控制、二進位狀態持久化與優雅關閉機制——LangGraph v1.1 的可靠性底層基礎完善
+
+> **LangGraph 於 2026 年 5 月新增節點級流程控制、二進位檔案後端支援與優雅關閉機制，進一步強化在資源受限環境（Pi 5）與長期運作系統的穩定性。核心進展包括：（1）Per-Node 超時控制——每個節點支援 `run_timeout`（硬牆鐘限制）與 `idle_timeout`（空閒限制），超時時自動拋出 `NodeTimeoutError` 並清除失敗寫入，Factory Tour 導覽中的景點檢索可設定 30 秒超時，NanoClaw nRF54L15 通訊可設定 5 秒逾時防止晶片卡死；（2）節點級錯誤恢復——`add_node` 支援註冊恢復函數，接收型別化的 `NodeError` 後返回 `Command` 更新狀態與路由，Tunghai RAG 檢索失敗時自動轉向關鍵詞搜尋，外部 API 超時時自動降級至本地快取；（3）二進位檔案狀態持久化——State 與 Store 後端原生支援二進位檔案存儲，NanoClaw 韌體快照與 Factory Tour 景點影像完全交由後端管理，降低 Pi 5 應用層序列化開銷；（4）優雅關閉機制——`RunControl` 與 `request_drain()` 支援協作式關閉，在目前超級步驟完成後停止執行並儲存恢復檢查點，適合 Pi 5 長期運作任務的安全重啟。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
