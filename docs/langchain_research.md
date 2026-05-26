@@ -5998,3 +5998,14 @@ Sources:
 Sources:
 - [LangChain Changelog - LangGraph v1.1 Release](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 389. LangGraph Cloud 託管執行、動態子智能體生成與 LangSmith 深度整合——2026 年 LangGraph 企業級運維與可觀測性的完全融合
+
+> **LangGraph 在 2026 年上半年正式推出 LangGraph Cloud 服務，搭配智能體動態生成子智能體的能力與 LangSmith 深度整合，完成從開發到生產的全鏈路託管執行與監控體驗。核心進展包括：（1）LangGraph Cloud 託管執行——無須手動容器化與雲服務配置，直接將本地代理拓撲部署至 LangChain 官方託管平台，內置負載均衡、自動擴展、執行隔離與硬體故障轉移，適合 Roy 的 Factory Tour、Tunghai RAG、NanoClaw 等長期運作系統的企業級可用性保障；（2）動態子智能體生成——任何 LangGraph 節點可在執行時動態建立並啟動臨時子智能體，子智能體與父圖共享狀態與記憶，完成後自動銷毀，大幅降低複雜工作流的編碼複雜度，Factory Tour 導覽可為每個景點動態生成獨立研究智能體，Tunghai RAG 可為檢索結果動態生成驗證與重排序子智能體；（3）LangSmith 深度整合——LangGraph Cloud 自動將每個智能體的執行軌跡、Token 消耗、工具呼叫堆疊、中斷點推送至 LangSmith，支援實時可視化追踪、效能瓶頸自動診斷、異常告警與回放除錯，無需額外的可觀測性配置；（4）PostgreSQL 狀態持久化與斷點續執行——智能體狀態自動儲存至託管 PostgreSQL，支援任意時刻暫停與恢復執行，適合長流程系統（多小時導覽、大規模批次 RAG 分析）的中斷與恢復，大幅提升 Pi 5 資源受限環境下的系統韌性與容錯能力。**
+
+Sources:
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [CrewAI vs LangChain 2026: Which AI Agent Framework Should You Use? | NxCode](https://www.nxcode.io/resources/news/crewai-vs-langchain-ai-agent-framework-comparison-2026)
+- [国内首个 LangGraph Agent 模板！Multi-Agent框架最优解 - Zilliz 向量数据库](https://zilliz.com.cn/blog/LangGraph-Agent-template-best-Multi-Agent-framework)
