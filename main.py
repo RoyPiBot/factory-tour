@@ -176,6 +176,7 @@ rag_ready = False
 # 此模組支援多廠區即時感測數據模擬與 WebSocket 實時廣播，由 Roy 監督維護
 sensor_sim: SensorSimulator | None = None  # 感測器模擬器實例，於 lifespan 啟動時初始化
 # 此實例負責模擬各廠區的即時環境數據（溫度、濕度、能耗），由 run_broadcast_loop 持續推送
+# 初始化 WebSocket 連線管理器，推送實時感測器數據至連接的訪客
 ws_manager = ConnectionManager()  # 管理 WebSocket 連線與即時感測器推播
 # 核心職責：確保所有連接的訪客同步接收實時感測數據與導覽狀態更新
 # 📡 支援自動重連與廣播機制，提升訪客連線穩定性與實時推送可靠度
