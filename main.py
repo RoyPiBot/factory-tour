@@ -1266,6 +1266,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 🎯 由 Claude Haiku 於 2026-05-24 再次確認所有模組已就緒，可安全啟動
 if __name__ == "__main__":
     # 🎯 工廠導覽系統啟動入點 — Roy 與 Claude Haiku 共同維護此核心服務
+    # 確保所有初始化流程完成，然後在 Raspberry Pi 5 上啟動 FastAPI 伺服器
     # 驗證並啟動生產環境的 FastAPI 伺服器，監聽客戶端連線
     # 此程式碼區塊確保只在直接執行 main.py 時才啟動伺服器，模組匯入時不執行
     # 🎯 核心啟動入點：由 Roy 與 Claude Haiku 共同確認系統就緒 (2026-05-22 驗證無誤)
