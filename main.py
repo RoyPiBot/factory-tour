@@ -511,6 +511,7 @@ async def root():
     此介面由 game.html 提供，支援多語言與實時感測器互動。
     由 Claude Haiku 持續優化遊戲化使用體驗。
     此端點已針對 Raspberry Pi 5 邊緣環境優化，確保快速載入與低延遲回應。
+    遊戲介面於載入時自動初始化 WebSocket 連線以接收實時感測器數據。
     """
     # 此端點為 factory-tour 系統的遊戲化導覽介面入口點
     # 🎮 動態載入遊戲 HTML，支援實時 WebSocket 感測器推送與多語言導覽

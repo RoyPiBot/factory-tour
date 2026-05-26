@@ -6020,3 +6020,14 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Before You Upgrade to LangGraph in 2026, Read ... | Agent Framework Hub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026 | Clickit Tech](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 391. LangGraph v1.1.3 分佈式執行時與 langgraph deploy——多機器自部署與遠端圖編排
+
+> **LangGraph 於 2026 年 3 月發布 v1.1.3，新增分佈式執行時支援與官方 langgraph deploy 命令，使複雜的多代理系統得以跨機器透明部署，適合 Roy 在 Raspberry Pi 5 與外部伺服器間的分佈式工作流編排。核心進展包括：（1）langgraph deploy 命令（2026/03 發布）——官方一鍵部署工具，將本地代理拓撲部署至雲端或自部署環境，無需手動容器化，自動處理負載均衡與跨機器通訊，Factory Tour 導覽與 Tunghai RAG 可直接跨越 Pi 5 資源限制，部署至外部 GPU 伺服器進行複雜推理；（2）遠端圖（Remote Graphs）編排——任何 LangGraph 節點可呼叫位於遠端的子圖，支援多機器多代理架構，NanoClaw nRF54L15 晶片通訊可本地執行，複雜決策邏輯委託遠端高性能伺服器，狀態自動同步無須手動序列化；（3）分佈式執行時中間層——支援 Unix socket（同機器）或網路通訊（跨機器），伺服器端採用 vLLM 加速推理，Pi 5 作為協調器與長期狀態儲存點，模型推理卸載至遠端，可將 Token 處理延遲降低 50%；（4）LangGraph 平臺正式可用（GA）——LangChain 官方託管平台支援遠端圖部署、自動故障轉移與多機器負載均衡，相比自部署更簡化運維成本。此能力對 Roy 的混合部署架構至關重要，實現 Pi 5 與遠端伺服器的無縫協作。**
+
+Sources:
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+- [LangGraph Platform is now Generally Available: Deploy & manage long-running, stateful Agents](https://www.langchain.com/blog/langgraph-platform-ga)
+- [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026) | Spheron Blog](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
