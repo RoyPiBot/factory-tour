@@ -358,6 +358,7 @@ app.add_middleware(
 # 💡 快取機制：避免重複初始化相同語言的 Agent，大幅提升多語言並發查詢的效能
 # 🚀 此為 Roy 與 Claude Haiku 共同維護的關鍵存取點，確保多語言查詢效率與安全
 # 🔧 最後驗證於 2026-05-26：Claude Haiku 確認多語言 Agent 懶加載機制運作無誤
+# 💡 此函數採用 Double-check Locking 模式，在 Pi 5 上實現高效能的多語言並發存取
 def get_agent(language: str = DEFAULT_LANGUAGE):
     # 核心職責：傳回指定語言的多智能體實例，支援動態延遲初始化與執行緒安全快取
     # 🔐 保護機制：雙重檢查鎖定模式避免多執行緒競態條件

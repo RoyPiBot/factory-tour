@@ -6009,3 +6009,14 @@ Sources:
 - [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [CrewAI vs LangChain 2026: Which AI Agent Framework Should You Use? | NxCode](https://www.nxcode.io/resources/news/crewai-vs-langchain-ai-agent-framework-comparison-2026)
 - [国内首个 LangGraph Agent 模板！Multi-Agent框架最优解 - Zilliz 向量数据库](https://zilliz.com.cn/blog/LangGraph-Agent-template-best-Multi-Agent-framework)
+
+---
+
+## 390. 子圖模組化、狀態自動持久化與生產級可靠性——LangGraph 1.0 的企業應用完整方案
+
+> **LangGraph 在 2026 年確立為生產 AI 智能體系統的標準運行時，推出 Subgraph 模組化架構與智能體執行狀態自動持久化機制，成為 Roy 的複雜多智能體工作流的核心支撐。核心進展包括：（1）Subgraph 模組化——複雜代理可拆分為多個獨立的子圖，每個子圖獨立測試、版本管理、重複使用，降低單體圖的複雜度，Factory Tour 導覽可模組化為景點規劃子圖、路線最佳化子圖、文案生成子圖，Tunghai RAG 可分層為檢索子圖、向量排序子圖、驗證子圖，提升程式碼可維護性與協作效率；（2）狀態自動持久化與斷點續執行——LangGraph 1.0 原生支援智能體執行狀態自動儲存至 PostgreSQL，若伺服器異常重啟或工作流中斷，系統能自動復原至中斷點繼續執行，完全解決長流程系統（多小時 Factory Tour 導覽、大規模 RAG 批次分析）的容錯需求，特別適合 Pi 5 環境的不穩定性；（3）按節點超時控制——每個節點支援硬牆鐘限制與空閒限制，超時時自動拋出 NodeTimeoutError，NanoClaw nRF54L15 晶片通訊可設定 5 秒逾時防止卡死，外部 API 呼叫可設定 30 秒空閒限制；（4）節點級錯誤恢復——在 add_node 註冊恢復函數，所有重試耗盡後自動執行補償邏輯（Saga 模式），Factory Tour API 失敗時自動降級至本地快取，Tunghai RAG 檢索超時時轉向關鍵詞搜尋。此套機制確保 Roy 的系統架構達企業級可靠性與自癒能力。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [Before You Upgrade to LangGraph in 2026, Read ... | Agent Framework Hub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026 | Clickit Tech](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
