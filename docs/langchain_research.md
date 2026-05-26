@@ -6042,3 +6042,14 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026) | Spheron Blog](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
+
+---
+
+## 393. LangGraph v1.1 型別安全流媒體 v2、二進位檔案狀態持久化與後端直接實例化——2026 年 5 月生產級系統的底層基礎設施完善
+
+> **LangGraph 於 2026 年 5 月進一步強化底層基礎設施，新增型別安全流媒體 v2（Type-Safe Streaming v2）、二進位檔案後端支援與 StateBackend 直接實例化，為 Roy 的長期運作系統提供企業級持久化與可觀測性。核心進展包括：（1）Type-Safe Streaming v2——`stream()` 與 `astream()` 新增 `version="v2"` 參數，統一輸出格式為 `{type, ns, data}` 結構，每個串流模式皆提供可匯入的 TypedDict 型別定義（如 `StreamEventData`、`StreamTokenData`），IDE 自動完成與靜態檢查防止下游消費端的型別錯誤，相比傳統字典格式徹底消除執行時崩潰風險；（2）GraphOutput 與中斷追蹤——`invoke()` 新增 `version="v2"` 時返回 `GraphOutput` 物件，包含 `.value`（最終結果）與 `.interrupts`（中斷點陣列），消除調用者需自行解析結果的額外負擔，Factory Tour 導覽可精確追蹤每個暫停點，Tunghai RAG 驗證層可自動記錄所有人工審查中斷；（3）二進位檔案狀態持久化——State 與 Store 後端原生支援二進位檔案存儲，無需額外序列化，NanoClaw nRF54L15 晶片韌體快照、Factory Tour 景點影像、Tunghai RAG 向量快取完全交由後端管理，降低 Pi 5 應用層序列化開銷；（4）StateBackend() 與 StoreBackend() 直接實例化——開發者可直接呼叫 `StateBackend()` 與 `StoreBackend()` 建構函式，無需中介工廠模式，簡化自訂後端實作，PostgreSQL、Redis、檔案系統三大後端可無縫切換。此底層强化確保 Roy 的系統在 Pi 5 資源約束下仍能達企業級生產穩定性。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Mar, 2026 | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
