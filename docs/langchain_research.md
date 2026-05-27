@@ -6150,3 +6150,13 @@ Sources:
 - [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 403. PostgreSQL 持久化最佳實踐、DeltaChannel 增量存儲與節點級故障隔離完全成熟——2026 年 5 月底 LangGraph 生產級架構的企業級認證
+
+> **LangGraph 於 2026 年 5 月底正式推薦 PostgreSQL 持久化取代早期的 MemorySaver 方案，DeltaChannel 增量存儲機制從 beta 轉為穩定，節點級故障隔離與超時控制完全成熟，標誌著該框架已成為全球企業級生產系統的絕對標準。核心里程碑包括：（1）PostgreSQL 持久化企業級認證——官方文檔明確指出所有生產環境應採用 PostgreSQL 後端而非記憶體儲存，確保長期運作系統（Factory Tour 多日導覽、Tunghai RAG 大規模批次分析）的狀態耐久性，自動檢查點與故障恢復能力已達企業級 SLA 標準，Pi 5 可安全部署使用遠端或本地 PostgreSQL；（2）DeltaChannel 增量存儲穩定發佈——只儲存狀態變更增量而非完整序列化，長期運作系統的持久化 I/O 開銷預期降低 50% 以上，特別適合訊息清單不斷增長的 RAG 系統與多日導覽記錄；（3）Node-Level Error Handlers 與超時隔離——每個節點可設定獨立的 `error_handler` 恢復函數與 `run_timeout`/`idle_timeout` 上限，單節點失敗絕不波及全圖，外部 API 超時自動降級至本地快取，NanoClaw 晶片通訊異常自動轉向離線策略，實現真正的故障隔離與優雅降級。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
