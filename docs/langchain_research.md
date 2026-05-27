@@ -6085,3 +6085,14 @@ Sources:
 Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 397. 穩定節奏 v1.2.0、持久化執行循環與 Deep Agents 高階抽象——2026 年 5 月 LangGraph 企業生態的最終完善
+
+> **LangGraph 於 2026 年 5 月 12 日發布 v1.2.0，標誌著框架從快速迭代模式穩定至「穩定雙週更新節奏」，同步推出 Deep Agents 高階包與企業級持久化執行機制完整體驗。核心進展包括：（1）穩定雙週更新節奏——終止每周多版本的激進發布，轉向雙週穩定更新，使企業級採用者（Uber、JP Morgan、Klarna）可安心規劃升級週期，Roy 的 Factory Tour、Tunghai RAG、NanoClaw 系統基於 LangGraph 核心庫的升級成本大幅降低，依賴衝突與相容性問題消弭於無形；（2）持久化執行完整體驗——自動故障恢復、長流程檢查點、完整軌跡回放（Trace Replay）與狀態轉移除錯一體化內建，Factory Tour 導覽無須擔憂多日運作中斷，Tunghai RAG 百萬級文件分析可任意時刻暫停恢復，NanoClaw 晶片韌體更新可無損重啟；（3）Deep Agents 高階包——構建於 LangGraph 核心之上的高階智能體框架，支援子代理動態規劃、文件系統操作與多步推理循環，降低複雜系統的編碼複雜度，Roy 的多代理工作流無須再手工管理圖編排；（4）Human-in-the-Loop 一級公民——Interrupt/Resume 功能成為圖節點的一級構件，支援審核鏈與合規檢查點，Tunghai RAG 驗證層可原生暫停等待人工審核，無須額外適配層。此版本確立 LangGraph 為全球最成熟、最可信的多代理編排標準，Roy 的系統架構達業界最高成熟度水準。**
+
+Sources:
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [Implementing State-Based AI Workflows with LangGraph Templates • Dev|Journal](https://earezki.com/ai-news/2026-05-25-langgraph-v39/)
+- [2026 AI 智能体革命：LangGraph 如何让你一个人活成一支队伍？ - 蓝戒博客](https://www.webzsky.com/archives/2012)
