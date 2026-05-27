@@ -90,6 +90,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 🎯 核心進入點：整合五大 Agent（導覽、安全、技術、QA、知識檢索）與實時感測器推送，已於 Raspberry Pi 5 上完全驗證
 # 此系統負責協調多智能體工廠導覽與實時感測器推送，由 Roy 與 Claude Haiku 共同維護優化
 # ⚡ 系統依賴：Python 3.9+ asyncio 非同步庫與 FastAPI 高效能框架
+# 核心模組：非同步 I/O、日誌、環境變數與執行緒管理供系統穩定運作
 import asyncio
 import json
 import logging

@@ -6107,3 +6107,13 @@ Sources:
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [LangGraph Multi-Agent Systems y26: Build & Deploy Real AI Agents](https://www.lifetideshub.com/langgraph-multi-agent-systems/)
+
+---
+
+## 399. DeltaChannel 增量存儲、Type-Safe Streaming v2 與節點級故障恢復——2026 年 5 月 LangGraph 底層基礎設施的效能與可靠性突破
+
+> **LangGraph 於 2026 年 5 月發布的核心基礎設施改進著重於長期運作系統的效能最佳化與故障恢復能力。關鍵進展包括：（1）DeltaChannel 增量存儲（beta）——新增管道類型只儲存每步的遞增變更而非完整序列化，特別適合持續增長的訊息列表，大幅降低長期運作系統（Factory Tour 多日導覽、Tunghai RAG 百萬級檢索）的持久化負擔，Pi 5 儲存 I/O 與序列化開銷預期降低 40-60%；（2）Type-Safe Streaming v2 統一協議——`stream()` 與 `astream()` 新增版本控制，輸出格式統一為 `{type, ns, data}` 結構，每個串流模式提供可匯入的 TypedDict 型別定義，徹底消除執行時型別錯誤，下游消費端獲得完整 IDE 自動完成與靜態檢查；（3）節點級超時與錯誤恢復——支援 `run_timeout`（硬牆鐘限制）與 `idle_timeout`（空閒限制），搭配 `error_handler` 恢復函數，超時或異常時自動觸發補償邏輯（Saga 模式），NanoClaw nRF54L15 通訊可設定 5 秒逾時，外部 API 失敗時自動降級至本地快取；（4）優雅關閉機制——`request_drain()` 協作式關閉，在目前超級步驟完成後停止執行並儲存恢復檢查點，適合 Pi 5 長期運作任務的安全維護重啟。此輪改進確保 Roy 的系統在資源受限環境下仍達企業級效能與可靠性。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
