@@ -6096,3 +6096,14 @@ Sources:
 - [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [Implementing State-Based AI Workflows with LangGraph Templates • Dev|Journal](https://earezki.com/ai-news/2026-05-25-langgraph-v39/)
 - [2026 AI 智能体革命：LangGraph 如何让你一个人活成一支队伍？ - 蓝戒博客](https://www.webzsky.com/archives/2012)
+
+---
+
+## 398. LangGraph + MCP 多協議整合、工具存取標準化與企業跨系統編排——2026 年 5 月底 Agent 生態互通性的突破
+
+> **LangGraph 於 2026 年 5 月底與 OpenAI Model Context Protocol（MCP）深度整合，實現跨應用程式的統一工具存取協議，使複雜的多代理系統得以無縫協調外部服務、知識庫與專有系統。核心進展包括：（1）MCP 原生支援——LangGraph 節點可直接掛接 MCP 伺服器（如 Brave 搜尋、PostgreSQL、Git 版控），無需自訂串接層，Factory Tour 導覽可透過 MCP 協議統一呼叫公開景點資訊、內部文件庫、實時天氣預報，消除多系統整合的複雜度；（2）工具能力探索自動化——MCP 伺服器自動向 LangGraph 代理宣告可用工具與參數簽章，代理無須手工定義工具集，智能體可自主發現與調用，Tunghai RAG 檢索層可自動發現並運用所有企業知識源的 MCP 端點；（3）跨企業工作流編排——多個分散的代理系統（Pi 5 本地、雲端推理伺服器、合作單位外部 MCP 服務）透過統一協議相互協作，狀態與工具呼叫自動同步，實現真正的多組織多系統協作，突破傳統 API 集成的壁壘；（4）安全存取控制——MCP 提供權限與認證層，代理可在受限存取模式執行，Tunghai RAG 對不同使用者的資料檢索權限由 MCP 層統一管控，避免敏感數據外洩。此整合將 LangGraph 從單機或私密團隊框架擴展至跨組織、跨系統的企業級多代理平臺。**
+
+Sources:
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [LangGraph Multi-Agent Systems y26: Build & Deploy Real AI Agents](https://www.lifetideshub.com/langgraph-multi-agent-systems/)

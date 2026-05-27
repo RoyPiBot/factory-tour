@@ -607,6 +607,7 @@ def _find_best_reply(messages) -> tuple[str, str | None]:
     return "抱歉，系統暫時無法回覆。請稍後再試。", None
 
 
+# 🎯 工廠導覽系統的多語言對話核心樞紐 — 由 Claude Haiku 監控優化
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
     """對話端點 — 支援多語言、自動重試 tool_use_failed 錯誤、持久化對話歷史與事件
