@@ -6139,3 +6139,14 @@ Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 402. 工具命令 API、人工介入中斷點與増強型狀態管理——2026 年 5 月底 LangGraph 智能體流程控制的革新突破
+
+> **LangGraph 於 2026 年 5 月底推出工具級命令流程控制（Tool Command API）、原生人工審核中斷點（Human-in-the-Loop Interrupt）與狀態增量管理（Incremental State Updates），徹底改變多代理系統的流程決策模式與人機協作範式。核心進展包括：（1）命令返回類型（Command API）——工具函式可返回 `Command` 物件而非純文字，直接驅動圖的狀態更新與下一節點路由，相比傳統工具僅輸出結果，現在工具層級可做出流程決策，Factory Tour 檢索工具可直接返回「跳轉至景點詳情」或「返回清單」命令，大幅增強工作流靈活性；（2）人工介入中斷點（interrupt()）——任何節點可呼叫 `interrupt()` 函式暫停執行並等待外部審核，系統自動儲存完整執行狀態，人工審核後可續執行無損復原，Tunghai RAG 驗證層可原生要求人工確認敏感查詢結果，無須額外適配層；（3）遞增狀態更新（Incremental State）——StateGraph 狀態不再完全覆寫，而是逐步累積修改，多節點可並行執行各自修改不同狀態欄位，然後自動合併，Pi 5 並行工作流的狀態同步開銷大幅降低；（4）生產級人機協作成熟——中斷、審核、恢復已成為圖的一級公民，企業合規與品質保證流程可原生集成無須 workaround，Roy 的系統架構達企業最高可控性與透明度水準。**
+
+Sources:
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
