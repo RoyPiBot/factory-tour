@@ -6214,3 +6214,14 @@ Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [Multi-Agent Coordination with MCP Servers and LangGraph | by Cristina R. | Medium](https://medium.com/@islandbytes/multi-agent-coordination-with-mcp-servers-and-langgraph-12c8f4e15761)
 - [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
+
+---
+
+## 409. 2026 年 LangGraph 核心效能與生態成熟更新
+
+> **LangGraph 於 2026 年第二季度達成關鍵效能與開發體驗突破，進一步鞏固其在複雜多代理工作流領域的主導地位。主要更新包括：（1）**Pydantic v3 State 定義** —— 性能提升 5-10 倍，官方推薦所有新專案改用 Pydantic BaseModel 定義 State，提高驗證速度與型別檢查嚴密性；（2）**Subgraph 模組化架構** —— 將複雜代理拆分為多個獨立子圖，每個子圖作為可測試、可重用的狀態機，便於 Roy 的 Factory Tour 與 Tunghai RAG 系統的解耦與版本管理；（3）**Per-Node 逾時與錯誤處理** —— `add_node(timeout=, error_handler=)` 提供細粒度控制，支援硬時限（`run_timeout`）與閒置時限（`idle_timeout`），自動觸發 `NodeTimeoutError`，確保不穩定工具或外部服務調用不會拖垮整個圖；（4）**二進制文件支援** —— State 與 Store 後端格式升級，原生支援影像、音訊等二進制資料，無需額外序列化層，適配多模態代理場景。**
+
+Sources:
+- [LangSmith and LangGraph in 2026](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph State Management in Practice](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
