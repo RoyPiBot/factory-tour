@@ -6181,3 +6181,14 @@ Sources:
 Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 406. LangSmith 資料集驅動評估、流媒體實時監測與 LangGraph Studio 視覺調試——2026 年 LangChain 生態的評估與可觀測性完全成熟
+
+> **LangGraph v1.2.0 與 LangSmith 於 2026 年 Q1-Q2 實現深度整合，引入資料集驅動評估（Dataset-Driven Evaluation）、流媒體實時進度監測與 LangGraph Studio 視覺化調試，確保企業級 Agent 系統的可評估性與可觀測性達到前所未有的高度。核心進展包括：（1）LangSmith 資料集評估——提供業界最強的多代理評估能力，支援自動化測試集、線上評估與回歸測試，Roy 的 Factory Tour 與 Tunghai RAG 可建立黃金標準資料集，自動驗證每次更新不致退化；（2）串流進度監測——五大串流模式（`values`、`messages`、`updates`、`debug`、`states`）提供低延遲實時可見性，Factory Tour 導覽可實時展示代理決策分支與工具呼叫進度；（3）LangGraph Studio 視覺調試——圖型狀態機的圖形介面編輯器與點步調試器，支援暫停、檢視狀態、修改節點邏輯後恢復，Pi 5 開發者可無需終端即可完整調試複雜多代理流程；（4）研究型代理成熟支援——工具呼叫、流式部分輸出、核心重啟生存性、確定性流程控制與檢查點恢復，使 Roy 的 NanoClaw 研究型代理可達企業級可靠性與重現性。**
+
+Sources:
+- [Streaming LangGraph Agents: Real-Time Progress, Token Streaming, and Production Patterns | Focused](https://focused.io/lab/streaming-agent-state-with-langgraph)
+- [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
+- [OpenAI Agents SDK vs LangGraph vs CrewAI: 2026 Matrix](https://www.digitalapplied.com/blog/openai-agents-sdk-vs-langgraph-vs-crewai-matrix-2026)
