@@ -6192,3 +6192,14 @@ Sources:
 - [Streaming LangGraph Agents: Real-Time Progress, Token Streaming, and Production Patterns | Focused](https://focused.io/lab/streaming-agent-state-with-langgraph)
 - [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
 - [OpenAI Agents SDK vs LangGraph vs CrewAI: 2026 Matrix](https://www.digitalapplied.com/blog/openai-agents-sdk-vs-langgraph-vs-crewai-matrix-2026)
+
+---
+
+## 407. 非同步流媒體細粒度投影、stream_mode 多元化與型別安全串流 API——2026 年 LangGraph 串流架構的完整成熟
+
+> **LangGraph v1.2.0+ 於 2026 年完全成熟的串流基礎設施提供了細粒度事件投影、多樣化 stream_mode 與型別安全的非同步迭代 API。核心特性包括：（1）細粒度事件串流——`astream_events(input, version="v2")` 提供獨立投影子（messages、values、subgraphs、output），下游消費端（Roy 的 Factory Tour UI、Tunghai RAG 前端）可分別訂閱特定事件類型（Token、工具呼叫、自訂事件），避免事件混雜導致的資料處理複雜度；（2）多元 stream_mode 支援——`stream(mode="updates")` 僅發送狀態變更、`stream(mode="values")` 完整狀態快照、`stream(mode="messages")` 訊息序列、`stream(mode="debug")` 詳細執行資訊，Pi 5 可根據運時效能預算靈活選擇串流粒度；（3）型別安全串流 API——LangGraph v1.2 的型別推導系統確保 `stream()` 與 `astream()` 的返回型別完全型別檢查無誤，Roy 的代理系統下游消費端可享受完整 IDE 自動完成與靜態檢查，消除執行時型別錯誤。**
+
+Sources:
+- [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
+- [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
+- [Built with LangGraph! #16: Streaming | by Okan Yenigün | CodeToDeploy | Medium](https://medium.com/codetodeploy/built-with-langgraph-16-streaming-e572afd298e7)
