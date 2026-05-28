@@ -6225,3 +6225,14 @@ Sources:
 - [LangSmith and LangGraph in 2026](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [LangGraph State Management in Practice](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [LangGraph in 2026: Build Multi-Agent AI Systems](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 410. Type-Safe 串流、Node 級錯誤恢復與優雅關閉——2026 年下半季 LangGraph 生產穩定性的最後一哩路
+
+> **LangGraph v1.2.1+ 於 2026 年下半季推出三大生產穩定性增強，進一步提升複雜多代理工作流在邊界場景（部分失敗、動態中斷、系統重啟）的恢復能力與可靠性。核心特性包括：（1）**Type-Safe 串流 v2** —— `astream_events(version="v2")` 引入完整型別推導，下游消費端（Roy 的 Factory Tour 前端、Tunghai RAG 介面）獲得 IDE 自動完成與靜態型別檢查，消除執行時型別錯誤；（2）**Node 級錯誤恢復** —— `add_node(error_handler=recovery_func)` 支援 Saga/補償模式，特定節點失敗後可自動觸發恢復邏輯而不影響整圖，NanoClaw 晶片控制流可因此實現原子性操作與失敗回滾；（3）**優雅關閉機制** —— `graceful_shutdown()` 允許系統在當前超步完成後協作停止，自動儲存可復原檢查點，Pi 5 升級或重啟時無須強制殺死執行中的代理任務，確保資料完整性與狀態連續性。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+- [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
