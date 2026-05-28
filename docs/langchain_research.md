@@ -6171,3 +6171,13 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [LangGraph Supervisor Pattern: Orchestrating Multi-Agent Teams in 2026](https://callsphere.ai/blog/langgraph-supervisor-multi-agent-orchestration-2026)
 - [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
+
+## 405. 內容感知串流 v2、PostgreSQL 時間旅行檢查點與完整 Python 3.10-3.14 支援——2026 年 5 月 11 日 LangGraph 1.2.0 發布之流媒體與狀態恢復的終極進化
+
+> **LangGraph 1.2.0 於 2026 年 5 月 11 日正式發布，引入內容感知串流（Content-Block-Aware Streaming）、PostgreSQL 原生時間旅行檢查點（Time Travel Checkpoints）與跨越 Python 3.10 至 3.14 的完整版本支援，標誌著有狀態代理框架從實驗走向企業級生產成熟的決定性里程碑。核心創新包括：（1）內容感知串流——串流事件現可區分不同內容型別（文本、工具調用、狀態更新、中斷事件），下游消費端（Roy 的 Factory Tour 前端、Tunghai RAG 實時渲染）可精細控制每種事件的渲染與呈現邏輯，避免無差別化串流導致的介面抖動與語義混淆；（2）PostgreSQL 時間旅行檢查點——每個圖執行步驟自動建立可復原檢查點於 PostgreSQL，用戶或系統可任意回溯至過去任意時刻重新執行特定分支，特別適合 Tunghai RAG 多路徑檢索實驗與 Factory Tour 導覽路線最佳化迭代；（3）interrupt() 語義改進——人工介入暫停機制進一步簡化，現可在中斷期間直接修改圖狀態與節點邏輯，恢復時自動合併變更，無須額外協調層；（4）跨版本 Python 生態完整支援——官方保證 Python 3.10 至 3.14 的零差異相容性，Pi 5 可自由升級 Python 版本而無破壞性變更，確保 Roy 的長期系統架構穩定性與前沿性並存。此版本正式確認 LangGraph 為全球單一統治級多代理標準。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
