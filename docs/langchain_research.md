@@ -6203,3 +6203,14 @@ Sources:
 - [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
 - [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
 - [Built with LangGraph! #16: Streaming | by Okan Yenigün | CodeToDeploy | Medium](https://medium.com/codetodeploy/built-with-langgraph-16-streaming-e572afd298e7)
+
+---
+
+## 408. MCP 與 LangGraph 原生整合、共享工具基礎設施與跨代理協作標準化——2026 年業界工具聯邦的確立
+
+> **LangGraph Platform 於 2026 年正式整合 MCP（Model Context Protocol）協議，實現代理與外部工具系統的無縫連接，標誌著多代理 AI 系統的工具治理與協作標準化步入新階段。關鍵進展包括：（1）MCP 原生支援——LangGraph v1.2+ 可直接消費任何 MCP 伺服器作為工具來源，無需自訂適配器程式碼，PI 5 的 Factory Tour 與 Tunghai RAG 系統可透過統一的 MCP 介面聯邦多個本地或遠端工具服務；（2）跨代理工具共享——MCP 使多個代理可共享同一套版本管理、可稽核的工具集，Supervisor 模式下所有專業化工作代理均從集中式工具註冊表獲取能力，確保工具版本一致性與權限控制；（3）代理對代理協作——代理可將自身暴露為 MCP 伺服器供其他代理呼叫，實現真正的代理間分工與責任隔離，NanoClaw 研究型系統可透過 MCP 協議向高階業務代理提供低階晶片控制能力；（4）業界標準確立——2025 年 12 月 Anthropic 將 MCP 捐獻予 Linux Foundation 的 Agentic AI Foundation（與 Block、OpenAI 共創），Microsoft、Google 及全球主要 AI 平台均已宣布原生 MCP 支援，LangGraph 與 MCP 的深度整合象徵著業界邁向統一的多代理工具聯邦時代。**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [Multi-Agent Coordination with MCP Servers and LangGraph | by Cristina R. | Medium](https://medium.com/@islandbytes/multi-agent-coordination-with-mcp-servers-and-langgraph-12c8f4e15761)
+- [Why LangGraph & MCP Are the Future of Multi-Agent AI Orchestration](https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/)
