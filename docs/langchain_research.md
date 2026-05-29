@@ -6304,3 +6304,13 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 417. LangSmith Deploy CLI 與雲部署標準化——2026 年上半季企業級代理編排的運維革命
+
+> **LangGraph 官方工具鏈於 2026 年 3 月推出 LangSmith Deploy CLI，進一步簡化複雜多代理工作流的生產部署與版本管理。該工具鏈革新包括：（1）**一行命令部署**——`langgraph deploy` 直接將本地代理圖編譯為 LangSmith Deployment，無需手動 Docker 映像組態、K8s YAML 撰寫，降低運維複雜度；（2）**與 LangGraph Platform 無縫整合**——Deploy CLI 自動管理版本、執行實例上下調度、故障重啟與負載均衡，Roy 的 Factory Tour 多層代理系統可透過單一部署指令達成藍綠發佈與灰度更新，無須修改業務代碼；（3）**生產監控與事件追蹤**——Deploy CLI 自動連結 LangSmith 儀表板，每次代理執行的中間狀態、工具呼叫、錯誤堆棧均被自動記錄與視覺化，便於 Roy 在 Pi 5 本地環境與雲端環境間快速診斷與調試。**
+
+Sources:
+- [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
