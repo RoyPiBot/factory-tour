@@ -6325,3 +6325,16 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [GitHub - langchain-ai/langgraph: Build resilient agents](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 419. 工具命令控制（Tool Command Returns）與企業級工作流自動化標準確立（2026/05/30）
+
+> **LangGraph 2026 年最新架構創新：工具端實現直接狀態更新與流程控制，實現端到端自動化編排新範式**
+
+LangGraph 於 2026 年 5 月確立工具命令控制（Tool Command Returns）為官方標準，允許代理工具不僅執行操作，更能直接回傳 Command 物件以更新圖的狀態與控制工作流路由。此項特性對 Roy 的研究專案具有深遠意義：（1）**Factory Tour 多層代理協作** ——工具可動態根據工廠巡檢結果品質決定是否進行重新檢測、迴圈精煉或直接轉入決策層，無需依賴上層代理判斷；（2）**Tunghai RAG 檢索決策迴圈** ——檢索工具可基於相關度分數自動決定增強檢索或進入回答生成階段，提升 RAG 系統的自適應能力；（3）**NanoClaw 硬體控制原子性** ——晶片指令執行工具可直接觸發補償操作或失敗恢復，實現分散式 Saga 補償，提升邊界設備控制的可靠性。
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langschains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
