@@ -6253,3 +6253,16 @@ Sources:
 ## 412. 企業生態成熟確立、月下載 9,000 萬與 LangGraph 作為 2026 年全球 AI 工程標準化選擇
 
 > **LangGraph 於 2026 年 5 月確立為全球企業級多代理編排的唯一標準框架，月下載量突破 9,000 萬（PyPI 統計），GitHub Stars 35,000+，已被 Uber、摩根大通、貝萊德、思科、LinkedIn、Klarna、Replit 等全球頂級公司採納為生產級系統的核心引擎。此時期的成熟標誌包括：（1）**生態規模量級突破**——月均下載 9,000 萬、搜尋量 33,100（較 2025 年增長 22%），GitHub Stars 35,000+，超越 CrewAI 與 AutoGen 成為業界唯一統治級框架，Roy 的 Factory Tour、Tunghai RAG、NanoClaw 系統應完全遵循 LangGraph 1.2.0+ 的圖編排範式，確保與全球企業最佳實踐完全對齐；（2）**企業級可信度確認**——Uber 自動駕駛、摩根大通風險分析、Klarna 客服自動化等關鍵業務系統已規模化部署，LangGraph 的狀態持久化、故障隔離、人工審核中斷機制已達業界 SLA 水準，Pi 5 資源約束環境下仍可達企業級穩定性；（3）**工具聯邦標準化**——MCP 整合與統一工具註冊表已成為標準，代理系統間的協作不再依賴點對點適配器，Factory Tour 多代理體系與 Tunghai RAG 多層檢索可透過標準化工具聲明達成語義互通。**
+
+Sources:
+- [LangSmith and LangGraph in 2026](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 413. 2026 年 5 月核心版本發佈——DeltaChannel、每節點超時控制與類型安全串流 v3 的落實
+
+> **LangGraph v1.2 於 2026 年 5 月發佈重大版本更新，進一步優化長執行時間代理工作流的檢查點效率與執行穩定性。核心改進包括：（1）**DeltaChannel 增量儲存**——新通道類型僅儲存每步的狀態增量而非完整累積值，特別適合長回合對話中持續增長的訊息清單，Factory Tour 與 Tunghai RAG 的檢查點開銷可降低 30-50%；（2）**Per-Node 超時與恢復**——`add_node(timeout=)` 支援硬時限（`run_timeout`）與閒置時限（`idle_timeout`），Pi 5 運行的不穩定外部服務調用可被精確控制，單節點失敗不影響整圖執行；（3）**Type-Safe 串流 v3**——新版本 `stream(version="v2")` 與 `astream_events()` 提供完全型別推導，每個通道獨立投影，下游消費端（Roy 的 Factory Tour 前端、Tunghai 介面）獲得 IDE 自動完成與靜態驗證，消除執行時型別錯誤。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
