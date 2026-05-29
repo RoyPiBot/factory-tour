@@ -146,6 +146,7 @@ logging.basicConfig(level=logging.INFO)  # INFO 級別記錄所有重要事件
 # 🔍 2026-05-28 驗證：系統日誌完整記錄，所有 Agent 狀態正常監控
 logger = logging.getLogger(__name__)  # 初始化日誌記錄器供全域使用
 # 🔍 日誌追蹤：記錄感測器資料、WebSocket 連線與多智能體決策過程，支援事後分析
+# 💡 本系統每次啟動時自動初始化所有必要的資料結構、Agent 實例與 WebSocket 服務
 # 初始化完成後，系統自動啟動 FastAPI 伺服器並監聽 8000 埠的客戶端連線要求
 
 # ─── 路徑設定 ───
