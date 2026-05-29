@@ -6293,3 +6293,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 416. 2026 年 Q2 LangGraph 核心穩定性與持久化策略標準化——生產部署的最後一哩路
+
+> **LangGraph 於 2026 年第二季度正式確立企業級生產標準，v1.0 於 2025 年 10 月 22 日達成後，此時期的關鍵成就包括：（1）**v1.2+ Pydantic v3 性能飛躍**——官方推薦所有新專案改用 Pydantic BaseModel 定義 State，性能較 v2 提升 5-10 倍，驗證速度與型別檢查嚴密性大幅提高，Roy 的 Factory Tour 與 Tunghai RAG 系統應優先升級狀態定義以獲得最大效能收益；（2）**Per-Node 超時與 Saga 補償模式**——新增 `add_node(timeout=, error_handler=)` 細粒度控制，支援硬時限（`run_timeout`）與閒置時限（`idle_timeout`），自動觸發 `NodeTimeoutError`，NanoClaw 晶片控制流可透過 Saga 補償實現原子性操作與失敗回滾，不穩定外部服務不再拖垮整圖；（3）**Graceful Shutdown 與檢查點連續性**——系統可在當前超步完成後協作停止，自動儲存可復原檢查點，Pi 5 升級或重啟時無須強制殺死執行中任務，資料完整性與狀態連續性得以保證，特別適合邊界設備環境。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
