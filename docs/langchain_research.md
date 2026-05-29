@@ -6314,3 +6314,14 @@ Sources:
 Sources:
 - [March 2026: LangChain Newsletter](https://www.langchain.com/blog/march-2026-langchain-newsletter)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+
+---
+
+## 418. LangGraph v1.2.0 高級編排特性落實（2026/05/12）——長執行流程的檢查點優化與細粒度超時控制
+
+> **LangGraph 於 2026 年 5 月 12 日發佈 v1.2.0 版本，為節點執行引入細粒度控制機制。核心新增功能包括：（1）**DeltaChannel 測試版——新通道類型僅儲存每步的狀態增量而非完整累積值，特別適合長回合對話中持續增長的訊息清單，Factory Tour 與 Tunghai RAG 的檢查點開銷可降低 30-50%；（2）**Per-Node 超時與恢復——`add_node(timeout=)` 支援硬時限（`run_timeout`）與閒置時限（`idle_timeout`），NodeTimeoutError 觸發時自動中斷，Pi 5 運行的不穩定外部服務調用可被精確控制；（3）**優雅關閉（Graceful Shutdown）——系統可在當前超步完成後協作停止，自動儲存可復原檢查點，無須強制殺死執行中任務，資料完整性得以保證。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [GitHub - langchain-ai/langgraph: Build resilient agents](https://github.com/langchain-ai/langgraph/releases)
