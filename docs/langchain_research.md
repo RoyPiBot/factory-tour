@@ -6344,3 +6344,13 @@ Sources:
 
 > **LangGraph 的 Supervisor 模式（單一監督者接收請求、委派任務至專業工作代理、整合輸出）已確立為 2026 年生產部署的最廣泛採用架構。根據官方統計與業界實踐分析，該模式結合 LangGraph 的狀態持久化與檢查點機制，為 Roy 的三大研究專案提供最佳的可靠性與可擴展性保證：（1）**Factory Tour 多層巡檢** ——Supervisor 協調視覺識別、異常判定與決策代理，每次委派均被檢查點記錄，故障時可精確恢復至失敗前任務；（2）**Tunghai RAG 檢索決策** ——Supervisor 動態分配檢索增強、重排序與回答生成的工作分配，確保多跳推理的一致性與可追溯性；（3）**NanoClaw 晶片控制協調** ——Supervisor 模式下，多個硬體控制代理的命令序列與原子性補償可透過圖檢查點實現精確同步，提升邊界設備的可靠性。**
 - [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+
+---
+
+## 421. ContextHubBackend 版本控制與 SDK 0.3.15 穩定發佈（2026/05/22）
+
+> **LangGraph SDK v0.3.15 於 2026 年 5 月 22 日正式發佈，引入 ContextHubBackend 檔案系統後端整合 LangSmith Hub 版本控制機制，為代理圖的版本管理與協作開發帶來革命性改進。核心進展包括：（1）**ContextHubBackend 版本歷史——代理檔案直接存儲為 Hub commits，每次寫入自動建立版本記錄，Roy 的 Factory Tour、Tunghai RAG 與 NanoClaw 系統可透過 Hub 平臺實現分佈式版本管理與團隊協作，無須額外的 Git 適配層；（2）**Type-Safe Invoke 與 GraphOutput——v2 invoke API 返回 GraphOutput 物件，包含 `.value` 與 `.interrupts` 屬性，下游消費端獲得完整型別推導與 IDE 自動完成；（3）**企業級採用確認——32,000+ GitHub Stars、20+ 企業組織（Klarna、Uber、LinkedIn、AppFolio）生產部署，LangGraph 已成為 2026 年業界公認的唯一企業級多代理編排標準，Pi 5 系統應完全遵循 LangGraph 1.2.0+ 與 SDK 0.3.15+ 標準。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
