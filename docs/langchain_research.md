@@ -6377,4 +6377,15 @@ Sources:
 Sources:
 - [State of Agent Engineering - LangChain](https://www.langchain.com/state-of-agent-engineering)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 424. LangGraph Studio v2 本地再現功能——加速問題診斷與修復（2026/05/30）
+
+> **LangGraph Studio v2 新增本地再現能力，允許從 LangSmith 生產追蹤下載並在本地 Studio 中重新執行，大幅加速故障排查與迭代修復**
+
+LangGraph Studio v2 於 2026 年 5 月引入本地再現（local replay）功能，此功能對 Roy 的三大專案除錯工作極具價值。開發者可直接從 LangSmith 的產環追蹤下載完整執行上下文（包含輸入、狀態轉移與工具調用詳情），在本機 Studio 中重現原始故障條件並反覆測試修復方案，無需重新觸發相同的外部 API 調用或硬體操作。此能力特別適合 Factory Tour 的視覺識別誤判診斷、Tunghai RAG 的檢索漂移重現、以及 NanoClaw 晶片控制的邊界異常重演。相比傳統的日誌分析，本地再現機制降低了故障重現的複雜度，加速了多代理系統的高效除錯與知識累積。
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
