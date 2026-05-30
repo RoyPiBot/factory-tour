@@ -6411,4 +6411,16 @@ LangChain 官方發布的 Deep Agents 庫針對複雜多代理編排的常見需
 
 Sources:
 - [LangChain Deep Agents: Building Production AI Agent Systems - Blog Post](https://www.langchain.com/blog/deep-agents-2026)
+
+---
+
+## 427. LangGraph v0.3.15 新一代架構特性成熟——Subgraph 模組化、節點級逾時控制與 DeltaChannel 效能優化（2026/05/22）
+
+> **LangGraph 最新版本 sdk==0.3.15 引入多層次架構特性，特別是 Subgraph 模組化能力、節點級逾時控制與增量存儲機制，使複雜多代理系統的開發與維護達到企業級成熟度**
+
+LangGraph v0.3.15（2026 年 5 月 22 日發布）延續企業級特性建設，核心亮點包括：（1）**Subgraph 模組化** ——複雜代理可拆解為多個獨立狀態機，每個 Subgraph 可獨立測試與複用，特別適合 Roy 的 Factory Tour 巡檢協調中的分層決策路徑；（2）**Per-Node 逾時與錯誤恢復** ——為每個節點設置獨立的牆鐘限制與閒置限制，節點級錯誤處理器在重試耗盡後執行補償邏輯，對 NanoClaw 晶片控制的原子性保障至關重要；（3）**DeltaChannel（測試版）** ——僅存儲增量變化而非完整狀態副本，大幅削減序列化開銷與檢查點儲存成本，對 Pi 5 邊界環境的磁碟與記憶體壓力特別友善；（4）**Type-Safe Streaming v2** ——統一 stream() / invoke() 輸出格式，增強型別安全性與除錯可視化。此版本確保 Roy 的三大專案可信賴地處理邊界異常、網路抖動與狀態恢復。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
