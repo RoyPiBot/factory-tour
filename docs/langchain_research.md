@@ -6460,3 +6460,16 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
+## 430. LangGraph Redis 整合與跨線程分佈式持久記憶——langgraph-checkpoint-redis 標準化（2026/05/31）
+
+> **langgraph-checkpoint-redis 套件正式成為 LangGraph 生產環境的分佈式持久化標準，提供 RedisSaver/AsyncRedisSaver 用於線程級檢查點與 RedisStore/AsyncRedisStore 用於向量檢索，驅動多代理協同與長對話記憶復用**
+
+LangGraph 透過 langgraph-checkpoint-redis 套件完整支援 Redis 作為企業級持久層。核心機制包括：（1）**線程級檢查點持久化** ——RedisSaver 與 AsyncRedisSaver 在每次節點執行後將完整狀態快照存入 Redis，使用 thread_id 作為鍵，支援不同線程獨立維護對話上下文，対 Roy 的 Tunghai RAG 多輪對話、Factory Tour 並行巡檢任務、NanoClaw 多設備控制的線程隔離特別有益；（2）**跨線程向量記憶與檢索** ——RedisStore 與 AsyncRedisStore 提供向量搜索能力，代理系統可跨對話檢索相似案例與歷史決策，對長期知識積累與經驗復用至關重要，降低重複執行相同決策路徑的成本；（3）**開發至生產的無縫升級** ——MemorySaver（開發）→ SqliteSaver（單機測試）→ RedisSaver（分佈式生產）的漸進式部署路徑，無需改動代理邏輯即可擴展至多進程與微服務架構。此整合使 Roy 的三大專案具備跨設備、跨線程、跨進程的統一記憶管理與故障復用能力。
+
+Sources:
+- [Build smarter AI agents with LangGraph and Redis](https://redis.io/blog/langgraph-redis-build-smarter-ai-agents-with-memory-persistence/)
+- [Mastering Persistence in LangGraph: Checkpoints, Threads, and Beyond 🚀 | by Vinod Rane | Medium](https://medium.com/@vinodkrane/mastering-persistence-in-langgraph-checkpoints-threads-and-beyond-21e412aaed60)
+- [langgraph-checkpoint · PyPI](https://pypi.org/project/langgraph-checkpoint/)
