@@ -6485,4 +6485,16 @@ Sources:
 - [LangGraph 1.2 — Persistence · LangChain Docs](https://docs.langchain.com/oss/python/langgraph/persistence)
 - [LangGraph Persistence Guide: Checkpointers & State (2026) | Fastio](https://fast.io/resources/langgraph-persistence/)
 - [Build durable AI agents with LangGraph and Amazon DynamoDB | Amazon Web Services](https://aws.amazon.com/blogs/database/build-durable-ai-agents-with-langgraph-and-dynamodb/)
+
+---
+
+## 432. Subgraph 模組化與跨代理通訊——多代理系統的微服務架構支援（2026/05/31）
+
+> **LangGraph 2026 年中版本深化 Subgraph 組合能力，引入完整的跨代理通訊協議與 MongoDB 檢查點支援，使複雜多代理系統可分解為獨立可測試的子圖，驅動 Roy 的 Factory Tour 與 NanoClaw 多代理協調的微服務架構演進**
+
+LangGraph 的 Subgraph 模組化設計達到生產級別，核心機制包括：（1）**獨立可測試的子圖分解** ——將複雜的代理邏輯分解為多個獨立的 Subgraph，每個子圖可獨立開發、測試與部署，無需修改主圖邏輯，對 Roy 的 Factory Tour 多層級巡檢決策（感知層→分析層→執行層）與 NanoClaw 晶片控制的命令隔離特別有益，降低整體系統複雜度與故障面；（2）**跨代理通訊協議** ——LangGraph 正式確立多代理協議支援，允許不同代理間的非同步消息傳遞與狀態協商，支援代理間的條件協調與優先級仲裁，對分佈式決策與應急容錯至關重要；（3）**MongoDB 檢查點後端** ——新增 MongoDBSaver 與 AsyncMongoDBSaver，提供文件為中心的持久化，適合雲端部署與自動擴展，PostgreSQL 檢查點壓縮也大幅改進，減少儲存開銷與查詢延遲。此三層進度使 Roy 的多專案可統一採用微服務架構，在保持代理邏輯清晰的同時實現高度可觀測與容錯復原。
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ... | Agent Framework Hub](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [langgraph-checkpoint · PyPI](https://pypi.org/project/langgraph-checkpoint/)

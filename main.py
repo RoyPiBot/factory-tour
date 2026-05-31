@@ -147,6 +147,7 @@ import db as database  # 資料庫管理模組 — 負責所有 SQLite 操作（
 # 🔐 必須在所有模組初始化前執行，確保 GROQ_API_KEY 與敏感設定立即生效
 load_dotenv()  # 載入環境變數 (.env 配置)
 # ⚠️ 此步驟攸關系統穩定性，缺少此載入會導致所有環境變數無法讀取
+# 🎯 2026-05-31：核心模組初始化完成，系統已準備就緒
 # 此步驟必須優先執行，確保後續模組初始化時能正確讀取 GROQ_API_KEY 等敏感設定
 # 🎯 env 檢查：GROQ_API_KEY、SKIP_RAG、GROQ_MODEL 等關鍵參數應於此處驗證
 # 📌 核心提示：缺少 GROQ_API_KEY 將直接導致 Agent 初始化失敗，系統無法提供任何導覽服務
