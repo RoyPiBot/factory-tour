@@ -6099,6 +6099,17 @@ Sources:
 
 ---
 
+## 398. DeltaChannel 增量持久化與 Streaming API v3——2026 年 5 月底 LangGraph SDK v0.3.15 的長流程優化里程碑
+
+> **LangGraph 於 2026 年 5 月 22 日發布 SDK v0.3.15，聚焦於長流程系統的檢查點存儲優化與流式輸出精細化。核心進展包括：（1）DeltaChannel 測試版——嶄新的通道型別，只存儲每步的增量變更而非完整序列化狀態，特別適合訊息列表、記憶體歷史等持續成長的結構，Factory Tour 長時間導覽的對話記錄可大幅減少檢查點大小，Tunghai RAG 的檢索堆疊無須重複序列化百萬級向量，Pi 5 的儲存 I/O 負擔大幅降低；（2）Per-Node 逾時與恢復精化——節點級超時控制進一步深化，支援硬牆鐘與空閒限制的獨立配置，NanoClaw nRF54L15 晶片通訊可精準設定 5 秒硬超時防止無限阻塞；（3）Streaming API v3——新的內容塊中心流式 API，支援分型別、分通道的細粒度投影（projection），前端可精準訂閱特定欄位變更，無須處理完整狀態序列，Factory Tour 介面可單獨追蹤「新景點」訊號而忽略內部工具調用紀錄；（4）生態規模再突破——GitHub Stars 達 32,000+，月均搜尋超 33,000，20+ 企業級客戶（Klarna、Uber、LinkedIn、AppFolio）投入生產，確認 LangGraph 為 2026 年業界唯一可信的多代理編排選擇。**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default | by SC | May, 2026 | Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
 ## 398. LangGraph + MCP 多協議整合、工具存取標準化與企業跨系統編排——2026 年 5 月底 Agent 生態互通性的突破
 
 > **LangGraph 於 2026 年 5 月底與 OpenAI Model Context Protocol（MCP）深度整合，實現跨應用程式的統一工具存取協議，使複雜的多代理系統得以無縫協調外部服務、知識庫與專有系統。核心進展包括：（1）MCP 原生支援——LangGraph 節點可直接掛接 MCP 伺服器（如 Brave 搜尋、PostgreSQL、Git 版控），無需自訂串接層，Factory Tour 導覽可透過 MCP 協議統一呼叫公開景點資訊、內部文件庫、實時天氣預報，消除多系統整合的複雜度；（2）工具能力探索自動化——MCP 伺服器自動向 LangGraph 代理宣告可用工具與參數簽章，代理無須手工定義工具集，智能體可自主發現與調用，Tunghai RAG 檢索層可自動發現並運用所有企業知識源的 MCP 端點；（3）跨企業工作流編排——多個分散的代理系統（Pi 5 本地、雲端推理伺服器、合作單位外部 MCP 服務）透過統一協議相互協作，狀態與工具呼叫自動同步，實現真正的多組織多系統協作，突破傳統 API 集成的壁壘；（4）安全存取控制——MCP 提供權限與認證層，代理可在受限存取模式執行，Tunghai RAG 對不同使用者的資料檢索權限由 MCP 層統一管控，避免敏感數據外洩。此整合將 LangGraph 從單機或私密團隊框架擴展至跨組織、跨系統的企業級多代理平臺。**
