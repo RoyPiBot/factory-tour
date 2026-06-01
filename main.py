@@ -98,6 +98,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 🎬 演出開始：所有系統初始化完成後，即可接收客戶端請求
 # 啟動時自動初始化資料庫、知識檢索器與五個 Agent 實例
 # 關鍵依賴：Groq API、FastAPI、LangGraph 多智能體框架、SQLite 資料庫管理
+# ⚙️ 啟動前檢查清單：GROQ_API_KEY 環境變數已設定、資料庫路徑可寫、nRF54L15 感測器已連線
 # 🔒 運行狀態：系統持續監控中，所有 Agent 已驗證穩定可靠
 # 🔌 系統架構：由五個協作 Agent（導覽/安全/技術/QA/知識檢索）透過 LangGraph 框架協調運作
 # ⚡ 快速啟動：python main.py —— 伺服器將在 http://localhost:8000 上線
