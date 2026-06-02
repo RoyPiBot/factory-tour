@@ -6701,3 +6701,15 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
 - [Tool-Calling Reliability for Agent Frameworks](https://altersquare.io/tool-calling-reliability-agent-frameworks-measurements-architecture/)
+
+---
+
+## 449. LangGraph Agent-to-Agent 通訊原生支持與檢查點最佳化——A2A 中斷機制與背景清理提升伺服器效能（2026/06/02）
+
+> **LangGraph 在 2026 年 4 月強化 Agent Server 基礎設施，新增原生 Agent-to-Agent (A2A) 中斷支持與 Command 指令參數，使代理間通訊無需耦合，搭配後台檢查點刪除機制降低 I/O 壓力，@langchain/langgraph 升級至 1.1.2 支援混合狀態圖與泛型模式，直接優化 Roy 的三大專案在邊界環境下的多代理協調性能與伺服器穩定性**
+
+LangGraph Agent-to-Agent 通訊與運維最佳化推動邊界設備多代理系統向高效、低開銷架構演進：（1）**原生 A2A 中斷通訊機制** ——新增 `input_required` 狀態返回與 Command 指令，代理可在運行時安全中斷並恢復，無需直接方法呼叫，Factory Tour 巡檢的實時決策審核、Tunghai RAG 的多輪查詢上下文融合、NanoClaw 硬體指令序列的優先級動態調整可直接依賴此機制實現可控編排；（2）**後台檢查點清理與伺服器效能提升** ——新 Agent Server 在背景非同步刪除過期檢查點，減少 I/O 爭用與儲存成本，特別利於 Pi 5 受限資源的長流程代理持久化；（3）**@langchain/langgraph 1.1.2 型別安全升級** ——混合狀態圖支援、TypeVar 與泛型 StateGraph、GraphNode 與 ConditionalEdgeRouter 的型別包模式，確保開發者打字時的完整型別檢驗，減少運行時錯誤。此優化使 LangGraph 的邊界應用從不穩定原型邁向生產級可靠性。
+
+Sources:
+- [Agent Server changelog - Docs by LangChain](https://docs.langchain.com/langsmith/agent-server-changelog)
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
