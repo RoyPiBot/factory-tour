@@ -6726,3 +6726,16 @@ Sources:
 - [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 451. LangGraph 後端存儲升級與二進制檔案支持——State/Store 持久化標準化與直接實例化簡化（2026/05/XX）
+
+> **LangGraph 於 2026 年 5 月進行後端架構升級，State 與 Store 檔案格式標準化並新增二進制檔案支持，錯誤傳播機制從後端直接鏈接至工具層，開發者可直接實例化 StateBackend() 與 StoreBackend()，無需複雜的初始化配置，持久化儲存層的可靠性與易用性並行升級，支援 Roy 的 NanoClaw 硬體控制二進制指令、Tunghai RAG 的大型模型權重檔案、Factory Tour 巡檢的高頻日誌流式持久化**
+
+LangGraph 後端存儲的標準化與二進制支持推動邊界設備代理系統的檔案管理走向生產級可靠性：（1）**State 與 Store 檔案格式統一** ——新版本統一了 StateBackend 與 StoreBackend 的存儲格式，確保代理狀態、技能記憶、上下文模組可無縫遷移於不同後端（MemorySaver、AsyncSqliteSaver、PostgresSaver、ContextHubBackend），NanoClaw 的硬體指令參數、Tunghai 的知識結構、Factory 的決策日誌可統一版本管理；（2）**二進制檔案原生支持** ——新增對二進制資料流的完整支持，特別利於 Roy 的邊界設備存儲模型權重、影像日誌、音訊巡檢記錄等多模態內容，無需序列化轉換開銷；（3）**簡化的後端初始化** ——開發者可直接 `StateBackend()` 與 `StoreBackend()` 實例化，移除複雜的組態依賴，降低 Pi 5 上多代理系統的部署複雜度，同時錯誤傳播鏈直接連結後端異常至工具層，故障診斷時間大幅縮短。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)

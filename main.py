@@ -137,6 +137,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 此系統負責協調多智能體工廠導覽與實時感測器推送，由 Roy 與 Claude Haiku 共同維護優化
 # ⚡ 系統依賴：Python 3.9+ asyncio 非同步庫與 FastAPI 高效能框架
 # 核心模組：非同步 I/O、日誌、環境變數與執行緒管理供系統穩定運作
+# 🔧 2026-06-03 Roy 的 AI 助理：此段確保所有核心依賴正常載入，支援非同步事件迴圈與 WebSocket 通信
 import asyncio
 import json
 import logging
