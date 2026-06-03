@@ -6797,3 +6797,16 @@ Standard JSON Schema 的開放標準支持推動 LangGraph 狀態層從單一依
 Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 456. LangGraph v1.1 中間件與模型重試機制——生產級可靠性強化與故障自動恢復（2026/06/03）
+
+> **LangGraph v1.1 版本（2025 年 12 月）引入企業級中間件層與模型重試機制，新增 Model Retry Middleware 支援指數退避算法與可配置重試策略，同時推出 Content Moderation Middleware 自動偵測不安全內容，大幅提升邊界設備多代理系統的故障自動恢復能力與安全防護層級，特別適合 Roy 的 Factory Tour 巡檢系統面臨網路抖動、Tunghai RAG 處理含有敏感資訊查詢、NanoClaw 硬體通訊短暫中斷等生產環境挑戰**
+
+LangGraph v1.1 的中間件架構與自動重試機制推動邊界設備代理系統走向企業級故障容错與安全防護：（1）**模型重試中間件的自動恢復** ——Model Retry Middleware 配備可配置的指數退避演算法，當代理模型推理失敗或 API 超時時自動重試，設定初始延遲、最大重試次數、退避因子，確保 Pi 5 網路環境不穩定時的多代理自動恢復，成本與穩定性兼顧；（2）**內容審核中間件的安全防護** ——Content Moderation Middleware 於代理執行前自動掃描請求內容與模型回應，偵測仇恨言論、隱私洩露、有害指令，特別適合 Factory Tour 巡檢的公共設備直播、Tunghai RAG 處理使用者查詢、NanoClaw 接收遠端指令的場景，防範不當內容進入決策迴圈；（3）**生產級故障視景驗證** ——官方基準測試驗證中間件堆疊下的吞吐量損耗僅 3-5%，延遲增長不超 100ms，使 Roy 的邊界應用即使啟用全套防護層仍保持高效能。此版本確立 LangGraph 作為完整企業級多代理基礎設施的地位。
+
+Sources:
+- [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
