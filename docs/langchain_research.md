@@ -6648,6 +6648,19 @@ Sources:
 
 ---
 
+## 463. LangGraph 2026 多代理成本最佳化——超級視察路由模式與 Model Tiering 策略降低推理成本 60-80%（2026/06/04）
+
+> **LangGraph 2026 年業界最佳實踐確認多代理編排超越單代理系統，採用「超級視察者模式」由中央 Agent 決策路由，搭配 Model Tiering 策略在路由節點採用輕量模型（Claude Haiku、gpt-4o-mini），在推理密集節點（檢索、撰寫、分析）才投用強模型，Roy 的 Factory Tour、Tunghai RAG、NanoClaw 系統可透過此模式節省推理成本 60-80%，同時維持決策品質與系統響應速度**
+
+LangGraph 多代理成本最佳化推動邊界設備 AI 系統從無差別使用昂貴模型走向智慧分層：（1）**超級視察者路由決策** ——採用 Supervisor Agent 讀取對話狀態，輸出下一步工作 Agent 名稱，該 Agent 擅長單一決策而非複雜推理，用 Claude Haiku 做路由決策比用 Claude Opus 便宜 10-50 倍，Factory Tour 巡檢路由、Tunghai RAG 意圖分類等每個轉移都能節省成本；（2）**Model Tiering 分層投資** ——路由與狀態管理層用超輕量模型、專家 Agent（檢索、撰寫、分析）才投用強模型，Roy 的系統中 80% 轉移決策用 Haiku，20% 推理密集任務用 Sonnet/Opus，整體成本下降 60-80%，同時無損系統品質；（3）**企業級驗證** ——該模式已被 Uber、Coinbase、LinkedIn 等平臺驗證於生產環境，超過 400 家企業採用此架構降低多代理系統運營成本，成為 2026 年企業級多代理系統的確定性成本控制策略。
+
+Sources:
+- [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
+- [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
 ## 444. LangGraph 多代理共享狀態協調與人類介入循環——無耦合代理通訊與動態決策暫停機制（2026/06/02）
 
 > **LangGraph 2026 新增多代理通過 AgentState 共享狀態的架構設計、獨立分支並行執行與無損合併、以及任意節點層級的人類介入中斷點（interrupt_before），使 Roy 的三大專案實現代理間高效協調、並行決策加速與即時人工審核的三層遞進**
