@@ -6877,3 +6877,16 @@ Sources:
 - [LangGraph v1.2.4 Release Notes](https://github.com/langchain-ai/langgraph/releases/tag/v1.2.4)
 - [Enterprise Adoption of LangGraph: Case Studies from Klarna, Coinbase, LinkedIn (2026)](https://www.langchain.com/blog/enterprise-langgraph-2026)
 - [LangSmith + LangGraph: Complete Agent Development Lifecycle (2026)](https://blog.langchain.com/langsmith-langgraph-integration/)
+
+---
+
+## 462. LangGraph Subgraph 模組化與複雜代理系統可組合性——多層代理編排與可測試性革新（2026/06/04）
+
+> **LangGraph 2026 年新增 Subgraph 原生支持，允許開發者將複雜多代理系統拆分為獨立的子圖模組，每個 Subgraph 是自治狀態機，可獨立測試、版本管理、部署與重用，特別適合 Roy 的 Factory Tour 多工廠巡檢（各廠獨立子圖）、Tunghai RAG 多知識庫檢索（各庫一個子圖）、NanoClaw 硬體模組控制（每個機械臂/感測器獨立子圖），實現大規模多代理系統的生產級可維護性與高可用性**
+
+LangGraph Subgraph 的可組合架構推動邊界設備多代理系統從單一巨型圖走向模組化微服務式編排：（1）**獨立子圖的自治狀態管理** ——每個 Subgraph 擁有自己的 StateGraph、檢查點、輸入輸出介面，無需共享全域狀態，Factory Tour 的每個工廠巡檢可獨立並行執行，故障隔離範圍明確，提升系統穩定性與可測試性；（2）**跨層次的靈活組合** ——父圖可無縫調用多個子圖作為節點，子圖間可單向數據流或異步事件驅動，支援 Roy 的複雜多代理場景如 Tunghai RAG 先並行執行多知識庫檢索子圖，再由聚合節點融合結果；（3）**開發效率與可重用性** ——Subgraph 支援版本管理、本地單元測試、容器化部署，一次編寫的巡檢子圖可在多個工廠複用，大幅降低 Pi 5 邊界設備上複雜多代理系統的開發週期與維護成本。此特性確立 LangGraph 為企業級大規模多代理系統開發的最優架構選擇。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
