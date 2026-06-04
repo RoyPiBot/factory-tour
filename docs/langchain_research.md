@@ -6835,3 +6835,11 @@ Sources:
 - [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
 - [LangGraph Platform is now Generally Available: Deploy & manage long-running, stateful Agents](https://blog.langchain.com/langgraph-platform-ga/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+
+---
+
+## 459. 工具返回 Command 功能——智能代理的動態流程控制與狀態決策機制（2026/06/04）
+
+> **LangGraph 2026 年新增工具返回 Command 功能，允許工具不僅執行操作，還能根據執行結果動態決定圖的狀態更新與節點路由，實現從被動回應到主動決策的升級，特別適合 Factory Tour、NanoClaw 等需要靈活決策的多代理流程**
+
+工具 Command 返回機制推動 LangGraph 代理系統從線性執行走向動態決策：（1）**工具自主狀態控制** ——工具現在可返回 Command 物件，直接修改圖狀態變數與控制下一步節點路由，無需在代理節點中編寫複雜的條件邏輯，代碼結構更清晰；（2）**動態流程編排** ——同一工具根據不同執行結果返回不同 Command，實現條件分支與並行決策，如機械臂在檢測異常時自動觸發緊急停止流程，提升系統反應靈活性；（3）**生產級可靠性提升** ——工具層級的決策控制讓多代理系統更具適應性，適合複雜工業場景的動態應對。
