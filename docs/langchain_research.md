@@ -6915,3 +6915,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [What Is LangGraph? State, Agents & Production Use Cases 2026](https://atlan.com/know/ai-agent/ai-agent-memory/what-is-langgraph/)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+
+---
+
+## 464. LangGraph 執行控制新紀元：節點級超時、DeltaChannel 儲存優化與 ContextHubBackend 版本管理——2026 年 5 月穩定發佈（2026/06/05）
+
+> **LangGraph 2026 年 5 月新增節點級超時控制（`run_timeout`、`idle_timeout`）、節點級錯誤恢復處理函數、DeltaChannel 增量儲存通道、Graceful Shutdown 優雅關閉、與 ContextHubBackend LangSmith Hub 整合版本管理，推動多代理系統在邊界設備上的故障自動恢復與長流程穩定性達到企業級標準，特別適合 Roy 的 Factory Tour 巡檢、Tunghai RAG 多輪查詢、NanoClaw 硬體通訊等涉及網路延遲與中斷恢復的複雜場景**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
