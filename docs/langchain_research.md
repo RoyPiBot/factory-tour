@@ -6851,3 +6851,16 @@ Sources:
 > **LangGraph 2026 年推薦採用 Pydantic BaseModel 作為圖狀態定義方式，支援遞迴驗證、類型自動轉換、與 LangChain 工具無縫集成，新增 extra="forbid" 配置防止非法欄位進入狀態，尤其適合 Roy 的 Factory Tour 巡檢資料驗證、Tunghai RAG 多輪查詢狀態追蹤、NanoClaw 硬體指令序列化的精確類型管控需求**
 
 Pydantic 狀態管理強化 LangGraph 系統的資料完整性與類型安全：（1）**遞迴驗證與自動轉換** ——Pydantic 在狀態初始化與更新時自動驗證所有欄位，支援巢狀物件與列表驗證，異常資料在進入狀態前即被攔截，避免後續節點処理污染資料；（2）**防污染機制** ——設定 extra="forbid" 參數明確拒絕未定義欄位，防止意外或惡意欄位進入狀態，確保多代理系統狀態透明性與可審計性，特別重要於涉及敏感資訊的 Tunghai RAG 場景；（3）**工具整合便利性** ——Pydantic 與 LangChain 工具庫原生相容，工具返回值自動驗證與轉換，減少手動轉換代碼，提升開發效率。
+
+---
+
+## 461. LangGraph v1.2.4 流式傳輸重大升級與企業級採用確認——RemoteGraph v3 Protocol、WebSocket 傳輸、令牌實時流媒體（2026/06/04）
+
+> **LangGraph v1.2.4（2025年6月穩定版）推出流式傳輸重大升級，RemoteGraph 支援 v3 流式傳輸協議與 WebSocket 傳輸選項，新增 Thread Stream Helpers 實現真正的原生令牌流式傳輸，開發者可實時展示代理推理過程，同時 Klarna、Coinbase、LinkedIn、Elastic 等頭部企業已在生產環境驗證，與 LangSmith 整合提供完整的調試、評估、監控與部署支援，確認 LangGraph 已成為 2026 年業界事實標準的多代理編排框架**
+
+LangGraph v1.2.4 的流式傳輸與企業採用推動多代理系統走向高效流媒體與信任型生產部署：（1）**原生令牌流媒體** ——RemoteGraph 的 v3 流式傳輸協議與 WebSocket 傳輸選項配合 Thread Stream Helpers，使代理推理過程中的每個令牌、狀態轉移、工具呼叫均可實時流向客戶端，無需等待完整回應，特別適合 Roy 的 Factory Tour 巡檢決策實時反饋、Tunghai RAG 多輪查詢的流式檢索結果展示；（2）**企業級生產驗證** ——Klarna、Coinbase、LinkedIn、Elastic 等全球頭部企業已驗證 LangGraph 在生產環境的可靠性與效能，超過 400 家企業透過 LangGraph Platform 管理生產系統，確立其在金融科技、電商、基礎設施領域的信任度；（3）**與 LangSmith 完整生態** ——LangGraph 原生整合 LangSmith 監控平臺，提供端到端的代理追蹤、自動評估、版本管理與線上部署，Roy 的邊界設備多代理系統可直接享受企業級的可觀測性與持續優化能力，無需額外工具鏈。
+
+Sources:
+- [LangGraph v1.2.4 Release Notes](https://github.com/langchain-ai/langgraph/releases/tag/v1.2.4)
+- [Enterprise Adoption of LangGraph: Case Studies from Klarna, Coinbase, LinkedIn (2026)](https://www.langchain.com/blog/enterprise-langgraph-2026)
+- [LangSmith + LangGraph: Complete Agent Development Lifecycle (2026)](https://blog.langchain.com/langsmith-langgraph-integration/)
