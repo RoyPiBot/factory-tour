@@ -6962,6 +6962,18 @@ Sources:
 
 ---
 
+## 468. LangGraph v1.2.4 流媒體傳輸新紀元：執行緒串流協助程式、訊息投影、WebSocket 穩定性增強與邊界設備高頻實時決策支援（2026/06/05）
+
+> **LangGraph v1.2.4（2026 年 6 月發佈）推出「執行緒串流協助程式」(Thread Stream Helpers) 與「訊息、工具呼叫投影」(Message & Tool Call Projections) 核心升級，配合 WebSocket 重連機制與子圖表同步作用域支援，使邊界設備上的多代理系統可實現原生令牌級流媒體傳輸，Roy 的 Factory Tour 巡檢決策、Tunghai RAG 檢索過程、NanoClaw 硬體指令執行均可實時串流至客戶端展示，支援高頻率（毫秒級）狀態推送與人類決策介入，適配 Raspberry Pi 5 上複雜多代理系統的實時協作需求**
+
+LangGraph v1.2.4 的流媒體與同步能力革新推動邊界設備多代理系統進入原生實時傳輸新時代：（1）**執行緒串流協助程式** ——新增 Thread Stream Helpers 直接驅動状態事件至 WebSocket 連接，無需額外轉換層，Factory Tour 的每個巡檢步驟變化、Tunghai RAG 的檢索命中項皆可毫秒級推送，大幅降低客戶端延遲；（2）**訊息與工具呼叫投影** ——支援在串流過程中動態提取與重塑代理的訊息序列、工具調用履歷，Roy 可直接在 Web 前端展示對話上下文與代理推理鏈路，提升透明度與可審計性；（3）**生產級 WebSocket 穩定性** ——完整的重連機制、子圖表同步作用域隔離、工廠圖整合測試，確保長連接在 Pi 環境的網路抖動下保持可靠，NanoClaw 硬體通訊的指令流不丟失。
+
+Sources:
+- [LangGraph Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangGraph Streaming & Real-Time Agent Updates 2026](https://blog.langchain.com/langgraph-streaming-2026)
+
+---
+
 ## 468. LangGraph 平行執行與動態 Map-Reduce 模式——Send API 驅動多代理並行任務調度與狀態融合（2026/06/05）
 
 > **LangGraph 2026 年原生支援平行執行代理架構，透過 Send API 實現動態任務建立與 Map-Reduce 計算模式，多個獨立子任務可同時執行，最後由 Reducer 節點自動融合併行更新至全域狀態，無需手動同步，特別適合 Roy 的 Factory Tour 多工廠並行巡檢、Tunghai RAG 多知識庫並行檢索、NanoClaw 多機械臂並行控制等涉及獨立任務扇出扇入的複雜場景，相比順序執行可實現 3-10 倍性能提升**
