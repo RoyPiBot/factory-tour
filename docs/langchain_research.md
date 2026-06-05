@@ -7007,3 +7007,15 @@ Sources:
 Sources:
 - [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
 - [LangGraph + RAG + UCP: The Production Trinity Powering Agentic AI in 2026](https://medium.com/aimonks/langgraph-rag-ucp-the-production-trinity-powering-agentic-ai-in-2026-025195c0e021)
+
+---
+
+## 471. LangGraph Agentic RAG 自主反思迴圈與迭代查詢改寫——從被動檢索到自主決策的跨越（2026/06/06）
+
+> **LangGraph 2026 年推動 Agentic RAG 從傳統的「提問→檢索→回答」單向管道進化為自主反思型多迴圈代理，內建自動評估檢索相關性（Retrieval Relevance Evaluation）、迭代改寫查詢（Iterative Query Rewriting）、多輪反思決策（Multi-Turn Reflection），當初始檢索結果不足時自動改寫查詢詞，重新嘗試不同的檢索策略與知識源，直至代理對回答品質有足夠信心，相比被動單次檢索可顯著提升召回率與答案準確性，特別適合 Roy 的 Tunghai RAG 面對複雜多領域查詢與交叉領域知識融合的需求**
+
+自主反思迴圈與迭代改寫推動 Tunghai RAG 的檢索效能跨越式躍升：（1）**自動相關性評估** ——代理於每次檢索後自動評估結果相關性分數，若未達信心閾值（例如 0.7）則觸發改寫迴圈，無需人工判斷；（2）**動態查詢改寫策略** ——基於前次檢索失敗原因，代理自動選擇改寫策略（縮短查詢、同義詞替換、分解複雜問題為子問題），多策略並行嘗試，極大擴展覆蓋知識源；（3）**跨知識源融合與批判性反思** ——多輪檢索後由反思節點批評各來源的一致性與矛盾處，自動甄別虛構答案與高品質結果，適合 Tunghai RAG 融合多個學術資料庫與網路資源時自動防止幻覺，提升產出學術報告的可信度。
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
