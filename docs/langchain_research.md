@@ -6959,3 +6959,16 @@ Sources:
 
 Sources:
 - [LangGraph Overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
+
+---
+
+## 468. LangGraph 平行執行與動態 Map-Reduce 模式——Send API 驅動多代理並行任務調度與狀態融合（2026/06/05）
+
+> **LangGraph 2026 年原生支援平行執行代理架構，透過 Send API 實現動態任務建立與 Map-Reduce 計算模式，多個獨立子任務可同時執行，最後由 Reducer 節點自動融合併行更新至全域狀態，無需手動同步，特別適合 Roy 的 Factory Tour 多工廠並行巡檢、Tunghai RAG 多知識庫並行檢索、NanoClaw 多機械臂並行控制等涉及獨立任務扇出扇入的複雜場景，相比順序執行可實現 3-10 倍性能提升**
+
+LangGraph 平行執行與動態 Map-Reduce 推動邊界設備多代理系統從序列化走向完全並行化的高效編排：（1）**Send API 動態任務生成** ——Router 節點透過 Send 函式根據當前狀態動態建立多個並行任務，任務數量與配置皆由圖狀態決定而非固定設計，Factory Tour 可動態根據廠區規模並行啟動多個巡檢子圖，無需預先定義線程數；（2）**Reducer 機制自動狀態融合** ——多個獨立節點併行執行時，其狀態更新透過 Reducer 函式自動匯聚，防止寫入衝突與資料遺失，Tunghai RAG 的多知識庫並行檢索結果自動融合為統一排名列表，無需複雜的鎖定機制；（3）**生產級並行性能** ——LangGraph 平行執行已驗證在銀行、保險、企業 IT 等組織的生產環境每日承載數千筆交易，Roy 的邊界設備多代理系統可安心利用此成熟機制實現 3-10 倍吞吐量提升。
+
+Sources:
+- [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+- [Parallel AI Agents with LangGraph: Running Tool Calls Concurrently Without Breaking State](https://medium.com/data-science-collective/running-parallel-tool-calls-in-langgraph-3aaa691f25cb)
+- [Scaling LangGraph Agents: Parallelization, Subgraphs, and Map-Reduce Trade-Offs](https://aipractitioner.substack.com/p/scaling-langgraph-agents-parallelization)
