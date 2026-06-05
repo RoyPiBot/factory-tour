@@ -6937,3 +6937,16 @@ Sources:
 - [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/concepts/memory)
 - [30–4: [知識] LangChain X LangGraph 之要如何記得你 ? ( Memory )](https://medium.com/@marklin.coffee.pro/30-4-%E7%9F%A5%E8%AD%98-langchain-x-langgraph-%E4%B9%8B%E8%A6%81%E5%A6%82%E4%BD%95%E8%A8%98%E5%BE%97%E4%BD%A0-memory-b58014f42b1d)
 - [What Is LangGraph? State, Agents & Production Use Cases 2026](https://atlan.com/know/ai-agent/ai-agent-memory/what-is-langgraph/)
+
+---
+
+## 466. LangGraph Pydantic v3 狀態定義與性能革新——5-10 倍性能提升成為 2026 推薦標準（2026/06/05）
+
+> **LangGraph 2026 年官方推薦所有新專案採用 Pydantic v3 BaseModel 定義 StateGraph 類型化狀態，相比 Pydantic v2 實現 5-10 倍性能提升，特別是在邊界設備資源受限場景，Roy 的 Factory Tour、Tunghai RAG、NanoClaw 三大專案若採納此標準，可大幅優化狀態序列化開銷、加速邊界 Pi 5 上的多代理並行執行效率，同時提升程式碼類型安全性與可維護性**
+
+LangGraph Pydantic v3 標準化推動邊界設備多代理系統的效能與穩定性躍進新階段：（1）**5-10 倍性能躍升** ——Pydantic v3 的原生型別檢驗與序列化優化，使 StateGraph 狀態更新延遲從毫秒級降至微秒級，Factory Tour 的並行巡檢、Tunghai RAG 的多輪查詢皆可享受直接性能紅利，無需額外代碼改寫；（2）**邊界設備友善設計** ——Raspberry Pi 5 上運行複雜多代理系統時，狀態序列化開銷是主要瓶頸，Pydantic v3 原生支援增量編碼（DeltaChannel 配套），唯有儲存狀態變化部分而非全量重寫，大幅縮減記憶體與儲存 I/O 壓力；（3）**型別安全與生產穩定** ——嚴格的 Pydantic 型別定義杜絕運行時狀態型別不匹配錯誤，NanoClaw 硬體指令狀態、Factory Tour 巡檢結果狀態可信任完整性，降低生產故障率。Roy 應優先在三大專案遷移至 Pydantic v3。
+
+Sources:
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
