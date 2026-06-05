@@ -6997,3 +6997,13 @@ Sources:
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 470. Agentic RAG 演進與五大多代理編排標準模式——自主決策反思、監督官層級架構、動態命令原語驅動企業應用精準度躍升（2026/06/06）
+
+> **LangGraph 於 2026 年推動 Agentic RAG 從固定檢索-閱讀管道進化為自主決策代理系統，內建自我修正、迭代查詢改寫、反思迴圈，形成五大標準編排模式：（1）扇出（Scatter）——並行散聚多個子任務；（2）管道（Pipeline）——順序連鎖多個步驟；（3）辯論（Debate）——多代理視角批評；（4）監督官（Supervisor）——單一監督代理委派至專門工作代理；（5）蜂群（Swarm）——動態對等多代理協作。其中監督官模式已成為企業生產標準，全球銀行 IT 運維部署達 94% 路由準確率，處理每日約 2,000 警報，將關鍵事件應答時間從 18 分鐘縮短至 3 分鐘以下，Roy 的 Tunghai RAG 與 Factory Tour 可直接套用監督官與扇出模式，實現自適應檢索與並行巡檢決策**
+
+Sources:
+- [Building Agentic RAG Systems with LangGraph: The 2026 Guide](https://rahulkolekar.com/building-agentic-rag-systems-with-langgraph/)
+- [LangGraph + RAG + UCP: The Production Trinity Powering Agentic AI in 2026](https://medium.com/aimonks/langgraph-rag-ucp-the-production-trinity-powering-agentic-ai-in-2026-025195c0e021)
