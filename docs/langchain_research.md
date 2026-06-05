@@ -6950,3 +6950,12 @@ Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 467. LangGraph 低階編排框架核心三柱：持久化故障恢復、人類監督決策點、生產就緒基礎設施——邊界設備多代理系統穩定性保障（2026/06/05）
+
+> **LangGraph 作為低階編排框架（Low-Level Orchestration Framework）與運行時（Runtime），2026 年確立三大核心支柱：（1）持久化與故障恢復機制——智能體在失敗後可無縫恢復，保持跨擴展操作的連續性，Roy 的 Factory Tour 巡檢中途中斷可自動從檢查點復原；（2）人類監督與決策介入——用戶可在檢查點檢視與修改智能體狀態，Tunghai RAG 的檢索步驟可人工驗證與糾正；（3）生產級基礎設施——支援可擴展無狀態工作流，NanoClaw 硬體指令執行完全可追溯，保障邊界 Pi 5 上複雜多代理系統的可靠性與可維護性**
+
+Sources:
+- [LangGraph Overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
