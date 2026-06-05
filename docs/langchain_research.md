@@ -6926,3 +6926,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 465. LangGraph 分層記憶體架構：短期檢查點持久化與長期跨會話共享——支援邊界設備多輪對話穩定性（2026/06/05）
+
+> **LangGraph 2026 年透過 StateGraph 類型化狀態引入完整的分層記憶體系統：短期記憶採用線程範圍檢查點持久化（Thread-Scoped Checkpointing），每輪對話的消息歷史與狀態自動存儲至 MemorySaver/AsyncSqliteSaver/PostgresSaver，支援系統中斷後無縫恢復；長期記憶跨會話存儲並在多個對話線程間共享，Roy 的 Tunghai RAG 問答系統可將使用者的查詢偏好與檢索歷史作為長期背景知識，Factory Tour 工廠巡檢的場景與設備狀態可持續累積，大幅提升邊界設備上複雜多代理對話系統的連續性與上下文理解能力**
+
+Sources:
+- [Memory overview - Docs by LangChain](https://docs.langchain.com/oss/python/concepts/memory)
+- [30–4: [知識] LangChain X LangGraph 之要如何記得你 ? ( Memory )](https://medium.com/@marklin.coffee.pro/30-4-%E7%9F%A5%E8%AD%98-langchain-x-langgraph-%E4%B9%8B%E8%A6%81%E5%A6%82%E4%BD%95%E8%A8%98%E5%BE%97%E4%BD%A0-memory-b58014f42b1d)
+- [What Is LangGraph? State, Agents & Production Use Cases 2026](https://atlan.com/know/ai-agent/ai-agent-memory/what-is-langgraph/)
