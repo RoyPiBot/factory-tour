@@ -7049,3 +7049,14 @@ Sources:
 Sources:
 - [LangGraph Official Documentation](https://www.langchain.com/langgraph)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
+## 475. LangGraph v1.2.4 六月發佈——Per-Node 超時與優雅關閉機制、Node-Level 錯誤恢復、新流式傳輸 API v3（2026/06/06）
+
+> **LangGraph 於 2026 年 6 月 2 日發佈 v1.2.4 版本，引入三大關鍵特性：（1）Per-Node Timeout 節點級超時控制，支援 run_timeout（硬牆鐘限制）與 idle_timeout（閒置限制）雙重保護機制，超時觸發自動拋出 NodeTimeoutError、清除污染寫入並交由重試策略處理；（2）Node-Level Error Handlers 節點級錯誤恢復函數，所有重試耗盡後自動執行恢復函數並返回 Command 物件動態重路由，支援 Saga 補償模式；（3）Graceful Shutdown 優雅關閉，停止進行中的運行並在當前超級步驟後保存可復原檢查點。此版本特別適合 Roy 的 Factory Tour（巡檢中途網路中斷自動恢復）、Tunghai RAG（長流程多輪查詢超時控制）與 NanoClaw（硬體通訊完整故障恢復），實現邊界設備上複雜多代理系統的生產級可靠性與可維護性，π5 資源約束下的穩定運行有了堅實保障**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
