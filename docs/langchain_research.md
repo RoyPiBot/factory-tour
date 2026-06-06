@@ -7091,3 +7091,14 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+
+---
+
+## 479. LangGraph 檢查點儲存升級——ContextHubBackend 版本管理 + DeltaChannel 增量存儲，π5 邊界設備的長期運行保障（2026/06/07）
+
+> **LangGraph 2026 年中推出檢查點持久化的雙引擎升級方案：（1）ContextHubBackend 整合 LangSmith Hub 後端，每次狀態儲存自動生成版本提交，支援完整的版本歷史追蹤與回滾，所有代理檔案與檢查點版本控制原生化，適用於 Roy 的 NanoClaw（硬體指令審計）與 Factory Tour（巡檢流程可溯源）；（2）DeltaChannel 增量儲存機制（Beta）僅存儲每步驟的狀態變更增量而非完整序列化，配合 Pydantic v3 增量管理，檢查點大小可再減少 30-40%，π5 有限的 eMMC 儲存與備份 I/O 負載進一步下降。兩項技術結合形成「可審計的檢查點」與「低開銷的持久化」雙軸，使邊界設備上 24/7 連續多代理系統的長期執行成為生產級可行方案**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
