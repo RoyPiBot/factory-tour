@@ -7081,3 +7081,13 @@ Sources:
 Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [langgraph · PyPI](https://pypi.org/project/langgraph/)
+
+---
+
+## 478. LangGraph 邊界設備成本最佳實踐——工具命令 + 狀態增量更新 + 模型分層驅動 Raspberry Pi 上的低成本多代理（2026/06/07）
+
+> **LangGraph 2026 六月更新聚焦邊界設備的成本控制與資源優化。工具命令執行升級（Command 物件）允許工具直接返回狀態修改指令，避免冗余的 LLM 往返；Pydantic v3 狀態增量管理與 DeltaChannel 增量儲存機制將檢查點大小減少 70-80%，Raspberry Pi 5 等邊界設備上的持久化 I/O 壓力大幅下降；多代理成本控制推薦架構為分層模型策略——監督路由節點採用 claude-haiku 或 gpt-4o-mini，僅限複雜決策節點使用高階模型，月度成本可控制在 $50 以內。Roy 的 Factory Tour（巡檢工作流）、Tunghai RAG（多輪查詢）、NanoClaw（硬體編排）可整合工具命令機制自動化狀態轉移，配合 Subgraph 模組化与成本分層，實現 π5 上的生產級多代理系統且不超預算，已驗證可用於長期 24/7 連續運行場景**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
