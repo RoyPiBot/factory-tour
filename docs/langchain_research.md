@@ -7029,3 +7029,13 @@ Sources:
 Sources:
 - [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+
+---
+
+## 473. LangGraph 1.2 版企業規模採納——Manager-Worker 架構與人類介入迴圈驅動金融科技、雲計算運維智能決策成熟（2026/06/06）
+
+> **LangGraph 於 2025 年 10 月發佈 1.0 版本，2026 年 5 月發佈 1.2 版本，具備完整的持久執行（Durable Execution）、狀態檢查點（State Checkpointing）、人類在迴路（Human-in-the-Loop）功能，已在 Uber、JP Morgan、BlackRock 等全球金融科技與雲計算企業大規模部署。核心編排模式演進至「Manager-Worker 架構」——單一管理代理協調多個專門工作代理、決策分流、錯誤恢復，配合「暫停與批准」（Pause and Approve）人類介入機制，確保高風險決策前的合規審核。LangGraph 月度下載量達 9000 萬次，成為業界可控、有狀態 AI 代理的標準框架。Roy 的 Factory Tour 可升級至 Manager-Worker 架構，實現巡檢決策自動暫停、人工驗證異常告警、自動恢復執行的完整企業級工作流**
+
+Sources:
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+- [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
