@@ -7071,3 +7071,13 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Definitive Guide to Agentic Frameworks in 2026](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
+
+## 477. LangGraph 2026 核心技術棧更新——Pydantic v3 狀態定義、Subgraph 模組化、Type-Safe 串流 API（2026/06/06）
+
+> **LangGraph 2026 年中版本統一核心技術棧：（1）Pydantic v3 成為官方推薦標準，與 v2 相比性能提升 5-10 倍，所有新專案應採用 BaseModel 定義狀態機；（2）Subgraph 模組化引擎允許將複雜多代理系統拆分為獨立子圖，每個子圖為完整狀態機，可個別測試與複用，應用於 Roy 的 Factory Tour 模組化巡檢、NanoClaw 分層控制架構；（3）Type-Safe Streaming v2 API 提供統一 StreamPart 輸出（type/ns/data 三元組）與 GraphOutput 物件（.value/.interrupts 屬性），結合 ContextHubBackend 版本管理與 DeltaChannel 增量儲存，形成完整的生產級可觀測性與資源優化方案，π5 邊界環境的長期穩定運行有了完整的技術保障**
+
+Sources:
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [langgraph · PyPI](https://pypi.org/project/langgraph/)
