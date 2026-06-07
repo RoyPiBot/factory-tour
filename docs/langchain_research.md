@@ -7146,3 +7146,14 @@ Sources:
 - [Human-in-the-Loop AI Agents in LangGraph: The 2026 Production-Ready Approach](https://growwstacks.com/blog/human-in-the-loop-ai-agents-langgraph)
 - [LangGraph (Part 4): Human-in-the-Loop for Reliable AI Workflows](https://medium.com/@sitabjapal03/langgraph-part-4-human-in-the-loop-for-reliable-ai-workflows-aa4cc175bce4)
 - [Building Agents with LangGraph: Human-in-the-Loop Interactions That Actually Work in Production](https://medium.com/aimonks/building-agents-with-langgraph-human-in-the-loop-interactions-that-actually-work-in-production-d7d038625260)
+
+---
+
+## 484. LangGraph Deep Agents 非同步子智能體——v1.9.0 (2026/03) 後臺並行編排能力，Factory Tour 工位群並行巡檢、NanoClaw 分層控制的高效整合（2026/06/07）
+
+> **LangGraph 2026 年初推出 Deep Agents v1.9.0，引入原生非同步子智能體支援，允許代理動態生成並行執行的子代理群，無需預先定義圖結構。主要特性：（1）Parent-Child Agent Pattern——父代理為協調中樞（用於 Factory Tour 中央巡檢調度器），動態產生多個子代理執行獨立工位巡檢任務，各子代理狀態隔離；（2）後臺任務編排——子代理運行在非同步隊列中，無阻塞返回，父代理可即時在 UI 回饋「巡檢進行中」並彙總結果，超級步驟內自動等待所有子代理完成，支援動態結果聚合與失敗自動重試；（3）與 Subgraph 互補——小型邏輯用 Subgraph 固化，大規模並行場景改用 Deep Agents 動態生成。此機制完全適配 Roy 的 Factory Tour（多工位並行巡檢）、Tunghai RAG（多輪查詢分散式檢索）與 NanoClaw 分層硬體控制（馬達群、感測器群並行取樣），配合流式 Token 與人工介入迴圈，實現「π5 邊界設備上的分散式多代理協調」**
+
+Sources:
+- [LangGraph Releases](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain Agents Deep Dive: The Ultimate Guide 2026](https://dev.to/jearick/langchain-agents-deep-dive-the-ultimate-guide-to-building-intelligent-agents-in-2026-4b8p)
+- [Scaling LangGraph Agents: Parallelization, Subgraphs, and Map-Reduce Trade-Offs](https://aipractitioner.substack.com/p/scaling-langgraph-agents-parallelization)
