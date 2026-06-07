@@ -7135,3 +7135,14 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
+## 483. LangGraph 人類介入迴圈（Human-in-the-Loop）——2026 年生產級監督架構，代理決策暫停與狀態持久化實現操作員控制（2026/06/07）
+
+> **LangGraph 官方於 2026 年上旬強化人類介入迴圈（HITL）架構，為代理系統提供生產級監督能力：（1）HITL 中介層在代理工具呼叫前暫停執行，等待人類決策——支援四種回應模式：approve（核准執行）、edit（編輯後執行）、reject（拒絕含反饋）、respond（由人類直接應答），無需 LLM 重新處理；（2）狀態持久化暫停——執行暫停時 LangGraph 自動儲存完整圖狀態，人類決策可延遲數秒至數小時，恢復時從同一節點繼續，無執行緒阻塞，適用長期互動場景；（3）反饋迴圈自動整合原始生成內容與人類回饋，將富上下文的指導重新傳送至生成節點，LLM 基於人類修正指令重新生成輸出，提升輸出品質。Roy 的 Factory Tour（巡檢決策由操作員核准）、Tunghai RAG（多輪查詢由使用者回饋修正）、NanoClaw（硬體指令執行前人類確認）均可整合 HITL 機制，實現「自動化 80% 繁瑣任務 + 人類監督 20% 關鍵決策」的混合智能架構**
+
+Sources:
+- [Human-in-the-Loop AI Agents in LangGraph: The 2026 Production-Ready Approach](https://growwstacks.com/blog/human-in-the-loop-ai-agents-langgraph)
+- [LangGraph (Part 4): Human-in-the-Loop for Reliable AI Workflows](https://medium.com/@sitabjapal03/langgraph-part-4-human-in-the-loop-for-reliable-ai-workflows-aa4cc175bce4)
+- [Building Agents with LangGraph: Human-in-the-Loop Interactions That Actually Work in Production](https://medium.com/aimonks/building-agents-with-langgraph-human-in-the-loop-interactions-that-actually-work-in-production-d7d038625260)
