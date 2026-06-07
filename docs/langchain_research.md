@@ -7180,3 +7180,14 @@ Sources:
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI](https://gurusim.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 487. LangGraph Supervisor 協調框架與工具返回 Command——v1.2.4 (2026/06) 動態路由與狀態控制升級，多代理協調的標準模式（2026/06/08）
+
+> **LangGraph 2026 年中推出 Supervisor 協調框架與工具 Command 能力的整合升級：（1）Supervisor 中樞協調機制——動態決定調用順序與目標代理選擇，相較靜態路由節點減少人工配置負擔，特別適用 Roy 的 Factory Tour（中央巡檢調度器決策工位優先順序）與 NanoClaw（協調多個硬體子模組執行順序）；（2）工具返回 Command 能力——工具執行後可直接返回 Command 物件以修改圖狀態與控制流，避免冗余的 LLM 往返決策，搭配 Pydantic BaseModel 狀態驗證，完整生成記錄可追蹤，提升系統可靠性與效率；（3）Pydantic BaseModel 與遞迴驗證深化——2026 年統計超 60% 生產事故源自不當狀態管理，官方推薦標準化方案統一狀態定義，型別轉換與驗證全自動覆蓋。三項技術結合形成「智能協調層」、「工具驅動狀態」與「驗證保障」三軸，使 Roy 的多代理系統決策流程更清晰、執行更可靠**
+
+Sources:
+- [LangGraph 完整教程（2026 版）- GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [Agent 框架 2026 最新更新与实践指南](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
