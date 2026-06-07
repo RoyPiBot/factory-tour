@@ -7113,3 +7113,15 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 481. LangGraph 原生並行執行與令牌級流式──Fan-Out 邊設計 + asyncio.Semaphore 記憶體管理，Factory Tour 多代理並行巡檢的高效 UX（2026/06/07）
+
+> **LangGraph 2026 年中版本確立並行執行與流式傳輸為核心能力：（1）原生並行執行通過 Fan-Out 邊設計自動實現，將單一節點連接至多個目標節點時，LangGraph 自動偵測此模式並在「超步驟（superstep）」中並行執行目標節點，無需顯式 async 語法或複雜執行緒管理，適用於獨立的 API 呼叫、資料庫查詢或 LLM 請求；（2）Token-Level Streaming 支援令牌級、工具呼叫、狀態更新與節點轉移完整流式傳輸，用戶實時看到代理輸出，提升客戶端 UI 響應性；（3）高並發管理（>10 並行代理）需顯式 asyncio.Semaphore 限制記憶體中的事件數量，避免 SSE 伺服器記憶體溢出。Roy 的 Factory Tour（多工位並行巡檢）、Tunghai RAG（多輪查詢並行檢索）可直接利用此模式，結合流式 token 輸出實現低延遲、高吞吐的邊界設備多代理 UX**
+
+Sources:
+- [Scaling LangGraph Agents: Parallelization, Subgraphs, and Map-Reduce Trade-Offs](https://aipractitioner.substack.com/p/scaling-langgraph-agents-parallelization)
+- [Parallel Workflow in LangGraph With Examples | Tech Tutorials](https://www.netjstech.com/2026/05/parallel-workflow-in-langgraph.html)
+- [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
+- [Parallel Execution in LangGraph. Processing large-scale datasets…](https://medium.com/@vin4tech/parallel-execution-in-langgraph-350d8ca4cfa8)
