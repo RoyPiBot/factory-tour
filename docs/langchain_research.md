@@ -7224,3 +7224,13 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 491. LangGraph Type-Safe Invoke v2 API 與 GraphOutput 物件——代理執行完全型別化與中斷點追蹤（2026/06/08）
+
+> **LangGraph 2026 年 v1.2.4 穩定版推出 Type-Safe Invoke v2 API，代理執行結果返回強型別 GraphOutput 物件，含 .value（執行結果值）與 .interrupts（所有中斷點事件陣列）雙屬性，開發者可完全信賴執行狀態而無需額外型別轉換。搭配 Pydantic v3 BaseModel 狀態定義，整個執行鏈路從輸入到輸出都是完全型別化與可驗證的，大幅降低 Roy 的 Factory Tour、Tunghai RAG、NanoClaw 等邊界應用於運行時因型別不匹配導致的故障風險，同時提升程式碼可維護性與開發效率，是 2026 年推薦的生產級標準 API 呼叫模式**
+
+Sources:
+- [LangGraph Overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/overview)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
