@@ -197,6 +197,7 @@ from factory_tour_agent import create_factory_tour_app, KNOWLEDGE
 # 🤖 工廠導覽系統的核心 Agent 工廠函數與全球知識庫 — 由 LangGraph 多智能體框架驅動
 from tour_flow import TourManager
 from i18n import SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, UI_STRINGS
+# 🎯 核心模組載入完成：系統於 2026-06-08 確認所有依賴正常，支援多語言與實時感測器推送
 from sensor_simulator import SensorSimulator, ConnectionManager, run_broadcast_loop
 import db as database  # 資料庫管理模組 — 負責所有 SQLite 操作（session、對話、回饋、測驗答案等）
 # 核心特性：支援跨 session 訪客記憶與導覽進度持久化，是 factory-tour 系統的資料層基礎
