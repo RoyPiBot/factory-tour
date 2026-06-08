@@ -7202,3 +7202,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [langgraph · PyPI](https://pypi.org/project/langgraph/)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 489. Deep Agents 獨立開源庫——LangChain Inc. 2026 新發布，預裝規劃工具與子代理委托框架（2026/06/08）
+
+> **LangChain Inc. 於 2026 年發布獨立開源庫 Deep Agents，在 create_agent 基礎上提供更有條理的「代理工具包」。預裝功能包括：（1）自動規劃工具（Planning Tools）——讓代理能自主分解複雜任務；（2）虛擬文件系統（Virtual Filesystem）——代理可在隔離環境中讀寫檔案；（3）子代理委托（Sub-Agent Delegation）——動態生成並協調子代理群；（4）Shell 執行能力——直接執行系統命令。此庫與 LangGraph v1.2（2026/05 發布）配套使用，特別適合 Roy 的 Factory Tour（任務規劃與多工位委托）、Tunghai RAG（階段性查詢規劃）與 NanoClaw（硬體指令規劃與執行）等場景，大幅降低多代理應用開發複雜度**
+
+Sources:
+- [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [2026 年AI Agent 的12 大构建框架](https://www.bright.cn/blog/ai/best-ai-agent-frameworks)
