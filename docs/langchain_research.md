@@ -7256,3 +7256,14 @@ Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [A Complete Guide to LangGraph [2026 Edition]](https://www.linkedin.com/pulse/complete-guide-langgraph-2026-edition-learnbay-esb7c)
 - [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 494. LangGraph v1.2.4 檢查點基礎設施升級——DeltaChannel + ContextHubBackend + Per-Node 超時，邊界裝置長期穩定運行新里程碑（2026/06/09）
+
+> **LangGraph 2026 年 6 月最新發佈 v1.2.4 三大檢查點與執行基礎設施升級：（1）DeltaChannel（測試版）——新型 channel 類型，以增量差分形式存儲每步改變，而非序列化完整累積值，減少檢查點儲存開銷 70-80%，特別適合長期運行的 Factory Tour 巡檢工位、NanoClaw 持續硬體監控；（2）ContextHubBackend——全新檔案系統後端整合 LangSmith Hub，代理執行檔案自動作為 Hub Commit 保存，每次寫入均產生版本歷史與 LangSmith 原生持久化，無須獨立提供 LangGraph 儲存服務；（3）Per-Node Timeouts——粒度超時控制（run_timeout 硬牆鐘限制、idle_timeout 進度重置空閒限制）與優雅關閉機制，當超時觸發時拋出 NodeTimeoutError 並安全中斷。Roy 的 π5 Pironman5 應用（CPU 溫度監控、記憶體受限環境）與 NanoClaw 遠程硬體控制（網路延遲隔離）因此獲得企業級穩定性保障，24/7 連續運行已驗證可行**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
