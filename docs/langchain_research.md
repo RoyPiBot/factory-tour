@@ -7245,3 +7245,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 493. LangGraph 子圖模組化 Subgraph Modularization——複雜代理任務分解為獨立狀態機，支援跨團隊協作與複用（2026/06/08）
+
+> **LangGraph 2026 年進階功能推出子圖模組化（Subgraph Modularization），允許將複雜代理系統拆分為多個獨立的子圖，每個子圖都是一個獨立的狀態機，可單獨測試與複用，支援不同團隊並行開發各子圖後再整合組裝。此特性尤其適合 Roy 的架構需求：Factory Tour 可將「工位巡檢」、「異常判斷」、「決策規劃」分離為三個子圖獨立迭代；Tunghai RAG 可將「檢索」、「重排」、「生成」三階段解耦為子圖模組；NanoClaw 可將「馬達控制」、「感測器讀取」、「動作規劃」分離為硬體模組子圖。跨子圖狀態傳遞與序列化官方保證，降低耦合度，大幅提升多代理系統的可維護性、可測試性與團隊協作效率**
+
+Sources:
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [A Complete Guide to LangGraph [2026 Edition]](https://www.linkedin.com/pulse/complete-guide-langgraph-2026-edition-learnbay-esb7c)
+- [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
