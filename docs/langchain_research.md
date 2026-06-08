@@ -7213,3 +7213,14 @@ Sources:
 - [GitHub - langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [2026 年AI Agent 的12 大构建框架](https://www.bright.cn/blog/ai/best-ai-agent-frameworks)
+
+---
+
+## 490. LangGraph 節點任務快取與延遲節點——v1.2.3/1.2.4 (2026/06) 無狀態工作流加速與 Map-Reduce 範式，性能提升 2-3 倍（2026/06/08）
+
+> **LangGraph 2026 年 6 月最新版本推出兩大性能突破：（1）節點/任務級快取（Node/Task Level Caching）——單個節點結果自動快取機制，避免重複計算，執行速度提升 2-3 倍，特別對重複查詢場景（Factory Tour 工位巡檢同一問題重複應答、Tunghai RAG 相同文件段落快速命中）極具價值；（2）延遲節點（Deferred Nodes）——原生支援 map-reduce、consensus 與多代理協作工作流，將複雜圖執行分解為離散任務批次，適合 Factory Tour 多工位並行巡檢、NanoClaw 分散式硬體子模組順序協調；（3）開發者體驗升級——.addNode()、.addSequence() API 簡化圖構建、interrupt 事件直接返回於 .invoke() 與 values 流模式，大幅減少樣板碼與複雜性。三大改進合力推進 Roy 的多代理系統執行效率與可維護性新高度**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
