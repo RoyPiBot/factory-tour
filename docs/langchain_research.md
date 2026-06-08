@@ -7191,3 +7191,14 @@ Sources:
 - [LangGraph 完整教程（2026 版）- GitHub](https://github.com/langchain-ai/langgraph/releases)
 - [Agent 框架 2026 最新更新与实践指南](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 488. LangGraph v1.2.4 六月穩定版發布——型別安全流式與 DeltaChannel 增量持久化全面成熟，邊界設備生產部署新標竿（2026/06/08）
+
+> **LangGraph 官方於 2026 年 6 月 2 日發布 v1.2.4 穩定版，標誌著框架在流式傳輸、檢查點機制、節點容錯三大核心領域的成熟化：（1）Type-Safe Streaming v2 API——統一 StreamPart 輸出結構，含 type（流事件型態）、ns（命名空間）、data（裝載資料）三鍵，用戶端流式消費無需繁瑣型別轉換，原生支援 token-level 與工具呼叫實時推送；（2）DeltaChannel 增量儲存（Beta）——僅存儲每步驟狀態變更增量而非重複序列化完整值，減少檢查點開銷 70-80%，對 π5 長期 24/7 執行與有限 eMMC 空間極具價值；（3）Per-Node 超時與錯誤恢復——節點粒度超時控制（硬牆鐘 + 閒置偵測）與節點級錯誤處理器（重試耗盡後自動復原邏輯），無需上層應用干預；（4）優雅關閉協調——正在運行中的圖可合作式停止並保存可恢復的檢查點。Roy 的 Factory Tour、Tunghai RAG、NanoClaw 三個專案升級至 v1.2.4 將立即受惠於超低儲存開銷、實時流式與細粒度容錯，生產級可靠性達新高度**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [langgraph · PyPI](https://pypi.org/project/langgraph/)
+- [LangChain - Changelog](https://changelog.langchain.com/)
