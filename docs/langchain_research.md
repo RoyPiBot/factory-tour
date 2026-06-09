@@ -7277,4 +7277,15 @@ Sources:
 Sources:
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+
+---
+
+## 496. LangGraph StateSchema 與標準 JSON Schema 整合——2026 年 1 月推出，庫無關狀態定義與自訂 Reducer 支援（2026/06/09）
+
+> **LangGraph 於 2026 年 1 月發佈 StateSchema 新特性，提供庫無關（library-agnostic）的狀態定義方案，相容標準 JSON Schema 驗證庫（Zod、Valibot、ArkType 等），開發者無需重新學習 Pydantic 專有語法。該版本同時引入兩個強大的狀態修飾符：（1）ReducedValue——允許自訂 reducer 函數定義狀態累積邏輯，每個節點對該狀態的修改自動觸發 reducer 合併，適合 Factory Tour 多節點累積告警、Tunghai RAG 逐步聚合重排結果；（2）UntrackedValue——定義執行期間的瞬態狀態，不參與檢查點持久化，減少儲存開銷並避免不必要的版本控制，適合 NanoClaw 實時感測器緩衝。此組合使 Roy 的專案狀態定義更靈活高效，同時維持企業級驗證與可追蹤性**
+
+Sources:
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
