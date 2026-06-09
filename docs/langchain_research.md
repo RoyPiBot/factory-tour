@@ -7289,3 +7289,14 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+
+---
+
+## 497. LangGraph Command 返回機制與統一內容塊架構——工具動態控制流程、LangChain 1.0 結構化輸出集成（2026/06/09）
+
+> **LangGraph 2026 年新推出 Command 返回機制與 LangChain 1.0 整合，大幅强化工具能力與流程靈活性：（1）工具 Command 返回——工具不再只返回資料，而可返回 Command 物件直接更新圖狀態與控制下一節點執行路徑，代理根據工具執行結果動態決策流程分支，相比固定狀態機更具適應性，適合 Factory Tour 異常判斷後動態跳轉、Tunghai RAG 逐層驗證結果決策下一步查詢；（2）LangChain 1.0 結構化輸出——所有 LLM 輸出統一為 content_blocks 結構（文本、工具調用、引用、推理軌跡），跨模型與供應商一致，JSON Schema 結構化輸出直接集成主循環無需額外 LLM 調用，降低延遲與成本；（3）多模式流式傳輸——支持多種 stream_mode 選擇（狀態更新、實時 Token、值迴圈等），開發者可根據應用場景靈活配置資料接收方式。三項升級合力提升 Roy 多代理系統的動態控制能力與用戶體驗響應速度**
+
+Sources:
+- [LangGraph完整教程（2026版）构建智能Agent工作流](https://gitcode.csdn.net/69ba3c8b0a2f6a37c5984d03.html)
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
