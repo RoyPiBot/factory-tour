@@ -7333,3 +7333,14 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More 🤖](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+
+---
+
+## 501. LangGraph 流式傳輸成本最佳化與使用量定價模式——無額外流式開銷 + 節點級快取 + 延遲執行，邊界設備月度成本控制方案（2026/06/09）
+
+> **LangGraph 2026 年中確立流式傳輸與成本優化為核心競爭力，官方明確承諾無額外流式開銷（streaming overhead）。框架原生支援 LLM Token 流、工具呼叫、狀態更新、節點轉移完整流式傳輸，用戶端即時收到進度無需等待完整執行，同時計費模式採用使用量付費（$0.001/節點執行），遠低於固定部署成本。成本優化最佳實踐：（1）節點級快取——v1.0+ 支援單節點結果自動快取，避免重複計算，執行速度提升 2-3 倍；（2）延遲節點（Deferred Nodes）——支援 Map-Reduce 與批次處理，複雜圖自動分解為離散任務，減少不必要的全圖運行；（3）模型分層策略——監督路由節點採用 Haiku/GPT-4o-mini，核心決策才用高階模型，月度成本可控制在 $50-100 內。Roy 的 Factory Tour、Tunghai RAG、NanoClaw 三專案整合流式成本控制方案，可實現 π5 邊界設備 24/7 連續運行且月度成本遠低於雲端部署**
+
+Sources:
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+- [LangSmith Pricing 2026: Complete Cost Breakdown & Integration Guide](https://www.metacto.com/blogs/the-true-cost-of-langsmith-a-comprehensive-pricing-integration-guide/)
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
