@@ -7311,3 +7311,14 @@ Sources:
 - [LangGraph v3 Event Streaming: Typed Projections Over a Content-Block Protocol](https://vadim.blog/langgraph-v3-event-streaming-typed-projections)
 - [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
 - [Streaming and Events | langchain-ai/langgraph | DeepWiki](https://deepwiki.com/langchain-ai/langgraph/7.4-streaming-and-events)
+
+---
+
+## 499. LangSmith Fleet 與權限管理——2026 年企業級多租戶協作框架，支援 Agent 身份、團隊共享、細粒度權限控制（2026/06/09）
+
+> **LangChain 於 2026 年發佈 LangSmith Fleet 取代舊 Agent Builder，推出企業級多租戶協作平台。核心特性包括：（1）Agent 身份系統——獨立 Agent Profile、API Key、執行日誌隔離，支援多團隊協作開發同一 Agent；（2）共享與權限——細粒度角色權限（Owner、Developer、Viewer、Executor），控制代理開發、測試、部署、執行權限，適合 Factory Tour 多工位承接商共同開發、Tunghai RAG 不同學科導師協作標記資料；（3）Safe Code Execution 沙箱——支援工具程式碼安全隔離執行，內建資源限制與 I/O 監控，避免故障代理影響平台整體穩定性；（4）團隊協作工作流——共享 Prompt、Tools、Knowledge Base，加速團隊構建與迭代，是 Roy 擴展多代理系統跨組織協作的關鍵基礎設施**
+
+Sources:
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [LangChain 2026: Building Reliable Agents and RAG Pipelines](https://www.blockchain-council.org/ai/langchain-2026-reliable-agents-langchain-rag/)
+- [March 2026: LangChain Newsletter](https://blog.langchain.com/march-2026-langchain-newsletter/)
