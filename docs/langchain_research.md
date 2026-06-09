@@ -7353,4 +7353,15 @@ Sources:
 
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 503. LangGraph 節點級錯誤恢復與優雅關閉機制——2026 年 5 月推出 NodeError 型別化處理 + Graceful Shutdown，邊界設備無中斷運維新篇章（2026/06/10）
+
+> **LangGraph 2026 年 5 月關鍵更新推出節點級錯誤恢復與優雅關閉機制，大幅提升多代理系統的容錯能力與運維靈活性。（1）Node-Level Error Handlers——add_node() 新增 error_handler= 參數，開發者可自訂錯誤復原函數，當該節點所有重試均失敗時觸發，接收型別化 NodeError 物件並可返回 Command 物件更新狀態與動態路由至備選節點，適合 Factory Tour 工位檢測異常自動降級備選工位、NanoClaw 馬達控制失敗自動啟動安全停止序列；（2）Graceful Shutdown——新推出 RunControl 與 request_drain() 機制，允許從任意執行緒優雅中斷在途圖執行，完成當前超步後拋出 GraphDrained 異常並自動保存可恢復檢查點，無需強制殺死進程或遺失執行狀態，是 Roy π5 Pironman5 24/7 服務更新、NanoClaw 定期韌體升級、Tunghai RAG 離峰維護的完美解決方案，徹底消除硬中斷與狀態遺失風險**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
