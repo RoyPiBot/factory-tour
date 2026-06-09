@@ -7300,3 +7300,14 @@ Sources:
 - [LangGraph完整教程（2026版）构建智能Agent工作流](https://gitcode.csdn.net/69ba3c8b0a2f6a37c5984d03.html)
 - [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 498. LangGraph v3 事件流系統與類型化投影——Content-Block Protocol，按通道精細化資料分發，消息/狀態/自訂事件獨立訂閱（2026/06/09）
+
+> **LangGraph v3 發佈革命性事件流架構，放棄單一事件火喝設計，改採「類型化投影」（Typed Projections）方案，奠基於 Content-Block Protocol。新系統支援多元流模式：Messages 用於 Token 級實時字流（適合聊天應用即時反應）、Updates 用於狀態增量推送（適合進度監控與可視化）、Values 用於完整狀態快照（適合完全同步）、Custom 用於用戶自訂事件類型。每個通道（channel）獨立投影，開發者可按需訂閱特定事件類型而無須消費整個事件流，大幅降低網路頻寬與客戶端處理成本。同時支援 SSE 自動重連機制，確保長時間圖執行的容錯能力，極適合 Roy 的 Factory Tour 24/7 巡檢工位即時警報推送、NanoClaw 多通道硬體狀態監控、Pironman5 溫度/風扇事件細粒度訂閱**
+
+Sources:
+- [LangGraph v3 Event Streaming: Typed Projections Over a Content-Block Protocol](https://vadim.blog/langgraph-v3-event-streaming-typed-projections)
+- [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
+- [Streaming and Events | langchain-ai/langgraph | DeepWiki](https://deepwiki.com/langchain-ai/langgraph/7.4-streaming-and-events)
