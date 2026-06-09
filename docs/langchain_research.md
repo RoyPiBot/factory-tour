@@ -7344,3 +7344,13 @@ Sources:
 - [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
 - [LangSmith Pricing 2026: Complete Cost Breakdown & Integration Guide](https://www.metacto.com/blogs/the-true-cost-of-langsmith-a-comprehensive-pricing-integration-guide/)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+
+---
+
+## 502. LangGraph Planner-Executor 代理規劃架構與 Supervisor 監督官模式——DAG 任務分解 + 並行安全執行，企業級多代理協調新標準（2026/06/10）
+
+> **LangGraph 2026 年確立 Planner-Executor 架構為多代理系統的標準設計模式。Planner Agent 專責將使用者目標分解為有向無環圖（DAG）形式的任務步驟，而 Executor Agent 負責實際執行每個任務節點與工具調用，兩者明確職責分離。搭配 Supervisor 監督官模式，一個高層監督代理管理多個專職工作代理的執行流程，LangGraph 自動處理狀態合併與並行分支安全協調，已成為 2026 企業級應用的核心編排方案。此架構完全適用 Roy 的 Factory Tour 多工位巡檢（Planner 生成巡檢路線 DAG、Executor 群體執行各工位檢測）、NanoClaw 機械手臂控制協調（上層規劃抓取目標，多臂並行執行）、Tunghai RAG 多工位資料收集（Supervisor 統籌，分散式檢索並行運行）**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
