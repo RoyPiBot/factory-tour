@@ -7398,3 +7398,14 @@ Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8/)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
+
+---
+
+## 507. LangGraph 2026 年狀態管理與模組化新標準——Pydantic v3 + StateSchema + Subgraph，五倍性能提升與模組化多代理架構（2026/06/10）
+
+> **LangGraph 2026 年中推出三大狀態管理與模組化升級，是多代理系統設計的新標準：（1）Pydantic v3 State Definition——LangGraph 正式推薦新專案採用 Pydantic v3 定義 Graph State，相比 v2 驗證性能提升 5-10 倍，適合 Roy 的 Factory Tour 複雜狀態追蹤與 NanoClaw 即時馬達控制狀態更新；（2）StateSchema 框架中立設計——推出 StateSchema，支援任意標準 JSON Schema 驗證庫（Zod 4、Valibot、ArkType），解耦代理狀態定義與特定校驗框架綁定，提升跨技術棧互操作性；（3）Subgraph 模組化拆分——複雜代理可分解為多個獨立 Subgraph，各子圖擁有自己的狀態機與執行流程，獨立測試與重用，適合 Tunghai RAG 檢索管道模組化、Factory Tour 多工位巡檢每工位獨立子圖。（4）ReducedValue 與 UntrackedValue——前者支援自訂 Reducer 函數累積狀態值，後者定義暫時狀態（資料庫連接、快取、執行時配置）避免檢查點記錄，大幅降低狀態儲存開銷，完美支援 Pi 5 本地執行的輕量級多代理協調**
+
+Sources:
+- [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8/)
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
