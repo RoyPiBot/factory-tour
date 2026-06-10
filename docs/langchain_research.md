@@ -7386,4 +7386,15 @@ Sources:
 Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 506. LangChain 1.0 與 LangGraph 1.0 協作升級——統一事件流協議與模型中立設計，多代理系統跨框架互操作新里程碑（2026/06/10）
+
+> **LangChain Inc. 於 2026 年中推出 LangChain 1.0 與 LangGraph 1.0 深度協作升級，將兩大框架統一於 Content-Block Protocol 之下。此舉開啟多代理系統的「框架中立」新時代：（1）統一事件流協議——LangChain RAG 檢索管道與 LangGraph 代理編排共享同一事件流系統，開發者無需在兩者間轉換資料格式，State 物件與 Documents 無縫傳遞；（2）模型中立設計——兩框架均原生支援 Anthropic Claude、OpenAI GPT-4/o-mini、Google Gemini、Meta Llama 等模型，自動模型路由與備用降級策略統一配置，不再綁定單一供應商；（3）Tool 與 RAG 無縫整合——LangChain 內建 RAG 工具可直接作為 LangGraph 代理工具節點調用，例如 Tunghai RAG 的檢索操作即插即用進 Factory Tour 代理，無需重複實現；（4）企業級可觀測性——LangSmith 對兩框架的完整監測與追蹤，單一 Dashboard 統覽所有代理執行與 RAG 檢索流程。此協作模式為 Roy 的 Factory Tour、Tunghai RAG、NanoClaw 三專案提供最大靈活性與長期可維護性保障，2026 年新項目建議採此整合方案作為標準**
+
+Sources:
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8/)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
