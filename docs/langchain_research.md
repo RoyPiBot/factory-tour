@@ -7409,3 +7409,14 @@ Sources:
 - [LangGraph State Management in Practice: 2026 Agent Architecture Best Practices](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8/)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+
+---
+
+## 508. LangGraph 流式傳輸與實時 Token 級別輸出——astream_events() + Postgres Checkpoint，打造低延遲即時代理 UI（2026/06/10）
+
+> **LangGraph 2026 年完全成熟的流式傳輸架構，支援三層級即時數據推流：（1）Token 級輸出——astream_events(input, version="v2") 在 LLM 推理期間逐 Token 輸出，搭配前端 EventSource 流式渲染，實現 ChatGPT 般的即時感知，特別適合 Roy 的 Factory Tour 多工位實時巡檢報告、NanoClaw 馬達控制即時反饋；（2）Node 級狀態轉移——stream_mode="updates" 捕捉圖中每個節點的狀態變化，供 UI 動畫展示代理思考進度，提升用戶體驗；（3）Postgres Checkpoint 強化——langgraph-checkpoint-postgres 於 2026/05 發佈，提供企業級持久化層，搭配流式傳輸實現「邊輸出邊保存狀態」的即時恢復能力，連線斷開後無縫續傳，完全解決 Pi 邊緣設備網路不穩定問題**
+
+Sources:
+- [Streaming Agent Responses in LangGraph: Tokens, Events, and Real-Time UI Integration](https://www.abstractalgorithms.dev/langgraph-streaming-agent-responses)
+- [[Deep Dive] LangGraph Checkpointing with Postgres (2026) | Rapid Claw](https://rapidclaw.dev/blog/deploy-langgraph-production-tutorial-2026)
+- [langgraph-checkpoint-postgres · PyPI](https://pypi.org/project/langgraph-checkpoint-postgres/)
