@@ -7365,3 +7365,14 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+
+---
+
+## 504. LangGraph 與 MCP（Model Context Protocol）深度整合——2025 年 12 月 MCP 捐獻 Linux Foundation，成為多代理工具標準（2026/06/10）
+
+> **Anthropic 於 2025 年 12 月將 Model Context Protocol（MCP）捐獻給 Linux Foundation 的 Agentic AI Foundation，結束專有時代。LangGraph 與 MCP 2026 年深度整合，使多代理工具調用標準化：（1）無縫工具訪問——StateGraph 內每個節點（Supervisor、Worker Agent 等）直接調用 MCP 伺服器工具集合，工具版本控制與網路隔離由 MCP 統一管理，無需在 Agent 程式碼重複定義；（2）多框架互操作——微軟、Google、Anthropic 2026 年已內建 MCP 原生支援，使用 LangGraph 構建的多代理系統可跨框架委派任務至其他 A2A 服務，突破框架限制；（3）企業級可觀測性——搭配 LangSmith 與 Langfuse 完整追蹤 MCP 工具調用軌跡、參數驗證、返回值引用，DeepEval 自動品質檢查。是 Roy 的 Factory Tour（多工位協作工具共享）、Tunghai RAG（分散式檢索工具池）、NanoClaw（硬體介面標準化工具）的完美基礎設施。2026 年新專案必採 LangGraph + MCP 組合**
+
+Sources:
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+- [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
+- [Tool Calling in LangChain, LangGraph, and MCP: Three Layers, One Intelligent System](https://dev.to/nikhil_ramank_152ca48266/-tool-calling-in-langchain-langgraph-and-mcp-three-layers-one-intelligent-system-4jf7)
