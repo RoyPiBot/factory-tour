@@ -7432,3 +7432,13 @@ Sources:
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [GitHub - langchain-ai/langgraph: Build resilient agents](https://github.com/langchain-ai/langgraph)
+
+---
+
+## 510. LangGraph DeltaChannel 與 ContextHubBackend——2026 年 5 月檢查點優化與版本控制基礎設施升級（2026/06/11）
+
+> **LangGraph 2026 年 5 月發佈兩項關鍵基礎設施更新，大幅降低長執行時代理的儲存成本與提升版本管理能力。（1）DeltaChannel（Beta）——新型通道型別，僅儲存每步的增量差異而非完整值重新序列化，對於 Factory Tour 多工位巡檢累積狀態（每工位新增檢測數據）、Tunghai RAG 分散式檢索（逐步附加檢索結果）等長時間狀態積累場景，能減少 40-60% 檢查點 I/O 開銷，完美契合 Pi 5 本地 SSD 容量限制與網路頻寬約束；（2）ContextHubBackend——嶄新檔案系統後端與 LangSmith Hub 深度整合，代理技能、記憶、上下文等持久化檔案作為 Hub 提交管理，每次寫入自動版本控制與 Git-like 差異追蹤，提供企業級耐久性與零額外配置成本，無需另外佈署 LangGraph 專用存儲層。兩項功能直接提升 Roy 的三大專案本地執行的成本效益與可維護性，2026 年中推薦普遍採用**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
