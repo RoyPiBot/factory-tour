@@ -7376,3 +7376,14 @@ Sources:
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
 - [How to Build a Multi-Agent AI System with LangGraph, MCP, and A2A [Full Book]](https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/)
 - [Tool Calling in LangChain, LangGraph, and MCP: Three Layers, One Intelligent System](https://dev.to/nikhil_ramank_152ca48266/-tool-calling-in-langchain-langgraph-and-mcp-three-layers-one-intelligent-system-4jf7)
+
+---
+
+## 505. LangGraph v1.2 市場領導地位與企業規模採納——GitHub Stars 超 30,000、超越 CrewAI、Uber/LinkedIn/Klarna 生產驗證（2026/06/10）
+
+> **LangGraph 於 2026 年 6 月正式發佈 v1.2.4，在經過一年多迭代與數百家企業廣泛採納後，已確立多代理框架市場領導地位。（1）GitHub 社群驗證——LangGraph 項目 Stars 突破 30,000，超越 CrewAI 成為最受歡迎開源 Agent 框架，反映全球開發者與企業的共識選擇；（2）企業規模應用——Uber、LinkedIn、Klarna 等頭部科技公司將 LangGraph 投入生產環境，提供實際驗證的穩定性與可擴展性，打破初創框架「實驗性」標籤；（3）核心競爭優勢——圖狀架構天然支援審計軌跡、狀態回滾、分支並行，對應企業可觀測性與容錯需求，遠優於線性 Agent 框架。Roy 的三大專案（Factory Tour 多工位巡檢、Tunghai RAG 分散式檢索、NanoClaw 機械手臂）可自信採用 LangGraph 作為標準開發框架，獲得社群支援、最佳實踐文檔、企業級工具鏈（LangSmith）的完整生態背書**
+
+Sources:
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+- [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
