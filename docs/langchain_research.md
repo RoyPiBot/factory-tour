@@ -7486,4 +7486,15 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+
+---
+
+## 513. LangGraph v1.2.4 新型流式傳輸 API (v3) 與 ContextHubBackend——2026 年 6 月 2 日發佈，內容區塊中心協議與版本控制一體化存儲（2026/06/11）
+
+> **LangGraph v1.2.4（2026 年 6 月 2 日發佈）推出兩項重大基礎設施升級，進一步強化企業級多代理系統的可觀測性與版本管理能力。（1）新型流式傳輸 API（v3）——內容區塊中心協議，支援類型化的按通道投影，組織方式包括 run.values（代理狀態）、run.messages（對話歷史）、run.lifecycle（執行事件）、run.subgraphs（子圖執行），支援選擇性轉換器，允許消費端精準訂閱所需資料流，大幅降低網路頻寬與前端處理負荷，完美支援 Roy 的 Factory Tour 即時多工位巡檢視訊流、NanoClaw 馬達狀態實時監控、Tunghai RAG 檢索進度細粒度追蹤；（2）ContextHubBackend 版本控制一體化——由 LangSmith Hub 支持的檔案系統後端，代理檔案（技能定義、記憶庫、上下文配置）以 Hub 提交方式儲存，每次寫入自動建立版本歷史與 Git 式差異追蹤，無需另外佈署 LangGraph 專用存儲層即可獲得企業級檔案耐久性與版本回溯能力，大幅簡化 Pi 5 本地多代理系統的部署與運維複雜度。DeltaChannel 與流式傳輸 API 結合，可將檢查點儲存成本降低 40-60%，性能優化與可觀測性的雙重收益直接提升 Roy 三大專案的生產環境品質與用戶體驗**
+
+Sources:
+- [LangGraph v1.2.4 GitHub Release Notes](https://github.com/langchain-ai/langgraph/releases/tag/v1.2.4)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
