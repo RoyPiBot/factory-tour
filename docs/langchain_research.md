@@ -7498,3 +7498,14 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+
+---
+
+## 514. LangGraph SDK 與 CLI 生態完善——2026 年 6 月版本躍進，langgraph-cli 0.4.28 + langgraph-sdk 0.4.2 統一工程體驗與遠端代理部署（2026/06/11）
+
+> **LangGraph 2026 年 6 月完成 SDK 與 CLI 工具鏈的重大升級，langgraph-cli 0.4.28（6 月 10 日）與 langgraph-sdk 0.4.2（6 月 1 日）雙双進展，大幅簡化本地開發、測試與遠端部署流程。（1）langgraph-cli 命令行工具——支援一鍵創建、測試、部署代理應用，提供本地開發伺服器、交互式偵錯器、遠端推送至 LangSmith 部署平台，完美支援 Roy 的 Pi 5 本地開發環境與遠端雲端協同；（2）langgraph-sdk 統一 Python/JavaScript 介面——提供類型安全的 Python 和 JavaScript 雙語言支援，簡化異構技術棧整合，特別適合 Factory Tour 多工位視訊採集、Tunghai RAG 檢索協調、NanoClaw 馬達控制的跨語言多代理協調；（3）版本向前兼容與漸進式遷移——LangGraph 1.2.4 與 SDK 0.4.2 已驗證與 Checkpointing、StateSchema、RemoteGraph 流式支援的完整相容，降低升級風險，企業級長期維護保障，支撐 Roy 三大專案 2026 年中生產環境的穩定迭代**
+
+Sources:
+- [LangGraph CLI & SDK Releases](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangGraph.js Documentation](https://langchain-ai.github.io/langgraphjs/)
