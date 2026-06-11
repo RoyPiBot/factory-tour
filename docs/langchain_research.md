@@ -7476,3 +7476,14 @@ Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [Before You Upgrade to LangGraph in 2026, Read](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 512. LangGraph 節點級執行控制與優雅關閉——2026 年 6 月 v1.2.4 發佈，Per-node Timeouts + Graceful Shutdown + Error Handlers（2026/06/11）
+
+> **LangGraph 2026 年 6 月 2 日發佈 v1.2.4 版本，三大節點執行控制功能大幅提升生產環境穩定性與可維護性。（1）Per-node Timeouts（節點級超時）——傳入 timeout= 參數至 add_node() 限制單一節點嘗試的最長執行時間，支援 run_timeout（硬牆鐘限制）與 idle_timeout（基於進度的閒置限制）雙重機制，超時時拋出 NodeTimeoutError、清除該嘗試的寫入並交由重試策略處理，完美解決 Factory Tour 多工位巡檢卡頓節點、Tunghai RAG 檢索逾時等問題；（2）Node-level Error Handlers（節點級錯誤恢復）——add_node() 新增 error_handler= 參數指定恢復函數，在所有重試耗盡後執行，接收型別化 NodeError 資訊並可返回 Command 更新狀態與路由至不同節點，提升 NanoClaw 馬達控制失敗恢復的靈活性；（3）Graceful Shutdown（優雅關閉）——建立 RunControl 並從任意執行緒呼叫 request_drain()，在當前超步完成後協調停止執行流，儲存可恢復的檢查點，無縫支援 Pi 邊緣設備的優雅重啟與狀態保護，確保長執行時多代理工作流的可靠性與可維護性**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog | LangGraph 1.0 is now generally available](https://changelog.langchain.com/announcements/langgraph-1-0-is-now-generally-available)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
