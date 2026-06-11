@@ -4197,6 +4197,19 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 227. LangGraph v1.2.4 June 2026 發佈——DeltaChannel 最佳化與 ContextHubBackend 後端擴展（2026 年 6 月最新）
+
+> **LangGraph 在 2026 年 6 月推出 v1.2.4，核心優化 DeltaChannel 檢查點儲存機制與新增 ContextHubBackend，大幅降低長期運行代理的儲存開銷並強化知識持久化能力。Roy 的三大專案可透過增量更新機制消除冗餘檢查點膨脹，同時利用 Hub 版本管理實現完整的代理決策追溯與回滾**
+
+LangGraph v1.2.4 核心升級聚焦於檢查點最佳化與後端多樣化。DeltaChannel 機制將訊息歷史與代理檔案的儲存從完整序列化轉換為增量儲存——每步驟僅記錄該步驟寫入的增量變化，而非重複序列化整個累積值，使長期執行的線程檢查點大小維持在 KB 量級而非 MB。ContextHubBackend 則提供了全新的檔案系統後端，代理檔案直接儲存為 LangSmith Hub 提交，每次寫入均自動建立版本快照，支援完整的變更歷史追蹤與時間機器式的狀態復原。對 Roy 的應用——NanoClaw nRF54L15 威脅分析的長期運行感測器診斷可利用 DeltaChannel 避免檢查點爆炸，同時透過 Hub 版本管理回溯任何一次異常判定的完整推理鏈路；Factory Tour 導覽系統的訪客互動檔案可在 Hub 上自動版本控制，支援事後完整重建與合規查驗；Tunghai RAG 系統的知識檢索執行跡蹤可無損儲存於 Hub，為大規模學術知識庫系統提供企業級的審計與復原保障。
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangGraph: Agent Orchestration Framework](https://www.langchain.com/langgraph)
 
 ---
