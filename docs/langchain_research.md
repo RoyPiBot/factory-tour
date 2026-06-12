@@ -7566,3 +7566,14 @@ Sources:
 - [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
 - [GitHub - langchain-ai/langgraph: Build resilient agents](https://github.com/langchain-ai/langgraph)
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+
+---
+
+## 518. LangGraph v1.0 穩定里程碑與 ContextHubBackend 新存儲生態——檢查點版本管理與模型互換性保證（2026/06/12）
+
+> **LangGraph 已於 2025 年底正式達到 v1.0 穩定版本，成為 LangChain 官方預設的 Agent Runtime，同步推出 ContextHubBackend 新存儲層，提供基於 LangSmith Hub 的分散式檔案系統後端與完整的版本歷史追蹤機制。（1）v1.0 穩定保證——API 穩定性保證未來三年內無破壞性變更，LangChain 生態全面轉向 LangGraph 作為核心多代理編排引擎，Roy 的 Factory Tour、RAG 系統、NanoClaw 框架可安心鎖定版本號無需頻繁遷移；（2）ContextHubBackend 分散式檢查點——相比本地 SQLite，ContextHubBackend 提供雲端同步、版本回溯、團隊協作等企業級功能，檢查點自動持久化至 LangSmith Hub，支援中斷恢復時的版本選擇與審計日誌；（3）模型互換性層——LangGraph v1.0 抽象化底層 LLM 實現細節，Roy 可在 Claude API、OpenAI GPT-4、Google Gemini 之間無縫切換而無需修改多代理工作流定義，為未來模型更新預留充分升級彈性。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
