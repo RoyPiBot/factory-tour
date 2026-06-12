@@ -7609,4 +7609,15 @@ Sources:
 Sources:
 - [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
 - [langgraph · PyPI](https://pypi.org/project/langgraph/)
+
+---
+
+## 522. LangGraph v1.2.0 內容塊感知流式與多版本 Python 支援——5 月 11 日發佈、Streaming Token 粒度可視化與 Python 3.10-3.14 生態覆蓋（2026/05/11）
+
+> **LangGraph 於 2026 年 5 月 11 日正式釋出 v1.2.0，引進內容塊感知流式傳輸與全面的 Python 版本支援，完善生態相容性並提升前端即時反饋能力。（1）內容塊感知流式——v1.2.0 新增 content-block-aware streaming，按內容塊粒度而非簡單 Token 級進行流式分發，適合 Roy 的 Factory Tour 視訊巡檢時分區展示、Tunghai RAG 結構化答案漸進組裝、NanoClaw 馬達命令參數分步傳遞，提升前端使用者體驗與命令執行精確度；（2）改進 interrupt() 語義——新版本優化人機互動打點的觸發時機與恢復邏輯，支援細粒度的執行流暫停與恢復，完美配合 LangGraph Studio 視覺偵錯工具，Roy 的三大專案可在複雜工作流中更靈活地實現使用者確認、參數修正等互動式步驟；（3）完整 Python 版本覆蓋——LangGraph v1.2.0 正式確認支援 Python 3.10、3.11、3.12、3.13、3.14 全線版本，消除版本碎片化問題，Pi 5 運行的多代理系統可無縫適配未來 OS 與依賴升級，生態成熟度大幅提升。**
+
+Sources:
+- [LangGraph: Agent Orchestration Framework for Reliable AI Agents](https://www.langchain.com/langgraph)
+- [LangGraph Tutorial: Build AI Agents in 13 Steps [2026]](https://tech-insider.org/langgraph-tutorial-python-stateful-agent-13-steps-2026/)
+- [Best AI Agent Frameworks 2026: 7 Production-Tested Rankings](https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026)
 - [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
