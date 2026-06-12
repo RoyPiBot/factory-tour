@@ -7588,3 +7588,14 @@ Sources:
 - [LangGraph · PyPI](https://pypi.org/project/langgraph/)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+
+---
+
+## 520. LangGraph v1.2.4 節點級完整控制與 ContextHubBackend 分散式檔案儲存——精細化超時管理、自適應錯誤恢復與版本化記憶體持久化（2026/06/12）
+
+> **LangGraph 於 2026 年 6 月 2 日正式釋出 v1.2.4，完善節點級控制與新存儲生態，為邊緣設備長時間無人值守多代理系統提供企業級可靠性基礎。（1）精細化超時與錯誤控制——add_node() 新增 timeout= 與 error_handler= 參數，支援 wall-clock（硬時限）與 idle_timeout（進度檢測）雙重超時策略，超時觸發 NodeTimeoutError 時自動清除未完成寫入並遞交至重試策略或自定義恢復函數，完美解決 Roy 的 Factory Tour 長時間工位巡檢卡住問題、Tunghai RAG 外部搜尋引擎超時降級；（2）Graceful Shutdown 優雅停止——Request-drain() 機制允許 in-flight 執行流在當前 superstep 完成後協作停止，檢查點自動保存，下次啟動時無縫恢復執行，確保 NanoClaw nRF54L15 長期硬體驗證中斷後能精確復原，Pi 5 電源管理或系統更新時無資料遺失；（3）ContextHubBackend 版本化檔案儲存——新的 Hub-backed 檔案系統，Agent 技能、記憶、持久化上下文作為 Hub commits 儲存，每次寫入自動生成版本歷史與審計日誌，取代傳統本地 SQLite，相比 DeltaChannel 的增量存儲再加上分散式版本控制，Roy 的三大專案獲得雲端容災、協作編輯、完整追蹤的企業級儲存基礎。**
+
+Sources:
+- [Releases · langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/releases)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
