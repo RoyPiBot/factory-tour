@@ -7632,3 +7632,13 @@ Sources:
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
+
+---
+
+## 524. LangGraph v0.3 核心能力成熟與 MCP 深度整合——檢查點時間旅行、人機互動暫停恢復、模型上下文協議無縫接軌（2026/06/13）
+
+> **LangGraph v0.3 強化了執行圖的核心控制能力與生態協作，為 Roy 的複雜多代理系統注入企業級可觀測性與人機協作基礎。（1）內建檢查點與時間旅行調試——每次狀態轉移自動持久化，開發者與操作員可在 LangGraph Studio 中任意回溯執行歷史、重放特定步驟或檢視中間狀態，特別適合 Factory Tour 複雜工位巡檢序列重現、Tunghai RAG 多輪檢索路徑分析、NanoClaw 馬達命令執行軌跡追蹤；（2）人機互動暫停與恢復——圖執行可在任意節點暫停等待人類審批，恢復時完整還原上下文無需重新計算，非常適合 Roy 三大專案的風險決策點或參數確認環節；（3）MCP 原生支援——LangGraph 與 Anthropic Model Context Protocol 深度整合，多代理可透過 MCP 伺服器獲得結構化工具庫與即時上下文，結合圖的檢查點機制，實現「有狀態、可中斷、可恢復」的代理執行模式，成為 2026 年生產級代理應用的標配。**
+
+Sources:
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
+- [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
