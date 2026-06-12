@@ -7547,6 +7547,17 @@ Sources:
 
 ---
 
+## 517. LangGraph 2026 年 6 月成本優化與可靠性突破——DeltaChannel、型別安全流式 API v2、節點級控制機制（2026/06/12）
+
+> **LangGraph 2026 年 6 月推出三項重磅優化，顯著降低檢查點儲存成本並提升系統可靠性。（1）DeltaChannel Beta——革命性的通道型別，僅儲存每步驟的增量差異而非完整累積值，特別適用於訊息列表等長期增長的狀態，檢查點開銷降低 40-60%，直接減輕 Roy 的 Pi 5 本地儲存壓力，尤其是 Factory Tour 長時間遊客對話與 Tunghai RAG 多輪檢索累積；（2）型別安全流式傳輸 API v2——統一的 StreamPart 結構（type、ns、data 三元組）搭配 TypedDict 編譯期型別檢驗，下游消費端確保型別安全，完美支援 Roy 的視訊即時推流、狀態監控、事件追蹤；（3）節點級控制機制完善——Per-Node Timeout（wall-clock 與 idle 雙重限制）、Node-Level Error Handler（超時後自動恢復）、Graceful Shutdown（優雅停止與檢查點保存），確保 Factory Tour 長執行時代理不會無限卡住，NanoClaw nRF54L15 韌體驗證中斷後能精確恢復，Tunghai RAG 外部 API 故障時自動降級至備用方案，三大機制共同構築企業級高可用多代理系統的基石。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read This](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [Releases · langchain-ai/langgraph · GitHub](https://github.com/langchain-ai/langgraph/releases)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
 ## 517. LangGraph 與 Anthropic MCP 深度融合——Token 級流式傳輸支持 Streaming 工具調用與邊緣設備低延遲優化（2026/06/12）
 
 > **LangGraph 2026 年 6 月完成與 Anthropic Model Context Protocol（MCP）的深度融合，內建 astream_events() v3 API 支持 Token 級流式工具調用，為邊緣設備與實時應用提供毫秒級低延遲保證。（1）Token 級流式工具調用——LangGraph 的 stream_events() 與 MCP 工具層無縫整合，LLM 推理期間以 Token 粒度逐步輸出工具參數與結果，前端無需等待完整推理即可開始執行，特別適合 Roy 的 NanoClaw 馬達控制即時命令分解、Factory Tour 多工位巡檢實時視訊流注入、Tunghai RAG 檢索結果漸進式展示；（2）邊緣設備低延遲優化——Checkpointing + 流式傳輸結合，中斷點自動保存搭配增量式 Token 推送，Pi 5 本地執行的多代理工作流可實現端到端 200-400ms 延遲，徹底解決邊緣設備網路延遲與電源管理挑戰；（3）多框架標準互操作——MCP 作為 Linux Foundation Agentic AI Foundation 標準，LangGraph 的流式支持使 Roy 的三大專案可跨 Claude/GPT-4/Gemini 模型切換，無需重寫多代理編排邏輯，一次投資多年有效**
