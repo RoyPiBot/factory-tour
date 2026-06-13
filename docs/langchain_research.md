@@ -7722,3 +7722,14 @@ Sources:
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [AI Agent Frameworks (2026 Update): 8 SDKs Compared + the Claude Agent SDK Primitive Reference](https://www.morphllm.com/ai-agent-framework)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+
+---
+
+## 531. LangGraph v1.2 故障容錯強化與節點執行精細控制——超時政策、重試機制、錯誤恢復管道完全成熟（2026/06/14）
+
+> **LangGraph v1.2 引進三層故障容錯原始設施，為 Roy 的多代理系統提供企業級韌性與生產可靠性保證。（1）超時政策與節點控制——新增 timeout、run_timeout（硬實時上限）、idle_timeout（進度重置機制），當節點執行超過閾值時自動拋出 NodeTimeoutError 並清空寫入狀態，隨後由重試政策介入，特別適合 Factory Tour 多工位巡檢中的卡頓檢測、Tunghai RAG 檢索超時自動降級、NanoClaw 馬達命令執行時間限制；（2）重試政策與錯誤恢復——RetryPolicy 搭配自動指數退避、Jitter 抖動策略，確保瞬時故障（網路抖動、服務過載）下的自動恢復，同步支援 error_handler 節點捕捉耗盡重試後的故障上下文進行人機互動或降級策略；（3）檢查點導向故障復原——結合 LangGraph 的狀態持久化機制，工作流可在 LLM 供應商故障、網路中斷、伺服器重啟後精確復原至上一個檢查點，無需重新計算前置步驟，成為 2026 年生產級代理的必配故障復原模式。**
+
+Sources:
+- [Fault Tolerance in LangGraph: Retries, Timeouts and Error Handlers](https://www.langchain.com/blog/fault-tolerance-in-langgraph)
+- [Production Multi-Agent System with LangGraph: State Checkpointing, Error Recovery, and Observability](https://markaicode.com/langgraph-production-agent/)
+- [A Beginner's Guide to Handling Errors in LangGraph with Retry Policies](https://dev.to/aiengineering/a-beginners-guide-to-handling-errors-in-langgraph-with-retry-policies-h22)
