@@ -7700,3 +7700,14 @@ Sources:
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 529. LangGraph v1.0 生產級穩定性與自動故障恢復——2025 年 10 月達成 v1.0 里程碑、狀態持久化與檢查點機制深度成熟（2026/06/13）
+
+> **LangGraph 於 2025 年 10 月正式宣布 v1.0 版本發布，成為業界首個承諾「代理存活於伺服器重啟」的圖編排框架，核心承諾是應用狀態自動持久化——即使伺服器中斷或長時間工作流被打斷，代理可從中斷點精確還原，無需額外實現故障恢復邏輯。（1）顯式狀態管理與可減性字段——每個代理追蹤的狀態欄位完全可見，支援自定義欄位合併策略（可減性），檢查點歷史提供完整合規審計軌跡，適合 Roy 的 Factory Tour 多工位狀態同步、Tunghai RAG 多輪檢索歷史追蹤；（2）圖架構相比線性鏈優勢突出——LangGraph 圖基編排勝過 CrewAI 線性異步驅動，尤其在審計需求高、需要精確故障恢復的生產場景；（3）Python 與 JavaScript 雙語言支援——v1.0 同步推出 Python 與 JavaScript SDK，Roy 三大專案可統一技術棧，降低整合複雜度。**
+
+Sources:
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
