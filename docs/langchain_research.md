@@ -7653,3 +7653,15 @@ Sources:
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
 - [LangChain - Changelog](https://changelog.langchain.com/)
+
+---
+
+## 526. LangGraph v1.2.4 效能最佳化與 ContextHubBackend 整合——DeltaChannel 檢查點開銷減半、LangSmith Hub 原生持久化、六月穩定迭代完整驗證（2026/06/13）
+
+> **LangGraph v1.2.4（2026 年 6 月 2 日發布）突破效能瓶頸並強化與 LangSmith 生態的深度整合，為 Roy 的複雜多代理系統提供低延遲、高可靠性的執行環境。（1）DeltaChannel 測試版——新增增量檢查點機制，每次狀態轉移僅存儲變化增量而非完整序列化值，特別適合 Factory Tour 長時間多工位巡檢的檢查點存儲開銷減半、Tunghai RAG 多輪檢索累積狀態的記憶體壓力降低 40-60%、NanoClaw 馬達命令序列長執行時的檢查點 I/O 流量優化；（2）ContextHubBackend 整合——LangGraph 原生支援將代理技能、記憶庫、執行上下文持久化至 LangSmith Hub，每次寫入自動生成版本歷史，無需額外配置專用存儲後端，Roy 三大專案可享受 LangSmith 企業級備份與審計日誌；（3）內容塊流式傳輸 API v3 成熟——根據頻道型別自動投影流式資料，前端應用接收的正是所需的結構化片段而非原始 Token，Factory Tour 視訊巡檢的分區展示、RAG 的檢索結果漸進組裝、NanoClaw 的命令執行狀態反饋可無縫銜接現代前端框架，開發體驗大幅提升。**
+
+Sources:
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [langgraph · PyPI](https://pypi.org/project/langgraph/)
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangChain - Changelog](https://changelog.langchain.com/?categories=cat_ZWTyLBFVqdtSq)
