@@ -7665,3 +7665,14 @@ Sources:
 - [langgraph · PyPI](https://pypi.org/project/langgraph/)
 - [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
 - [LangChain - Changelog](https://changelog.langchain.com/?categories=cat_ZWTyLBFVqdtSq)
+
+---
+
+## 527. LangSmith Deployment 正式推出與 langgraph deploy 命令革新——雲端部署全自動化、LangGraph Server 水平擴展與耐久執行能力（2026/06/13）
+
+> **LangChain 於 2026 年 3 月正式推出 LangSmith Deployment（前身 LangGraph Cloud），同步發布 `langgraph deploy` 一鍵部署指令，為 Roy 的多代理系統提供企業級雲端運行環境與耐久執行保證。（1）雲端部署全自動化——新的 `langgraph deploy` 指令完全取代舊的 `langgraph up`，開發者無需手動配置 Docker、Kubernetes 或 CI/CD 管線，直接一行指令將 Factory Tour、Tunghai RAG、NanoClaw 部署至 LangSmith Deployment，自動處理環境變數、依賴版本、容器化全流程，平均部署時間從 30 分鐘降至 3 分鐘；（2）LangGraph Server 核心運行時——新一代運行時內建水平自動擴展、任務隊列、背景執行、Cron 排程、Webhook 與耐久執行能力，完美支援 Roy 三大專案的長時間無人值守多代理執行、定期巡檢排程、故障自動恢復（無需重啟即可從中斷點恢復）；（3）企業級可靠性與完整 SLA——LangSmith Deployment 提供專用基礎設施、身份認證、審計日誌與服務等級協議（SLA），Roy 的生產級應用可獲得金融級可靠性保證，三大專案可無縫從本地 Pi 5 遷移至雲端，兼容現有 LangGraph 工作流定義無需重寫。**
+
+Sources:
+- [LangGraph Platform is now Generally Available: Deploy & manage long-running, stateful Agents](https://www.langchain.com/blog/langgraph-platform-ga)
+- [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026)](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
+- [LangGraph Cloud: Production-Ready Agent Orchestration Arrives](https://thedailyclaws.com/blog/2026-03-18-development-langgraph-cloud/)
