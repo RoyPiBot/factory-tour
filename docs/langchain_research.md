@@ -7642,3 +7642,14 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph + MCP: Multi-Agent Workflows [2026 Guide]](https://techbytes.app/posts/langgraph-mcp-multi-agent-workflow-guide-2026/)
+
+---
+
+## 525. LangGraph 文件網站全面重建與開發者體驗升級——2026 年 6 月完整官方文檔改版、分級學習路線與互動式 IDE 整合（2026/06/13）
+
+> **LangGraph 於 2026 年 6 月完成官方文件網站（docs.langchain.com）的全面重建，推出分級化學習路線、重新設計的 API 參考與核心教程，著重於新手快速上手與進階用戶深度控制的平衡。（1）分級學習路線——新文檔首頁提供「基礎代理」→「多代理編排」→「生產級可觀測性」三層漸進式教程，Roy 的 Factory Tour 多工位巡檢可直接參考「企業級工作流」分節、Tunghai RAG 檢索系統可按「狀態管理與記憶體」教程設計、NanoClaw 馬達控制可在「邊緣設備優化」章節找到即時性保證；（2）重新設計的 Streaming API 文檔——新文檔完整解釋 v3 內容塊流式傳輸 API，包含 channel-level 型別投影、前端即時反饋架構示例，Roy 的視訊巡檢與檢索結果漸進展示可無縫銜接；（3）LangGraph Studio IDE 與官方文檔同步升級——開發者可在瀏覽器内直接於文檔頁面啟動互動式 IDE 沙箱，邊讀文檔邊編寫與測試代理，大幅降低 Roy 三大專案的開發迭代週期。**
+
+Sources:
+- [Changelog - Docs by LangChain](https://docs.langchain.com/oss/python/releases/changelog)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+- [LangChain - Changelog](https://changelog.langchain.com/)
