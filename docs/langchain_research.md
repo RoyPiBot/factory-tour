@@ -7742,5 +7742,16 @@ Sources:
 
 Sources:
 - [langgraph · PyPI](https://pypi.org/project/langgraph/)
+
+---
+
+## 533. LangGraph v1.2 五層串流架構與零等待實時代理進度展示——五大流模式、事件細粒度 API、生產級企業架構整合完成（2026/06/14）
+
+> **LangGraph v1.2 內置五層流式傳輸模式與細粒度事件 API，實現零等待的實時代理進度展示與用戶體驗升級。（1）五大流模式——支援節點級更新、完整圖狀態快照、Token 逐個發送、子圖組合流式傳輸與混合模式，Roy 的 Factory Tour 多工位巡檢可實時展示「掃描工位中...」→「發現異常...」→「生成報告中...」，Tunghai RAG 可邊檢索邊流式返回答案，無需等待整個檢索完成；（2）用戶體驗飛躍——通過 astream_events 與 FastAPI SSE 集成，可在執行第 200 毫秒時即開始向前端推送進度消息，完全消除「轉圈圈」的空白等待，特別適合網路延遲高或執行時間長的長尾代理任務；（3）企業級架構模式——生產部署推薦採用 API 網關 → LangGraph 編排層 → 無狀態 Docker 代理服務 + Redis 流式檢查點 + PostgreSQL 持久化狀態的五層架構，支援橫向擴展與故障隔離，Roy 的三大專案升級到規模化運營時應參考此模式。**
+
+Sources:
+- [Streaming LangGraph Agents: Real-Time Progress, Token Streaming, and Production Patterns](https://focused.io/lab/streaming-agent-state-with-langgraph)
+- [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
+- [LangGraph Streaming: Real-Time Agent Output Guide](https://machinelearningplus.com/gen-ai/langgraph-streaming-responses-real-time-output/)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
