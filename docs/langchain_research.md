@@ -7733,3 +7733,14 @@ Sources:
 - [Fault Tolerance in LangGraph: Retries, Timeouts and Error Handlers](https://www.langchain.com/blog/fault-tolerance-in-langgraph)
 - [Production Multi-Agent System with LangGraph: State Checkpointing, Error Recovery, and Observability](https://markaicode.com/langgraph-production-agent/)
 - [A Beginner's Guide to Handling Errors in LangGraph with Retry Policies](https://dev.to/aiengineering/a-beginners-guide-to-handling-errors-in-langgraph-with-retry-policies-h22)
+
+---
+
+## 532. LangGraph v1.2 并行分支評估與多日狀態復現——A/B 測試調試、天級長執行復原、JavaScript 全棧統一生態完成（2026/06/14）
+
+> **LangGraph v1.2（2026 年 6 月穩定迭代）引進了并行分支評估機制與增強型多日狀態復現能力，為 Roy 的三大專案提供生產級調試工具與超長工作流支持。（1）并行分支評估——圖執行支援在任意節點創建多個並行分支進行 A/B 測試或探索性調試，每條分支維持獨立的檢查點歷史與狀態快照，Factory Tour 多工位巡檢可並行測試不同工位檢查策略、Tunghai RAG 可同時驗證多種檢索引擎組合、NanoClaw 馬達控制可並行測試不同速度曲線；（2）多日狀態精確復現——持久化檢查點保存完整執行上下文，支援在數天後精確復現任意歷史狀態點，特別適合 Roy 的長時間無人值守代理執行場景，無需重新採集原始數據或重複執行耗時步驟；（3）JavaScript SDK 功能同步——LangGraph JavaScript v1.2 與 Python 版本完全同步，支援所有檢查點、故障恢復、并行評估特性，Roy 可統一前後端使用同一框架，降低多專案間的認知負荷。**
+
+Sources:
+- [langgraph · PyPI](https://pypi.org/project/langgraph/)
+- [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
