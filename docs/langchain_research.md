@@ -7809,3 +7809,17 @@ Sources:
 - [LangGraph Latest Features and 2026 Roadmap - LangChain Blog](https://blog.langchain.com/)
 - [Claude API + LangGraph Integration Guide for 2026](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+
+---
+
+## 539. LangGraph 企業級安全與合規框架——CVE 防護、存取控制、生產部署審計（2026/06/15）
+
+> **LangGraph 在 2026 年上半年發佈企業級安全與合規完整框架，涵蓋漏洞修補、細粒度存取控制與審計能力，成為生產部署的必備基礎。（1）關鍵安全漏洞與修補——2026 年 3 月 LangGraph 披露三大高危漏洞：CVE-2026-34070 路徑遍歷漏洞允許任意檔案訪問、CVE-2025-68664 不安全反序列化導致 API 密鑰洩露（CVSS 9.3）、CVE-2025-67644 SQLite checkpoint SQL 注入，已發佈安全補丁版本 langchain core 1.2.22+、0.3.81、1.2.5，Roy 的三大專案應立即升級以防止企業資料洩露；（2）企業合規與存取控制——LangGraph 支援 GDPR、SOC 2、HIPAA 等行業合規標準，提供自訂驗證、資源級別存取控制、MCP Server 細粒度工具訪問授權，結合 CodeGate 自動機密檢測與 PII 保護，Factory Tour、Tunghai RAG、NanoClaw 可實現完整的審計軌跡與權限隔離；（3）生產部署安全最佳實踐——核心措施包括狀態持久化、錯誤重試、超時控制、監控告警四大柱，支援長時間執行工作流自動恢復、虛擬環境隔離、.env 配置管理、人工審計控制點，確保無人值守場景的企業級韌性與合規性。**
+
+Sources:
+- [LangChain LangGraph 安全漏洞企業資料洩露分析](https://www.techgines.com/post/langchain-langgraph-security-vulnerabilities-expose-enterprise-ai-secrets-three-cves-you-must-patc)
+- [MCP Server with LangGraph 合規與安全](https://mcp-server-langgraph.mintlify.app/security/compliance)
+- [自訂驗證與存取控制 - LangChain 官方](https://blog.langchain.com/custom-authentication-and-access-control-in-langgraph/)
+- [CodeGate 安全層整合](https://dev.to/stacklok/shield-your-agents-integrating-langgraphs-workflows-with-codegates-security-layer-2iik)
+- [HackerNews - LangChain/LangGraph 漏洞曝光](https://thehackernews.com/2026/03/langchain-langgraph-flaws-expose-files.html)
+- [2026 CVE 防護指南](https://beyondscale.tech/blog/langchain-langgraph-security-cve-hardening)
