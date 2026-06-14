@@ -7787,4 +7787,14 @@ Sources:
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
+
+---
+
+## 537. LangGraph 1.2.5 WebSocket 串流與異步線程管理——即時雙向通信、零延遲狀態同步、NanoClaw 實時馬達控制升級基石（2026/06/14）
+
+> **LangGraph 1.2.5（2026年6月穩定版）核心升級聚焦 WebSocket 串流傳輸與異步線程生命週期管理，為 Roy 的 NanoClaw 馬達控制、Factory Tour 即時工位反饋、Tunghai RAG 邊流式檢索提供零延遲的雙向通信基礎。（1）WebSocket 原生支援——新增 async thread stream 與 websocket stream transports，替代傳統 HTTP 輪詢，支援代理端主動推送狀態更新至前端，NanoClaw 馬達控制可實時傳送「馬達轉速 250 RPM」、「溫度 42°C」等感測器數據，無需等待客戶端查詢；（2）異步線程同步域與資源管理——sync scoped subgraphs 改進讓長時間運行的線程在異常中止時自動釋放資源，防止殭屍線程佔用記憶體，特別適合無人值守執行場景；（3）消息與工具投影細粒度控制——支援在傳輸時篩選、過濾、轉換圖狀態，降低網路頻寬與前端處理負荷，例如 Factory Tour 只傳輸「異常項目」而非完整巡檢數據。**
+
+Sources:
+- [LangGraph SDK 0.4.2 Release Notes](https://github.com/langchain-ai/langgraph-sdk)
+- [LangGraph Python 1.2.5 Changelog - PyPI](https://pypi.org/project/langgraph/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
