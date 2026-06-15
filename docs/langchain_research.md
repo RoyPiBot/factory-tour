@@ -7823,3 +7823,12 @@ Sources:
 - [CodeGate 安全層整合](https://dev.to/stacklok/shield-your-agents-integrating-langgraphs-workflows-with-codegates-security-layer-2iik)
 - [HackerNews - LangChain/LangGraph 漏洞曝光](https://thehackernews.com/2026/03/langchain-langgraph-flaws-expose-files.html)
 - [2026 CVE 防護指南](https://beyondscale.tech/blog/langchain-langgraph-security-cve-hardening)
+
+---
+
+## 540. LangGraph Agentic RAG 自主決策與多代理協作——有狀態圖編排、專業化分工、混合記憶層、迭代反思（2026/06/15）
+
+> **LangGraph 驅動的 Agentic RAG 系統於 2026 年完成自反思與多代理架構的成熟度，從傳統線性檢索管道進化為能夠自主規劃、檢索、推理、批評與反思的自治代理，特別適合 Roy 的 Tunghai RAG 與 Factory Tour 多輪決策場景。（1）有狀態圖形編排與持久化檢查點——LangGraph 的 StateGraph 與條件邊界設計讓 RAG 工作流具備長期記憶與人類介入點，Tunghai RAG 可記錄每一輪檢索策略選擇與答案品質評估，支援中斷恢復與迭代改進；（2）多代理協作分工——規劃者（任務分解）、檢索者（查詢重寫）、批評者（自我評估）、推理者（綜合分析）的專業化設計降低單一代理的認知負擔，提升複雜問題的回答準確性與可追蹤性；（3）混合記憶層與自反思——整合向量層（語義相似）、知識圖譜層（實體關係）、情節記憶層（過往執行痕跡），結合 LLM-as-Judge 驗證答案完整性，實現"邊學習邊改進"的自適應 RAG 系統，特別適合領域知識不斷演進的學術研究場景。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph 2026 Edition - Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
