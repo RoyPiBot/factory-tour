@@ -7887,3 +7887,16 @@ Sources:
 - [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Best AI Agent Frameworks 2026: 7 Production-Tested Rankings](https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026)
+
+---
+
+## 546. LangSmith 與 OpenTelemetry 生產可觀測性——統一成本追蹤、執行軌跡分析、端到端性能監控（2026/06/16）
+
+> **LangSmith 於 2026 年成為 AI 多代理系統的業界標準可觀測性平台，與 OpenTelemetry 深度整合實現端到端監控，為 Roy 的三大專案提供生產級的性能洞察與成本控制。（1）統一的工作流成本追蹤——LangSmith 不再僅追蹤 LLM Token 消耗，而是提供全棧成本分解：LLM 呼叫成本、檢索系統 I/O、工具執行開銷、外部 API 費用，Roy 的 Tunghai RAG 與 Factory Tour 可精確瞭解每一輪決策的成本貢獻，優化成本效率；（2）執行軌跡與故障診斷——LangSmith 自動記錄每個代理步驟的執行路徑、狀態轉移、工具呼叫結果，結合 LangGraph 檢查點機制，Roy 可在生產環境快速定位故障點、重放故障場景、迭代修復，無需離線重現；（3）OpenTelemetry 標準化——LangGraph + LangSmith 的原生 OpenTelemetry 儀表化支援，讓可觀測性數據可無縫匯出至 DataDog、SigNoz、Prometheus 等業界工具，避免廠商鎖定，Roy 的監控棧可與現有 Pi 基礎設施整合。**
+
+Sources:
+- [What is LangSmith? 2026 Guide to LLM Observability](https://www.metacto.com/blogs/what-is-langsmith-a-comprehensive-guide-to-llm-observability)
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+- [Observability for AI Agents: LangGraph, OpenAI Agents, and Crew AI](https://www.getmaxim.ai/articles/observability-for-ai-agents-langgraph-openai-agents-and-crew-ai/)
+- [LangChain & LangGraph Observability & Monitoring with OpenTelemetry | SigNoz](https://signoz.io/docs/langchain-observability/)
+- [Why LLM observability and monitoring needs evaluations](https://www.langchain.com/articles/llm-monitoring-observability)
