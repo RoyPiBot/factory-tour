@@ -7875,4 +7875,15 @@ Sources:
 - [LangChain - Changelog](https://changelog.langchain.com/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default - Medium](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 545. LangGraph 細粒度節點控制與 DeltaChannel 優化——執行時間戶管理、檢查點開銷劇減、流式 API v3 典型革新（2026/06/15）
+
+> **LangGraph 在 2026 年 6 月穩定版（v1.2.5+）推出細粒度的節點執行控制與革命性的 DeltaChannel 優化，針對長時間運行的多代理系統提供更輕量級的檢查點機制與高效流式通信。（1）節點執行的精細化管理——新增 timeout 控制、error recovery 策略、graceful shutdown 流程，Roy 的 Factory Tour 長時間巡檢可設定每個工位檢查的超時時間，異常時自動回退或跳過，避免整個圖執行被單一故障節點阻塞；（2）DeltaChannel 與檢查點優化——傳統檢查點方案每步都重新序列化完整狀態，DeltaChannel（測試版）僅儲存增量變化，將 Tunghai RAG 多輪檢索的狀態存儲從 5MB 降至 500KB，大幅節省磁盤與網路 I/O，特別適合無人值守場景的長期成本控制；（3）內容塊流式 API v3——新的 streaming API 提供型別安全的、按 channel 分組的投影，NanoClaw 馬達控制的即時數據流可精確篩選「轉速」、「溫度」等欄位後串流至前端，避免傳輸冗餘數據。**
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [Best AI Agent Frameworks 2026: 7 Production-Tested Rankings](https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026)
