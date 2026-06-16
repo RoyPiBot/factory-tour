@@ -1099,6 +1099,34 @@ Sources:
 
 ---
 
+## 16. LangGraph 1.0 穩定版與檔案格式升級（2026/06）
+
+> **生產環節正式穩定化里程碑**
+
+LangGraph 在 2025 年 10 月發佈 v1.0，標誌著第一個生產級穩定版本。至 2026 年 6 月 12 日最新發佈，進一步優化了狀態管理與後端支援：
+
+### 16.1 v1.0 穩定版特性
+
+- **Durable Agents 承諾**：Agent 能在伺服器重啟後存活，核心依靠 checkpointed state 與 persistent backends
+- **顯式狀態管理**：所有 Agent 追蹤的資訊皆明確定義，無隱式訊息緩衝，每個欄位可見且可縮減（reducible）
+- **原生流式輸出與人類介入**：支援 streaming outputs、human-in-the-loop interrupts，適合長執行時間工作流
+
+### 16.2 最新後端改進（2026/06）
+
+- **二進位檔案支援**：State 與 Store backends 檔案格式升級，支援二進位資料持久化，適合儲存模型權重、影像特徵或序列化 Agent 狀態
+- **改進的錯誤傳播**：從 backends 到 tools 的錯誤現在能更清晰傳播，增強除錯可見性
+- **直接後端實例化**：使用者可直接呼叫 `StateBackend()` 和 `StoreBackend()`，簡化自訂後端整合，特別適合 Pi 5 本地部署場景
+
+此版本完全移除了 LangGraph 1.x 的實驗性標籤，宣告框架已可安心用於生產系統。
+
+Sources:
+- [LangChain - Changelog](https://changelog.langchain.com/)
+- [langgraph · PyPI](https://pypi.org/project/langgraph/)
+- [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
 ## 16. LangGraph v1.0 企業級部署標準化（2026 中期）
 
 > **生產環境成熟度確認**
