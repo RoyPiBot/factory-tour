@@ -7927,3 +7927,14 @@ Sources:
 - [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition) | by Vinod Rane | Medium](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
+
+---
+
+## 549. LangGraph v1.0 狀態檢查點與無縫恢復機制——伺服器重啟後原地復活、Fork 路徑 A/B 測試、企業級長期運作保障（2026/06/16）
+
+> **LangGraph 於 2025 年 10 月宣告 v1.0 生產穩定，核心承諾「Agent 應在伺服器重啟後繼續運作」已在 2026 年完全驗證，透過明確的狀態檢查點機制與持久化層，為 Roy 的多代理系統提供業界最高級的長期可靠性。（1）檢查點驅動的無縫恢復——LangGraph 原生支援狀態自動持久化至 PostgreSQL、Redis 等後端，執行中斷時自動暫停，待服務恢復後從最後檢查點無縫接續，NanoClaw 馬達控制、Factory Tour 多工位巡檢可實現真正無人值守的 24/7 運作，無需人工介入修復；（2）Fork 分岔與 A/B 測試路徑——LangGraph v1.0 支援在任意檢查點分岔多條平行路徑，Factory Tour 發現異常時可同步評估「立即停止」與「記錄後停止」兩條決策，無需重複執行前置邏輯，加速決策驗證與風險評估。**
+
+Sources:
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
