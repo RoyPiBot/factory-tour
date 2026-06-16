@@ -8005,3 +8005,14 @@ Sources:
 ## 552. LangGraph 開源社群驅動與工具市場生態擴張——第三方整合、社區模板、Raspberry Pi 微型部署支援（2026/06/16）
 
 > **LangGraph 於 2026 年上半年在開源社群驅動下快速成長，GitHub 星數超越 3 萬，不僅獲得 Uber、JP Morgan 等企業採用，更涌現數百個社區維護的整合工具與部署範本，特別是針對 Raspberry Pi、邊緣計算等資源受限環境的輕量化方案成熟度大幅提升。（1）第三方工具整合生態——開源社群貢獻了與 FastAPI、asyncio、SQLite 的深度整合範本，Pydantic BaseModel 原生支援，Roy 的三大專案無需自行編寫適配層，可直接使用社區驗證的「LangGraph + Claude 4.6 + MCP + SQLite」堆棧部署至 Raspberry Pi 5；（2）微型部署優化與本地優先策略——社區針對邊緣設備提供輕量化檢查點方案（本地檔案系統、SQLite 代替 PostgreSQL），將狀態持久化的記憶體與磁碟開銷大幅降低，Roy 可在 16GB RAM Pi 上同時運行三大專案的長期無人值守工作流；（3）生產驗證與企業信心強化——LangGraph v1.0 於 2026 年 6 月 12 日確認最新穩定版本，月下載量達 9000 萬，開源社群與企業應用的正反饋迴圈已形成，確保 Roy 的微型部署具備長期商業級的支援保障。**
+
+---
+
+## 554. LangGraph v0.4 時間旅行除錯與子圖模組化設計——狀態回溯、人機協作、企業級調試透明度（2026/06/17）
+
+> **LangGraph 於 2026 年 4 月發布 v0.4 版本，完善了時間旅行除錯、子圖模組化與人-機迴圈控制機制，為企業級多代理系統提供生產環境必需的可觀測性與調試能力。（1）時間旅行除錯與狀態回溯——每個狀態轉移自動持久化，開發者與維運人員可直接「回到過去」任意檢查點，檢視代理的完整決策路徑、工具呼叫順序、LLM 推理過程，Factory Tour 多工位巡檢發現異常時可追蹤歷史決策，NanoClaw 馬達控制失誤可復現完整執行軌跡；（2）子圖模組化與分佈式編排——多個獨立代理團隊可封裝為子圖在更大編排圖中並行執行，狀態自動合併，Roy 可將「異常檢測子圖」與「決策執行子圖」獨立開發與測試，再組合成完整工作流；（3）人-機迴圈的精細控制——interrupt_before 機制可在任意節點暫停圖執行，等待人工審批，執行恢復後自動續行，Tunghai RAG 的關鍵決策可由人工把關，確保長期無人值守運作的安全邊界。**
+
+Sources:
+- [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
+- [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+- [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
