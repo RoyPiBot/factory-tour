@@ -7949,3 +7949,14 @@ Sources:
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+
+---
+
+## 551. LangGraph 與 LangChain 的功能邊界與選擇決策樹——低階狀態編排 vs 高階鏈式構圖、Roy 的微型部署最佳實踐（2026/06/16）
+
+> **2026 年 LangChain 與 LangGraph 的生態分工已完全確立：LangChain 為高階鏈式 RAG、少步驟工作流，LangGraph 為低階多代理狀態編排、長執行、複雜分岔；Roy 的三大專案（Factory Tour 多工位巡檢、Tunghai RAG 查詢路由、NanoClaw 馬達控制）均屬多步驟高複雜度場景，應優先採 LangGraph。（1）功能邊界——LangChain 擅長「問題→檢索→生成」線性管道，LangGraph 強於「狀態→多路徑決策→條件分岔→檢查點恢復」的非線性流程，Factory Tour 的「發現異常→並行診斷→風險評估→決策執行」典型的分岔與同步場景，必須用 LangGraph；（2）持久化與資源成本——LangGraph 原生支援 PostgreSQL 與 Redis 檢查點，但 Roy 的 Raspberry Pi 可改用本地 SQLite 或檔案系統後端減輕負擔，LangChain 則需額外自行實作狀態管理，反而增加複雜度；（3）長執行保障——NanoClaw 24 小時無人值守控制、Tunghai RAG 跨日期會話持續，LangGraph 的狀態持久化與無縫恢復是核心優勢，LangChain 單獨無法提供此保障。**
+
+Sources:
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+- [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
+- [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
