@@ -8093,3 +8093,14 @@ Sources:
 - [Human-in-the-Loop - LangGraph](https://www.baihezi.com/mirrors/langgraph/how-tos/human-in-the-loop/index.html)
 - [Human-in-the-Loop Agents: Steering AI with LangGraph's Streaming, Breakpoints (Part 3)](https://aipractitioner.substack.com/p/human-in-the-loop-agents-steering)
 - [How to Build Human-in-the-Loop Plan-and-Execute AI Agents with Explicit User Approval Using LangGraph and Streamlit - MarkTechPost](https://www.marktechpost.com/2026/02/16/how-to-build-human-in-the-loop-plan-and-execute-ai-agents-with-explicit-user-approval-using-langgraph-and-streamlit/)
+
+---
+
+## 561. LangGraph v1.2.5 型別安全流式執行與分佈式復原能力強化——TypeScript 型別保障、節點逾時控制、DeltaChannel 記憶體最佳化（2026/06/18）
+
+> **LangGraph 於 2026 年 6 月 12 日發布 v1.2.5 版本，重點強化型別安全、結點級控制粒度與長期執行的記憶體效率，進一步鞏固其在企業級多代理編排中的領導地位。核心強化：（1）型別安全流式輸出與 TypeScript 原生支援——新版本推出 `version="v2"` 統一流式格式 StreamPart，搭配 `type-safe invoke` 返回結構化 GraphOutput 物件（`.value` 與 `.interrupts` 屬性），Roy 的 Raspberry Pi 後端可直接型別檢查，無需手工序列化反序列化，Factory Tour 多工位檢測流程的代理決策可透過 TypeScript 型別系統直接驗證；（2）節點級超時與故障恢復精細化——LangGraph 支援 per-node timeouts，可設定單一節點的執行時間上限（硬時限或空閒時限），逾時自動觸發 NodeTimeoutError，代理轉向重試策略或節點級錯誤處理函式，確保 Tunghai RAG 的緩慢查詢不會阻斷其他工作流；（3）DeltaChannel（測試版）與檢查點效率倍增——新增 DeltaChannel 通道型別，每步僅存儲增量差異而非完整狀態，大幅降低長期執行線程的磁碟與記憶體開銷，Roy 的 NanoClaw 24/7 馬達控制日誌體積可減半。**
+
+Sources:
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
