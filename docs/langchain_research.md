@@ -8016,3 +8016,14 @@ Sources:
 - [LangGraph Agents in Production: Architecture, Costs & Real-World Outcomes](https://www.alphabold.com/langgraph-agents-in-production/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026/)
+
+---
+
+## 555. LangGraph 實時流式輸出與 Token 級粒度控制——多模式 Streaming、WebSocket 無延遲互動、微型介面快速響應保障（2026/06/17）
+
+> **LangGraph 於 2026 年上半年完善了多層級流式輸出機制，支援 Token 級細粒度、節點狀態快照、完整圖狀態三種 stream_mode，配合 FastAPI SSE 與 WebSocket 後端，為 Raspberry Pi 微型部署提供零延遲的實時互動體驗，使用者無需等待整句生成，可逐詞逐行接收代理的推理過程。（1）Token 級流式輸出——LangGraph 原生支援 `stream_mode="messages"` 進行子訊息分塊輸出，長句子可按單詞或數字逐次送達，Factory Tour 的異常檢測代理無需等待完整診斷報告，可實時展示「搜尋異常庫存...」→「發現 3 個異常...」→「計算風險等級...」的過程通知；（2）多模式靈活選擇——`stream_mode="updates"` 用於節點級監控、`stream_mode="values"` 用於完整圖狀態快照，Roy 可根據前端需求自由切換，NanoClaw 馬達控制可按 Token 實時顯示決策邏輯，Tunghai RAG 查詢則以節點層級監控提升效率；（3）零延遲 UI 整合——透過 astream_events 與 FastAPI SSE 或 WebSocket，直接驅動前端實時更新，無需輪詢或長連線延遲，Raspberry Pi 5 上的三大專案可同時為多用戶提供低延遲的即時互動，成本開銷最小化。**
+
+Sources:
+- [Streaming Responses in LangGraph: 3 Practical Patterns Every Agent Developer Should Know](https://medium.com/algomart/streaming-responses-in-langgraph-3-practical-patterns-every-agent-developer-should-know-2839f572d057)
+- [LangGraph 8 — Streaming](https://medium.com/@abhishekjainindore24/langgraph-8-streaming-5e2cecc994b8)
+- [Streaming - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/streaming)
