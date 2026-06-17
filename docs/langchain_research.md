@@ -8049,3 +8049,14 @@ Sources:
 - [LangGraph 与 AI Agent 版本兼容性、环境稳定性与长期维护指南（2026）](https://blog.csdn.net/fenglingguitar/article/details/160452001)
 - [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [2026 Multi-Agent 框架终极对比:LangGraph、CrewAI、AutoGen 谁才是真·编排之王?](https://k.sina.com.cn/article_7857201856_1d45362c00190413au.html)
+
+---
+
+## 558. LangGraph v1.0 正式確立企業標準地位——自動檢查點、狀態持久化與合規審計(2026/06/17)
+
+> **LangGraph 於 2025 年 10 月 22 日達成 v1.0 里程碑，正式成為 LangChain 代理框架的預設執行時，併在 2026 上半年超越 CrewAI GitHub Stars，企業採用率持續上升。核心特性：（1）狀態持久化與自動恢復——每個欄位可見、可縮減、自動檢查點，服務器重啟或工作流中斷後可精確恢復至上一檢查點，無損上下文；（2）平行分支評估——在檢查點 N 分岔多條執行路徑，支援 Python 與 JavaScript 雙語言運行時；（3）合規審計能力——checkpoint 歷史提供審計軌跡，滿足受規管產業合規需求。對 Roy 的 Raspberry Pi 無人值守場景而言，此特性確保長期穩定性與故障恢復力。**
+
+Sources (WebSearch 2026/06/17):
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026](https://www.spheron.network/blog/langgraph-vs-langchain/)
+- [LangChain 1.0 vs LangGraph 1.0: Which One to Use in 2026](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
