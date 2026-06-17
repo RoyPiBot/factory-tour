@@ -8082,3 +8082,14 @@ Sources:
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+
+---
+
+## 560. LangGraph Streaming v2 與人機迴圈深化——stream_mode 統一格式、顯式核准機制、實時令牌可觀測性強化（2026/06/18）
+
+> **LangGraph 於 2026 年上半年進一步深化 Streaming API 與人機迴圈的整合，推出統一的 v2 格式支援同時串流多種資料型態。核心升級：（1）複合串流模式——`stream_mode=['updates', 'messages']` 配合 `version="v2"` 可同步串流代理進度與 LLM Token，提供完整可觀測性，Roy 的 Raspberry Pi 可即時監控多代理執行狀態與推理過程；（2）顯式核准與狀態持久化——人機迴圈中間件於工具執行前暫停，等待外部決策，圖狀態自動通過持久層保存，無需手工檢查點管理，Factory Tour 異常判定、Tunghai RAG 查詢驗證可由此機制安全實施；（3）實踐案例確立——2026 年 2 月起已有成熟範例展示旅遊預訂代理於執行工具前先公開草稿方案，待使用者檢視、編輯或駁回後才執行，此模式適用 Roy 三大專案的決策關鍵路徑。**
+
+Sources:
+- [Human-in-the-Loop - LangGraph](https://www.baihezi.com/mirrors/langgraph/how-tos/human-in-the-loop/index.html)
+- [Human-in-the-Loop Agents: Steering AI with LangGraph's Streaming, Breakpoints (Part 3)](https://aipractitioner.substack.com/p/human-in-the-loop-agents-steering)
+- [How to Build Human-in-the-Loop Plan-and-Execute AI Agents with Explicit User Approval Using LangGraph and Streamlit - MarkTechPost](https://www.marktechpost.com/2026/02/16/how-to-build-human-in-the-loop-plan-and-execute-ai-agents-with-explicit-user-approval-using-langgraph-and-streamlit/)
