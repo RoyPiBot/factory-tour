@@ -8114,3 +8114,14 @@ Sources:
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
+
+---
+
+## 563. LangGraph 長期記憶體架構與生產部署優化——PostgreSQL+向量資料庫、記憶體成長管理、v1.1 中間件生態（2026/06/18）
+
+> **LangGraph 於 2026 年產業實踐中確立了長期記憶體與生產部署的最佳實踐路徑，PostgreSQL+Redis+向量資料庫三層架構已成企業級代理系統的標準配置。核心設計：（1）分層長期記憶體與狀態分離——短期記憶體（上下文窗口）與長期記憶體（跨對話持久層）明確分離，使用 AsyncPostgresStore 或 MongoDB 儲存記憶體，搭配 pgvector/Pinecone/Weaviate 向量資料庫進行語義檢索，確保代理狀態最小化（類型化）而非臃腫，Factory Tour 與 Tunghai RAG 的多輪對話記憶可透過此機制實現跨會話持久化；（2）記憶體成長與清理策略——生產環境須主動監控記憶體增長速率、調整清理頻率與檢索精度，失敗專案往往源於將所有資料塞進 state 而非使用專門記憶體存儲，Roy 的 Raspberry Pi 資源受限，此策略尤為關鍵；（3）v1.1+ 生產級中間件與自動化部署——LangGraph v1.1（2025 年 12 月）引入模型重試中間件（指數退避）與內容審核中間件，langgraph deploy（2026 年 3 月）自動化雲端部署流程，整合 checkpoint 與監控，Roy 三大專案可基於此快速迭代生產環境。**
+
+Sources:
+- [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026)](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
+- [Building Long-Term Memory in AI Agents with LangGraph and Mem0](https://www.digitalocean.com/community/tutorials/langgraph-mem0-integration-long-term-ai-memory)
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
