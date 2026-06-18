@@ -8172,3 +8172,14 @@ Sources (WebSearch 2026/06/18):
 - [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
 - [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
 - [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
+
+---
+
+## 567. LangGraph 檢查點持久化與線程管理——Memory/SQLite/PostgreSQL 三層儲存、時光旅行除錯、分佈式橫向擴展（2026/06/19）
+
+> **LangGraph 於 2026 年確立檢查點（Checkpoint）為代理持久化的核心機制，每步自動序列化圖狀態並儲存到可插拔的後端，實現暫停/恢復、時光旅行除錯與多實例橫向擴展的一流支援。關鍵設計：（1）線程隔離與狀態快照——每個對話或任務以 thread_id 標識，LangGraph 在每步轉換後自動存儲新檢查點而非覆寫舊狀態，支援 Memory（開發測試）、SQLite（文件持久化）與 PostgreSQL（高可用性）三層後端，Roy 的 Raspberry Pi 多代理系統可透過 SQLite 實現無人值守恢復，Factory Tour 異常中斷能自動從上一檢查點恢復；（2）時光旅行除錯與失敗重放——LangGraph 保留所有檢查點歷史，開發者可從任意檢查點分支執行、重放失敗案例、檢查各節點狀態，除錯時間減少 60% 以上；（3）LangGraph v1.2（2026/05/11）生產強化——官方發布將代理執行視為耐久圖執行而非 Python 函式呼叫，每次中斷（逾時、人工審批、服務重啟）都自動檢查點保存，Tunghai RAG 多輪對話與 NanoClaw 馬達控制日誌可透過此機制確保數據完整性。**
+
+Sources (WebSearch 2026/06/19):
+- [LangGraph Persistence Guide: Checkpointers & State (2026)](https://fast.io/resources/langgraph-persistence/)
+- [Mastering Persistence in LangGraph: Checkpoints, Threads, and Beyond](https://medium.com/@vinodkrane/mastering-persistence-in-langgraph-checkpoints-threads-and-beyond-21e412aaed60)
+- [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
