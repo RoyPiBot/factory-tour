@@ -8103,4 +8103,14 @@ Sources:
 Sources:
 - [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
 - [LangGraph Multi-Agent Workflows: Complete Guide with Code (2026)](https://www.lifetideshub.com/langgraph-multi-agent-workflows-2026)
+
+---
+
+## 562. LangGraph 優雅關閉與分佈式故障復原——RunControl.request_drain()、節點級超時、企業級復原力（2026/06/18）
+
+> **LangGraph 於 2026 年上半年推出優雅關閉（Graceful Shutdown）機制與節點級超時控制，進一步強化長期無人值守工作流的可靠性與復原能力，特別針對 Raspberry Pi 微型部署的電源變動、網路中斷、資源短缺等邊緣環境挑戰。核心強化：（1）優雅關閉與狀態持久化——RunControl.request_drain() 允許代理在完成當前超步（superstep）後安全關閉，自動存儲可恢復的檢查點，無需強制中止工作流導致狀態損毀，Roy 的 Raspberry Pi 可於電源管理或系統更新前安全暫停，恢復後無縫續行；（2）節點級超時控制——add_node 支援 run_timeout（硬時限）與 idle_timeout（空閒時限），逾時自動觸發 NodeTimeoutError，觸發重試策略或節點級錯誤處理函式，Tunghai RAG 的緩慢向量資料庫查詢不會阻斷整個工作流；（3）分佈式復原與多後端支援——DeltaChannel 與 ContextHubBackend 提供增量存儲與版本管理，配合 SQLite 或 Redis 檢查點後端，Roy 的三大專案可在資源受限環境實現十小時級無人值守穩定運行。**
+
+Sources:
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph Explained (2026 Edition)](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
 - [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
