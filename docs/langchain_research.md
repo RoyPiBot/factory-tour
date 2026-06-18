@@ -8161,3 +8161,14 @@ Sources:
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
 - [Introduction - LangMem](https://langchain-ai.github.io/langmem/)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+
+---
+
+## 566. LangGraph v1.0 穩定性承諾與 90 百萬月下載量驗證——零破壞性更新、2.0 前穩定 API、企業級可靠性確立（2026/06/18）
+
+> **LangGraph 於 2026 年正式確立 v1.0 穩定性承諾，月下載量突破 90 百萬，超越所有開源多代理框架，Uber、JP Morgan、BlackRock、Cisco 等企業級用戶已大規模驗證其可靠性。核心保證：（1）零破壞性更新承諾——LangGraph 官方保證 v1.0 至 v2.0 期間所有更新均完全向後相容，無需擔心升級導致既有代碼失效，Roy 的三大專案（Factory Tour、NanoClaw、Tunghai RAG）可安心依賴此版本進行長期維護與迭代；（2）預構建模組體系完善化——langgraph.prebuilt 已棄用但功能全部遷移至 langchain.agents，提供更清晰的模組化架構與更豐富的代理範本（ReAct、Plan-and-Execute、Graph-RAG 等），降低新代理開發的複雜度；（3）多語言與多環境成熟支援——Python 3.10+ 與 JavaScript 雙運行時已達生產級穩定性，Raspberry Pi 上的 Python 後端與前端 Node.js 可無縫整合，企業級多語言協作無障礙。**
+
+Sources (WebSearch 2026/06/18):
+- [LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones](https://blog.langchain.com/langchain-langgraph-1dot0/)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [State of Agent Engineering](https://www.langchain.com/state-of-agent-engineering)
