@@ -8182,4 +8182,15 @@ Sources (WebSearch 2026/06/18):
 Sources (WebSearch 2026/06/19):
 - [LangGraph Persistence Guide: Checkpointers & State (2026)](https://fast.io/resources/langgraph-persistence/)
 - [Mastering Persistence in LangGraph: Checkpoints, Threads, and Beyond](https://medium.com/@vinodkrane/mastering-persistence-in-langgraph-checkpoints-threads-and-beyond-21e412aaed60)
+
+---
+
+## 568. LangGraph 2026 工具返回命令式與流式架構完善——Command 物件直接控制、多重串流模式、Raspberry Pi 實時監控支援（2026/06/19）
+
+> **LangGraph 於 2026 年進一步完善工具返回機制與串流架構，推出 Command 物件並支援多重串流模式，使代理工具能直接控制圖狀態與控制流。核心突破：（1）命令式工具返回與狀態控制——工具可返回 Command 物件而非單純結果，直接更新圖狀態、觸發路由決策或動態調整執行流程，Factory Tour 多工位異常檢測工具可直接命令跳過某工位或重新執行檢驗，無需額外的狀態機層；（2）複合串流模式強化觀測性——`stream_mode=['updates', 'messages']` 搭配 `version="v2"` 可同時串流多種資料型態，Roy 的 Raspberry Pi 可即時監控代理進度、LLM Token 消耗與工具執行結果，三大專案的實時儀表板支援全面提升；（3）應用場景驗證——生產環境已確認此架構適配旅遊預訂、客服工作流與工業檢測等複雜場景，LangGraph 生態成熟度進一步確立為多代理開發首選。**
+
+Sources:
+- [LangGraph 与 AI Agent 版本兼容性、环境稳定性与长期维护指南（2026）](https://blog.csdn.net/fenglingguitar/article/details/160452001)
+- [Agent 框架 2026 最新更新与实践指南 | LearnAgent](https://learnagent.org/library/playbooks/framework-updates-2026/)
+- [LangGraph完整教程（2026版）构建智能Agent工作流，掌握2025-2026年大模型开发新特性](https://gitcode.csdn.net/69ba3c8b0a2f6a37c5984d03.html)
 - [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
