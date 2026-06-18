@@ -898,6 +898,19 @@ LangGraph 2026 Q1 發布了**全新 v2 API**，為流式和同步呼叫增添型
 - [LangChain Changelog](https://changelog.langchain.com/)
 - [langgraph-supervisor GitHub](https://github.com/langchain-ai/langgraph-supervisor-py)
 
+## 10. 2026 Q2-Q3 進階特性補充
+
+> **2026-06 補充更新**：生產級 LangGraph 新機制
+
+### 10.1 Node 級別的超時與容錯機制
+
+LangGraph 2026 中期發布增強了單點故障復原能力：
+
+- **Per-node 超時設定**：每個節點支援硬性時間限制或空閒超時，超出時拋出 `NodeTimeoutError`
+- **Node-level 錯誤處理器**：可將恢復函數註冊至 `add_node()`，在重試耗盡後自動執行補償邏輯（支援 Saga 模式）
+- **協同關閉（Graceful Shutdown）**：允許在當前 superstep 完成後優雅停止進行中的執行，同時儲存可恢復的 checkpoint
+- **DeltaChannel（測試版）**：新增增量儲存通道類型，僅記錄每步的增量變化而非完整序列化，降低記憶體開銷 40%+
+
 ## 10. 2026 Protocol 標準化與產業生態成熟
 
 > **2026-04 新增**：MCP 與 A2A 標準化
