@@ -8137,4 +8137,16 @@ Sources:
 Sources:
 - [LangGraph Studio Production Deployment on GPU Cloud: Self-Hosted Multi-Agent Workflows (2026)](https://www.spheron.network/blog/langgraph-studio-production-deployment-gpu-cloud/)
 - [Building Long-Term Memory in AI Agents with LangGraph and Mem0](https://www.digitalocean.com/community/tutorials/langgraph-mem0-integration-long-term-ai-memory)
+
+---
+
+## 564. LangGraph Hindsight 記憶體層與 MongoDB TTL 自動清理——事實提取、語義向量檢索、並行回憶策略（2026/06/18）
+
+> **LangGraph 生態中 Hindsight 記憶體層與 MongoDB 整合提供了自動化事實提取與過期數據清理的完整解決方案，特別適用 Roy 三大專案的長期無人值守運行。核心機制：（1）自動事實提取與實體圖構建——Hindsight 於每輪對話後自動抽取結構化事實、構建實體之間的關係圖，建立語義索引供後續檢索，4 種並行回憶策略（稠密檢索、稀疏檢索、圖遍歷、時間感知）確保高效率上下文召回，Factory Tour 異常檢測歷史與 NanoClaw 馬達故障模式可透過此機制自動學習；（2）MongoDB Atlas Vector Search + TTL 索引雙層清理——MongoDB 原生支援向量語義檢索（非關鍵字匹配），自動與 LangGraph TTL 系統整合，過期記憶體即時刪除，Tunghai RAG 的查詢日誌與 Roy 的 Raspberry Pi 資源受限環境中記憶體膨脹問題迎刃而解；（3）Redis vs SQLite 並發選擇——高並發代理系統（如多工位工業檢測）須用 Redis 以取代 SQLite，確保讀寫效能不成為工作流瓶頸，大狀態序列化時間最小化。**
+
+Sources:
+- [LangGraph Memory Implementation Best Practices: Avoid These Common Mistakes](https://langchain-tutorials.github.io/langgraph-memory-implementation-best-practices-mistakes/)
+- [Adding Long-Term Memory to LangGraph and LangChain Agents](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
+- [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
+- [Introduction - LangMem](https://langchain-ai.github.io/langmem/)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
