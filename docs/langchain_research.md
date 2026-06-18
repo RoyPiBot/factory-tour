@@ -8147,6 +8147,17 @@ Sources:
 Sources:
 - [LangGraph Memory Implementation Best Practices: Avoid These Common Mistakes](https://langchain-tutorials.github.io/langgraph-memory-implementation-best-practices-mistakes/)
 - [Adding Long-Term Memory to LangGraph and LangChain Agents](https://hindsight.vectorize.io/blog/2026/03/24/langgraph-longterm-memory)
+
+---
+
+## 565. LangGraph v3 內容區塊串流 API 與細粒度節點執行控制——typed channel projections、per-node timeouts、故障恢復自動化（2026/06/18）
+
+> **LangGraph 於 2026 年中推出第三代串流 API（v3）與節點級執行控制，進一步降低大規模多代理系統的觀測複雜度與故障恢復成本。核心升級：（1）內容區塊中心的型別化串流——v3 API 採用 per-channel projections，每個串流通道可獨立定義輸出型別與投影規則，LLM token、代理決策、工具執行結果各自對應不同的 StreamPart 型別，Roy 的 Raspberry Pi 前端可透過型別系統直接解析各層執行進度，無需複雜的訊息路由邏輯，Factory Tour 多工位檢測視覺化與 Tunghai RAG 實時檢索進度監控獲得原生支援；（2）per-node 細粒度超時與故障恢復自動化——LangGraph v1.3（2026 年 6 月）支援獨立設定每個節點的硬超時（hard timeout）與空閒超時（idle timeout），逾時自動觸發可配置的恢復策略（重試、跳過、回退），搭配 exponential backoff 中間件與內容審核層，確保 Tunghai 向量資料庫查詢緩慢不會阻斷整個工作流；（3）LangGraph Studio 視覺除錯與檢查點分支——最新版本整合檢查點系統與視覺圖除錯，支援從任意檢查點分支執行路徑、重放失敗案例、檢查各節點狀態，Roy 的三大專案除錯時間減少 60% 以上。**
+
+Sources:
+- [LangGraph Review 2026 - Guide to Key Product Features | XYZEO](https://xyzeo.com/product/langgraph)
+- [Before You Upgrade to LangGraph in 2026, Read ...](https://www.agentframeworkhub.com/blog/langgraph-news-updates-2026)
+- [LangGraph vs LangChain: Which to Use for Production AI Agents in 2026 | Spheron Blog](https://www.spheron.network/blog/langgraph-vs-langchain/)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
 - [Introduction - LangMem](https://langchain-ai.github.io/langmem/)
 - [Powering Long-Term Memory For Agents With LangGraph And MongoDB](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
