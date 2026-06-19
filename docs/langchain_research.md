@@ -1447,6 +1447,17 @@ Sources:
 
 LangGraph v0.3（2026 年 4 月發佈）為 JavaScript/TypeScript 生態帶來重大突破。`.stream()` 方法實現完全型別安全，回傳依 `streamMode` 而定的狀態更新與值；新增 `.addNode()` 與 `.addSequence()` 方法簡化 StateGraph 構建，大幅減少樣板代碼。同時，Python 端的自動型別強制轉換（Automatic Type Coercion）確保 `invoke()` 與 `stream()` 輸出自動轉換為宣告的 Pydantic 或 dataclass 型別，顯著降低序列化複雜度。此特性對 Pi 5 上的 OpenClaw 多渠道系統特別重要——前端與後端代理可保持型別一致，減少 API 邊界的運行時錯誤，提升整體系統穩定性。
 
+---
+
+## 26. LangGraph v3 事件流 API 與 DeltaChannel 最佳化（2026/05-06）
+
+> **超低成本長線程支援，checkpoints 與 streaming 效率翻新**
+
+LangGraph 2026 年中期推出 **v3 event-streaming API**，提供型別化、per-channel 投影，完整支援 token delta、推理 delta、工具呼叫片段、per-node 狀態、子圖事件、與使用統計元數據。新增 **DeltaChannel** 實現則專為長運行線程優化，僅存儲每步增量寫入而非全量序列化，大幅降低 checkpoint 大小。結合 5 月更新的節點級超時、錯誤恢復、與優雅關閉機制，LangGraph 現已成為邊緣推論與云端協作最理想的基礎框架。Pi 5 上的 Factory Tour 與持續監測系統可充分利用此機制，實現數周連續運行而無須重啟，同時 streaming 成本大幅下降。
+
+Sources:
+- [LangGraph v3 Event Streaming: Typed Projections Over a Content-Block Protocol](https://vadim.blog/langgraph-v3-event-streaming-typed-projections)
+
 Sources:
 - [LangGraph in 2026: Build Multi-Agent AI Systems That Actually Work - DEV Community](https://dev.to/ottoaria/langgraph-in-2026-build-multi-agent-ai-systems-that-actually-work-3h5)
 - [LangGraph Release Week Recap](https://blog.langchain.com/langgraph-release-week-recap/)
