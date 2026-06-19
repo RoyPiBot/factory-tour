@@ -263,6 +263,7 @@ v2.1 — 整合東海大學 RAG 專案（方案A）
 # 🔧 2026-06-03 Roy 的 AI 助理：此段確保所有核心依賴正常載入，支援非同步事件迴圈與 WebSocket 通信
 # 🌍 2026-06-09 最新驗證：系統核心依賴已完全初始化，多 Agent 架構準備就緒
 # 💚 2026-06-19 預備啟動：確認所有異步模組與依賴已就位，即將進入事件迴圈初始化階段
+# 🔥 核心基礎：asyncio 驅動 FastAPI 非同步事件迴圈，支援高併發 WebSocket 連線與多 Agent 協作
 import asyncio
 import json
 import logging
