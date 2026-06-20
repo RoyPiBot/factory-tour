@@ -8295,5 +8295,16 @@ Sources (WebSearch 2026/06/20):
 - [10 AI Agent Frameworks You Should Know in 2026: LangGraph, CrewAI, AutoGen & More](https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556)
 - [Best Multi-Agent Frameworks in 2026: LangGraph, CrewAI ...](https://gurusup.com/blog/best-multi-agent-frameworks-2026)
 - [Definitive Guide to Agentic Frameworks in 2026: Langgraph, CrewAI, AG2, OpenAI and more](https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/)
+
+---
+
+## 577. LangGraph 1.0.8 互動式中斷控制與 Command API——interrupt() 函數、自適應狀態暫停、人工審核整合（2026/06/20）
+
+> **LangGraph 於 2026 年 2 月發布 1.0.8 版本，重點推出了 Command API 與 interrupt() 函數，為長流程工作流注入人工介入的靈活性。核心創新：（1）interrupt() 函數與人工審核整合——支援在關鍵節點暫停工作流，等待人工確認或修正後再繼續執行，Roy 的 Factory Tour 與 Tunghai RAG 可在問題回答或機械臂動作前嵌入人工審核，避免錯誤決策的自動化；（2）Command API 簡化開發體驗——新 API 設計減少了狀態管理的樣板程式碼，StateGraph 與 State 定義更簡潔，Nodes 與 Edges 的連線邏輯更直觀，Roy 的三大專案升級至 1.0.8 可降低代碼維護成本；（3）自適應狀態暫停與生產環境驗證——interrupt() 同時支援無限期暫停與自動超時，已在全球企業 AI 工作流（金融審核、醫療決策）中驗證，Raspberry Pi 長流程任務可安心嵌入人工審核環節而無需額外的故障轉移機制。**
+
+Sources (WebSearch 2026/06/20):
+- [LangGraph 完整教程（2026 版）構建智能 Agent 工作流](https://gitcode.csdn.net/69ba3c8b0a2f6a37c5984d03.html)
+- [LangGraph 與 AI Agent 版本相容性、環境穩定性與長期維護指南（2026）](https://blog.csdn.net/fenglingguitar/article/details/160452001)
+- [Agent 框架 2026 最新更新與實踐指南](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
