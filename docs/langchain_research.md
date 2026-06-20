@@ -8308,3 +8308,14 @@ Sources (WebSearch 2026/06/20):
 - [Agent 框架 2026 最新更新與實踐指南](https://learnagent.org/library/playbooks/framework-updates-2026/)
 - [LangGraph State Management: Checkpoints, Thread State, and Failure Recovery · BetterLink Blog](https://eastondev.com/blog/en/posts/ai/20260424-langgraph-agent-architecture/)
 - [LangGraph Multi-Agent Orchestration 2026: Complete Enterprise Guide [7 Patterns]](https://devops.gheware.com/blog/posts/langgraph-multi-agent-orchestration-enterprise-2026.html)
+
+---
+
+## 578. Agentic RAG 與 LangGraph 融合——2026 的檢索推理新範式、自適應知識迭代、多輪對話狀態保留（2026/06/20）
+
+> **傳統 RAG 已進化為 Agentic RAG，LangGraph 的狀態管理機制為複雜的多輪推理提供了堅實基礎。核心進展：（1）檢索→推理→反思的閉環自動化——Agentic RAG 在 LangGraph 的有狀態框架下實現自主規劃（計劃檢索策略）→批判性檢索（多來源驗證）→推理精化（邏輯鏈接）→自我反思（結果評估）的完整迴圈，相比單次檢索回答的準確度提升 40-60%，Roy 的 Tunghai RAG 可升級至此模式；（2）跨會話知識記憶與自適應迭代——LangGraph 的多會話檢查點機制允許 RAG 系統記住使用者的歷史查詢、已驗證的回答與知識缺口，下次使用時自動調整檢索策略與回答框架，無需重新解釋上下文；（3）生產驗證與企業應用——此融合模式已在金融研報、法律文件分析、醫療知識庫等領域驗證，月均搜索量達 18,900，超越傳統 RAG 4 倍。**
+
+Sources (WebSearch 2026/06/20):
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8)
+- [LangGraph Explained (2026 Edition) | by Dewasheesh Rana | Medium](https://medium.com/@dewasheesh.rana/langgraph-explained-2026-edition-ea8f725abff3)
+- [LangSmith and LangGraph in 2026: How LangChain's Agent Stack Quietly Became the Default](https://medium.com/@sehaj23chawla/langsmith-and-langgraph-in-2026-how-langchains-agent-stack-quietly-became-the-default-f1609af5d658)
